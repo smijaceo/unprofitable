@@ -233,7 +233,7 @@
     }
     .hero-label b { color: var(--white); display: block; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 6px; font-size: 12px; }
 
-    .ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: #fff; color: #000; }
+    .ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: #fff; color: #000; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); }
     .ticker-track { display: flex; gap: 36px; width: max-content; animation: ticker 28s linear infinite; padding: 15px 0; }
     .ticker span { font-size: clamp(22px, 4vw, 62px); line-height: .9; letter-spacing: -.06em; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -351,36 +351,66 @@
     }
     @media (max-width: 720px) {
       .nav-links, .nav-inner > .btn { display: none; }
-      .section { padding: 72px 18px; }
-      .hero { padding-top: 42px; min-height: auto; }
-      h1 { font-size: clamp(45px, 15vw, 78px); letter-spacing: -.058em; }
-      .hero-visual { min-height: 540px; padding: 14px; }
-      .float-hoodie { width: 112%; top: 48%; }
-      .float-tee { width: 52%; left: -4px; bottom: 88px; }
-      .float-hat { width: 48%; right: -4px; bottom: 100px; }
+      .nav-inner { padding: 12px 16px; }
+      .mini-mark { width: 38px; height: 38px; border-radius: 10px; }
+      .wordmark { font-size: 13px; letter-spacing: .11em; }
+      .section { padding: 64px 18px; }
+      .hero { padding-top: 32px; padding-bottom: 34px; min-height: auto; }
+      .hero-grid { gap: 34px; }
+      .eyebrow, .kicker { font-size: 10px; letter-spacing: .18em; }
+      h1 { font-size: clamp(40px, 13.2vw, 64px); line-height: .86; letter-spacing: -.055em; max-width: 11ch; }
+      .hero-copy { margin-top: 22px; font-size: 16px; line-height: 1.48; }
+      .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; }
+      .hero-actions .btn { min-height: 46px; padding: 0 10px; font-size: 10px; letter-spacing: .08em; }
+      .fine-note { margin-top: 14px; font-size: 11px; line-height: 1.45; }
+      .hero-visual { min-height: 438px; padding: 14px; }
+      .hero-visual::before { inset: 14px; }
+      .hero-visual::after { bottom: 40px; height: 38px; }
+      .float-hoodie { width: 98%; top: 45%; left: 52%; transform: translate(-50%, -47%) rotate(-1deg); }
+      .float-tee { width: 45%; left: 4px; bottom: 76px; transform: rotate(-6deg); }
+      .float-hat { width: 41%; right: 4px; bottom: 88px; transform: rotate(6deg); }
       .float-label { display: none; }
-      .hero-ghost-type { font-size: clamp(64px, 17vw, 110px); bottom: 82px; }
-      .drop-badge { left: 28px; top: 28px; }
-      .hero-label { right: 28px; bottom: 28px; }
-      .product-media { min-height: 300px; }
+      .hero-ghost-type { font-size: clamp(58px, 16vw, 94px); bottom: 74px; letter-spacing: -.075em; }
+      .drop-badge { left: 22px; top: 22px; padding: 10px 11px; font-size: 9px; letter-spacing: .14em; }
+      .hero-label { left: 22px; right: 22px; bottom: 22px; width: auto; padding: 12px; font-size: 11px; line-height: 1.35; }
+      .hero-label b { margin-bottom: 0; font-size: 10px; letter-spacing: .1em; }
+      .hero-label span { display: none; }
+      .ticker-track { padding: 11px 0; }
+      .product-media { min-height: 286px; padding: 18px; }
+      .product-media img { width: 100%; max-width: 330px; }
+      .product-media.product-hat img { width: 94%; }
+      .product-media::before { left: 14px; top: 14px; font-size: 9px; padding: 7px 8px; }
       .product-info { padding: 22px; }
       .product-info h3 { font-size: 22px; }
+      .product-meta { font-size: 10px; letter-spacing: .1em; }
+      .details-stamp { min-height: 330px; }
       .details-list { padding: 22px; }
-      .detail-row { grid-template-columns: 1fr; gap: 10px; }
+      .detail-row { grid-template-columns: 1fr; gap: 10px; padding: 18px; }
       .manifesto { padding: 30px 24px; gap: 26px; }
+      .manifesto p { font-size: 20px; line-height: 1.22; }
       .principles, .faq-grid, .waitlist-bullets { grid-template-columns: 1fr; }
       .community-card, .waitlist-copy, .waitlist-panel { min-height: auto; gap: 28px; }
+      .check { display: grid; grid-template-columns: 42px 1fr; gap: 14px; }
       .footer-links { grid-template-columns: 1fr; gap: 22px; }
-      .mobile-cta-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; background: rgba(0,0,0,.86); border-top: 1px solid var(--line); backdrop-filter: blur(16px); }
-      .mobile-cta-bar .btn { min-height: 46px; padding: 0 12px; font-size: 11px; }
-      body { padding-bottom: 76px; }
+      .mobile-cta-bar { display: none; }
+      body { padding-bottom: 0; }
     }
     @media (max-width: 390px) {
       .section { padding-left: 16px; padding-right: 16px; }
-      h1 { font-size: clamp(39px, 14vw, 50px); letter-spacing: -.04em; }
-      .hero-label { left: 24px; right: 24px; width: auto; }
-      .mobile-cta-bar { grid-template-columns: 1fr; }
-      body { padding-bottom: 128px; }
+      h1 { font-size: clamp(38px, 12.8vw, 49px); letter-spacing: -.045em; }
+      .hero-actions { gap: 8px; }
+      .hero-actions .btn { font-size: 9px; letter-spacing: .065em; padding: 0 8px; }
+      .hero-visual { min-height: 408px; }
+      .float-hoodie { width: 96%; top: 44%; }
+      .float-tee { width: 43%; bottom: 72px; }
+      .float-hat { width: 39%; bottom: 82px; }
+      .hero-ghost-type { font-size: clamp(52px, 15vw, 76px); bottom: 68px; }
+      .hero-label { left: 18px; right: 18px; bottom: 18px; }
+      .drop-badge { left: 18px; top: 18px; }
+      .product-media { min-height: 260px; }
+      .product-media img { max-width: 292px; }
+      .product-info { padding: 20px; }
+      body { padding-bottom: 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition: none !important; }
