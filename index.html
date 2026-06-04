@@ -154,24 +154,57 @@
     .hero-visual {
       border: 1px solid var(--line);
       background:
-        linear-gradient(135deg, rgba(255,255,255,.09), transparent 38%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 70px),
+        radial-gradient(circle at 50% 62%, rgba(255,255,255,.18), transparent 18rem),
+        radial-gradient(circle at 18% 18%, rgba(255,255,255,.08), transparent 15rem),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.03) 0 1px, transparent 1px 82px),
         var(--panel);
       min-height: 650px;
       position: relative;
       overflow: hidden;
       box-shadow: var(--shadow);
-      display: grid;
-      align-content: center;
-      gap: 18px;
       padding: 22px;
+      isolation: isolate;
     }
-    .hero-visual::before { content: ""; position: absolute; inset: 22px; border: 1px solid var(--line); pointer-events: none; }
-    .hero-product-main { position: relative; z-index: 2; border: 1px solid var(--line-strong); background: #111; overflow: hidden; }
-    .hero-product-main img { width: 100%; aspect-ratio: 1.38 / 1; object-fit: cover; filter: grayscale(1) contrast(1.03); }
-    .hero-product-strip { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .hero-product-strip figure { margin: 0; border: 1px solid var(--line); background: #111; overflow: hidden; }
-    .hero-product-strip img { width: 100%; aspect-ratio: 1.35 / 1; object-fit: cover; filter: grayscale(1) contrast(1.04); }
+    .hero-visual::before { content: ""; position: absolute; inset: 22px; border: 1px solid var(--line); pointer-events: none; z-index: 1; }
+    .hero-visual::after { content: ""; position: absolute; left: 12%; right: 12%; bottom: 58px; height: 54px; background: radial-gradient(ellipse at center, rgba(0,0,0,.9), transparent 70%); filter: blur(10px); opacity: .9; z-index: 0; }
+    .hero-ghost-type {
+      position: absolute;
+      inset: auto -3vw 46px -3vw;
+      z-index: 0;
+      font-size: clamp(78px, 13vw, 182px);
+      line-height: .78;
+      letter-spacing: -.085em;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.055);
+      pointer-events: none;
+    }
+    .float-garment {
+      position: absolute;
+      z-index: 3;
+      margin: 0;
+      filter: drop-shadow(0 44px 48px rgba(0,0,0,.78)) drop-shadow(0 0 18px rgba(255,255,255,.10));
+      transform-origin: center;
+    }
+    .float-garment img { width: 100%; height: auto; object-fit: contain; filter: grayscale(1) contrast(1.08); }
+    .float-hoodie { width: min(96%, 710px); left: 50%; top: 50%; transform: translate(-50%, -46%) rotate(-1deg); }
+    .float-tee { width: min(49%, 340px); left: 18px; bottom: 72px; transform: rotate(-7deg); opacity: .96; }
+    .float-hat { width: min(44%, 300px); right: 18px; bottom: 86px; transform: rotate(7deg); opacity: .98; }
+    .float-label {
+      position: absolute;
+      z-index: 5;
+      font-family: 'Geist Mono';
+      font-size: 10px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line-strong);
+      background: rgba(0,0,0,.72);
+      padding: 10px 11px;
+    }
+    .float-label.one { left: 40px; bottom: 186px; }
+    .float-label.two { right: 46px; top: 152px; }
+
     .drop-badge {
       position: absolute;
       left: 42px;
@@ -226,11 +259,25 @@
       transition: transform .24s var(--ease), border-color .24s var(--ease), background .24s var(--ease);
     }
     .product-card:hover { transform: translateY(-5px); border-color: var(--white); background: var(--panel-2); }
-    .product-media { flex: 1; min-height: 340px; background: #111; position: relative; overflow: hidden; display: grid; place-items: center; }
+    .product-media {
+      flex: 1;
+      min-height: 360px;
+      background:
+        radial-gradient(circle at 50% 58%, rgba(255,255,255,.16), transparent 14rem),
+        linear-gradient(180deg, #0f0f0f, #050505);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
     .product-media::before { content: attr(data-code); position: absolute; left: 18px; top: 18px; z-index: 2; font-family: 'Geist Mono'; font-size: 11px; letter-spacing: .18em; color: var(--white); background: rgba(0,0,0,.68); border: 1px solid var(--line-strong); padding: 8px 9px; }
-    .product-media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.04); transition: transform .5s var(--ease); }
-    .product-card:hover .product-media img { transform: scale(1.035); }
+    .product-media::after { content: ""; position: absolute; left: 18%; right: 18%; bottom: 44px; height: 34px; background: radial-gradient(ellipse at center, rgba(0,0,0,.92), transparent 72%); filter: blur(8px); opacity: .88; }
+    .product-media img { position: relative; z-index: 1; width: 120%; height: auto; max-width: none; object-fit: contain; filter: grayscale(1) contrast(1.08) drop-shadow(0 34px 38px rgba(0,0,0,.72)) drop-shadow(0 0 12px rgba(255,255,255,.08)); transition: transform .5s var(--ease); }
+    .product-card:hover .product-media img { transform: translateY(-8px) scale(1.045); }
+    .product-media.product-hat img { width: 112%; }
     .product-info { padding: 26px; border-top: 1px solid var(--line); }
+
     .product-info h3 { margin: 0; font-size: 26px; line-height: 1; letter-spacing: -.05em; text-transform: uppercase; }
     .product-info p { margin: 14px 0 22px; color: var(--muted); line-height: 1.52; }
     .product-meta { display: flex; justify-content: space-between; gap: 14px; font-family: 'Geist Mono'; font-size: 11px; letter-spacing: .14em; color: var(--soft); text-transform: uppercase; border-top: 1px solid var(--line); padding-top: 16px; }
@@ -307,8 +354,12 @@
       .section { padding: 72px 18px; }
       .hero { padding-top: 42px; min-height: auto; }
       h1 { font-size: clamp(45px, 15vw, 78px); letter-spacing: -.058em; }
-      .hero-visual { min-height: auto; padding: 14px; }
-      .hero-product-strip { grid-template-columns: 1fr; gap: 12px; }
+      .hero-visual { min-height: 540px; padding: 14px; }
+      .float-hoodie { width: 112%; top: 48%; }
+      .float-tee { width: 52%; left: -4px; bottom: 88px; }
+      .float-hat { width: 48%; right: -4px; bottom: 100px; }
+      .float-label { display: none; }
+      .hero-ghost-type { font-size: clamp(64px, 17vw, 110px); bottom: 82px; }
       .drop-badge { left: 28px; top: 28px; }
       .hero-label { right: 28px; bottom: 28px; }
       .product-media { min-height: 300px; }
@@ -367,16 +418,15 @@
           <div class="fine-note">No signals. No strategy-selling. No fake guru energy. Just the uniform for the work.</div>
         </div>
 
-        <div class="hero-visual" aria-label="DROP 001 DISCIPLINED tee, hoodie, and hat product mockups">
+        <div class="hero-visual" aria-label="Floating DROP 001 DISCIPLINED tee, hoodie, and hat product cutouts">
+          <div class="hero-ghost-type">DISCIPLINED<br>DISCIPLINED</div>
           <div class="drop-badge">DISCIPLINED / 001</div>
-          <figure class="hero-product-main">
-            <img src="assets/drop-001-disciplined-hoodie.png" alt="DISCIPLINED Heavyweight Hoodie front and back mockup">
-          </figure>
-          <div class="hero-product-strip">
-            <figure><img src="assets/drop-001-disciplined-tee.png" alt="DISCIPLINED Oversized Tee front and back mockup"></figure>
-            <figure><img src="assets/drop-001-disciplined-hat.png" alt="DISCIPLINED Structured Hat front and back mockup"></figure>
-          </div>
-          <div class="hero-label"><b>UNPROFITABLE TODAY. PROFITABLE TOMORROW.</b><span>Heavyweight black garments, white U/P monogram, arched DISCIPLINED typography, and PROCESS OVER OUTCOME.</span></div>
+          <figure class="float-garment float-hoodie"><img src="assets/drop-001-disciplined-hoodie-cutout.png" alt="Floating DISCIPLINED Heavyweight Hoodie front and back mockup"></figure>
+          <figure class="float-garment float-tee"><img src="assets/drop-001-disciplined-tee-cutout.png" alt="Floating DISCIPLINED Oversized Tee front and back mockup"></figure>
+          <figure class="float-garment float-hat"><img src="assets/drop-001-disciplined-hat-cutout.png" alt="Floating DISCIPLINED Structured Hat mockup"></figure>
+          <div class="float-label one">BOTTOM-LEFT PATCH</div>
+          <div class="float-label two">ARCHED BACK PRINT</div>
+          <div class="hero-label"><b>UNPROFITABLE TODAY. PROFITABLE TOMORROW.</b><span>Transparent floating product treatment. Heavyweight black garments, white U/P monogram, arched DISCIPLINED typography, and PROCESS OVER OUTCOME.</span></div>
         </div>
       </div>
     </section>
@@ -398,7 +448,7 @@
       </div>
       <div class="products">
         <article class="product-card">
-          <div class="product-media" data-code="TEE / 001"><img src="assets/drop-001-disciplined-tee.png" alt="DISCIPLINED Oversized Tee front and back"></div>
+          <div class="product-media" data-code="TEE / 001"><img src="assets/drop-001-disciplined-tee-cutout.png" alt="Floating DISCIPLINED Oversized Tee front and back cutout"></div>
           <div class="product-info">
             <h3>DISCIPLINED Oversized Tee</h3>
             <p>Black oversized tee with small white U/P front mark, bottom-left DISCIPLINED / 001 garment patch, and oversized curved DISCIPLINED back print.</p>
@@ -406,7 +456,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-media" data-code="HOODIE / 001"><img src="assets/drop-001-disciplined-hoodie.png" alt="DISCIPLINED Heavyweight Hoodie front and back"></div>
+          <div class="product-media" data-code="HOODIE / 001"><img src="assets/drop-001-disciplined-hoodie-cutout.png" alt="Floating DISCIPLINED Heavyweight Hoodie front and back cutout"></div>
           <div class="product-info">
             <h3>DISCIPLINED Heavyweight Hoodie</h3>
             <p>Heavyweight black hoodie with U/P chest mark, bottom-left patch, and bold arched DISCIPLINED typography across the back and sleeves.</p>
@@ -414,7 +464,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-media" data-code="HAT / 001"><img src="assets/drop-001-disciplined-hat.png" alt="DISCIPLINED Structured Hat front and back"></div>
+          <div class="product-media product-hat" data-code="HAT / 001"><img src="assets/drop-001-disciplined-hat-cutout.png" alt="Floating DISCIPLINED Structured Hat cutout"></div>
           <div class="product-info">
             <h3>DISCIPLINED Structured Hat</h3>
             <p>Structured black hat with arched DISCIPLINED embroidery, small UNPROFITABLE back embroidery, and U/P side mark.</p>
