@@ -231,6 +231,72 @@
     .ticker span { padding: 18px 24px; font-weight: 800; font-size: clamp(18px, 2.2vw, 32px); letter-spacing: -.04em; text-transform: uppercase; white-space: nowrap; }
     @keyframes ticker { to { transform: translateX(-50%); } }
 
+    .arc-section { padding-top: 34px; padding-bottom: 34px; }
+    .arc-board {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      min-height: 520px;
+      border: 1px solid var(--white);
+      background: var(--white);
+      color: var(--black);
+      overflow: hidden;
+      position: relative;
+    }
+    .arc-board::before {
+      content: "UNPROFITABLE";
+      position: absolute;
+      left: -2vw;
+      bottom: -2vw;
+      font-size: clamp(86px, 15vw, 210px);
+      line-height: .75;
+      letter-spacing: -.085em;
+      font-weight: 900;
+      color: rgba(0,0,0,.055);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .arc-stamp {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(26px, 4vw, 52px);
+      border-right: 1px solid rgba(0,0,0,.22);
+    }
+    .stamp-top { font-family: 'Geist Mono'; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #333; }
+    .stamp-mark {
+      width: min(280px, 82%);
+      aspect-ratio: 1;
+      margin: 22px 0;
+      border: 1px solid rgba(0,0,0,.24);
+      display: grid;
+      place-items: center;
+      background: #000;
+      box-shadow: 0 28px 80px rgba(0,0,0,.22);
+    }
+    .stamp-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .stamp-bottom { font-size: clamp(30px, 5vw, 70px); line-height: .88; letter-spacing: -.065em; text-transform: uppercase; font-weight: 900; }
+    .arc-steps {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+    }
+    .arc-step {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: clamp(18px, 3vw, 36px);
+      align-items: center;
+      padding: clamp(22px, 3vw, 40px);
+      border-bottom: 1px solid rgba(0,0,0,.18);
+    }
+    .arc-step:last-child { border-bottom: 0; }
+    .arc-num { font-family: 'Geist Mono'; font-size: 12px; letter-spacing: .2em; color: #444; }
+    .arc-step b { display: block; font-size: clamp(28px, 4.5vw, 66px); line-height: .82; letter-spacing: -.07em; text-transform: uppercase; }
+    .arc-step span { display: block; margin-top: 10px; color: #333; font-size: 14px; line-height: 1.35; max-width: 440px; }
+    .mobile-cta-bar { display: none; }
+
     .section-head { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-bottom: 34px; }
     .kicker { font-family: 'Geist Mono'; font-size: 12px; text-transform: uppercase; letter-spacing: .22em; color: var(--soft); margin-bottom: 13px; }
     h2 { margin: 0; font-size: clamp(42px, 6vw, 84px); line-height: .9; letter-spacing: -.065em; text-transform: uppercase; }
@@ -376,25 +442,72 @@
       .products, .faq-grid { grid-template-columns: repeat(2, 1fr); }
       .section-head { align-items: start; flex-direction: column; }
     }
+    @media (max-width: 980px) {
+      .arc-board { grid-template-columns: 1fr; }
+      .arc-stamp { border-right: 0; border-bottom: 1px solid rgba(0,0,0,.22); }
+    }
     @media (max-width: 620px) {
-      .nav-inner { padding: 12px 16px; }
-      .wordmark { font-size: 12px; letter-spacing: .09em; }
+      body { padding-bottom: 96px; }
+      .nav { position: sticky; }
+      .nav-inner { padding: 10px 14px; }
+      .mini-mark { width: 36px; height: 36px; border-radius: 9px; }
+      .wordmark { font-size: 11px; letter-spacing: .08em; max-width: 42vw; overflow: hidden; text-overflow: ellipsis; }
       .nav .btn { display: none; }
-      .section { padding: 68px 16px; }
-      .hero { padding-top: 20px; min-height: auto; }
-      h1 { font-size: clamp(48px, 17vw, 78px); }
-      .hero-actions { flex-direction: column; }
+      .section { padding: 58px 14px; }
+      .hero { padding-top: 24px; padding-bottom: 38px; min-height: auto; }
+      .eyebrow { font-size: 10px; letter-spacing: .16em; margin-bottom: 16px; }
+      h1 { font-size: clamp(38px, 12.7vw, 56px); line-height: .88; letter-spacing: -.052em; max-width: 100%; }
+      h2 { font-size: clamp(38px, 13vw, 58px); }
+      .hero-copy { margin-top: 18px; font-size: 16px; line-height: 1.45; }
+      .hero-actions { flex-direction: column; gap: 10px; margin-top: 24px; }
       .hero-actions .btn { width: 100%; }
-      .visual-stage { min-height: 500px; }
-      .badge-wrap { width: min(330px, 84%); top: 34px; }
-      .drop-label { left: 20px; right: 20px; width: auto; bottom: 24px; }
+      .fine-note { font-size: 11px; line-height: 1.45; }
+      .visual-stage { min-height: 382px; margin-top: 6px; box-shadow: 0 18px 48px rgba(0,0,0,.52); }
+      .visual-stage::before { inset: 14px; }
+      .badge-wrap { width: min(250px, 76%); top: 18px; }
+      .hoodie { top: 67%; width: min(214px, 58%); opacity: .42; }
+      .hoodie-mark { width: 128px; height: 128px; }
+      .drop-label { left: 14px; right: 14px; width: auto; bottom: 14px; padding: 13px; }
+      .drop-label span { font-size: 11px; }
       .garment-tag { display: none; }
+      .ticker span { padding: 14px 18px; font-size: 20px; }
+      .arc-section { padding-top: 18px; padding-bottom: 18px; }
+      .arc-board { min-height: auto; }
+      .arc-stamp { padding: 22px; }
+      .stamp-mark { width: 160px; margin: 22px 0 34px; }
+      .stamp-bottom { font-size: clamp(34px, 14vw, 56px); }
+      .arc-step { grid-template-columns: 42px 1fr; gap: 14px; padding: 20px 18px; }
+      .arc-num { font-size: 10px; letter-spacing: .13em; }
+      .arc-step b { font-size: clamp(28px, 10vw, 42px); }
+      .arc-step span { font-size: 12px; margin-top: 7px; }
+      .waitlist-copy { min-height: auto; }
+      .waitlist-copy, .waitlist-panel, .faq-card, .community-card { padding: 22px; }
+      .field input, .field select { min-height: 52px; font-size: 16px; }
       .products, .faq-grid, .waitlist-bullets { grid-template-columns: 1fr; }
-      .product-card { min-height: 420px; }
+      .product-card { min-height: auto; }
+      .product-art { min-height: 245px; }
+      .product-info h3 { font-size: 22px; }
+      .manifesto { padding: 24px; }
+      .manifesto p { font-size: 19px; line-height: 1.25; }
       .principles { grid-template-columns: 1fr; }
-      .community-card { min-height: 320px; }
-      .campaign { padding-top: 78px; padding-bottom: 78px; }
+      .community-card { min-height: 300px; }
+      .check { display: grid; grid-template-columns: 42px 1fr; }
+      .campaign { padding-top: 70px; padding-bottom: 70px; }
+      .campaign .motto { font-size: clamp(48px, 16vw, 72px); }
       .footer-links { grid-template-columns: 1fr; }
+      .mobile-cta-bar {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 60;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(0,0,0,.86);
+        border-top: 1px solid var(--line);
+        backdrop-filter: blur(18px) saturate(140%);
+      }
+      .mobile-cta-bar .btn { min-height: 46px; padding: 0 12px; font-size: 11px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -452,6 +565,22 @@
         <span>Wear the process.</span><span>Losses into lessons.</span><span>Risk managed.</span><span>Drawdown to discipline.</span><span>To profitability.</span>
       </div>
     </div>
+
+    <section class="section arc-section" aria-labelledby="arc-title">
+      <div class="arc-board">
+        <div class="arc-stamp">
+          <div class="stamp-top">The Recovery Arc / Uniform Code</div>
+          <div class="stamp-mark"><img src="assets/unprofitable-main-logo.png" alt="UNPROFITABLE UP arrow monogram badge"></div>
+          <div class="stamp-bottom" id="arc-title">Drawdown<br>to Discipline.</div>
+        </div>
+        <div class="arc-steps" aria-label="UNPROFITABLE recovery arc">
+          <div class="arc-step"><div class="arc-num">01</div><div><b>Lose.</b><span>Not as identity. As information.</span></div></div>
+          <div class="arc-step"><div class="arc-num">02</div><div><b>Review.</b><span>Journal it. Mark the mistake. Respect the data.</span></div></div>
+          <div class="arc-step"><div class="arc-num">03</div><div><b>Size Down.</b><span>Survival is part of the edge.</span></div></div>
+          <div class="arc-step"><div class="arc-num">04</div><div><b>Return.</b><span>Cleaner. Calmer. To profitability.</span></div></div>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="waitlist" aria-labelledby="waitlist-title">
       <div class="waitlist">
@@ -619,6 +748,11 @@
       </div>
     </div>
   </footer>
+
+  <div class="mobile-cta-bar" aria-label="Mobile quick actions">
+    <a class="btn btn-primary" href="#waitlist">Drop List</a>
+    <a class="btn btn-secondary" href="#drop">Preview Drop</a>
+  </div>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",

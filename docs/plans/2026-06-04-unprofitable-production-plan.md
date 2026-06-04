@@ -54,3 +54,13 @@
 - Validate structured data.
 - Submit sitemap to Google Search Console/Bing.
 - Test social previews in Discord/X.
+
+## Phase 1B — Mobile Polish + Premium Signature Layer
+
+**Status:** Implemented after mobile/design audit.
+
+- Tighten mobile hero typography so the first viewport is readable instead of oversized/cropped.
+- Reduce mobile hero mockup height and resize badge/hoodie/drop label so the merch visual feels intentional on phones.
+- Add sticky mobile CTA bar for drop-list/product-preview conversion.
+- Add the `Drawdown to Discipline` recovery-arc board: a black/white editorial brand signature that makes the site feel more ownable and less like a generic landing page.
+- Improve mobile form sizing, product card rhythm, section spacing, and touch targets.
