@@ -1,6 +1,6 @@
 # UNPROFITABLE
 
-Premium monochrome streetwear for builders before profit.
+Premium monochrome trading streetwear.
 
 Core line:
 
@@ -9,21 +9,31 @@ UNPROFITABLE TODAY.
 PROFITABLE TOMORROW.
 ```
 
+Current campaign:
+
+```text
+DROP 001: DISCIPLINED / 001
+PROCESS OVER OUTCOME
+```
+
 ## Current build
 
 This repo currently ships a static launch site with:
 
 - merch-first homepage structure
-- expanded audience positioning for traders, founders, creators, operators, and business owners
-- black/white premium streetwear visual direction
-- editorial hero with hoodie/badge mockup
-- focused Drop 001 preview: one shirt, one hoodie, one hat
+- premium monochrome trading streetwear positioning
+- actual Drop 001 product imagery for tee, hoodie, and hat
+- focused Drop 001 preview with exactly three pieces:
+  - DISCIPLINED Oversized Tee
+  - DISCIPLINED Heavyweight Hoodie
+  - DISCIPLINED Structured Hat
+- Design Details / Garment Code section covering the U/P logo, bottom-left garment patch, arched DISCIPLINED typography, and PROCESS OVER OUTCOME line
+- manifesto section centered on discipline before profitability
+- Discord/community conversion section framed as accountability and discipline, not signals
 - drop-list conversion section with mailto fallback
-- manifesto section
-- Discord/community conversion section
 - FAQ section for SEO/AI readability
 - Organization/WebSite/FAQ JSON-LD
-- `robots.txt`, `sitemap.xml`, `llms.txt`, favicon, manifest, and OG image
+- `robots.txt`, `sitemap.xml`, `llms.txt`, favicon, manifest, and OG/social image metadata
 - basic placeholder legal pages
 - responsive desktop/mobile layout
 
@@ -35,7 +45,7 @@ This repo currently ships a static launch site with:
 
 ## Production plan
 
-See `docs/plans/2026-06-04-unprofitable-production-plan.md` and `docs/plans/2026-06-04-builder-expansion-drop001-plan.md`.
+See `docs/plans/2026-06-04-unprofitable-production-plan.md`, `docs/plans/2026-06-04-builder-expansion-drop001-plan.md`, and `docs/plans/2026-06-04-disciplined-drop001-revision-plan.md`.
 
 ## Local preview
 
