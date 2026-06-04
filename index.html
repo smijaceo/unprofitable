@@ -3,11 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UNPROFITABLE — Premium Trading Streetwear</title>
-  <meta name="description" content="Premium trading streetwear for traders turning losses into lessons and lessons into discipline." />
+  <title>UNPROFITABLE — Premium Trading Streetwear for the Recovery Arc</title>
+  <meta name="description" content="Premium black-and-white trading streetwear for traders turning losses into lessons, drawdown into discipline, and process into profitability." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://unprofitable.today/" />
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:site_name" content="UNPROFITABLE" />
   <meta property="og:title" content="UNPROFITABLE TODAY. PROFITABLE TOMORROW." />
-  <meta property="og:description" content="Premium trading streetwear for the recovery arc." />
+  <meta property="og:description" content="Premium trading streetwear for traders turning losses into lessons and lessons into discipline." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://unprofitable.today/" />
+  <meta property="og:image" content="https://unprofitable.today/assets/og-unprofitable.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="UNPROFITABLE TODAY. PROFITABLE TOMORROW." />
+  <meta name="twitter:description" content="Premium black-and-white trading streetwear for the recovery arc." />
+  <meta name="twitter:image" content="https://unprofitable.today/assets/og-unprofitable.png" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -301,6 +316,45 @@
     .community-card.featured .check { border-color: rgba(0,0,0,.18); color: #222; }
     .check b { color: inherit; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; }
 
+    .waitlist {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .waitlist-copy, .waitlist-panel, .faq-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: clamp(26px, 4vw, 46px);
+    }
+    .waitlist-copy { min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; }
+    .waitlist-copy h2 { max-width: 720px; }
+    .waitlist-copy p { color: var(--muted); font-size: clamp(17px, 2vw, 22px); line-height: 1.45; max-width: 620px; margin: 24px 0 0; }
+    .waitlist-bullets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 34px; }
+    .waitlist-bullets span { border: 1px solid var(--line); padding: 14px; color: var(--muted); font-family: 'Geist Mono'; font-size: 11px; line-height: 1.35; letter-spacing: .08em; text-transform: uppercase; }
+    .waitlist-panel { background: var(--white); color: var(--black); }
+    .waitlist-panel h3 { margin: 0 0 12px; font-size: clamp(30px, 4vw, 52px); line-height: .95; letter-spacing: -.055em; text-transform: uppercase; }
+    .waitlist-panel p { margin: 0 0 24px; color: #222; line-height: 1.55; }
+    .drop-form { display: grid; gap: 12px; }
+    .field { display: grid; gap: 7px; }
+    .field label { font-family: 'Geist Mono'; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #333; }
+    .field input, .field select {
+      min-height: 48px;
+      width: 100%;
+      border: 1px solid rgba(0,0,0,.24);
+      background: #fff;
+      color: #000;
+      padding: 0 14px;
+      font: 500 15px 'Geist', system-ui, sans-serif;
+      border-radius: 0;
+    }
+    .field input:focus, .field select:focus { outline: 2px solid #000; outline-offset: 2px; }
+    .form-note { font-size: 12px; line-height: 1.45; color: #333; margin-top: 10px; }
+    .form-status { min-height: 20px; color: #000; font-size: 13px; font-weight: 600; margin-top: 10px; }
+    .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .faq-card h3 { margin: 0 0 12px; font-size: 22px; letter-spacing: -.04em; text-transform: uppercase; }
+    .faq-card p { margin: 0; color: var(--muted); line-height: 1.55; }
+
     .campaign { text-align: center; padding-top: 120px; padding-bottom: 120px; }
     .campaign .motto { font-size: clamp(58px, 11vw, 150px); line-height: .82; letter-spacing: -.08em; font-weight: 900; text-transform: uppercase; }
     .campaign p { color: var(--muted); font-size: clamp(16px, 2vw, 22px); margin: 28px auto 0; max-width: 580px; }
@@ -316,10 +370,10 @@
 
     @media (max-width: 980px) {
       .nav-links { display: none; }
-      .hero-grid, .manifesto, .community-grid, .footer-inner { grid-template-columns: 1fr; }
+      .hero-grid, .manifesto, .community-grid, .waitlist, .footer-inner { grid-template-columns: 1fr; }
       .visual-stage { min-height: 560px; }
       .badge-wrap { width: min(390px, 82%); top: 42px; }
-      .products { grid-template-columns: repeat(2, 1fr); }
+      .products, .faq-grid { grid-template-columns: repeat(2, 1fr); }
       .section-head { align-items: start; flex-direction: column; }
     }
     @media (max-width: 620px) {
@@ -335,7 +389,7 @@
       .badge-wrap { width: min(330px, 84%); top: 34px; }
       .drop-label { left: 20px; right: 20px; width: auto; bottom: 24px; }
       .garment-tag { display: none; }
-      .products { grid-template-columns: 1fr; }
+      .products, .faq-grid, .waitlist-bullets { grid-template-columns: 1fr; }
       .product-card { min-height: 420px; }
       .principles { grid-template-columns: 1fr; }
       .community-card { min-height: 320px; }
@@ -357,10 +411,11 @@
       </a>
       <div class="nav-links" aria-label="Page sections">
         <a href="#drop">Drop</a>
+        <a href="#waitlist">Waitlist</a>
         <a href="#manifesto">Manifesto</a>
         <a href="#community">Discord</a>
       </div>
-      <a class="btn btn-primary" href="#drop">Shop the Drop</a>
+      <a class="btn btn-primary" href="#waitlist">Join Drop List</a>
     </div>
   </nav>
 
@@ -372,7 +427,7 @@
           <h1 id="hero-title">Unprofitable Today.<br>Profitable Tomorrow.</h1>
           <p class="hero-copy">Premium trading streetwear for traders turning losses into lessons and lessons into discipline.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#drop">Shop the Drop</a>
+            <a class="btn btn-primary" href="#waitlist">Join Drop List</a>
             <a class="btn btn-secondary" href="#community">Join the Discord</a>
           </div>
           <div class="fine-note">No signals. No fake guru energy. Just the recovery arc.</div>
@@ -397,6 +452,46 @@
         <span>Wear the process.</span><span>Losses into lessons.</span><span>Risk managed.</span><span>Drawdown to discipline.</span><span>To profitability.</span>
       </div>
     </div>
+
+    <section class="section" id="waitlist" aria-labelledby="waitlist-title">
+      <div class="waitlist">
+        <div class="waitlist-copy">
+          <div>
+            <div class="kicker">Drop List / Early Access</div>
+            <h2 id="waitlist-title">Get in before Drop 001.</h2>
+            <p>The first UNPROFITABLE drop is being staged now. Join the list for hoodie, tee, cap, and sticker updates when checkout goes live.</p>
+          </div>
+          <div class="waitlist-bullets" aria-label="Drop list benefits">
+            <span>Product release updates</span>
+            <span>Discord opening notice</span>
+            <span>No spam. No signals.</span>
+          </div>
+        </div>
+        <div class="waitlist-panel">
+          <h3>Join the Drop List.</h3>
+          <p>Join the early list for Drop 001 updates. We’ll notify you when checkout goes live and the first pieces are ready.</p>
+          <form class="drop-form" id="drop-form" data-conversion="drop-list-intent">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label for="interest">Most interested in</label>
+              <select id="interest" name="interest" required>
+                <option value="All Drop 001 pieces">All Drop 001 pieces</option>
+                <option value="Drawdown Season Hoodie">Drawdown Season Hoodie</option>
+                <option value="Risk Managed Tee">Risk Managed Tee</option>
+                <option value="Break Even Club Cap">Break Even Club Cap</option>
+                <option value="To Profitability Sticker Pack">To Profitability Sticker Pack</option>
+              </select>
+            </div>
+            <button class="btn btn-dark" type="submit">Request Drop Access</button>
+            <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+            <div class="form-note">UNPROFITABLE is streetwear/community only. No financial advice, signals, or guaranteed results.</div>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <section class="section" id="drop" aria-labelledby="drop-title">
       <div class="section-head">
@@ -488,6 +583,22 @@
       </div>
     </section>
 
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section-head">
+        <div>
+          <div class="kicker">FAQ / Brand Facts</div>
+          <h2 id="faq-title">What UNPROFITABLE Is.</h2>
+        </div>
+        <p>Clear answers for buyers, search engines, and AI crawlers. This is a streetwear brand for the recovery arc — not a trading promise.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-card"><h3>What is UNPROFITABLE?</h3><p>UNPROFITABLE is a premium black-and-white trading streetwear and community brand for traders turning losses into lessons and lessons into discipline.</p></article>
+        <article class="faq-card"><h3>What does it sell?</h3><p>The brand sells trading-inspired streetwear and merch, including hoodies, tees, caps, stickers, and future drop pieces.</p></article>
+        <article class="faq-card"><h3>Is this a signals group?</h3><p>No. UNPROFITABLE does not sell trading signals, guaranteed profits, strategy calls, or financial advice.</p></article>
+        <article class="faq-card"><h3>What does the motto mean?</h3><p>“UNPROFITABLE TODAY. PROFITABLE TOMORROW.” represents the recovery arc: drawdown to discipline, mistakes to process, and survival into progress.</p></article>
+      </div>
+    </section>
+
     <section class="section campaign" aria-labelledby="campaign-title">
       <div class="kicker">Campaign Motto</div>
       <div class="motto" id="campaign-title">Unprofitable Today.<br>Profitable Tomorrow.</div>
@@ -502,11 +613,88 @@
         <p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial advice. Trade responsibly.</p>
       </div>
       <div class="footer-links">
-        <div><b>Shop</b><a href="#drop">The Drop</a><a href="#drop">Hoodies</a><a href="#drop">Tees</a></div>
+        <div><b>Shop</b><a href="#drop">The Drop</a><a href="#waitlist">Drop List</a><a href="#drop">Hoodies</a></div>
         <div><b>Community</b><a href="#community">Discord</a><a href="#manifesto">Manifesto</a><a href="mailto:hello@unprofitable.today">Contact</a></div>
-        <div><b>Legal</b><a href="#">Returns</a><a href="#">Privacy</a><a href="#">Disclaimer</a></div>
+        <div><b>Legal</b><a href="returns.html">Returns</a><a href="privacy.html">Privacy</a><a href="disclaimer.html">Disclaimer</a></div>
       </div>
     </div>
   </footer>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://unprofitable.today/#organization",
+      "name": "UNPROFITABLE",
+      "url": "https://unprofitable.today/",
+      "logo": "https://unprofitable.today/assets/unprofitable-main-logo.png",
+      "description": "Premium black-and-white trading streetwear for traders turning losses into lessons and lessons into discipline.",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://unprofitable.today/#website",
+      "url": "https://unprofitable.today/",
+      "name": "UNPROFITABLE",
+      "publisher": {
+        "@id": "https://unprofitable.today/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://unprofitable.today/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is UNPROFITABLE?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UNPROFITABLE is a premium black-and-white trading streetwear and community brand for traders turning losses into lessons and lessons into discipline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does UNPROFITABLE sell?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "UNPROFITABLE sells trading-inspired streetwear and merch, including hoodies, tees, caps, stickers, and future drop pieces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is UNPROFITABLE a trading signals group?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. UNPROFITABLE does not sell trading signals, guaranteed profits, strategy calls, or financial advice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does UNPROFITABLE TODAY. PROFITABLE TOMORROW. mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It represents the recovery arc: drawdown to discipline, mistakes to process, and survival into progress."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script>
+    const dropForm = document.getElementById("drop-form");
+    if (dropForm) {
+      dropForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const email = document.getElementById("email").value.trim();
+        const interest = document.getElementById("interest").value;
+        const subject = encodeURIComponent("UNPROFITABLE Drop List Request");
+        const body = encodeURIComponent(`Add me to the UNPROFITABLE Drop 001 list.\n\nEmail: ${email}\nInterest: ${interest}`);
+        document.getElementById("form-status").textContent = "Opening email request. Backend list provider still needs to be wired.";
+        window.location.href = `mailto:hello@unprofitable.today?subject=${subject}&body=${body}`;
+      });
+    }
+  </script>
 </body>
 </html>
