@@ -148,12 +148,18 @@
       left: 50%;
       top: 30px;
       transform: translateX(-50%);
-      width: min(470px, 88%);
-      height: auto;
+      width: min(500px, 90%);
       aspect-ratio: 1;
       z-index: 3;
     }
-    .badge-svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 22px 40px rgba(0,0,0,.72)); }
+    .badge-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 22px 40px rgba(0,0,0,.72));
+    }
     .hoodie {
       position: absolute;
       left: 50%; top: 69%; transform: translate(-50%, -50%);
@@ -357,8 +363,8 @@
         </div>
 
         <div class="visual-stage" aria-label="Editorial hoodie mockup with UNPROFITABLE badge">
-          <div class="badge-wrap" aria-hidden="true">
-            <img class="badge-svg" src="assets/unprofitable-badge.svg" alt="">
+          <div class="badge-wrap">
+            <img class="badge-svg" src="assets/unprofitable-badge-reference.webp" alt="UNPROFITABLE to Profitability badge logo">
           </div>
           <div class="hoodie">
             <div class="hoodie-mark"><img src="assets/unprofitable-mark.svg" alt=""></div>
