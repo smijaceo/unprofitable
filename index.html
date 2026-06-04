@@ -68,9 +68,13 @@
       width: 42px; height: 42px;
       display: block;
       flex: 0 0 auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--black);
       filter: drop-shadow(0 6px 16px rgba(255,255,255,.08));
     }
-    .mini-mark img { width: 100%; height: 100%; display: block; }
+    .mini-mark img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: 50% 28%; transform: scale(1.36); }
     .wordmark { font-size: 15px; font-weight: 800; letter-spacing: .13em; white-space: nowrap; }
     .nav-links { display: flex; align-items: center; gap: 24px; font-size: 13px; color: var(--muted); letter-spacing: .02em; }
     .nav-links a { transition: color .2s var(--ease); }
@@ -181,10 +185,11 @@
     .hoodie::after { right: -19%; transform: rotate(-9deg); border-radius: 8px 36px 28px 18px; }
     .hoodie-mark {
       position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%);
-      width: 154px; height: 154px;
+      width: 184px; height: 184px;
       display: grid; place-items: center;
+      overflow: hidden;
     }
-    .hoodie-mark img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 10px 20px rgba(0,0,0,.35)); }
+    .hoodie-mark img { width: 100%; height: 100%; display: block; object-fit: contain; mix-blend-mode: screen; filter: drop-shadow(0 10px 20px rgba(0,0,0,.35)); }
     .garment-tag {
       position: absolute; left: 36px; bottom: 34px;
       writing-mode: vertical-rl;
@@ -229,12 +234,23 @@
     .product-card:hover { transform: translateY(-5px); border-color: var(--white); background: var(--panel-2); }
     .product-art { flex: 1; min-height: 290px; display: grid; place-items: center; border-bottom: 1px solid var(--line); position: relative; background: radial-gradient(circle at center, rgba(255,255,255,.1), transparent 48%), #050505; }
     .product-art::after { content: attr(data-code); position: absolute; left: 16px; top: 16px; font-family: 'Geist Mono'; font-size: 11px; color: var(--soft); letter-spacing: .12em; }
-    .mock-tee, .mock-hoodie, .mock-hat, .mock-sticker { position: relative; width: 58%; aspect-ratio: .78; border: 1px solid var(--line-strong); background: #111; box-shadow: 0 24px 45px rgba(0,0,0,.55); }
+    .mock-tee, .mock-hoodie, .mock-hat, .mock-sticker { position: relative; width: 58%; aspect-ratio: .78; border: 1px solid var(--line-strong); background: #111; box-shadow: 0 24px 45px rgba(0,0,0,.55); overflow: hidden; }
     .mock-tee { border-radius: 20px 20px 10px 10px; }
     .mock-hoodie { border-radius: 30px 30px 14px 14px; }
     .mock-hat { width: 68%; aspect-ratio: 1.45; border-radius: 100px 100px 18px 18px; }
-    .mock-sticker { width: 62%; aspect-ratio: 1; border-radius: 50%; background: var(--white); color: var(--black); display: grid; place-items: center; font-weight: 900; font-size: 42px; letter-spacing: -.12em; }
-    .mock-tee::after, .mock-hoodie::after, .mock-hat::after { content: "U/P"; position: absolute; inset: 0; display: grid; place-items: center; font-weight: 900; letter-spacing: -.12em; font-size: 34px; }
+    .mock-sticker { width: 62%; aspect-ratio: 1; border-radius: 50%; background: var(--black); color: var(--white); display: grid; place-items: center; }
+    .mock-logo {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 62%; height: 62%;
+      display: block;
+      object-fit: contain;
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+    }
+    .mock-hat .mock-logo { width: 34%; height: 58%; top: 57%; }
+    .mock-sticker .mock-logo { width: 100%; height: 100%; }
     .product-info { padding: 18px; }
     .product-info h3 { margin: 0 0 7px; font-size: 20px; letter-spacing: -.04em; text-transform: uppercase; }
     .product-info p { margin: 0 0 17px; color: var(--muted); line-height: 1.45; font-size: 14px; }
@@ -336,7 +352,7 @@
   <nav class="nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a class="brand-lockup" href="#top" aria-label="UNPROFITABLE home">
-        <span class="mini-mark"><img src="assets/unprofitable-mark.svg" alt="UP monogram"></span>
+        <span class="mini-mark"><img src="assets/unprofitable-badge-reference.webp" alt="UNPROFITABLE badge logo"></span>
         <span class="wordmark">UNPROFITABLE</span>
       </a>
       <div class="nav-links" aria-label="Page sections">
@@ -367,7 +383,7 @@
             <img class="badge-svg" src="assets/unprofitable-badge-reference.webp" alt="UNPROFITABLE to Profitability badge logo">
           </div>
           <div class="hoodie">
-            <div class="hoodie-mark"><img src="assets/unprofitable-mark.svg" alt=""></div>
+            <div class="hoodie-mark"><img src="assets/unprofitable-badge-reference.webp" alt=""></div>
           </div>
           <div class="garment-tag">RISK MANAGED</div>
           <div class="drop-label"><b>Drop 001</b><span>Built for the trader still showing up after the chart humbled them.</span></div>
@@ -392,7 +408,7 @@
       </div>
       <div class="products">
         <article class="product-card">
-          <div class="product-art" data-code="001"><div class="mock-hoodie"></div></div>
+          <div class="product-art" data-code="001"><div class="mock-hoodie"><img class="mock-logo" src="assets/unprofitable-badge-reference.webp" alt=""></div></div>
           <div class="product-info">
             <h3>Drawdown Season Hoodie</h3>
             <p>Heavyweight recovery-arc uniform. Built for the study session after the bad session.</p>
@@ -401,7 +417,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-art" data-code="002"><div class="mock-tee"></div></div>
+          <div class="product-art" data-code="002"><div class="mock-tee"><img class="mock-logo" src="assets/unprofitable-badge-reference.webp" alt=""></div></div>
           <div class="product-info">
             <h3>Risk Managed Tee</h3>
             <p>A clean daily tee for traders learning that survival is part of the edge.</p>
@@ -410,7 +426,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-art" data-code="003"><div class="mock-hat"></div></div>
+          <div class="product-art" data-code="003"><div class="mock-hat"><img class="mock-logo" src="assets/unprofitable-badge-reference.webp" alt=""></div></div>
           <div class="product-info">
             <h3>Break Even Club Cap</h3>
             <p>For the days where not doing something dumb is the entire win.</p>
@@ -419,7 +435,7 @@
           </div>
         </article>
         <article class="product-card">
-          <div class="product-art" data-code="004"><div class="mock-sticker">U/P</div></div>
+          <div class="product-art" data-code="004"><div class="mock-sticker"><img class="mock-logo" src="assets/unprofitable-badge-reference.webp" alt=""></div></div>
           <div class="product-info">
             <h3>To Profitability Sticker Pack</h3>
             <p>Journal, laptop, monitor, or wherever you need the reminder to follow the rules.</p>
