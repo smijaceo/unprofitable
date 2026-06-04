@@ -1,26 +1,26 @@
 # UNPROFITABLE
 
-UNPROFITABLE is a premium black-and-white trading streetwear and community brand.
+UNPROFITABLE is a premium black-and-white streetwear and community brand for builders before profit.
 
 Core motto:
 UNPROFITABLE TODAY. PROFITABLE TOMORROW.
 
 Positioning:
-Premium trading streetwear for traders turning losses into lessons and lessons into discipline.
+Premium streetwear for traders, founders, creators, and business owners building through the phase before it pays.
 
 What UNPROFITABLE sells:
-- Trading-inspired streetwear and merch
-- Hoodies, tees, caps, stickers, and future drop pieces
-- Community-oriented apparel for the recovery arc
+- Drop 001 is intentionally focused: one shirt, one hoodie, and one hat
+- Black-and-white premium streetwear for the builder arc
+- Community-oriented apparel for the stage before profitability
 
 Important clarifications:
 - UNPROFITABLE is not a trading signals service.
-- UNPROFITABLE does not provide financial advice.
-- UNPROFITABLE does not guarantee trading results or profits.
-- The brand is about drawdown to discipline, mistakes to process, and unprofitable today to profitable tomorrow.
+- UNPROFITABLE does not provide financial, business, investment, or trading advice.
+- UNPROFITABLE does not guarantee business, trading, or financial results.
+- The brand is about risk to discipline, mistakes to process, and unprofitable today to profitable tomorrow.
 
 Primary pages:
-- / — homepage, drop preview, waitlist, manifesto, community, FAQ
-- /disclaimer.html — financial-advice disclaimer
+- / — homepage, Drop 001 preview, waitlist, manifesto, community, FAQ
+- /disclaimer.html — financial/business/investment-advice disclaimer
 - /returns.html — returns placeholder
 - /privacy.html — privacy placeholder

@@ -1,6 +1,6 @@
 # UNPROFITABLE
 
-Premium monochrome trading streetwear landing page.
+Premium monochrome streetwear for builders before profit.
 
 Core line:
 
@@ -14,9 +14,10 @@ PROFITABLE TOMORROW.
 This repo currently ships a static launch site with:
 
 - merch-first homepage structure
+- expanded audience positioning for traders, founders, creators, operators, and business owners
 - black/white premium streetwear visual direction
 - editorial hero with hoodie/badge mockup
-- product drop preview cards
+- focused Drop 001 preview: one shirt, one hoodie, one hat
 - drop-list conversion section with mailto fallback
 - manifesto section
 - Discord/community conversion section
@@ -29,12 +30,12 @@ This repo currently ships a static launch site with:
 ## CTA status
 
 - Product cards are intentionally marked as preview / coming soon because ecommerce is not wired yet.
-- Drop-list form currently opens a prefilled email to `hello@unprofitable.today`; replace with Shopify/Klaviyo/Formspree/etc. when the list provider is chosen.
+- Drop-list form currently opens a prefilled email to `hello@wearunprofitable.com`; replace with Shopify/Klaviyo/Formspree/etc. when the list provider is chosen.
 - Discord CTA is intentionally marked `Discord Invite Coming Soon` until the actual invite URL is available.
 
 ## Production plan
 
-See `docs/plans/2026-06-04-unprofitable-production-plan.md`.
+See `docs/plans/2026-06-04-unprofitable-production-plan.md` and `docs/plans/2026-06-04-builder-expansion-drop001-plan.md`.
 
 ## Local preview
 
