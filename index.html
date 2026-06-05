@@ -766,8 +766,11 @@
             body: formData,
             headers: { "Accept": "application/json" }
           });
+          const result = await response.json().catch(() => ({}));
 
-          if (!response.ok) throw new Error("Drop list request failed");
+          if (!response.ok || result.success === "false") {
+            throw new Error(result.message || "Drop list request failed");
+          }
 
           dropForm.reset();
           setFormStatus("You’re on the Drop 001 list. Watch your inbox for release updates.", "success");
