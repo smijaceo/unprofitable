@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UNPROFITABLE — DROP 001: DISCIPLINED / 001</title>
-  <meta name="description" content="DROP 001: DISCIPLINED / 001. Premium monochrome trading streetwear built around process over outcome, accountability, and discipline." />
+  <meta name="description" content="DROP 001: DISCIPLINED / 001. Premium monochrome self-improvement streetwear for builders turning setbacks into standards through process, accountability, and discipline." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="https://www.wearunprofitable.com/" />
   <meta name="theme-color" content="#000000" />
   <meta property="og:site_name" content="UNPROFITABLE" />
   <meta property="og:title" content="UNPROFITABLE — DROP 001: DISCIPLINED / 001" />
-  <meta property="og:description" content="Premium monochrome trading streetwear. PROCESS OVER OUTCOME. UNPROFITABLE TODAY. PROFITABLE TOMORROW." />
+  <meta property="og:description" content="Premium monochrome self-improvement streetwear. PROCESS OVER OUTCOME. UNPROFITABLE TODAY. PROFITABLE TOMORROW." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.wearunprofitable.com/" />
   <meta property="og:image" content="https://www.wearunprofitable.com/assets/drop-001-disciplined-tee.png" />
@@ -18,7 +18,7 @@
   <meta property="og:image:height" content="1050" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="DROP 001: DISCIPLINED / 001" />
-  <meta name="twitter:description" content="Premium monochrome trading streetwear. PROCESS OVER OUTCOME." />
+  <meta name="twitter:description" content="Premium monochrome self-improvement streetwear. PROCESS OVER OUTCOME." />
   <meta name="twitter:image" content="https://www.wearunprofitable.com/assets/drop-001-disciplined-tee.png" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -317,8 +317,12 @@
     .field { display: grid; gap: 8px; }
     label { font-family: 'Geist Mono'; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #333; }
     input, select { width: 100%; min-height: 48px; border: 1px solid rgba(0,0,0,.22); background: #fff; color: #000; padding: 0 14px; border-radius: 0; }
-    .form-status { min-height: 18px; color: #111; font-size: 12px; }
+    .form-status { min-height: 18px; color: #111; font-size: 12px; line-height: 1.45; }
+    .form-status.is-success { font-weight: 700; }
+    .form-status.is-error { color: #000; font-weight: 700; }
     .form-note { color: #444; font-size: 12px; line-height: 1.45; }
+    .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .btn[disabled] { cursor: wait; opacity: .64; transform: none; }
 
     .faq-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .faq-card { border: 1px solid var(--line); background: var(--panel); padding: 22px; min-height: 220px; }
@@ -440,7 +444,7 @@
         <div>
           <div class="eyebrow">DROP 001: DISCIPLINED / 001</div>
           <h1 id="hero-title">Process<br>Over<br>Outcome.</h1>
-          <p class="hero-copy"><strong>Premium monochrome trading streetwear</strong> for traders choosing accountability, review, and discipline before profitability.</p>
+          <p class="hero-copy"><strong>Premium monochrome self-improvement streetwear</strong> for builders choosing accountability, review, and discipline before profitability.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#drop">Shop the Drop</a>
             <a class="btn btn-secondary" href="#community">Join the Discord</a>
@@ -474,7 +478,7 @@
           <div class="kicker">Featured Drop / Actual First Release</div>
           <h2 id="drop-title">Drop 001:<br>Disciplined / 001.</h2>
         </div>
-        <p>Exactly three pieces. Heavyweight black garments. White artwork only. Built as trading streetwear, not a coaching funnel.</p>
+        <p>Exactly three pieces. Heavyweight black garments. White artwork only. Built as self-improvement streetwear, not a coaching funnel.</p>
       </div>
       <div class="products">
         <article class="product-card">
@@ -514,8 +518,8 @@
         <div class="details-list">
           <div class="detail-row"><div class="detail-num">01</div><div><b>White U/P monogram</b><span>Small, clean, and wearable on the front chest and side embroidery. The logo is a mark of direction, not noise.</span></div></div>
           <div class="detail-row"><div class="detail-num">02</div><div><b>Bottom-left garment patch</b><span>DISCIPLINED / 001 and UNPROFITABLE sit low on the tee and hoodie like a streetwear label tag.</span></div></div>
-          <div class="detail-row"><div class="detail-num">03</div><div><b>Curved DISCIPLINED typography</b><span>Large white arched back and sleeve type creates the drop identity without charts, candles, P&amp;L screenshots, or finance clichés.</span></div></div>
-          <div class="detail-row"><div class="detail-num">04</div><div><b>PROCESS OVER OUTCOME</b><span>The supporting line is the discipline rule: review the trade, follow the plan, protect the process.</span></div></div>
+          <div class="detail-row"><div class="detail-num">03</div><div><b>Curved DISCIPLINED typography</b><span>Large white arched back and sleeve type creates the drop identity without charts, screenshots, revenue flexes, or guru clichés.</span></div></div>
+          <div class="detail-row"><div class="detail-num">04</div><div><b>PROCESS OVER OUTCOME</b><span>The supporting line is the discipline rule: review the mistake, follow the plan, protect the process.</span></div></div>
         </div>
       </div>
     </section>
@@ -527,10 +531,10 @@
           <h2 id="manifesto-title">Discipline Before Profitability.</h2>
         </div>
         <div>
-          <p>UNPROFITABLE is for traders who are done dressing up outcomes and ready to respect process. The trade is not the identity. The review is. The journal is. The risk limit is. The ability to come back tomorrow with rules still intact is the point.</p>
+          <p>UNPROFITABLE is for people who are done dressing up outcomes and ready to respect process. The setback is not the identity. The review is. The journal is. The standard is. The ability to come back tomorrow with rules still intact is the point.</p>
           <div class="principles">
             <div class="principle"><b>Process Over Outcome</b><span>A good decision can lose. A bad decision can win. The brand is built around the standard, not the screenshot.</span></div>
-            <div class="principle"><b>Accountability Over Signals</b><span>The community angle is review, discipline, and accountability — not entries, copy trading, or guru calls.</span></div>
+            <div class="principle"><b>Accountability Over Gurus</b><span>The community angle is review, discipline, and accountability — not signals, business-coach grift, or guru calls.</span></div>
             <div class="principle"><b>Unprofitable Today</b><span>The motto is the arc: losses to lessons, lessons to discipline, discipline to profitability.</span></div>
           </div>
         </div>
@@ -543,7 +547,7 @@
           <div>
             <div class="kicker" style="color:#333">Community</div>
             <h3 id="community-title">Accountability. Not Signals.</h3>
-            <p>Join traders focused on journaling, reviewing, staying disciplined, and becoming profitable through process — not shortcuts.</p>
+            <p>Join builders, operators, creators, business owners, and traders focused on reviewing, staying disciplined, and becoming profitable through process — not shortcuts.</p>
           </div>
           <a class="btn btn-dark" href="#" aria-label="Discord invite placeholder">Discord Invite Coming Soon</a>
         </div>
@@ -551,13 +555,13 @@
           <div>
             <div class="kicker">What it is / What it is not</div>
             <div class="checks">
-              <div class="check"><b>Is</b><span>Accountability, discipline, trade review, process.</span></div>
-              <div class="check"><b>Is</b><span>Premium monochrome trading streetwear and community.</span></div>
-              <div class="check"><b>Not</b><span>A signals room, coaching funnel, crypto store, or guru brand.</span></div>
-              <div class="check"><b>Not</b><span>Financial advice, guaranteed profits, fake P&amp;L, or strategy-selling.</span></div>
+              <div class="check"><b>Is</b><span>Accountability, discipline, review, process.</span></div>
+              <div class="check"><b>Is</b><span>Premium monochrome self-improvement streetwear and community.</span></div>
+              <div class="check"><b>Not</b><span>A signals room, business coaching funnel, crypto store, or guru brand.</span></div>
+              <div class="check"><b>Not</b><span>Financial advice, business advice, guaranteed profits, fake P&amp;L, or income claims.</span></div>
             </div>
           </div>
-          <p>No candles. No red/green clichés. No screenshots pretending to prove anything. The only flex is discipline.</p>
+          <p>No candles. No red/green clichés. No revenue screenshots pretending to prove anything. The only flex is discipline.</p>
         </div>
       </div>
     </section>
@@ -580,10 +584,27 @@
           <div class="kicker">PROCESS OVER OUTCOME</div>
           <h3>Join the Drop List.</h3>
           <p>Request early access to the first UNPROFITABLE release.</p>
-          <form class="drop-form" id="drop-form" data-conversion="drop-list-intent">
+          <form class="drop-form" id="drop-form" action="https://formsubmit.co/ajax/hello@wearunprofitable.com" method="POST" data-conversion="drop-list-intent">
+            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="source" value="wearunprofitable.com drop list">
+            <div class="visually-hidden" aria-hidden="true">
+              <label for="company">Company</label>
+              <input id="company" name="_honey" type="text" tabindex="-1" autocomplete="off">
+            </div>
             <div class="field">
               <label for="email">Email</label>
               <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            </div>
+            <div class="field">
+              <label for="identity">I’m building as</label>
+              <select id="identity" name="identity" required>
+                <option value="Business owner / founder">Business owner / founder</option>
+                <option value="Creator / operator">Creator / operator</option>
+                <option value="Trader">Trader</option>
+                <option value="Self-improvement / discipline">Self-improvement / discipline</option>
+              </select>
             </div>
             <div class="field">
               <label for="interest">Most interested in</label>
@@ -594,9 +615,9 @@
                 <option value="DISCIPLINED Structured Hat">DISCIPLINED Structured Hat</option>
               </select>
             </div>
-            <button class="btn btn-dark" type="submit">Request Drop Access</button>
+            <button class="btn btn-dark" id="drop-submit" type="submit">Request Drop Access</button>
             <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-            <div class="form-note">UNPROFITABLE is streetwear/community only. No financial advice, trading advice, signals, or guaranteed-results claims.</div>
+            <div class="form-note">UNPROFITABLE is streetwear/community only. No financial advice, business advice, trading advice, signals, or guaranteed-results claims.</div>
           </form>
         </div>
       </div>
@@ -606,14 +627,14 @@
       <div class="section-head">
         <div>
           <div class="kicker">FAQ / Brand Facts</div>
-          <h2 id="faq-title">What UNPROFITABLE Is.</h2>
+          <h2 id="faq-title">Brand Facts.</h2>
         </div>
-        <p>Clear answers for buyers, search engines, and AI crawlers. This is a premium monochrome trading streetwear brand — not a trading promise.</p>
+        <p>Clear answers for buyers, search engines, and AI crawlers. This is a premium monochrome self-improvement streetwear brand — not a promise of trading, business, or life results.</p>
       </div>
       <div class="faq-grid">
-        <article class="faq-card"><h3>What is UNPROFITABLE?</h3><p>UNPROFITABLE is a premium black-and-white trading streetwear and community brand built around accountability, discipline, and the path from unprofitable to profitable.</p></article>
+        <article class="faq-card"><h3>What is UNPROFITABLE?</h3><p>UNPROFITABLE is a premium black-and-white self-improvement streetwear and community brand built around accountability, discipline, and the path from unprofitable to profitable.</p></article>
         <article class="faq-card"><h3>What is Drop 001?</h3><p>DROP 001: DISCIPLINED / 001 contains exactly three pieces: the DISCIPLINED Oversized Tee, DISCIPLINED Heavyweight Hoodie, and DISCIPLINED Structured Hat.</p></article>
-        <article class="faq-card"><h3>Is this a signals group?</h3><p>No. UNPROFITABLE does not sell signals, trade alerts, copy trading, guaranteed profits, coaching calls, or strategy funnels.</p></article>
+        <article class="faq-card"><h3>Is this a signals or coaching group?</h3><p>No. UNPROFITABLE does not sell signals, trade alerts, copy trading, guaranteed profits, business coaching, or strategy funnels.</p></article>
         <article class="faq-card"><h3>What does the motto mean?</h3><p>“UNPROFITABLE TODAY. PROFITABLE TOMORROW.” means discipline before profitability: losses to lessons, lessons to process, process to improvement.</p></article>
       </div>
     </section>
@@ -629,7 +650,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-logo">UNPROFITABLE</div>
-        <p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial, investment, or trading advice. UNPROFITABLE does not provide signals, trade alerts, strategy recommendations, or guaranteed outcomes. Trade responsibly.</p>
+        <p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial, investment, trading, business, or professional advice. UNPROFITABLE does not provide signals, trade alerts, strategy recommendations, income claims, or guaranteed outcomes. Build responsibly.</p>
       </div>
       <div class="footer-links">
         <div><b>Shop</b><a href="#drop">The Drop</a><a href="#waitlist">Drop List</a><a href="#drop">Tee / Hoodie / Hat</a></div>
@@ -654,7 +675,7 @@
       "name": "UNPROFITABLE",
       "url": "https://www.wearunprofitable.com/",
       "logo": "https://www.wearunprofitable.com/assets/unprofitable-main-logo.png",
-      "description": "Premium black-and-white trading streetwear and community brand built around accountability, discipline, and the path from unprofitable to profitable.",
+      "description": "Premium black-and-white self-improvement streetwear and community brand built around accountability, discipline, and the path from unprofitable to profitable.",
       "sameAs": []
     },
     {
@@ -675,7 +696,7 @@
           "name": "What is UNPROFITABLE?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "UNPROFITABLE is a premium black-and-white trading streetwear and community brand built around accountability, discipline, and the path from unprofitable to profitable."
+            "text": "UNPROFITABLE is a premium black-and-white self-improvement streetwear and community brand built around accountability, discipline, and the path from unprofitable to profitable."
           }
         },
         {
@@ -688,10 +709,10 @@
         },
         {
           "@type": "Question",
-          "name": "Is UNPROFITABLE a trading signals group?",
+          "name": "Is UNPROFITABLE a signals or coaching group?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. UNPROFITABLE does not sell signals, trade alerts, copy trading, guaranteed profits, coaching calls, or strategy funnels."
+            "text": "No. UNPROFITABLE does not sell signals, trade alerts, copy trading, guaranteed profits, business coaching, or strategy funnels."
           }
         },
         {
@@ -709,15 +730,55 @@
   </script>
   <script>
     const dropForm = document.getElementById("drop-form");
+    const formStatus = document.getElementById("form-status");
+    const dropSubmit = document.getElementById("drop-submit");
+
+    function setFormStatus(message, type = "") {
+      if (!formStatus) return;
+      formStatus.textContent = message;
+      formStatus.className = `form-status${type ? ` is-${type}` : ""}`;
+    }
+
     if (dropForm) {
-      dropForm.addEventListener("submit", (event) => {
+      dropForm.addEventListener("submit", async (event) => {
         event.preventDefault();
-        const email = document.getElementById("email").value.trim();
-        const interest = document.getElementById("interest").value;
-        const subject = encodeURIComponent("UNPROFITABLE DISCIPLINED / 001 Drop List Request");
-        const body = encodeURIComponent(`Add me to the UNPROFITABLE DROP 001: DISCIPLINED / 001 list.\n\nEmail: ${email}\nInterest: ${interest}`);
-        document.getElementById("form-status").textContent = "Opening email request. Backend list provider still needs to be wired.";
-        window.location.href = `mailto:hello@wearunprofitable.com?subject=${subject}&body=${body}`;
+
+        if (!dropForm.reportValidity()) return;
+
+        const formData = new FormData(dropForm);
+        const honey = String(formData.get("_honey") || "").trim();
+        if (honey) {
+          setFormStatus("Request received.", "success");
+          dropForm.reset();
+          return;
+        }
+
+        const originalText = dropSubmit ? dropSubmit.textContent : "";
+        if (dropSubmit) {
+          dropSubmit.disabled = true;
+          dropSubmit.textContent = "Submitting...";
+        }
+        setFormStatus("Submitting your drop request...");
+
+        try {
+          const response = await fetch(dropForm.action, {
+            method: "POST",
+            body: formData,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (!response.ok) throw new Error("Drop list request failed");
+
+          dropForm.reset();
+          setFormStatus("You’re on the Drop 001 list. Watch your inbox for release updates.", "success");
+        } catch (error) {
+          setFormStatus("Couldn’t submit right now. Email hello@wearunprofitable.com and we’ll add you manually.", "error");
+        } finally {
+          if (dropSubmit) {
+            dropSubmit.disabled = false;
+            dropSubmit.textContent = originalText;
+          }
+        }
       });
     }
   </script>
