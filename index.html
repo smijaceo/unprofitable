@@ -233,7 +233,7 @@
     }
     .hero-label b { color: var(--white); display: block; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 6px; font-size: 12px; }
 
-    .ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; background: #fff; color: #000; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); }
+    .ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; contain: layout paint; max-width: 100%; background: #fff; color: #000; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); }
     .ticker-track { display: flex; gap: 36px; width: max-content; animation: ticker 28s linear infinite; padding: 15px 0; }
     .ticker span { font-size: clamp(22px, 4vw, 62px); line-height: .9; letter-spacing: -.06em; font-weight: 900; text-transform: uppercase; white-space: nowrap; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -343,14 +343,60 @@
     .footer-links a:hover { color: var(--white); }
     .mobile-cta-bar { display: none; }
 
+    .hero-campaign-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.04) brightness(.86);
+      opacity: .96;
+      z-index: 2;
+    }
+    .hero-visual.is-campaign::before { z-index: 4; }
+    .hero-visual.is-campaign::after { z-index: 3; }
+    .hero-visual.is-campaign .hero-ghost-type { z-index: 3; color: rgba(255,255,255,.09); mix-blend-mode: screen; }
+    .hero-visual.is-campaign .drop-badge, .hero-visual.is-campaign .hero-label { z-index: 5; }
+    .photo-story { display: grid; grid-template-columns: 1.05fr .95fr; gap: 14px; align-items: stretch; }
+    .story-card {
+      min-height: 440px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .story-card.large { min-height: 620px; }
+    .story-card img { width: 100%; height: 100%; min-height: 0; object-fit: cover; filter: grayscale(1) contrast(1.06); flex: 1; }
+    .story-card.contain img { object-fit: contain; padding: 18px; background: #050505; }
+    .story-caption {
+      border-top: 1px solid var(--line);
+      padding: 18px;
+      background: rgba(0,0,0,.88);
+    }
+    .story-caption b { display:block; text-transform: uppercase; letter-spacing: .1em; font-size: 12px; margin-bottom: 7px; }
+    .story-caption span { color: var(--muted); line-height: 1.45; font-size: 14px; }
+    .story-stack { display: grid; gap: 14px; }
+    .story-stack .story-card { min-height: 303px; }
+    .detail-media-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+    .detail-media-strip figure { margin: 0; border: 1px solid var(--line); background: #050505; min-height: 210px; display:grid; place-items:center; overflow:hidden; }
+    .detail-media-strip img { width:100%; height:100%; object-fit:cover; filter: grayscale(1) contrast(1.08); }
+    .lookbook-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 14px; }
+    .lookbook-panel { border: 1px solid var(--line); background: var(--panel); overflow:hidden; position:relative; min-height: 520px; }
+    .lookbook-panel img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+    .lookbook-copy { border: 1px solid var(--line); background:#fff; color:#000; padding: clamp(30px,5vw,58px); display:flex; flex-direction:column; justify-content:space-between; gap:34px; }
+    .lookbook-copy h2 { margin: 10px 0 0; font-size: clamp(42px,6vw,88px); line-height:.88; letter-spacing:-.07em; text-transform:uppercase; }
+    .lookbook-copy p { color:#222; font-size: clamp(18px,2vw,24px); line-height:1.32; font-weight:600; letter-spacing:-.035em; }
+
     @media (max-width: 1040px) {
-      .hero-grid, .details-board, .manifesto, .community-grid, .waitlist, .footer-inner { grid-template-columns: 1fr; }
+      .hero-grid, .details-board, .manifesto, .community-grid, .waitlist, .footer-inner, .photo-story, .lookbook-grid { grid-template-columns: 1fr; }
       .details-stamp { border-right: 0; border-bottom: 1px solid var(--line); min-height: 430px; }
       .hero-visual { min-height: 560px; }
       .products { grid-template-columns: 1fr; }
       .product-card { min-height: auto; }
       .product-media { min-height: 420px; }
-      .principles, .faq-grid { grid-template-columns: 1fr 1fr; }
+      .principles, .faq-grid, .detail-media-strip { grid-template-columns: 1fr 1fr; }
       .section-head { display: grid; align-items: start; }
     }
     @media (max-width: 720px) {
@@ -379,6 +425,7 @@
       .hero-label { left: 22px; right: 22px; bottom: 22px; width: auto; padding: 12px; font-size: 11px; line-height: 1.35; }
       .hero-label b { margin-bottom: 0; font-size: 10px; letter-spacing: .1em; }
       .hero-label span { display: none; }
+      .ticker { display: none; }
       .ticker-track { padding: 11px 0; }
       .product-media { min-height: 286px; padding: 18px; }
       .product-media img { width: 100%; max-width: 330px; }
@@ -392,11 +439,59 @@
       .detail-row { grid-template-columns: 1fr; gap: 10px; padding: 18px; }
       .manifesto { padding: 30px 24px; gap: 26px; }
       .manifesto p { font-size: 20px; line-height: 1.22; }
-      .principles, .faq-grid, .waitlist-bullets { grid-template-columns: 1fr; }
-      .community-card, .waitlist-copy, .waitlist-panel { min-height: auto; gap: 28px; }
+      .principles, .faq-grid, .waitlist-bullets, .detail-media-strip { grid-template-columns: 1fr; }
+      .community-card, .waitlist-copy, .waitlist-panel { min-height: auto; gap: 28px; min-width: 0; }
+      .community-grid, .waitlist { min-width: 0; }
+      .story-card, .story-card.large, .story-stack .story-card, .lookbook-panel { min-height: 340px; }
       .check { display: grid; grid-template-columns: 42px 1fr; gap: 14px; }
       .footer-links { grid-template-columns: 1fr; gap: 22px; }
       .mobile-cta-bar { display: none; }
+
+    .hero-campaign-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(1) contrast(1.04) brightness(.86);
+      opacity: .96;
+      z-index: 2;
+    }
+    .hero-visual.is-campaign::before { z-index: 4; }
+    .hero-visual.is-campaign::after { z-index: 3; }
+    .hero-visual.is-campaign .hero-ghost-type { z-index: 3; color: rgba(255,255,255,.09); mix-blend-mode: screen; }
+    .hero-visual.is-campaign .drop-badge, .hero-visual.is-campaign .hero-label { z-index: 5; }
+    .photo-story { display: grid; grid-template-columns: 1.05fr .95fr; gap: 14px; align-items: stretch; }
+    .story-card {
+      min-height: 440px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .story-card.large { min-height: 620px; }
+    .story-card img { width: 100%; height: 100%; min-height: 0; object-fit: cover; filter: grayscale(1) contrast(1.06); flex: 1; }
+    .story-card.contain img { object-fit: contain; padding: 18px; background: #050505; }
+    .story-caption {
+      border-top: 1px solid var(--line);
+      padding: 18px;
+      background: rgba(0,0,0,.88);
+    }
+    .story-caption b { display:block; text-transform: uppercase; letter-spacing: .1em; font-size: 12px; margin-bottom: 7px; }
+    .story-caption span { color: var(--muted); line-height: 1.45; font-size: 14px; }
+    .story-stack { display: grid; gap: 14px; }
+    .story-stack .story-card { min-height: 303px; }
+    .detail-media-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }
+    .detail-media-strip figure { margin: 0; border: 1px solid var(--line); background: #050505; min-height: 210px; display:grid; place-items:center; overflow:hidden; }
+    .detail-media-strip img { width:100%; height:100%; object-fit:cover; filter: grayscale(1) contrast(1.08); }
+    .lookbook-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 14px; }
+    .lookbook-panel { border: 1px solid var(--line); background: var(--panel); overflow:hidden; position:relative; min-height: 520px; }
+    .lookbook-panel img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+    .lookbook-copy { border: 1px solid var(--line); background:#fff; color:#000; padding: clamp(30px,5vw,58px); display:flex; flex-direction:column; justify-content:space-between; gap:34px; }
+    .lookbook-copy h2 { margin: 10px 0 0; font-size: clamp(42px,6vw,88px); line-height:.88; letter-spacing:-.07em; text-transform:uppercase; }
+    .lookbook-copy p { color:#222; font-size: clamp(18px,2vw,24px); line-height:1.32; font-weight:600; letter-spacing:-.035em; }
       body { padding-bottom: 0; }
     }
     @media (max-width: 390px) {
@@ -452,15 +547,11 @@
           <div class="fine-note">No signals. No strategy-selling. No fake guru energy. Just the uniform for the work.</div>
         </div>
 
-        <div class="hero-visual" aria-label="Floating DROP 001 DISCIPLINED tee, hoodie, and hat product cutouts">
+        <div class="hero-visual is-campaign" aria-label="DROP 001 DISCIPLINED campaign product photography">
+          <img class="hero-campaign-photo" src="assets/drop001-library/PRODUCT_Angled_Photos_SetB_V01.png" alt="DROP 001 DISCIPLINED tee hoodie and hat campaign product photos">
           <div class="hero-ghost-type">DISCIPLINED<br>DISCIPLINED</div>
           <div class="drop-badge">DISCIPLINED / 001</div>
-          <figure class="float-garment float-hoodie"><img src="assets/drop-001-disciplined-hoodie-cutout.png" alt="Floating DISCIPLINED Heavyweight Hoodie front and back mockup"></figure>
-          <figure class="float-garment float-tee"><img src="assets/drop-001-disciplined-tee-cutout.png" alt="Floating DISCIPLINED Oversized Tee front and back mockup"></figure>
-          <figure class="float-garment float-hat"><img src="assets/drop-001-disciplined-hat-cutout.png" alt="Floating DISCIPLINED Structured Hat mockup"></figure>
-          <div class="float-label one">BOTTOM-LEFT PATCH</div>
-          <div class="float-label two">ARCHED BACK PRINT</div>
-          <div class="hero-label"><b>UNPROFITABLE TODAY. PROFITABLE TOMORROW.</b><span>Transparent floating product treatment. Heavyweight black garments, white U/P monogram, arched DISCIPLINED typography, and PROCESS OVER OUTCOME.</span></div>
+          <div class="hero-label"><b>UNPROFITABLE TODAY. PROFITABLE TOMORROW.</b><span>Source-truth product photography, closeups, fit references, and campaign styling from the Drop 001 asset library.</span></div>
         </div>
       </div>
     </section>
@@ -482,7 +573,7 @@
       </div>
       <div class="products">
         <a class="product-card" href="disciplined-oversized-tee.html" aria-label="View DISCIPLINED Oversized Tee product page">
-          <div class="product-media" data-code="TEE / 001"><img src="assets/drop-001-disciplined-tee-cutout.png" alt="Floating DISCIPLINED Oversized Tee front and back cutout"></div>
+          <div class="product-media" data-code="TEE / 001"><img src="assets/drop001-library/TEE_SourceTruth_FrontBack_V01.png" alt="DISCIPLINED Oversized Tee source truth front and back product photo"></div>
           <div class="product-info">
             <h3>DISCIPLINED Oversized Tee</h3>
             <p>Black oversized tee with small white U/P front mark, bottom-left DISCIPLINED / 001 garment patch, and oversized curved DISCIPLINED back print.</p>
@@ -490,7 +581,7 @@
           </div>
         </a>
         <a class="product-card" href="disciplined-heavyweight-hoodie.html" aria-label="View DISCIPLINED Heavyweight Hoodie product page">
-          <div class="product-media" data-code="HOODIE / 001"><img src="assets/drop-001-disciplined-hoodie-cutout.png" alt="Floating DISCIPLINED Heavyweight Hoodie front and back cutout"></div>
+          <div class="product-media" data-code="HOODIE / 001"><img src="assets/drop001-library/HOODIE_SourceTruth_FrontBack_V01.png" alt="DISCIPLINED Heavyweight Hoodie source truth front and back product photo"></div>
           <div class="product-info">
             <h3>DISCIPLINED Heavyweight Hoodie</h3>
             <p>Heavyweight black hoodie with U/P chest mark, bottom-left patch, and bold arched DISCIPLINED typography across the back and sleeves.</p>
@@ -498,13 +589,41 @@
           </div>
         </a>
         <a class="product-card" href="disciplined-structured-hat.html" aria-label="View DISCIPLINED Structured Hat product page">
-          <div class="product-media product-hat" data-code="HAT / 001"><img src="assets/drop-001-disciplined-hat-cutout.png" alt="Floating DISCIPLINED Structured Hat cutout"></div>
+          <div class="product-media product-hat" data-code="HAT / 001"><img src="assets/drop001-library/HAT_SourceTruth_FrontBack_V01.png" alt="DISCIPLINED Structured Hat source truth front and back product photo"></div>
           <div class="product-info">
             <h3>DISCIPLINED Structured Hat</h3>
             <p>Structured black hat with arched DISCIPLINED embroidery, small UNPROFITABLE back embroidery, and U/P side mark.</p>
             <div class="product-meta"><span>View Product</span><span>Coming Soon</span></div>
           </div>
         </a>
+      </div>
+    </section>
+
+
+
+    <section class="section" id="photo-story" aria-labelledby="photo-story-title">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Drop 001 Photo System</div>
+          <h2 id="photo-story-title">Source Truth.<br>Styled With Restraint.</h2>
+        </div>
+        <p>The zip library is now the visual source of truth: exact product shots, detail closeups, fabric, fit references, and monochrome campaign frames — no random mockup dumping.</p>
+      </div>
+      <div class="photo-story">
+        <article class="story-card large">
+          <img src="assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" alt="Angled DROP 001 product photos featuring hoodie tee and hat">
+          <div class="story-caption"><b>Angled product set</b><span>Hoodie, tee, and hat shown as a cohesive first release — premium, monochrome, merch-first.</span></div>
+        </article>
+        <div class="story-stack">
+          <article class="story-card contain">
+            <img src="assets/drop001-library/ONBODY_ProductDetail_Closeups_V01.png" alt="On-body closeups of UNPROFITABLE logos patches and embroidery">
+            <div class="story-caption"><b>Detail proof</b><span>Logo, patch, collar, sleeve, and hat closeups make the pieces feel real and wearable.</span></div>
+          </article>
+          <article class="story-card contain">
+            <img src="assets/drop001-library/FIT_DetailGrid_HoodieTee_V01.png" alt="Fit detail grid for the DISCIPLINED hoodie and tee">
+            <div class="story-caption"><b>Fit language</b><span>Relaxed silhouettes, front/back references, and detail grid for the hoodie and tee.</span></div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -520,6 +639,11 @@
           <div class="detail-row"><div class="detail-num">02</div><div><b>Bottom-left garment patch</b><span>DISCIPLINED / 001 and UNPROFITABLE sit low on the tee and hoodie like a streetwear label tag.</span></div></div>
           <div class="detail-row"><div class="detail-num">03</div><div><b>Curved DISCIPLINED typography</b><span>Large white arched back and sleeve type creates the drop identity without charts, screenshots, revenue flexes, or guru clichés.</span></div></div>
           <div class="detail-row"><div class="detail-num">04</div><div><b>PROCESS OVER OUTCOME</b><span>The supporting line is the discipline rule: review the mistake, follow the plan, protect the process.</span></div></div>
+          <div class="detail-media-strip" aria-label="Drop 001 garment details">
+            <figure><img src="assets/drop001-library/LOGO_UP_Closeups_OnFabric_V01.png" alt="U/P logo closeups on fabric"></figure>
+            <figure><img src="assets/drop001-library/PATCH_Closeups_Hoodie_Tee_V01.png" alt="DISCIPLINED 001 patch closeups on hoodie and tee"></figure>
+            <figure><img src="assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.png" alt="DISCIPLINED arched back print closeups"></figure>
+          </div>
         </div>
       </div>
     </section>
@@ -537,6 +661,22 @@
             <div class="principle"><b>Accountability Over Gurus</b><span>The community angle is review, discipline, and accountability — not signals, business-coach grift, or guru calls.</span></div>
             <div class="principle"><b>Unprofitable Today</b><span>The motto is the arc: losses to lessons, lessons to discipline, discipline to profitability.</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section" id="lookbook" aria-labelledby="lookbook-title">
+      <div class="lookbook-grid">
+        <div class="lookbook-panel"><img src="assets/drop001-library/STYLE_Streetwear_Outfits_WideLeg_V01.png" alt="UNPROFITABLE Drop 001 on-body styled outfit references"></div>
+        <div class="lookbook-copy">
+          <div>
+            <div class="kicker" style="color:#333">Fit / On Body</div>
+            <h2 id="lookbook-title">Made To Look Like A Uniform.</h2>
+          </div>
+          <p>Drop 001 should feel like something you actually wear while building — oversized black silhouettes, white marks, disciplined details, and no loud chart-bro costume energy.</p>
+          <a class="btn btn-dark" href="#drop">View the Pieces</a>
         </div>
       </div>
     </section>
