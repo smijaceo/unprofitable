@@ -231,7 +231,8 @@
       font-size: 13px;
       line-height: 1.45;
     }
-    .hero-label b { color: var(--white); display: block; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 10px; font-size: 12px; line-height: 1.32; max-width: 24ch; }
+    .hero-label b { color: var(--white); display: block; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 14px; font-size: 12px; line-height: 1.32; max-width: 24ch; }
+    .hero-label span { display: block; max-width: 28ch; }
 
     .ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; contain: layout paint; max-width: 100%; background: #fff; color: #000; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 28px, #000 calc(100% - 28px), transparent 100%); }
     .ticker-track { display: flex; gap: 36px; width: max-content; animation: ticker 28s linear infinite; padding: 15px 0; }
@@ -297,9 +298,9 @@
     .manifesto { display: grid; grid-template-columns: .78fr 1.22fr; border: 1px solid var(--white); background: var(--white); color: var(--black); padding: clamp(30px, 6vw, 66px); gap: 48px; align-items: start; }
     .manifesto p { margin: 0; font-size: clamp(20px, 2.4vw, 31px); line-height: 1.24; letter-spacing: -.04em; font-weight: 600; }
     .principles { margin-top: 34px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .principle { min-height: 168px; border: 1px solid rgba(0,0,0,.16); padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
-    .principle b { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; }
-    .principle span { color: #333; line-height: 1.45; }
+    .principle { min-height: 168px; border: 1px solid rgba(0,0,0,.16); padding: 20px; display: flex; flex-direction: column; justify-content: flex-start; gap: 24px; }
+    .principle b { display: block; text-transform: uppercase; letter-spacing: .08em; font-size: 12px; line-height: 1.2; }
+    .principle span { display: block; color: #333; line-height: 1.45; }
 
     .community-grid, .waitlist { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: stretch; }
     .community-card, .waitlist-copy, .waitlist-panel { border: 1px solid var(--line); background: var(--panel); padding: clamp(26px, 4vw, 44px); min-height: 400px; display: flex; flex-direction: column; justify-content: space-between; }
@@ -338,6 +339,7 @@
     .wear-copy p { color: #222; font-size: clamp(18px, 2vw, 24px); line-height: 1.32; font-weight: 600; letter-spacing: -.035em; }
     .wear-list { display: grid; gap: 12px; align-content: center; }
     .wear-item { border: 1px solid var(--line); padding: 18px 20px; font-size: clamp(19px, 2vw, 28px); line-height: 1; letter-spacing: -.045em; font-weight: 800; text-transform: uppercase; }
+    .wear-close { margin: 14px 0 0; color: var(--white); font-size: clamp(20px, 2.3vw, 34px); line-height: 1.08; letter-spacing: -.05em; font-weight: 900; text-transform: uppercase; }
 
     .faq-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .faq-card { border: 1px solid var(--line); background: var(--panel); padding: 22px; min-height: 220px; }
@@ -572,7 +574,7 @@
           <img class="hero-campaign-photo" src="assets/drop001-library/PRODUCT_Angled_Photos_SetB_V01.png" alt="DROP 001 DISCIPLINED tee hoodie and hat campaign product photos">
           <div class="hero-ghost-type">DISCIPLINED<br>DISCIPLINED</div>
           <div class="drop-badge">DISCIPLINED / 001</div>
-          <div class="hero-label"><b>UNPROFITABLE TODAY.<br>PROFITABLE TOMORROW.</b><span>First release. Three pieces only. Join the list before checkout opens.</span></div>
+          <div class="hero-label"><b>UNPROFITABLE TODAY.<br>PROFITABLE TOMORROW.</b><span>First release. Three pieces only.<br>Join the list before checkout opens.</span></div>
         </div>
       </div>
     </section>
@@ -676,7 +678,6 @@
             <div class="kicker">When To Wear It</div>
             <h2 id="wear-title">When To Wear It.</h2>
           </div>
-          <p>Drop 001 is not a victory lap. It is the uniform for getting your standards back.</p>
           <a class="btn btn-dark" href="#waitlist">Join Drop List</a>
         </div>
         <div class="wear-list" aria-label="When to wear Drop 001">
@@ -685,6 +686,7 @@
           <div class="wear-item">To the gym.</div>
           <div class="wear-item">To the desk.</div>
           <div class="wear-item">To the session where nobody sees the work.</div>
+          <p class="wear-close">Drop 001 is not a victory lap.<br>It is the uniform for getting your standards back.</p>
         </div>
       </div>
     </section>
@@ -716,7 +718,7 @@
             <div class="kicker" style="color:#333">Fit / On Body</div>
             <h2 id="lookbook-title">Made To Look Like A Uniform.</h2>
           </div>
-          <p>Drop 001 should feel like something you actually wear while rebuilding — oversized black silhouettes, white marks, and no loud chart-bro costume energy.</p>
+          <p>Oversized black silhouettes. White marks. No loud chart-bro costume energy. Built to be worn while you rebuild.</p>
           <a class="btn btn-dark" href="#drop">View the Pieces</a>
         </div>
       </div>
@@ -777,12 +779,12 @@
               <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
             </div>
             <div class="field">
-              <label for="identity">I’m building as</label>
+              <label for="identity">What brought you here?</label>
               <select id="identity" name="identity" required>
-                <option value="Business owner / founder">Business owner / founder</option>
-                <option value="Creator / operator">Creator / operator</option>
+                <option value="Building a business">Building a business</option>
+                <option value="Creating / operating">Creating / operating</option>
                 <option value="Trader">Trader</option>
-                <option value="Self-improvement / discipline">Self-improvement / discipline</option>
+                <option value="Rebuilding discipline">Rebuilding discipline</option>
               </select>
             </div>
             <div class="field">
@@ -828,10 +830,10 @@
     <div class="footer-inner">
       <div>
         <div class="footer-logo">UNPROFITABLE</div>
-        <p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial, investment, trading, business, or professional advice. UNPROFITABLE does not provide signals, trade alerts, strategy recommendations, income claims, or guaranteed outcomes. Build responsibly.</p>
+        <p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial, investment, trading, business, or professional advice. We do not provide signals, trade alerts, strategy recommendations, income claims, or guaranteed outcomes. Build responsibly.</p>
       </div>
       <div class="footer-links">
-        <div><b>Shop</b><a href="#drop">The Drop</a><a href="#waitlist">Drop List</a><a href="disciplined-oversized-tee.html">Tee / 001</a><a href="disciplined-heavyweight-hoodie.html">Hoodie / 001</a><a href="disciplined-structured-hat.html">Hat / 001</a></div>
+        <div><b>Drop</b><a href="#drop">The Drop</a><a href="#waitlist">Drop List</a><a href="disciplined-oversized-tee.html">Tee / 001</a><a href="disciplined-heavyweight-hoodie.html">Hoodie / 001</a><a href="disciplined-structured-hat.html">Hat / 001</a></div>
         <div><b>Community</b><a href="#community">Discord</a><a href="#manifesto">Manifesto</a><a href="mailto:mrmerk971@gmail.com">Contact</a></div>
         <div><b>Legal</b><a href="returns.html">Returns</a><a href="privacy.html">Privacy</a><a href="disclaimer.html">Disclaimer</a></div>
       </div>
