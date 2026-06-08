@@ -550,6 +550,11 @@
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition: none !important; }
     }
   </style>
+
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
   <nav class="nav" aria-label="Main navigation">
@@ -928,6 +933,24 @@
     const formStatus = document.getElementById("form-status");
     const dropSubmit = document.getElementById("drop-submit");
 
+    function trackEvent(name, data = {}) {
+      if (typeof window.va === "function") {
+        window.va("event", { name, data });
+      }
+    }
+
+    document.querySelectorAll('a[href="#waitlist"]').forEach((link) => {
+      link.addEventListener("click", () => trackEvent("join_drop_list_click", { placement: link.closest("nav") ? "nav" : "page" }));
+    });
+
+    document.querySelectorAll('a[href="#drop"], a[href^="disciplined-"]').forEach((link) => {
+      link.addEventListener("click", () => trackEvent("view_drop_001_click", { label: link.textContent.trim().slice(0, 80) }));
+    });
+
+    document.querySelectorAll('a[href="#community"]').forEach((link) => {
+      link.addEventListener("click", () => trackEvent("discord_cta_click", { placement: link.closest("nav") ? "nav" : "page" }));
+    });
+
     function setFormStatus(message, type = "") {
       if (!formStatus) return;
       formStatus.textContent = message;
@@ -967,9 +990,15 @@
             throw new Error(result.message || "Drop list request failed");
           }
 
+          trackEvent("drop_list_submit_success", {
+            identity: String(formData.get("identity") || ""),
+            interest: String(formData.get("interest") || ""),
+            source: String(formData.get("source") || "")
+          });
           dropForm.reset();
           setFormStatus("You’re on the Drop 001 list. Watch your inbox for release updates.", "success");
         } catch (error) {
+          trackEvent("drop_list_submit_error", { reason: error && error.message ? String(error.message).slice(0, 120) : "unknown" });
           setFormStatus("Couldn’t submit right now. Email drop@wearunprofitable.com and we’ll add you manually.", "error");
         } finally {
           if (dropSubmit) {

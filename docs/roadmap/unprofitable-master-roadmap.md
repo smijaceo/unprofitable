@@ -180,20 +180,22 @@ Pick one path:
 
 #### B3. Add analytics
 
-- [ ] Decide analytics provider:
+- [x] Decide analytics provider:
   - Vercel Analytics
   - Plausible
   - Google Analytics
   - Meta Pixel
   - Shopify/Klaviyo analytics later
-- [ ] Track core events:
+- [x] Track core events:
   - `join_drop_list_click`
   - `drop_list_submit_success`
   - `drop_list_submit_error`
   - `product_page_view`
   - `view_drop_001_click`
   - `discord_cta_click`
-- [ ] Verify events fire without breaking performance/privacy expectations.
+- [ ] Verify events fire without breaking performance/privacy expectations after Vercel redeploy.
+
+**Status — 2026-06-08:** Vercel Analytics is the chosen provider. Static HTML pages use the Vercel Web Analytics script and custom events are queued with `window.va("event", ...)`. Final dashboard verification must happen after deployment routes are live.
 
 ### Done when
 
