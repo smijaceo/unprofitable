@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNPROFITABLE Meta Ad Concept 01 - Recovery Arc</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #111;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #fff;
+    }
+    .ad {
+      position: relative;
+      width: min(420px, 100vw);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 52% 49%, rgba(255,255,255,.12), transparent 28%),
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px),
+        #020202;
+      background-size: auto, 48px 48px, 48px 48px, auto;
+      border: 1px solid rgba(255,255,255,.16);
+    }
+    .frame {
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      pointer-events: none;
+    }
+    .logo {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58px;
+      opacity: .95;
+      filter: drop-shadow(0 0 16px rgba(255,255,255,.12));
+    }
+    .eyebrow {
+      position: absolute;
+      top: 96px;
+      left: 28px;
+      right: 28px;
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: .34em;
+      font-weight: 700;
+      color: rgba(255,255,255,.68);
+    }
+    h1 {
+      position: absolute;
+      top: 126px;
+      left: 24px;
+      right: 24px;
+      margin: 0;
+      text-align: center;
+      font-size: 42px;
+      line-height: .88;
+      letter-spacing: -.06em;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+    .tomorrow { color: #f4f4f4; }
+    .product-stage {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 292px;
+      height: 310px;
+    }
+    .product {
+      position: absolute;
+      object-fit: contain;
+      filter: drop-shadow(0 22px 35px rgba(0,0,0,.78)) drop-shadow(0 0 24px rgba(255,255,255,.08));
+    }
+    .hoodie { width: 270px; left: 82px; top: 0; z-index: 2; }
+    .tee { width: 210px; left: 20px; top: 56px; z-index: 1; opacity: .96; }
+    .hat { width: 150px; right: 28px; top: 198px; z-index: 3; }
+    .label {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 104px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: .18em;
+      font-weight: 800;
+    }
+    .sub {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 70px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.35;
+      color: rgba(255,255,255,.72);
+      letter-spacing: .03em;
+    }
+    .cta {
+      position: absolute;
+      left: 116px;
+      right: 116px;
+      bottom: 28px;
+      border: 1px solid #fff;
+      text-align: center;
+      padding: 10px 8px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      font-weight: 900;
+    }
+    .tag {
+      position: absolute;
+      color: rgba(255,255,255,.55);
+      font-size: 8px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .tag.one { left: 28px; top: 266px; writing-mode: vertical-rl; }
+    .tag.two { right: 26px; top: 284px; writing-mode: vertical-rl; }
+  </style>
+</head>
+<body>
+  <main class="ad" aria-label="UNPROFITABLE Meta ad concept 01">
+    <div class="frame"></div>
+    <img class="logo" src="../assets/unprofitable-main-logo.png" alt="UNPROFITABLE logo" />
+    <div class="eyebrow">DROP 001 / DISCIPLINED</div>
+    <h1>UNPROFITABLE TODAY.<br><span class="tomorrow">PROFITABLE TOMORROW.</span></h1>
+    <div class="tag one">review the loss</div>
+    <div class="tag two">raise the standard</div>
+    <section class="product-stage">
+      <img class="product tee" src="../assets/drop-001-disciplined-tee-cutout.png" alt="DISCIPLINED oversized tee" />
+      <img class="product hoodie" src="../assets/drop-001-disciplined-hoodie-cutout.png" alt="DISCIPLINED heavyweight hoodie" />
+      <img class="product hat" src="../assets/drop-001-disciplined-hat-cutout.png" alt="DISCIPLINED structured hat" />
+    </section>
+    <div class="label">THE UNIFORM FOR THE RECOVERY ARC.</div>
+    <div class="sub">Premium monochrome streetwear for builders turning setbacks into standards.</div>
+    <div class="cta">JOIN DROP LIST</div>
+  </main>
+</body>
+</html>
