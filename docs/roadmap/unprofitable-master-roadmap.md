@@ -140,6 +140,8 @@ Make the drop-list reliable, organized, and brand-owned before driving traffic.
 - Waitlist form exists.
 - Form currently routes through FormSubmit AJAX to `drop@wearunprofitable.com`.
 - Destination system chosen: domain email alias/inbox `drop@wearunprofitable.com` for Drop 001 list + contact fallback.
+- FormSubmit activation is complete and a live browser test returned success.
+- `drop@wearunprofitable.com` received the test submission confirmation from Jace.
 - Signup segmentation captures builder/creator/trader/discipline intent and product interest.
 
 ### Tasks
@@ -163,16 +165,18 @@ Pick one path:
 #### B2. Wire and verify signup delivery
 
 - [x] Replace personal/temporary destination if Jace chooses a brand inbox/provider.
-- [ ] Confirm FormSubmit activation email if FormSubmit remains.
-- [ ] Submit a test signup.
-- [ ] Confirm the destination receives the signup.
-- [ ] Confirm fields arrive cleanly:
+- [x] Confirm FormSubmit activation email if FormSubmit remains.
+- [x] Submit a test signup.
+- [x] Confirm the destination receives the signup.
+- [x] Confirm fields arrive cleanly:
   - email
   - identity
   - product interest
   - source
-- [ ] Confirm spam/honeypot behavior does not block real users.
-- [ ] Add failure/success states that feel polished.
+- [x] Confirm spam/honeypot behavior does not block real users.
+- [x] Add failure/success states that feel polished.
+
+**Status — 2026-06-08:** B2 is complete for the current FormSubmit setup. Live test response returned success and Jace confirmed the destination inbox result.
 
 #### B3. Add analytics
 
