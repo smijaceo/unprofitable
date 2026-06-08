@@ -28,3 +28,17 @@
   .gallery-grid-rich .photo-card.contain img,
   .gallery-grid-rich .photo-card.cover img{max-height:300px}
 }
+
+
+/* Shopify direct-cart integration */
+.commerce-box{gap:0}
+.variant-picker{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.variant-label{font-family:'Geist Mono',monospace;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.variant-options{display:flex;flex-wrap:wrap;gap:10px}
+.variant-pill{cursor:pointer}
+.variant-pill input{position:absolute;opacity:0;pointer-events:none}
+.variant-pill span{min-width:54px;min-height:44px;padding:0 16px;border:1px solid var(--line-strong);border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#050505;color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em;transition:background .22s var(--ease),color .22s var(--ease),border-color .22s var(--ease),transform .22s var(--ease)}
+.variant-pill:hover span{border-color:#fff;transform:translateY(-1px)}
+.variant-pill input:checked + span{background:#fff;color:#000;border-color:#fff}
+.shopify-cart-link:after{content:'↗';font-size:13px;line-height:1}
+@media(max-width:720px){.variant-options{gap:8px}.variant-pill span{min-width:50px;padding:0 14px}.commerce-box .hero-actions{align-items:stretch}.commerce-box .hero-actions .btn{width:100%}}
