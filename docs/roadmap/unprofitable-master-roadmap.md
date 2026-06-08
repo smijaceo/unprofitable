@@ -254,11 +254,13 @@ Products:
 
 Decide whether to add:
 
-- [ ] `/shop.html` as a clean Drop 001 hub.
+- [x] `/shop.html` as a clean Drop 001 hub.
 - [ ] `/drop-001.html` as a campaign/drop landing page.
 - [ ] Shopify collection page later.
 
 Recommended short-term: create a static `/shop.html` or `/drop-001.html` that collects the three product pages and waitlist CTA.
+
+**Status — 2026-06-08:** Static `/shop.html` Drop 001 hub is implemented with three product cards, preview pricing, early-access CTAs, collection JSON-LD, and Vercel Analytics events. Checkout is still not live; product CTAs remain drop-list/details oriented.
 
 ### Done when
 

@@ -1,6 +1,6 @@
 # UNPROFITABLE
 
-UNPROFITABLE is a premium black-and-white trading streetwear and community brand.
+UNPROFITABLE is a premium black-and-white self-improvement streetwear and community brand with trading-origin authenticity.
 
 Core motto:
 UNPROFITABLE TODAY. PROFITABLE TOMORROW.
@@ -10,7 +10,7 @@ DROP 001: DISCIPLINED / 001
 Campaign line: PROCESS OVER OUTCOME
 
 Positioning:
-Premium monochrome trading streetwear for traders choosing accountability, review, and discipline before profitability.
+Premium monochrome streetwear for builders, creators, operators, traders, and self-improvement-minded people choosing accountability, review, and discipline before profitability.
 
 What UNPROFITABLE sells:
 - DROP 001: DISCIPLINED / 001 contains exactly three pieces
@@ -32,6 +32,10 @@ Important clarifications:
 
 Primary pages:
 - / — homepage, DISCIPLINED / 001 drop preview, garment code, manifesto, community, waitlist, FAQ
+- /shop.html — Drop 001 shop/collection hub for the tee, hoodie, and hat preview
+- /disciplined-oversized-tee.html — DISCIPLINED Oversized Tee product page
+- /disciplined-heavyweight-hoodie.html — DISCIPLINED Heavyweight Hoodie product page
+- /disciplined-structured-hat.html — DISCIPLINED Structured Hat product page
 - /disclaimer.html — financial/investment/trading-advice disclaimer
 - /returns.html — returns placeholder
 - /privacy.html — privacy placeholder
