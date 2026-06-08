@@ -14,19 +14,19 @@ Products included:
 
 1. `DISCIPLINED Oversized Tee`
    - Handle: `disciplined-oversized-tee`
-   - Draft price: `$55.00`
+   - Draft price: coming soon
    - Sizes: `S, M, L, XL, 2XL`
    - SKUs: `UNP-D001-TEE-BLK-*`
 
 2. `DISCIPLINED Heavyweight Hoodie`
    - Handle: `disciplined-heavyweight-hoodie`
-   - Draft price: `$130.00`
+   - Draft price: coming soon
    - Sizes: `S, M, L, XL, 2XL`
    - SKUs: `UNP-D001-HOODIE-BLK-*`
 
 3. `DISCIPLINED Structured Hat`
    - Handle: `disciplined-structured-hat`
-   - Draft price: `$50.00`
+   - Draft price: coming soon
    - Size: `OS`
    - SKU: `UNP-D001-HAT-BLK-OS`
 
@@ -45,9 +45,9 @@ Products included:
 
 ## Important review items before publishing
 
-- Public prices use clean Drop 001 pricing: Tee `$55`, Hoodie `$130`, Hat `$50`. Internal COGS/margin models can stay exact, but customer-facing pricing should stay clean unless Jace changes vendor/COGS inputs.
-- Bundle architecture for checkout setup: Starter Bundle `$95` (tee + hat, normally `$105`), Discipline Kit `$170` (hoodie + hat, normally `$180`), Full Drop Bundle `$220` (tee + hoodie + hat, normally `$235`).
-- Recommended free shipping threshold: `$150+`.
+- Public pricing is hidden for now. Customer-facing pages should say coming soon until Jace approves pricing for launch.
+- Bundle details are hidden for now. Keep bundle language in coming-soon / drop-list mode until launch pricing is approved.
+- Shipping threshold is hidden for now and should be confirmed before launch.
 - Inventory is set to `0` and status is `draft` so nothing accidentally sells before launch.
 - Shipping weights are working estimates:
   - Tee: 283g

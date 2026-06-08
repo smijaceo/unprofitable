@@ -4,35 +4,35 @@
 
 ## Goals
 
-1. Replace weird/exact public pricing with clean streetwear pricing:
-   - DISCIPLINED Oversized Tee: `$55`
-   - DISCIPLINED Heavyweight Hoodie: `$130`
-   - DISCIPLINED Structured Hat: `$50`
+1. Keep public pricing hidden and use coming-soon language:
+   - DISCIPLINED Oversized Tee: Coming soon
+   - DISCIPLINED Heavyweight Hoodie: Coming soon
+   - DISCIPLINED Structured Hat: Coming soon
 2. Add a premium bundle section to `/shop.html` that increases AOV without making the brand feel discounted.
 3. Keep every CTA in coming-soon / early-access mode until checkout is intentionally launched.
-4. Document pricing decisions in roadmap/Shopify notes so future checkout setup uses the same numbers.
+4. Keep pricing only in memory/internal decision context until Jace approves public display.
 
 ## Bundle Architecture
 
 | Bundle | Includes | Normal | Bundle | Save |
 |---|---|---:|---:|---:|
-| Starter Bundle | Tee + Hat | `$105` | `$95` | `$10` |
-| Discipline Kit | Hoodie + Hat | `$180` | `$170` | `$10` |
-| Full Drop Bundle | Tee + Hoodie + Hat | `$235` | `$220` | `$15` |
+| Starter Bundle | Tee + Hat | Coming soon | Coming soon | Coming soon |
+| Discipline Kit | Hoodie + Hat | Coming soon | Coming soon | Coming soon |
+| Full Drop Bundle | Tee + Hoodie + Hat | Coming soon | Coming soon | Coming soon |
 
-Free shipping threshold: `$150+`.
+Shipping threshold: coming soon.
 
 ## Website Execution
 
-1. Update individual product cards and product pages to the clean public prices.
-2. Update product JSON-LD prices to match the public display prices.
+1. Update individual product cards and product pages to coming-soon language.
+2. Remove product JSON-LD prices until public pricing is approved.
 3. Add `/shop.html` section below individual products:
    - Eyebrow: `DROP 001 BUNDLES`
    - Heading: `BUILD THE UNIFORM.`
    - Copy: premium “complete the uniform” framing, not discount-rack language.
-   - Bundle cards with `Normally`, `Save`, and early-access CTAs.
-   - Microcopy: `Bundle pricing available when checkout opens.`
-4. Add `Free shipping over $150.` in buyer notes.
+   - Bundle cards with coming-soon labels and early-access CTAs.
+   - Microcopy: `Bundle details will be announced before checkout opens.`
+4. Keep shipping threshold coming soon in buyer notes.
 5. Track bundle CTA clicks with existing Vercel Analytics helper, without personal data.
 6. Update docs:
    - master roadmap Phase C/D status
@@ -47,7 +47,7 @@ Free shipping threshold: `$150+`.
 
 ## Verification
 
-- Search for stale prices `$56` and `$134` after edits.
+- Search for stale public price numbers after edits.
 - Search for forbidden public checkout CTAs.
 - Validate HTML refs + JSON-LD.
 - QA `/shop.html` desktop and mobile.

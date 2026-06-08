@@ -33,7 +33,7 @@
    - `TEE_FrontBack_CardBg_V04.png`
    - `HOODIE_FrontBack_CardBg_V04.png`
    - `HAT_FrontBack_CardBg_V04.png`
-5. Display clean public preview prices: `$55`, `$130`, `$50`.
+5. Display coming-soon availability language until public pricing is approved.
 6. Use `Early Access List Open` and `Join List for First Access` until checkout exists.
 7. Add one concise buyer-info section for status, sizing, shipping/returns, and next step.
 8. Add ItemList JSON-LD for the collection.
@@ -122,4 +122,4 @@
 
 ## Pricing update note — 2026-06-08
 
-This plan was superseded by `2026-06-08-drop001-pricing-bundle-plan.md` for final public pricing and bundle display.
+This plan was superseded by `2026-06-08-drop001-pricing-bundle-plan.md`; public prices are currently hidden.
