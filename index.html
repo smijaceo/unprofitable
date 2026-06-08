@@ -121,7 +121,7 @@
     .btn-dark { background: var(--black); color: var(--white); border-color: var(--black); }
     .btn-dark:hover { background: var(--white); color: var(--black); }
 
-    .section { max-width: var(--max); margin: 0 auto; padding: 96px 22px; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 96px 22px; scroll-margin-top: 92px; }
     .kicker, .eyebrow {
       font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
@@ -551,6 +551,7 @@
     }
 
     .world-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.world-proof-card{border:1px solid var(--line);background:var(--panel);padding:clamp(24px,4vw,42px);min-height:320px}.world-proof-card.light{background:#fff;color:#000}.world-proof-card h2{margin:12px 0 0;font-size:clamp(42px,6vw,82px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.world-proof-card p{color:var(--muted);line-height:1.55}.world-proof-card.light p{color:#222}.world-proof-list{display:grid;gap:10px;margin-top:22px}.world-proof-list span{border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:14px}.world-proof-card.light .world-proof-list span{border-color:rgba(0,0,0,.16);color:#222}@media(max-width:900px){.world-proof-grid{grid-template-columns:1fr}}
+    .home-conversion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:homeStep}.home-step,.benefit-card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel-2),#050505);padding:22px;min-height:185px}.home-step:before{counter-increment:homeStep;content:"0" counter(homeStep);display:inline-flex;margin-bottom:24px;font-family:'Geist Mono';font-size:11px;letter-spacing:.18em;color:var(--soft)}.home-step h3,.benefit-card h3{margin:0 0 12px;font-size:18px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}.home-step p,.benefit-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:1040px){.home-conversion-grid{grid-template-columns:repeat(2,1fr)}.benefit-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.home-conversion-grid,.benefit-grid{grid-template-columns:1fr}.home-step,.benefit-card{min-height:auto}}
     /* homepage-conversion-upgrade */
   </style>
 
@@ -665,6 +666,41 @@
       </div>
     </section>
 
+    <section class="section" id="how-drop-works" aria-labelledby="home-how-title">
+      <div class="section-head">
+        <div>
+          <div class="kicker">How The Drop Works</div>
+          <h2 id="home-how-title">List First.<br>Checkout Later.</h2>
+        </div>
+        <p>Drop 001 is in early-access mode. Final sizing, product specs, photos, shipping details, and return terms will be posted before any payment is accepted.</p>
+      </div>
+      <div class="home-conversion-grid" aria-label="Drop 001 launch sequence">
+        <article class="home-step"><h3>Join the Drop List</h3><p>Get on the early-access list before public checkout opens.</p></article>
+        <article class="home-step"><h3>Get product proof</h3><p>Final photos, measurements, fabric details, and fit guidance go out before payment is accepted.</p></article>
+        <article class="home-step"><h3>Early access opens</h3><p>The list gets launch notice, bundle pricing, and size alerts first.</p></article>
+        <article class="home-step"><h3>Public checkout opens</h3><p>Checkout opens only after product details, shipping timeline, and policy terms are live.</p></article>
+        <article class="home-step"><h3>First run ships</h3><p>The first production run ships after the launch window. Restock is not guaranteed until demand is proven.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="why-join" aria-labelledby="why-join-title">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Why Join The Drop List</div>
+          <h2 id="why-join-title">First Access Has Value.</h2>
+        </div>
+        <p>Join the list for early access before public checkout, final sizing, product photos, bundle pricing, and launch updates.</p>
+      </div>
+      <div class="benefit-grid" aria-label="Drop List benefits">
+        <article class="benefit-card"><h3>Early access link</h3><p>Get the checkout window before it opens to everyone.</p></article>
+        <article class="benefit-card"><h3>Final size chart</h3><p>Measurements and fit notes before any payment is accepted.</p></article>
+        <article class="benefit-card"><h3>Product photos</h3><p>Real sample photos, detail shots, and model references first.</p></article>
+        <article class="benefit-card"><h3>Bundle pricing</h3><p>Tee + hat, hoodie + hat, and full-drop pricing announced to the list first.</p></article>
+        <article class="benefit-card"><h3>Launch notice</h3><p>No guessing when Drop 001 opens. The list gets notified first.</p></article>
+        <article class="benefit-card"><h3>Restock updates</h3><p>If a second run happens, early interest helps determine what comes back.</p></article>
+      </div>
+    </section>
+
     <section class="section" id="photo-story" aria-labelledby="photo-story-title">
       <div class="section-head">
         <div>
@@ -773,7 +809,7 @@
             <h3 id="community-title">Rebuilding With Receipts.</h3>
             <p>For the ones who are done pretending the screenshot tells the whole story.<br><br>Review the work. Share the lesson. Keep the standard.</p>
           </div>
-          <a class="btn btn-dark" href="#" aria-label="Discord invite placeholder">Discord Invite Coming Soon</a>
+          <a class="btn btn-dark" href="#" aria-label="Discord invite coming soon">Discord Invite Coming Soon</a>
         </div>
         <div class="community-card">
           <div>
@@ -817,7 +853,7 @@
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <input id="email" name="email" type="email" autocomplete="email" required>
             </div>
             <fieldset class="field choice-field">
               <legend class="field-label">What brought you here?</legend>
