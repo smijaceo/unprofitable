@@ -549,6 +549,9 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition: none !important; }
     }
+
+    .world-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.world-proof-card{border:1px solid var(--line);background:var(--panel);padding:clamp(24px,4vw,42px);min-height:320px}.world-proof-card.light{background:#fff;color:#000}.world-proof-card h2{margin:12px 0 0;font-size:clamp(42px,6vw,82px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.world-proof-card p{color:var(--muted);line-height:1.55}.world-proof-card.light p{color:#222}.world-proof-list{display:grid;gap:10px;margin-top:22px}.world-proof-list span{border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:14px}.world-proof-card.light .world-proof-list span{border-color:rgba(0,0,0,.16);color:#222}@media(max-width:900px){.world-proof-grid{grid-template-columns:1fr}}
+    /* homepage-conversion-upgrade */
   </style>
 
   <script>
@@ -644,6 +647,23 @@
     </section>
 
 
+
+
+    <section class="section" id="world-proof" aria-labelledby="world-proof-title">
+      <div class="world-proof-grid">
+        <article class="world-proof-card light">
+          <div class="kicker" style="color:#333">The World of UNPROFITABLE</div>
+          <h2 id="world-proof-title">The Uniform For The Reset.</h2>
+          <p>UNPROFITABLE is for the ones rebuilding standards after bad decisions, bad weeks, bad trades, and bad habits. Drop 001 is not a flex piece. It is a uniform for quiet work, reviewed mistakes, better rules, and showing back up tomorrow.</p>
+        </article>
+        <article class="world-proof-card">
+          <div class="kicker">Product Proof Before Checkout</div>
+          <h2>No Mystery Blanks.</h2>
+          <p>Before Drop 001 opens, the site will show final product angles, fit references, detail closeups, measurements, material specs, and shipping terms so buyers know exactly what they are buying.</p>
+          <div class="world-proof-list"><span>Real sample photos and closeups</span><span>Size chart and model references</span><span>Fabric, print, embroidery, and care details</span></div>
+        </article>
+      </div>
+    </section>
 
     <section class="section" id="photo-story" aria-labelledby="photo-story-title">
       <div class="section-head">
@@ -774,18 +794,18 @@
           <div>
             <div class="kicker">Drop List / Early Access</div>
             <h2 id="waitlist-title">Get in before Drop 001.</h2>
-            <p>Drop 001 opens with three pieces only: tee, hoodie, hat. Join the list and get first notice when checkout goes live.</p>
+            <p>Join the Drop List for first access, final sizing, product proof, bundle pricing, and launch notice before public checkout opens.</p>
           </div>
           <div class="waitlist-bullets" aria-label="Drop list benefits">
-            <span>First release updates</span>
-            <span>Early access only</span>
-            <span>Tee / Hoodie / Hat</span>
+            <span>Early access link</span>
+            <span>Final sizing first</span>
+            <span>Bundle pricing notice</span>
           </div>
         </div>
         <div class="waitlist-panel">
           <div class="kicker">PROCESS OVER OUTCOME</div>
           <h3>Join the Drop List.</h3>
-          <p>Join the list before checkout opens.</p>
+          <p>Get first access to Drop 001, size alerts, bundle pricing, and launch updates before public checkout opens.</p>
           <form class="drop-form" id="drop-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="drop-list-intent">
             <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
             <input type="hidden" name="_template" value="table">

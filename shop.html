@@ -32,9 +32,13 @@
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    .conversion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:dropstep}.conversion-step,.proof-card,.faq-mini-card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel-2),#060606);padding:22px;min-height:210px}.conversion-step:before{counter-increment:dropstep;content:"0" counter(dropstep);display:inline-flex;margin-bottom:28px;font-family:'Geist Mono';font-size:11px;letter-spacing:.18em;color:var(--soft)}.conversion-step h3,.proof-card h3,.faq-mini-card h3{margin:0 0 12px;font-size:18px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}.conversion-step p,.proof-card p,.faq-mini-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.proof-card{min-height:180px}.world-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.world-panel{border:1px solid var(--line);background:#f4f4f4;color:#000;padding:clamp(26px,4vw,46px);min-height:410px;display:flex;flex-direction:column;justify-content:space-between}.world-panel.dark{background:var(--panel-2);color:#fff}.world-panel h2{margin:14px 0 0;font-size:clamp(42px,6vw,82px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.world-panel p{font-size:16px;line-height:1.55;opacity:.72;max-width:610px}.world-list{display:grid;gap:10px}.world-list span{border-top:1px solid rgba(255,255,255,.18);padding-top:12px;color:var(--muted);font-size:14px}.faq-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.drop-list-callout{border:1px solid var(--line-strong);background:#fff;color:#000;padding:clamp(26px,5vw,52px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.drop-list-callout h2{margin:0;font-size:clamp(40px,6vw,84px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.drop-list-callout p{margin:14px 0 0;max-width:700px;color:#222;line-height:1.55}.drop-list-callout .btn{white-space:nowrap}@media(max-width:1040px){.conversion-grid,.proof-grid,.faq-mini-grid{grid-template-columns:1fr 1fr}.world-grid,.drop-list-callout{grid-template-columns:1fr}}@media(max-width:640px){.conversion-grid,.proof-grid,.faq-mini-grid{grid-template-columns:1fr}.conversion-step,.proof-card,.faq-mini-card{min-height:auto}.drop-list-callout .btn{width:100%}}
+  </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand-lockup" href="index.html" aria-label="UNPROFITABLE home"><span class="mini-mark"><img src="assets/unprofitable-main-logo.png" alt="UNPROFITABLE UP arrow monogram"></span><span class="wordmark">UNPROFITABLE</span></a><div class="nav-links" aria-label="Page sections"><a href="shop.html">Shop</a><a href="#drop">Drop 001</a><a href="#bundles">Bundles</a><a href="#status">Status</a><a href="index.html#waitlist">Drop List</a></div><a class="btn btn-primary" href="index.html#waitlist">Join Drop List</a></div></nav>
+  <nav class="nav" aria-label="Main navigation"><div class="nav-inner"><a class="brand-lockup" href="index.html" aria-label="UNPROFITABLE home"><span class="mini-mark"><img src="assets/unprofitable-main-logo.png" alt="UNPROFITABLE UP arrow monogram"></span><span class="wordmark">UNPROFITABLE</span></a><div class="nav-links" aria-label="Page sections"><a href="shop.html">Shop</a><a href="#drop">Drop 001</a><a href="#how-it-works">How It Works</a><a href="#bundles">Bundles</a><a href="#status">Status</a><a href="index.html#waitlist">Drop List</a></div><a class="btn btn-primary" href="index.html#waitlist">Join Drop List</a></div></nav>
   <main>
     <section class="hero" aria-labelledby="shop-title">
       <div>
@@ -42,7 +46,7 @@
         <h1 id="shop-title">The First Uniform.</h1>
         <p class="hero-copy">Three blacked-out pieces for people rebuilding their standards. Oversized tee, heavyweight hoodie, structured hat. White artwork only. Early access list open before checkout goes live.</p>
         <div class="hero-actions"><a class="btn btn-primary" href="index.html#waitlist" data-track="join-list" data-placement="shop-hero">Join Drop List</a><a class="btn btn-secondary" href="#drop">View the Pieces</a></div>
-        <p class="fine-note">Preview mode. Checkout is not live yet. Join the list for first access.</p>
+        <p class="fine-note">Join the Drop List for first access, final sizing, product proof, bundle pricing, and launch notice before public checkout opens.</p>
       </div>
       <div class="hero-stage" aria-label="Drop 001 product stack">
         <div class="drop-stamp">Early Access<br>List Open</div>
@@ -53,10 +57,25 @@
       </div>
     </section>
 
+
+
+    <section class="section" id="world" aria-labelledby="world-title">
+      <div class="world-grid">
+        <div class="world-panel">
+          <div><div class="kicker" style="color:#333">The World of UNPROFITABLE</div><h2 id="world-title">The Reset Uniform.</h2></div>
+          <p>UNPROFITABLE is for the ones rebuilding standards after bad decisions, bad weeks, bad trades, and bad habits. Drop 001 is not a flex piece. It is a uniform for the reset: quiet work, reviewed mistakes, better rules, and showing back up tomorrow.</p>
+        </div>
+        <div class="world-panel dark">
+          <div><div class="kicker">Brand Code</div><h2>Recovery Arc.</h2></div>
+          <div class="world-list"><span>Late-night desk. Notebook open. Checklist rewritten.</span><span>Garment patch, back print, embroidery, fabric texture.</span><span>The uniform for the recovery arc — not charts, cash, or guru imagery.</span><span>First run quantity will be announced before checkout opens.</span></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="drop" aria-labelledby="drop-title">
       <div class="section-head">
         <div><div class="kicker">Shop / Drop Preview</div><h2 id="drop-title">Drop 001.</h2></div>
-        <p>One shirt. One hoodie. One hat. The pieces are priced for preview and stay on early-access status until checkout is connected.</p>
+        <p>One shirt. One hoodie. One hat. The pieces are priced for preview and stay on early-access status until final specs, sizing, shipping, and checkout are ready.</p>
       </div>
       <div class="product-grid">
         <article class="product-card">
@@ -71,6 +90,34 @@
           <a class="product-media" data-code="HAT / 001" href="disciplined-structured-hat.html" data-product="DISCIPLINED Structured Hat"><img src="assets/drop001-library/HAT_FrontBack_CardBg_V04.png" alt="DISCIPLINED Structured Hat full product reference"></a>
           <div class="product-copy"><div class="product-top"><h3>DISCIPLINED Structured Hat</h3><div class="price">$50</div></div><p>Structured black hat with arched DISCIPLINED embroidery, U/P side mark, and UNPROFITABLE stitched on the back.</p><div class="meta-list"><div class="meta-line"><b>Status</b><span>Early Access</span></div><div class="meta-line"><b>Fit</b><span>Structured hat</span></div><div class="meta-line"><b>Artwork</b><span>Embroidery / side mark / back hit</span></div></div><div class="product-actions"><a class="btn btn-primary" href="index.html#waitlist" data-track="join-list" data-placement="hat-card">Join List for First Access</a><a class="btn btn-secondary" href="disciplined-structured-hat.html" data-product="DISCIPLINED Structured Hat">Details</a></div></div>
         </article>
+      </div>
+    </section>
+
+
+
+    <section class="section" id="how-it-works" aria-labelledby="how-title">
+      <div class="section-head">
+        <div><div class="kicker">How The Drop Works</div><h2 id="how-title">Early Access Has A Job.</h2></div>
+        <p>Join the Drop List for first access, final sizing, product proof, bundle pricing, and launch notice before public checkout opens.</p>
+      </div>
+      <div class="conversion-grid" aria-label="Drop 001 launch sequence">
+        <article class="conversion-step"><h3>Join the list</h3><p>Get on the Drop 001 early-access list before checkout opens.</p></article>
+        <article class="conversion-step"><h3>Get product proof</h3><p>Final photos, measurements, fabric details, and size guidance go out before payment is accepted.</p></article>
+        <article class="conversion-step"><h3>Early access opens</h3><p>The list gets the launch notice, bundle pricing, and size alerts first.</p></article>
+        <article class="conversion-step"><h3>Public checkout opens</h3><p>Only after product details, shipping timeline, and policy terms are posted.</p></article>
+        <article class="conversion-step"><h3>First run ships</h3><p>Limited first production run. Restock is not guaranteed until demand is proven.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="product-proof" aria-labelledby="proof-title">
+      <div class="section-head">
+        <div><div class="kicker">Product Proof Before Checkout</div><h2 id="proof-title">No Mystery Blanks.</h2></div>
+        <p>Before Drop 001 opens, every product page will show the real product angles, fit references, detail closeups, sizing, and final specs so buyers know exactly what they are buying.</p>
+      </div>
+      <div class="proof-grid">
+        <article class="proof-card"><h3>Real sample photos</h3><p>Full product, closeups, back print, patch, embroidery, and on-body references.</p></article>
+        <article class="proof-card"><h3>Fit & sizing</h3><p>Size chart, model references, and clear fit notes before checkout.</p></article>
+        <article class="proof-card"><h3>Fabric & method</h3><p>Final material, weight, print, embroidery, care, and production notes posted before payment.</p></article>
       </div>
     </section>
 
@@ -109,7 +156,7 @@
       <div class="info-grid">
         <div class="info-panel">
           <div><div class="kicker" style="color:#333">Buyer Status</div><h2 id="status-title">Early Access, Not Checkout.</h2></div>
-          <p>Drop 001 is in preview/list mode. The next business step is final product specs, checkout setup, and launch QA. Until then, the clean move is to join the list and pick the piece you care about most.</p>
+          <p>Drop 001 is in preview/list mode. Final sizing, product specs, photos, shipping details, and return terms will be posted before any payment is accepted. Until then, join the list and pick the piece you care about most.</p>
           <a class="btn btn-dark" href="index.html#waitlist" data-track="join-list" data-placement="status-panel">Join Drop List</a>
         </div>
         <div class="info-panel dark">
@@ -131,6 +178,29 @@
         <div class="photo-card" data-label="Full Drop"><img src="assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" alt="Angled Drop 001 product photos"></div>
         <div class="photo-card contain" data-label="Details"><img src="assets/drop001-library/ONBODY_ProductDetail_Closeups_V01.png" alt="Drop 001 detail closeups"></div>
       </div>
+    </section>
+
+
+
+    <section class="section" id="faq" aria-labelledby="shop-faq-title">
+      <div class="section-head">
+        <div><div class="kicker">FAQ / Drop Facts</div><h2 id="shop-faq-title">Before Checkout.</h2></div>
+        <p>Buyer confidence first. No payment is accepted until the final details are live.</p>
+      </div>
+      <div class="faq-mini-grid">
+        <article class="faq-mini-card"><h3>When does Drop 001 launch?</h3><p>The launch date will be announced to the Drop List first. Public checkout opens after final product proof is posted.</p></article>
+        <article class="faq-mini-card"><h3>Is checkout open yet?</h3><p>No. This is early-access preview mode. Join the list for first notice before public checkout opens.</p></article>
+        <article class="faq-mini-card"><h3>Will sizing be posted?</h3><p>Yes. Final measurements, fit notes, and model references will be posted before any payment is accepted.</p></article>
+        <article class="faq-mini-card"><h3>How limited is the first run?</h3><p>First-run quantity will be announced before checkout opens. Restock is not guaranteed.</p></article>
+        <article class="faq-mini-card"><h3>What is the return policy?</h3><p>Returns, exchanges, damaged-item rules, and final-sale terms will be posted before purchase.</p></article>
+        <article class="faq-mini-card"><h3>Is this trading advice?</h3><p>No. UNPROFITABLE is a streetwear and community brand. No signals, trade alerts, or guaranteed outcomes.</p></article>
+        <article class="faq-mini-card"><h3>Are these real photos?</h3><p>The page uses Drop 001 product references and detail imagery. Final sample proof will be posted before checkout.</p></article>
+        <article class="faq-mini-card"><h3>Why join early?</h3><p>First access, size alerts, final photos, bundle pricing, launch updates, and restock/second-run notices.</p></article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="list-repeat-title">
+      <div class="drop-list-callout"><div><div class="kicker" style="color:#333">Drop List Gets First</div><h2 id="list-repeat-title">First Access Before Public Checkout.</h2><p>Join the Drop List for final sizing, product proof, bundle pricing, shipping timeline, and launch notice before checkout opens.</p></div><a class="btn btn-dark" href="index.html#waitlist" data-track="join-list" data-placement="shop-bottom-callout">Join Drop List</a></div>
     </section>
 
     <section class="motto" aria-label="UNPROFITABLE motto"><h2>UNPROFITABLE TODAY.<br>PROFITABLE TOMORROW.</h2><p>The losses are temporary. The lessons compound.</p></section>

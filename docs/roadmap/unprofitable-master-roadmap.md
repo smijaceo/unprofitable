@@ -266,6 +266,8 @@ Recommended short-term: create a static `/shop.html` or `/drop-001.html` that co
 
 - A buyer can answer: what is it, how does it fit, what is it made of, what does it cost, when can I get it, and what happens if there is an issue?
 - Product pages feel intentional on mobile, not just photo dumps.
+
+**Status — 2026-06-08:** Streetwear conversion upgrade added buyer-confidence sections across the shop hub and product pages: The World of UNPROFITABLE, How The Drop Works, Product Proof, Fit & Sizing placeholders, model-reference placeholders, shipping/returns preview, bundle CTAs, and FAQ. Final measurements/specs still need vendor/sample confirmation before checkout.
 - Product schema is updated with accurate info.
 
 ### Do not drift into
@@ -604,25 +606,25 @@ Traffic -> list/shop -> purchase/community -> feedback -> next drop.
 
 ## 12. Immediate Next Piece
 
-The next concrete piece should be **Phase B: Conversion Infrastructure**.
+The next concrete piece should be **Phase C: Product + Shop Readiness**, then **Phase D: Inventory/COGS**, because Phase B is functionally in place for pre-launch.
 
 Recommended first task:
 
 ```text
-Choose the brand-owned drop-list destination.
+Confirm final product specs, size charts, material/production details, and model references for each Drop 001 product.
 ```
 
 Decision needed from Jace:
 
-1. Use a dedicated brand Gmail for now.
-2. Set up domain email / Google Workspace.
-3. Choose an email platform like Shopify Email, Klaviyo, ConvertKit, Beehiiv, or Mailchimp.
-4. Keep FormSubmit temporarily but route it to a better destination than a personal inbox.
+1. Final available size range for tee/hoodie/hat.
+2. Final garment measurements and model references.
+3. Fabric weight/material blend/print or embroidery method.
+4. Production timeline, shipping regions, returns/exchange terms.
 
 After that decision, the next build task is:
 
 ```text
-Wire the selected destination, test signup delivery, add analytics events, and verify desktop/mobile success/error states.
+Update each product page with confirmed specs, then run checkout/platform QA only when purchase launch is actually intended.
 ```
 
 ---
