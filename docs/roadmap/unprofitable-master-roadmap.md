@@ -42,7 +42,8 @@ Exactly three pieces:
   - `returns.html`
   - `privacy.html`
   - `disclaimer.html`
-- Waitlist/drop-list form currently using FormSubmit AJAX to a Gmail destination.
+- Waitlist/drop-list form currently using FormSubmit AJAX to `drop@wearunprofitable.com`.
+- FormSubmit activation/delivery still needs to be verified in the `drop@wearunprofitable.com` inbox before traffic is sent.
 - Discord CTA currently placeholder/coming soon unless a real invite is supplied.
 
 ### Current copy/positioning standard
@@ -112,7 +113,7 @@ Create a shared operating plan so every future UNPROFITABLE task maps to a phase
 
 - [x] Create this master roadmap file.
 - [ ] Add a lightweight task tracker/checklist file if needed.
-- [ ] Add a `docs/decisions/` log for durable business/design decisions.
+- [x] Add a `docs/decisions/` log for durable business/design decisions.
 - [ ] Add a `docs/launch-checklists/` folder for repeatable QA.
 
 ### Done when
@@ -137,12 +138,15 @@ Make the drop-list reliable, organized, and brand-owned before driving traffic.
 ### Current state
 
 - Waitlist form exists.
-- Form currently routes through FormSubmit AJAX to a Gmail destination.
+- Form currently routes through FormSubmit AJAX to `drop@wearunprofitable.com`.
+- Destination system chosen: domain email alias/inbox `drop@wearunprofitable.com` for Drop 001 list + contact fallback.
 - Signup segmentation captures builder/creator/trader/discipline intent and product interest.
 
 ### Tasks
 
 #### B1. Choose destination inbox/list system
+
+**Decision:** use `drop@wearunprofitable.com` as the Drop 001 destination and contact fallback.
 
 Pick one path:
 
@@ -158,7 +162,7 @@ Pick one path:
 
 #### B2. Wire and verify signup delivery
 
-- [ ] Replace personal/temporary destination if Jace chooses a brand inbox/provider.
+- [x] Replace personal/temporary destination if Jace chooses a brand inbox/provider.
 - [ ] Confirm FormSubmit activation email if FormSubmit remains.
 - [ ] Submit a test signup.
 - [ ] Confirm the destination receives the signup.
