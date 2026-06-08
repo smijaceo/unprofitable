@@ -14,13 +14,13 @@ Products included:
 
 1. `DISCIPLINED Oversized Tee`
    - Handle: `disciplined-oversized-tee`
-   - Draft price: `$56.00`
+   - Draft price: `$55.00`
    - Sizes: `S, M, L, XL, 2XL`
    - SKUs: `UNP-D001-TEE-BLK-*`
 
 2. `DISCIPLINED Heavyweight Hoodie`
    - Handle: `disciplined-heavyweight-hoodie`
-   - Draft price: `$134.00`
+   - Draft price: `$130.00`
    - Sizes: `S, M, L, XL, 2XL`
    - SKUs: `UNP-D001-HOODIE-BLK-*`
 
@@ -45,7 +45,9 @@ Products included:
 
 ## Important review items before publishing
 
-- Prices are draft midpoint recommendations, not final COGS-backed prices.
+- Public prices use clean Drop 001 pricing: Tee `$55`, Hoodie `$130`, Hat `$50`. Internal COGS/margin models can stay exact, but customer-facing pricing should stay clean unless Jace changes vendor/COGS inputs.
+- Bundle architecture for checkout setup: Starter Bundle `$95` (tee + hat, normally `$105`), Discipline Kit `$170` (hoodie + hat, normally `$180`), Full Drop Bundle `$220` (tee + hoodie + hat, normally `$235`).
+- Recommended free shipping threshold: `$150+`.
 - Inventory is set to `0` and status is `draft` so nothing accidentally sells before launch.
 - Shipping weights are working estimates:
   - Tee: 283g

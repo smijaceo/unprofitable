@@ -33,7 +33,7 @@
    - `TEE_FrontBack_CardBg_V04.png`
    - `HOODIE_FrontBack_CardBg_V04.png`
    - `HAT_FrontBack_CardBg_V04.png`
-5. Display current preview prices already present on product pages: `$56`, `$134`, `$50`.
+5. Display clean public preview prices: `$55`, `$130`, `$50`.
 6. Use `Early Access List Open` and `Join List for First Access` until checkout exists.
 7. Add one concise buyer-info section for status, sizing, shipping/returns, and next step.
 8. Add ItemList JSON-LD for the collection.
@@ -118,3 +118,8 @@
 - Homepage/product pages point to it.
 - Sitemap/llms/roadmap are updated.
 - Local + live checks pass.
+
+
+## Pricing update note — 2026-06-08
+
+This plan was superseded by `2026-06-08-drop001-pricing-bundle-plan.md` for final public pricing and bundle display.

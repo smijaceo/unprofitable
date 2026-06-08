@@ -224,7 +224,7 @@ Turn the current preview/product pages into buyer-ready product information befo
 
 For each product, finalize:
 
-- [ ] Retail price.
+- [x] Retail price.
 - [ ] Available sizes.
 - [ ] Fit notes.
 - [ ] Materials/fabric weight.
@@ -260,7 +260,7 @@ Decide whether to add:
 
 Recommended short-term: create a static `/shop.html` or `/drop-001.html` that collects the three product pages and waitlist CTA.
 
-**Status — 2026-06-08:** Static `/shop.html` Drop 001 hub is implemented with three product cards, preview pricing, early-access CTAs, collection JSON-LD, and Vercel Analytics events. Checkout is still not live; product CTAs remain drop-list/details oriented.
+**Status — 2026-06-08:** Static `/shop.html` Drop 001 hub is implemented with three product cards, clean public pricing, early-access CTAs, collection JSON-LD, and Vercel Analytics events. Checkout is still not live; product CTAs remain drop-list/details oriented. Pricing updated to Tee `$55`, Hoodie `$130`, Hat `$50`, with bundle preview section for Starter Bundle `$95`, Discipline Kit `$170`, and Full Drop Bundle `$220`.
 
 ### Done when
 
@@ -291,7 +291,7 @@ Make the drop financially coherent before checkout or inventory commitments.
 - [ ] Confirm shipping/fulfillment costs.
 - [ ] Confirm platform/payment fees.
 - [ ] Finalize target gross margin and contribution margin.
-- [ ] Finalize retail pricing.
+- [x] Finalize retail pricing.
 - [ ] Decide preorder vs limited inventory vs made-to-order.
 - [ ] Build launch inventory scenarios:
   - conservative
@@ -299,6 +299,20 @@ Make the drop financially coherent before checkout or inventory commitments.
   - aggressive
 - [ ] Define break-even units.
 - [ ] Define max acceptable CAC by product/order.
+
+### Current pricing decision — 2026-06-08
+
+Customer-facing Drop 001 pricing should be clean and brand-led, not spreadsheet-exact:
+
+- `DISCIPLINED Oversized Tee` — `$55`
+- `DISCIPLINED Heavyweight Hoodie` — `$130`
+- `DISCIPLINED Structured Hat` — `$50`
+- `Starter Bundle` — `$95` (`Tee + Hat`, normally `$105`, save `$10`)
+- `Discipline Kit` — `$170` (`Hoodie + Hat`, normally `$180`, save `$10`)
+- `Full Drop Bundle` — `$220` (`Tee + Hoodie + Hat`, normally `$235`, save `$15`)
+- Free shipping threshold: `$150+`
+
+The website should frame bundles as completing the uniform, not as a discount rack. Checkout is still not live, so bundle CTAs stay waitlist-oriented.
 
 ### Done when
 
