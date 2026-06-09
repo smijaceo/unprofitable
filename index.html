@@ -594,6 +594,260 @@
 
 /* Mobile containment polish */
 @media(max-width:720px){html,body{width:100%;max-width:100%;overflow-x:hidden}.section,.hero,.product-hero,nav,footer{max-width:100%;overflow-x:hidden}.hero>* ,.section>* ,.product-hero>*{min-width:0}.hero-copy,p,h1,h2,h3,.fine-note,.quick-capture,.signup-capture-card{max-width:100%;overflow-wrap:break-word}.quick-capture{width:100%}.quick-signup-form input{min-width:0}.hero-stage,.media-stage,.product-media,.photo-card,.rel-media{max-width:100%;overflow:hidden}}
+
+
+/* Premium Drop List CTA + motion polish */
+.btn,
+.quick-signup-form .btn,
+.product-actions .btn,
+.mobile-cta-bar .btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 999px;
+  letter-spacing: .14em;
+  transition: transform .26s var(--ease), background .26s var(--ease), color .26s var(--ease), border-color .26s var(--ease), box-shadow .26s var(--ease), opacity .26s var(--ease);
+}
+.btn::after,
+.mobile-cta-bar .btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.34) 42%, transparent 68%);
+  transform: translateX(-135%);
+  transition: transform .62s var(--ease);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.btn:hover::after,
+.mobile-cta-bar .btn:hover::after { transform: translateX(135%); }
+.product-card .product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0,0,0,.16);
+}
+.product-card .product-actions .btn {
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 10px;
+  font-weight: 900;
+  box-shadow: none;
+}
+.product-card .product-actions .btn-primary {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.product-card .product-actions .btn-primary:hover {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  transform: translateY(-1px);
+}
+.product-card .product-actions .btn-secondary {
+  color: #000;
+  border-color: rgba(0,0,0,.24);
+  background: transparent;
+}
+.product-card .product-actions .btn-secondary:hover {
+  border-color: #000;
+  background: rgba(0,0,0,.06);
+  transform: translateY(-1px);
+}
+.mobile-cta-bar {
+  position: fixed;
+  left: max(14px, env(safe-area-inset-left));
+  right: max(14px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: min(520px, calc(100% - 28px));
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(4,4,4,.78);
+  backdrop-filter: blur(18px) saturate(160%);
+  padding: 8px 8px 8px 18px;
+  box-shadow: 0 18px 70px rgba(0,0,0,.66), inset 0 1px 0 rgba(255,255,255,.08);
+  transform: translate3d(0, calc(100% + 24px), 0) scale(.985);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .46s cubic-bezier(.16,1,.3,1), opacity .28s ease, border-color .28s ease;
+}
+.mobile-cta-bar.is-visible {
+  transform: translate3d(0,0,0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-cta-bar span {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.86);
+  white-space: nowrap;
+}
+.mobile-cta-bar .btn {
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 10px;
+  font-weight: 950;
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 12px 34px rgba(255,255,255,.12);
+  white-space: nowrap;
+}
+.signup-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(0,0,0,0);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .32s ease, visibility .32s ease, background .32s ease, backdrop-filter .32s ease;
+}
+.signup-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(14px) saturate(130%);
+}
+.signup-modal-card {
+  width: min(560px, 100%);
+  border: 1px solid rgba(255,255,255,.22);
+  background: #f7f7f7;
+  color: #000;
+  padding: clamp(24px, 4vw, 42px);
+  box-shadow: 0 36px 120px rgba(0,0,0,.76);
+  position: relative;
+  transform: translate3d(0,18px,0) scale(.965);
+  opacity: 0;
+  transition: transform .44s cubic-bezier(.16,1,.3,1), opacity .32s ease;
+}
+.signup-modal.is-open .signup-modal-card {
+  transform: translate3d(0,0,0) scale(1);
+  opacity: 1;
+}
+.signup-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.18);
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: transform .22s var(--ease), background .22s var(--ease), color .22s var(--ease);
+}
+.signup-modal-close:hover { transform: rotate(90deg); background: #000; color: #fff; }
+.signup-modal .quick-signup-form .btn,
+.signup-capture-card .quick-signup-form .btn {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.signup-modal .quick-signup-form .btn:hover,
+.signup-capture-card .quick-signup-form .btn:hover {
+  background: #fff;
+  color: #000;
+}
+@media (max-width: 760px) {
+  .product-card .product-actions { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .product-card .product-actions .btn { width: 100%; min-height: 42px; font-size: 9.5px; padding: 0 10px; }
+  .quick-signup-form { grid-template-columns: 1fr; }
+  .quick-signup-form .btn { width: 100%; }
+  body { padding-bottom: 94px !important; }
+}
+@media (max-width: 390px) {
+  .mobile-cta-bar span { font-size: 9px; letter-spacing: .14em; }
+  .mobile-cta-bar .btn { padding: 0 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .mobile-cta-bar, .signup-modal, .signup-modal-card { transition: none !important; }
+  .btn::after, .mobile-cta-bar .btn::after { display: none; }
+}
+
+
+
+/* Product card CTA contrast correction */
+.product-card .product-actions .btn-primary {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 10px 28px rgba(255,255,255,.10);
+}
+.product-card .product-actions .btn-primary:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.product-card .product-actions .btn-secondary {
+  color: rgba(255,255,255,.86);
+  border-color: rgba(255,255,255,.28);
+  background: transparent;
+}
+.product-card .product-actions .btn-secondary:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255,255,255,.08);
+}
+@media (max-width: 760px) {
+  .product-card .product-actions .btn-primary {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+    box-shadow: none;
+  }
+  .product-card .product-actions .btn-primary:hover {
+    background: #fff;
+    color: #000;
+    border-color: #000;
+  }
+  .product-card .product-actions .btn-secondary {
+    color: #000;
+    border-color: rgba(0,0,0,.26);
+    background: transparent;
+  }
+  .product-card .product-actions .btn-secondary:hover {
+    color: #000;
+    border-color: #000;
+    background: rgba(0,0,0,.06);
+  }
+}
+
+
+
+/* Modal mobile readability correction */
+.signup-modal-card > .kicker {
+  padding-right: 48px;
+  max-width: calc(100% - 42px);
+  font-size: 10px;
+  letter-spacing: .16em;
+  line-height: 1.45;
+}
+@media (max-width: 430px) {
+  .signup-modal { padding: 16px; align-items: center; }
+  .signup-modal-card { padding: 28px 22px 24px; }
+  .signup-modal-card > .kicker { padding-right: 42px; max-width: 260px; letter-spacing: .12em; }
+  .signup-modal-card h2 { font-size: clamp(34px, 10vw, 46px); }
+}
+
 </style>
 
   <script>
@@ -630,24 +884,7 @@
             <a class="btn btn-primary" href="#waitlist">Join Drop List</a>
             <a class="btn btn-secondary" href="shop.html">View Drop 001</a>
           </div>
-          <div class="fine-note">No signals. No guru act. No fake flex. Just a uniform for getting back to work.</div>
-          <div class="quick-capture" aria-label="Drop 001 early access signup">
-            <div class="kicker">Drop 001 Early Access</div>
-            <p>Get final sizing, product proof, and launch notice before public checkout.</p>
-            <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="hero-inline-drop-list-email">
-            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="source" value="hero-inline-drop-list-email">
-            <input type="hidden" name="identity" value="Not specified">
-            <input type="hidden" name="interest" value="All Drop 001 pieces">
-            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
-            <label class="visually-hidden" for="hero-inline-drop-list-email-email">Email</label>
-            <input id="hero-inline-drop-list-email-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
-            <button class="btn btn-primary" type="submit">Join List</button>
-            <div class="form-status" role="status" aria-live="polite"></div>
-          </form>
-          </div>
+          <div class="fine-note">No fake flex. No loud costume. Just the uniform for getting back to work.</div>
         </div>
 
         <div class="hero-visual is-campaign" aria-label="DROP 001 DISCIPLINED campaign product photography">
@@ -708,57 +945,18 @@
       </div>
     </section>
 
-
-
-
-    <section class="section" id="world-proof" aria-labelledby="world-proof-title">
-      <div class="world-proof-grid">
-        <article class="world-proof-card light">
-          <div class="kicker" style="color:#333">The World of UNPROFITABLE</div>
-          <h2 id="world-proof-title">The Uniform For The Reset.</h2>
-          <p>UNPROFITABLE is for the ones rebuilding standards after bad decisions, bad weeks, bad trades, and bad habits. Drop 001 is not a flex piece. It is a uniform for quiet work, reviewed mistakes, better rules, and showing back up tomorrow.</p>
-        </article>
-        <article class="world-proof-card">
-          <div class="kicker">Product Proof Before Checkout</div>
-          <h2>No Mystery Blanks.</h2>
-          <p>Before Drop 001 opens, the site will show final product angles, fit references, detail closeups, measurements, material specs, and shipping terms so buyers know exactly what they are buying.</p>
-          <div class="world-proof-list"><span>Product reference photos and closeups</span><span>Size chart and fit references</span><span>Fabric, print, embroidery, and care details</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="how-drop-works" aria-labelledby="home-how-title">
+    <section class="section" id="drop-rules" aria-labelledby="drop-rules-title">
       <div class="section-head">
         <div>
-          <div class="kicker">How The Drop Works</div>
-          <h2 id="home-how-title">List First.<br>Checkout Later.</h2>
+          <div class="kicker">Before Checkout</div>
+          <h2 id="drop-rules-title">Proof First.<br>Checkout Later.</h2>
         </div>
-        <p>Drop 001 is in early-access mode. Final sizing, product specs, photos, shipping details, and return terms will be posted before any payment is accepted.</p>
+        <p>Drop 001 stays in preview until the final photos, measurements, fabric notes, shipping timeline, and return terms are live.</p>
       </div>
-      <div class="home-conversion-grid" aria-label="Drop 001 launch sequence">
-        <article class="home-step"><h3>Join the Drop List</h3><p>Get on the early-access list before public checkout opens.</p></article>
-        <article class="home-step"><h3>Get product proof</h3><p>Final photos, measurements, fabric details, and fit guidance go out before payment is accepted.</p></article>
-        <article class="home-step"><h3>Early access opens</h3><p>The list gets launch notice, bundle details, and size alerts first.</p></article>
-        <article class="home-step"><h3>Public checkout opens</h3><p>Checkout opens only after product details, shipping timeline, and policy terms are live.</p></article>
-        <article class="home-step"><h3>First run ships</h3><p>The first production run ships after the launch window. Restock is not guaranteed until demand is proven.</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="why-join" aria-labelledby="why-join-title">
-      <div class="section-head">
-        <div>
-          <div class="kicker">Why Join The Drop List</div>
-          <h2 id="why-join-title">First Access Has Value.</h2>
-        </div>
-        <p>Join the list for early access before public checkout, final sizing, product photos, bundle details, and launch updates.</p>
-      </div>
-      <div class="benefit-grid" aria-label="Drop List benefits">
-        <article class="benefit-card"><h3>Early access link</h3><p>Get the checkout window before it opens to everyone.</p></article>
-        <article class="benefit-card"><h3>Final size chart</h3><p>Measurements and fit notes before any payment is accepted.</p></article>
-        <article class="benefit-card"><h3>Product photos</h3><p>Product reference photos, detail shots, and fit notes first.</p></article>
-        <article class="benefit-card"><h3>Bundle details</h3><p>Tee + hat, hoodie + hat, and full-drop details announced to the list first.</p></article>
-        <article class="benefit-card"><h3>Launch notice</h3><p>No guessing when Drop 001 opens. The list gets notified first.</p></article>
-        <article class="benefit-card"><h3>Restock updates</h3><p>If a second run happens, early interest helps determine what comes back.</p></article>
+      <div class="benefit-grid compact-rules" aria-label="Drop 001 access rules">
+        <article class="benefit-card"><h3>Join the list</h3><p>Get the first launch notice before public checkout opens.</p></article>
+        <article class="benefit-card"><h3>Review the proof</h3><p>Final size chart, product photos, fabric notes, and care details go out before payment.</p></article>
+        <article class="benefit-card"><h3>Checkout opens</h3><p>The list gets early access first. Public checkout follows only after the buyer details are posted.</p></article>
       </div>
     </section>
 
@@ -876,7 +1074,7 @@
           <div>
             <div class="kicker">What It Is / What It Is Not</div>
             <div class="definition-columns" aria-label="What UNPROFITABLE is and is not">
-              <div class="definition-column"><h4>What It Is</h4><ul><li>Blacked-out streetwear.</li><li>A discipline-first brand.</li><li>A community built around review, standards, and getting better.</li></ul></div>
+              <div class="definition-column"><h4>What It Is</h4><ul><li>Blacked-out streetwear.</li><li>A discipline-first brand.</li><li>A place for review, standards, and getting better.</li></ul></div>
               <div class="definition-column"><h4>What It Is Not</h4><ul><li>Not a signals room.</li><li>Not a coaching funnel.</li><li>Not financial advice.</li><li>Not fake P&amp;L culture.</li></ul></div>
             </div>
           </div>
@@ -1162,6 +1360,7 @@
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
       setTimeout(() => modalEmail && modalEmail.focus(), 40);
       trackEvent("drop_list_modal_open", { interest, source });
       return true;
@@ -1172,6 +1371,7 @@
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
     document.querySelectorAll("[data-signup-open]").forEach((trigger) => {

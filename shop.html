@@ -34,7 +34,7 @@
   <script defer src="/_vercel/insights/script.js"></script>
 
   <style>
-    .conversion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:dropstep}.conversion-step,.proof-card,.faq-mini-card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel-2),#060606);padding:22px;min-height:210px}.conversion-step:before{counter-increment:dropstep;content:"0" counter(dropstep);display:inline-flex;margin-bottom:28px;font-family:'Geist Mono';font-size:11px;letter-spacing:.18em;color:var(--soft)}.conversion-step h3,.proof-card h3,.faq-mini-card h3{margin:0 0 12px;font-size:18px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}.conversion-step p,.proof-card p,.faq-mini-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.proof-card{min-height:180px}.world-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.world-panel{border:1px solid var(--line);background:#f4f4f4;color:#000;padding:clamp(26px,4vw,46px);min-height:410px;display:flex;flex-direction:column;justify-content:space-between}.world-panel.dark{background:var(--panel-2);color:#fff}.world-panel h2{margin:14px 0 0;font-size:clamp(42px,6vw,82px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.world-panel p{font-size:16px;line-height:1.55;opacity:.72;max-width:610px}.world-list{display:grid;gap:10px}.world-list span{border-top:1px solid rgba(255,255,255,.18);padding-top:12px;color:var(--muted);font-size:14px}.faq-mini-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.drop-list-callout{border:1px solid var(--line-strong);background:#fff;color:#000;padding:clamp(26px,5vw,52px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.drop-list-callout h2{margin:0;font-size:clamp(40px,6vw,84px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.drop-list-callout p{margin:14px 0 0;max-width:700px;color:#222;line-height:1.55}.drop-list-callout .btn{white-space:nowrap}@media(max-width:1040px){.conversion-grid,.proof-grid,.faq-mini-grid{grid-template-columns:1fr 1fr}.world-grid,.drop-list-callout{grid-template-columns:1fr}}@media(max-width:640px){.conversion-grid,.proof-grid,.faq-mini-grid{grid-template-columns:1fr}.conversion-step,.proof-card,.faq-mini-card{min-height:auto}.drop-list-callout .btn{width:100%}}
+    .conversion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:dropstep}.conversion-step,.proof-card,.faq-mini-card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel-2),#060606);padding:22px;min-height:210px}.conversion-step:before{counter-increment:dropstep;content:"0" counter(dropstep);display:inline-flex;margin-bottom:28px;font-family:'Geist Mono';font-size:11px;letter-spacing:.18em;color:var(--soft)}.conversion-step h3,.proof-card h3,.faq-mini-card h3{margin:0 0 12px;font-size:18px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}.conversion-step p,.proof-card p,.faq-mini-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.proof-card{min-height:180px}.world-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px}.world-panel{border:1px solid var(--line);background:#f4f4f4;color:#000;padding:clamp(26px,4vw,46px);min-height:410px;display:flex;flex-direction:column;justify-content:space-between}.world-panel.dark{background:var(--panel-2);color:#fff}.world-panel h2{margin:14px 0 0;font-size:clamp(42px,6vw,82px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.world-panel p{font-size:16px;line-height:1.55;opacity:.72;max-width:610px}.world-list{display:grid;gap:10px}.world-list span{border-top:1px solid rgba(255,255,255,.18);padding-top:12px;color:var(--muted);font-size:14px}.faq-mini-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.drop-list-callout{border:1px solid var(--line-strong);background:#fff;color:#000;padding:clamp(26px,5vw,52px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}.drop-list-callout h2{margin:0;font-size:clamp(40px,6vw,84px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.drop-list-callout p{margin:14px 0 0;max-width:700px;color:#222;line-height:1.55}.drop-list-callout .btn{white-space:nowrap}@media(max-width:1040px){.conversion-grid,.proof-grid,.faq-mini-grid{grid-template-columns:1fr 1fr}.world-grid,.drop-list-callout{grid-template-columns:1fr}}@media(max-width:640px){.conversion-grid,.proof-grid,.faq-mini-grid{grid-template-columns:1fr}.conversion-step,.proof-card,.faq-mini-card{min-height:auto}.drop-list-callout .btn{width:100%}}
 
 
     /* Conversion capture system */
@@ -83,6 +83,260 @@
 
 /* Mobile containment polish */
 @media(max-width:720px){html,body{width:100%;max-width:100%;overflow-x:hidden}.section,.hero,.product-hero,nav,footer{max-width:100%;overflow-x:hidden}.hero>* ,.section>* ,.product-hero>*{min-width:0}.hero-copy,p,h1,h2,h3,.fine-note,.quick-capture,.signup-capture-card{max-width:100%;overflow-wrap:break-word}.quick-capture{width:100%}.quick-signup-form input{min-width:0}.hero-stage,.media-stage,.product-media,.photo-card,.rel-media{max-width:100%;overflow:hidden}}
+
+
+/* Premium Drop List CTA + motion polish */
+.btn,
+.quick-signup-form .btn,
+.product-actions .btn,
+.mobile-cta-bar .btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 999px;
+  letter-spacing: .14em;
+  transition: transform .26s var(--ease), background .26s var(--ease), color .26s var(--ease), border-color .26s var(--ease), box-shadow .26s var(--ease), opacity .26s var(--ease);
+}
+.btn::after,
+.mobile-cta-bar .btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.34) 42%, transparent 68%);
+  transform: translateX(-135%);
+  transition: transform .62s var(--ease);
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.btn:hover::after,
+.mobile-cta-bar .btn:hover::after { transform: translateX(135%); }
+.product-card .product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0,0,0,.16);
+}
+.product-card .product-actions .btn {
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 10px;
+  font-weight: 900;
+  box-shadow: none;
+}
+.product-card .product-actions .btn-primary {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.product-card .product-actions .btn-primary:hover {
+  background: #fff;
+  color: #000;
+  border-color: #000;
+  transform: translateY(-1px);
+}
+.product-card .product-actions .btn-secondary {
+  color: #000;
+  border-color: rgba(0,0,0,.24);
+  background: transparent;
+}
+.product-card .product-actions .btn-secondary:hover {
+  border-color: #000;
+  background: rgba(0,0,0,.06);
+  transform: translateY(-1px);
+}
+.mobile-cta-bar {
+  position: fixed;
+  left: max(14px, env(safe-area-inset-left));
+  right: max(14px, env(safe-area-inset-right));
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 70;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: min(520px, calc(100% - 28px));
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  background: rgba(4,4,4,.78);
+  backdrop-filter: blur(18px) saturate(160%);
+  padding: 8px 8px 8px 18px;
+  box-shadow: 0 18px 70px rgba(0,0,0,.66), inset 0 1px 0 rgba(255,255,255,.08);
+  transform: translate3d(0, calc(100% + 24px), 0) scale(.985);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .46s cubic-bezier(.16,1,.3,1), opacity .28s ease, border-color .28s ease;
+}
+.mobile-cta-bar.is-visible {
+  transform: translate3d(0,0,0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-cta-bar span {
+  font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.86);
+  white-space: nowrap;
+}
+.mobile-cta-bar .btn {
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 10px;
+  font-weight: 950;
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 12px 34px rgba(255,255,255,.12);
+  white-space: nowrap;
+}
+.signup-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(0,0,0,0);
+  backdrop-filter: blur(0px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .32s ease, visibility .32s ease, background .32s ease, backdrop-filter .32s ease;
+}
+.signup-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(14px) saturate(130%);
+}
+.signup-modal-card {
+  width: min(560px, 100%);
+  border: 1px solid rgba(255,255,255,.22);
+  background: #f7f7f7;
+  color: #000;
+  padding: clamp(24px, 4vw, 42px);
+  box-shadow: 0 36px 120px rgba(0,0,0,.76);
+  position: relative;
+  transform: translate3d(0,18px,0) scale(.965);
+  opacity: 0;
+  transition: transform .44s cubic-bezier(.16,1,.3,1), opacity .32s ease;
+}
+.signup-modal.is-open .signup-modal-card {
+  transform: translate3d(0,0,0) scale(1);
+  opacity: 1;
+}
+.signup-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.18);
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: transform .22s var(--ease), background .22s var(--ease), color .22s var(--ease);
+}
+.signup-modal-close:hover { transform: rotate(90deg); background: #000; color: #fff; }
+.signup-modal .quick-signup-form .btn,
+.signup-capture-card .quick-signup-form .btn {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+.signup-modal .quick-signup-form .btn:hover,
+.signup-capture-card .quick-signup-form .btn:hover {
+  background: #fff;
+  color: #000;
+}
+@media (max-width: 760px) {
+  .product-card .product-actions { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .product-card .product-actions .btn { width: 100%; min-height: 42px; font-size: 9.5px; padding: 0 10px; }
+  .quick-signup-form { grid-template-columns: 1fr; }
+  .quick-signup-form .btn { width: 100%; }
+  body { padding-bottom: 94px !important; }
+}
+@media (max-width: 390px) {
+  .mobile-cta-bar span { font-size: 9px; letter-spacing: .14em; }
+  .mobile-cta-bar .btn { padding: 0 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .mobile-cta-bar, .signup-modal, .signup-modal-card { transition: none !important; }
+  .btn::after, .mobile-cta-bar .btn::after { display: none; }
+}
+
+
+
+/* Product card CTA contrast correction */
+.product-card .product-actions .btn-primary {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  box-shadow: 0 10px 28px rgba(255,255,255,.10);
+}
+.product-card .product-actions .btn-primary:hover {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+.product-card .product-actions .btn-secondary {
+  color: rgba(255,255,255,.86);
+  border-color: rgba(255,255,255,.28);
+  background: transparent;
+}
+.product-card .product-actions .btn-secondary:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255,255,255,.08);
+}
+@media (max-width: 760px) {
+  .product-card .product-actions .btn-primary {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+    box-shadow: none;
+  }
+  .product-card .product-actions .btn-primary:hover {
+    background: #fff;
+    color: #000;
+    border-color: #000;
+  }
+  .product-card .product-actions .btn-secondary {
+    color: #000;
+    border-color: rgba(0,0,0,.26);
+    background: transparent;
+  }
+  .product-card .product-actions .btn-secondary:hover {
+    color: #000;
+    border-color: #000;
+    background: rgba(0,0,0,.06);
+  }
+}
+
+
+
+/* Modal mobile readability correction */
+.signup-modal-card > .kicker {
+  padding-right: 48px;
+  max-width: calc(100% - 42px);
+  font-size: 10px;
+  letter-spacing: .16em;
+  line-height: 1.45;
+}
+@media (max-width: 430px) {
+  .signup-modal { padding: 16px; align-items: center; }
+  .signup-modal-card { padding: 28px 22px 24px; }
+  .signup-modal-card > .kicker { padding-right: 42px; max-width: 260px; letter-spacing: .12em; }
+  .signup-modal-card h2 { font-size: clamp(34px, 10vw, 46px); }
+}
+
 </style>
 </head>
 <body>
@@ -109,24 +363,7 @@
         <h1 id="shop-title">The First Uniform.</h1>
         <p class="hero-copy">Three blacked-out pieces for people rebuilding their standards. Oversized tee, heavyweight hoodie, structured hat. White artwork only. Early access list open before checkout goes live.</p>
         <div class="hero-actions"><a class="btn btn-primary" href="#" data-track="join-list" data-signup-open data-source="shop-hero" data-placement="shop-hero">Join Drop List</a><a class="btn btn-secondary" href="#drop">View the Pieces</a></div>
-        <p class="fine-note">Join the Drop List for first access, final sizing, product proof, bundle details, and launch notice before public checkout opens.</p>
-        <div class="quick-capture" aria-label="Drop 001 early access signup">
-          <div class="kicker">Drop 001 Early Access</div>
-          <p>Get final sizing, product proof, and launch notice before public checkout.</p>
-          <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="shop-hero-inline-email">
-            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="source" value="shop-hero-inline-email">
-            <input type="hidden" name="identity" value="Not specified">
-            <input type="hidden" name="interest" value="All Drop 001 pieces">
-            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
-            <label class="visually-hidden" for="shop-hero-inline-email-email">Email</label>
-            <input id="shop-hero-inline-email-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
-            <button class="btn btn-primary" type="submit">Join List</button>
-            <div class="form-status" role="status" aria-live="polite"></div>
-          </form>
-        </div>
+        <p class="fine-note">Product proof, sizing, and checkout details release to the Drop List first.</p>
       </div>
       <div class="hero-stage" aria-label="Drop 001 product stack">
         <div class="drop-stamp">Early Access<br>List Open</div>
@@ -134,21 +371,6 @@
         <img class="stage-img stage-hoodie" src="assets/drop001-library/HOODIE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Heavyweight Hoodie">
         <img class="stage-img stage-tee" src="assets/drop001-library/TEE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Oversized Tee">
         <img class="stage-img stage-hat" src="assets/drop001-library/HAT_FrontBack_CardBg_V04.png" alt="DISCIPLINED Structured Hat">
-      </div>
-    </section>
-
-
-
-    <section class="section" id="world" aria-labelledby="world-title">
-      <div class="world-grid">
-        <div class="world-panel">
-          <div><div class="kicker" style="color:#333">The World of UNPROFITABLE</div><h2 id="world-title">The Reset Uniform.</h2></div>
-          <p>UNPROFITABLE is for the ones rebuilding standards after bad decisions, bad weeks, bad trades, and bad habits. Drop 001 is not a flex piece. It is a uniform for the reset: quiet work, reviewed mistakes, better rules, and showing back up tomorrow.</p>
-        </div>
-        <div class="world-panel dark">
-          <div><div class="kicker">Brand Code</div><h2>Recovery Arc.</h2></div>
-          <div class="world-list"><span>Late-night desk. Notebook open. Checklist rewritten.</span><span>Garment patch, back print, embroidery, fabric texture.</span><span>The uniform for the recovery arc. Not charts, cash, or guru imagery.</span><span>First run quantity will be announced before checkout opens.</span></div>
-        </div>
       </div>
     </section>
 
@@ -173,99 +395,11 @@
       </div>
     </section>
 
-<section class="section signup-capture " aria-labelledby="shop-after-products-title">
-      <div class="signup-capture-card">
-        <div>
-          <div class="kicker">Drop List / Product Interest</div>
-          <h2 id="shop-after-products-title">Want First Access To Drop 001?</h2>
-          <p>Join after browsing the pieces. Get final sizing, product proof, bundle details, and launch notice before public checkout opens.</p>
-        </div>
-        <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="shop-after-products">
-            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="source" value="shop-after-products">
-            <input type="hidden" name="identity" value="Not specified">
-            <input type="hidden" name="interest" value="All Drop 001 pieces">
-            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
-            <label class="visually-hidden" for="shop-after-products-email">Email</label>
-            <input id="shop-after-products-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
-            <button class="btn btn-primary" type="submit">Join List</button>
-            <div class="form-status" role="status" aria-live="polite"></div>
-          </form>
-      </div>
-    </section>
-
-    <section class="section" id="how-it-works" aria-labelledby="how-title">
-      <div class="section-head">
-        <div><div class="kicker">How The Drop Works</div><h2 id="how-title">Early Access Has A Job.</h2></div>
-        <p>Join the Drop List for first access, final sizing, product proof, bundle details, and launch notice before public checkout opens.</p>
-      </div>
-      <div class="conversion-grid" aria-label="Drop 001 launch sequence">
-        <article class="conversion-step"><h3>Join the list</h3><p>Get on the Drop 001 early-access list before checkout opens.</p></article>
-        <article class="conversion-step"><h3>Get product proof</h3><p>Final photos, measurements, fabric details, and size guidance go out before payment is accepted.</p></article>
-        <article class="conversion-step"><h3>Early access opens</h3><p>The list gets the launch notice, bundle details, and size alerts first.</p></article>
-        <article class="conversion-step"><h3>Public checkout opens</h3><p>Only after product details, shipping timeline, and policy terms are posted.</p></article>
-        <article class="conversion-step"><h3>First run ships</h3><p>First production run. Restock is not guaranteed until demand is proven.</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="product-proof" aria-labelledby="proof-title">
-      <div class="section-head">
-        <div><div class="kicker">Product Proof Before Checkout</div><h2 id="proof-title">No Mystery Blanks.</h2></div>
-        <p>Before Drop 001 opens, every product page will show product angles, fit references, detail closeups, sizing, and final specs so buyers know exactly what they are buying.</p>
-      </div>
-      <div class="proof-grid">
-        <article class="proof-card"><h3>Product reference photos</h3><p>Full product, closeups, back print, patch, embroidery, and on-body references.</p></article>
-        <article class="proof-card"><h3>Fit & sizing</h3><p>Size chart, fit references, and clear fit notes before checkout.</p></article>
-        <article class="proof-card"><h3>Fabric & method</h3><p>Final material, weight, print, embroidery, care, and production notes posted before payment.</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="bundles" aria-labelledby="bundles-title">
-      <div class="section-head">
-        <div><div class="kicker">Drop 001 Bundles</div><h2 id="bundles-title">Build The Uniform.</h2></div>
-        <p>The individual pieces stand alone. The full set wears like a system — tee, hoodie, and structured hat built around DISCIPLINED / 001.</p>
-      </div>
-      <div class="bundle-grid">
-        <article class="bundle-card">
-          <div><div class="kicker" style="color:#333">Starter Bundle</div><h3>Tee + Hat</h3></div>
-          <div class="bundle-pieces"><span>DISCIPLINED Oversized Tee</span><span class="bundle-plus">+</span><span>DISCIPLINED Structured Hat</span></div>
-          <div class="bundle-detail"><strong>Coming Soon</strong><span>Drop list gets first access</span></div>
-          <p class="bundle-note">Build the first layer: oversized tee plus the structured hat.</p>
-          <a class="btn btn-dark" href="#" data-track="bundle-list" data-signup-open data-interest="Tee + Hat Bundle" data-source="shop-starter-bundle" data-bundle="Starter Bundle">Join List</a>
-        </article>
-        <article class="bundle-card is-anchor">
-          <div><div class="kicker" style="color:#333">Discipline Kit</div><h3>Hoodie + Hat</h3></div>
-          <div class="bundle-pieces"><span>DISCIPLINED Heavyweight Hoodie</span><span class="bundle-plus">+</span><span>DISCIPLINED Structured Hat</span></div>
-          <div class="bundle-detail"><strong>Coming Soon</strong><span>Drop list gets first access</span></div>
-          <p class="bundle-note">The hoodie is the anchor piece. Add the hat and complete the daily uniform.</p>
-          <a class="btn btn-dark" href="#" data-track="bundle-list" data-signup-open data-interest="Hoodie + Hat Bundle" data-source="shop-discipline-kit" data-bundle="Discipline Kit">Join List</a>
-        </article>
-        <article class="bundle-card">
-          <div><div class="kicker" style="color:#333">Full Drop Bundle</div><h3>Tee + Hoodie + Hat</h3></div>
-          <div class="bundle-pieces"><span>DISCIPLINED Oversized Tee</span><span class="bundle-plus">+</span><span>DISCIPLINED Heavyweight Hoodie</span><span class="bundle-plus">+</span><span>DISCIPLINED Structured Hat</span></div>
-          <div class="bundle-detail"><strong>Coming Soon</strong><span>Drop list gets first access</span></div>
-          <p class="bundle-note">The full DROP 001 uniform: tee, hoodie, and structured hat.</p>
-          <a class="btn btn-dark" href="#" data-track="bundle-list" data-signup-open data-interest="Full Drop Bundle" data-source="shop-full-drop-bundle" data-bundle="Full Drop Bundle">Join List</a>
-        </article>
-      </div>
-      <p class="bundle-microcopy">Bundle details will be announced before checkout opens.</p>
-      <div class="signup-capture-card bundle-signup-inline" style="margin-top:18px">
-        <div><div class="kicker">Full Drop Interest</div><h2 id="shop-bundles-signup-title">Want First Access To The Full Drop?</h2><p>Join the list for tee + hoodie + hat updates before public checkout.</p></div>
-        <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="shop-bundles-signup-email">
-            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="source" value="shop-bundles-signup-email">
-            <input type="hidden" name="identity" value="Not specified">
-            <input type="hidden" name="interest" value="Full Drop Bundle">
-            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
-            <label class="visually-hidden" for="shop-bundles-signup-email-email">Email</label>
-            <input id="shop-bundles-signup-email-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
-            <button class="btn btn-primary" type="submit">Join List</button>
-            <div class="form-status" role="status" aria-live="polite"></div>
-          </form>
+    <section class="section" aria-labelledby="photos-title">
+      <div class="section-head"><div><div class="kicker">Drop 001 Photos</div><h2 id="photos-title">See The System.</h2></div><p>Product angles, detail references, and on-body framing keep the collection merch-first.</p></div>
+      <div class="photo-strip">
+        <div class="photo-card" data-label="Full Drop"><img src="assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" alt="Angled Drop 001 product photos"></div>
+        <div class="photo-card contain" data-label="Details"><img src="assets/drop001-library/ONBODY_ProductDetail_Closeups_V01.png" alt="Drop 001 detail closeups"></div>
       </div>
     </section>
 
@@ -273,7 +407,7 @@
       <div class="info-grid">
         <div class="info-panel">
           <div><div class="kicker" style="color:#333">Buyer Status</div><h2 id="status-title">Early Access, Not Checkout.</h2></div>
-          <p>Drop 001 is in preview/list mode. Final sizing, product specs, photos, shipping details, and return terms will be posted before any payment is accepted. Until then, join the list and pick the piece you care about most.</p>
+          <p>Drop 001 is preview/list mode only. Final sizing, product specs, photos, shipping details, and return terms will be posted before payment is accepted.</p>
           <a class="btn btn-dark" href="#" data-track="join-list" data-signup-open data-source="shop-status-panel" data-placement="status-panel">Join Drop List</a>
         </div>
         <div class="info-panel dark">
@@ -283,21 +417,11 @@
             <div class="status-row"><b>Details</b><span>Coming soon. Checkout is not open yet.</span></div>
             <div class="status-row"><b>Sizing</b><span>Final size availability and measurements will be confirmed before checkout.</span></div>
             <div class="status-row"><b>Shipping</b><span>Shipping region, timeline, and return/exchange stance will be confirmed before purchase.</span></div>
-            <div class="status-row"><b>Promise</b><span>No signals. No guru act. No fake flex. Just the uniform for getting back to work.</span></div>
+            <div class="status-row"><b>Bundles</b><span>Tee + hat, hoodie + hat, and full-drop options will be announced to the list before checkout.</span></div>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="section" aria-labelledby="photos-title">
-      <div class="section-head"><div><div class="kicker">Drop 001 Photos</div><h2 id="photos-title">See The System.</h2></div><p>Product angles, fabric/detail references, and on-body framing keep the collection merch-first.</p></div>
-      <div class="photo-strip">
-        <div class="photo-card" data-label="Full Drop"><img src="assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" alt="Angled Drop 001 product photos"></div>
-        <div class="photo-card contain" data-label="Details"><img src="assets/drop001-library/ONBODY_ProductDetail_Closeups_V01.png" alt="Drop 001 detail closeups"></div>
-      </div>
-    </section>
-
-
 
     <section class="section" id="faq" aria-labelledby="shop-faq-title">
       <div class="section-head">
@@ -310,14 +434,11 @@
         <article class="faq-mini-card"><h3>Will sizing be posted?</h3><p>Yes. Final measurements, fit notes, and fit references will be posted before any payment is accepted.</p></article>
         <article class="faq-mini-card"><h3>How big is the first run?</h3><p>First-run quantity will be announced before checkout opens. Restock is not guaranteed.</p></article>
         <article class="faq-mini-card"><h3>What is the return policy?</h3><p>Returns, exchanges, damaged-item rules, and final-sale terms will be posted before purchase.</p></article>
-        <article class="faq-mini-card"><h3>Is this trading advice?</h3><p>No. UNPROFITABLE is a streetwear and community brand. No signals, trade alerts, or guaranteed outcomes.</p></article>
-        <article class="faq-mini-card"><h3>Are these final sample photos?</h3><p>Current images are Drop 001 product references. Final sample proof will be posted before checkout.</p></article>
-        <article class="faq-mini-card"><h3>Why join early?</h3><p>First access, size alerts, final photos, bundle details, launch updates, and restock/second-run notices.</p></article>
       </div>
     </section>
 
     <section class="section" aria-labelledby="list-repeat-title">
-      <div class="drop-list-callout"><div><div class="kicker" style="color:#333">Drop List Gets First</div><h2 id="list-repeat-title">First Access Before Public Checkout.</h2><p>Join the Drop List for final sizing, product proof, bundle details, shipping timeline, and launch notice before checkout opens.</p></div><a class="btn btn-dark" href="#" data-track="join-list" data-signup-open data-source="shop-bottom-callout" data-placement="shop-bottom-callout">Join Drop List</a></div>
+      <div class="drop-list-callout"><div><div class="kicker" style="color:#333">Drop List Gets First</div><h2 id="list-repeat-title">First Access Before Public Checkout.</h2><p>Final sizing, product proof, bundle details, and the launch notice go to the Drop List first.</p></div><a class="btn btn-dark" href="#" data-track="join-list" data-signup-open data-source="shop-bottom-callout" data-placement="shop-bottom-callout">Join Drop List</a></div>
     </section>
 
     <section class="motto" aria-label="UNPROFITABLE motto"><h2>UNPROFITABLE TODAY.<br>PROFITABLE TOMORROW.</h2><p>The losses are temporary. The lessons compound.</p></section>
@@ -379,6 +500,7 @@
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
       setTimeout(() => modalEmail && modalEmail.focus(), 40);
       trackEvent("drop_list_modal_open", { interest, source });
       return true;
@@ -389,6 +511,7 @@
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
     document.querySelectorAll("[data-signup-open]").forEach((trigger) => {

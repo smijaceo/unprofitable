@@ -59,27 +59,10 @@
           <div class="buy-line"><b>Availability</b><span>Coming Soon</span></div>
           <div class="buy-line"><b>Release</b><span>Drop 001: DISCIPLINED / 001</span></div>
           <div class="buy-line"><b>Sizing</b><span>Final size availability confirmed before checkout opens.</span></div>
-          <div class="hero-actions"><a class="btn btn-primary" href="#" data-signup-open data-interest="DISCIPLINED Heavyweight Hoodie" data-source="disciplined-heavyweight-hoodie.html-hero">Join Drop List</a><a class="btn btn-secondary" href="#photos">View Photos</a></div>
+          <div class="hero-actions"><a class="btn btn-primary" href="#" data-signup-open data-interest="DISCIPLINED Heavyweight Hoodie" data-source="disciplined-heavyweight-hoodie.html-hero">Join Hoodie List</a><a class="btn btn-secondary" href="#photos">View Photos</a></div>
           <p class="fine-note">Coming soon. Join the list for first access before checkout opens.</p>
         </div>
-        <div class="quick-capture" aria-label="DISCIPLINED Heavyweight Hoodie early access signup">
-          <div class="kicker">HOODIE / Early Access</div>
-          <p>Join the list for the hoodie. Product angles, final sizing, fleece details, and launch notice before checkout opens.</p>
-          <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="hoodie-hero-inline-email">
-            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="source" value="hoodie-hero-inline-email">
-            <input type="hidden" name="identity" value="Not specified">
-            <input type="hidden" name="interest" value="DISCIPLINED Heavyweight Hoodie">
-            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
-            <label class="visually-hidden" for="hoodie-hero-inline-email-email">Email</label>
-            <input id="hoodie-hero-inline-email-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
-            <button class="btn btn-primary" type="submit">Join List</button>
-            <div class="form-status" role="status" aria-live="polite"></div>
-          </form>
-        </div>
-      </div>
+</div>
       <div class="media-stage " data-code="HOODIE / 001" aria-label="DISCIPLINED Heavyweight Hoodie hero product photo">
         <div class="ghost-type">DISCIPLINED<br>DISCIPLINED</div>
         <img src="assets/drop001-library/HOODIE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Heavyweight Hoodie full product photo">
@@ -107,13 +90,12 @@
     <section class="section" id="product-proof" aria-labelledby="proof-title">
       <div class="kicker">Product Proof</div>
       <h2 id="proof-title" style="font-size:clamp(44px,7vw,96px);margin-bottom:24px">Built For Buyer Confidence.</h2>
-      <div class="proof-promise"><div><h2>No Mystery Blanks.</h2><p>Built to be the uniform piece: heavy, structured, wearable, and clean. Final fleece weight, material blend, measurements, print method, and wash details will be posted before checkout opens. No payment will be accepted until the final details are live.</p></div><a class="btn btn-dark" href="#" data-signup-open data-interest="DISCIPLINED Heavyweight Hoodie" data-source="disciplined-heavyweight-hoodie.html-proof">Join Drop List</a></div>
-      <div class="proof-grid" style="margin-top:18px"><article class="proof-card"><h3>Fabric / Build</h3><p>Fleece weight / GSM to be posted before checkout.</p></article><article class="proof-card"><h3>Fit Details</h3><p>Material blend, hood structure, rib/cuff, and pocket details to be confirmed.</p></article><article class="proof-card"><h3>Artwork / Care</h3><p>Print/embroidery method and wash instructions to be confirmed before payment.</p></article></div>
-    </section>
+      <div class="proof-promise"><div><h2>No Mystery Blanks.</h2><p>Built to be the anchor piece: heavy, structured, wearable, and clean. Final fleece weight, material blend, measurements, print method, and wash details will be posted before checkout opens.</p></div><a class="btn btn-dark" href="#" data-signup-open data-interest="DISCIPLINED Heavyweight Hoodie" data-source="disciplined-heavyweight-hoodie.html-proof">Join Drop List</a></div>
+</section>
     <section class="section" id="fit-sizing" aria-labelledby="fit-title">
       <div class="kicker">Fit &amp; Sizing</div>
       <h2 id="fit-title" style="font-size:clamp(44px,7vw,96px);margin-bottom:24px">How It Fits.</h2>
-      <div class="size-note"><b>Pre-checkout promise</b><p>Heavyweight / boxy / oversized streetwear fit. True size for intended fit; size down cleaner; size up extra oversized. Final size chart, exact measurements, and fit references will be posted before checkout opens.</p></div>
+      <div class="size-note"><b>Pre-checkout promise</b><p>Heavyweight / boxy / oversized streetwear fit. True size for the intended fit; size down cleaner; size up extra oversized. Final measurements and size availability will be posted before checkout.</p></div>
       <div class="model-grid" aria-label="Model fit references"><article class="model-card"><b>Fit Reference 1</b><span>Height 5'9" / slim / wearing Medium / slightly stacked sleeves.</span></article><article class="model-card"><b>Fit Reference 2</b><span>Height 6'0" / average / wearing Large / relaxed oversized fit.</span></article><article class="model-card"><b>Fit Reference 3</b><span>Height 5'5" / average / wearing Medium / oversized streetwear fit.</span></article></div>
     </section>
     <section class="section" id="shipping-returns" aria-labelledby="shipping-title">
@@ -210,6 +192,7 @@
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
       setTimeout(() => modalEmail && modalEmail.focus(), 40);
       trackEvent("drop_list_modal_open", { interest, source });
       return true;
@@ -220,6 +203,7 @@
       modal.classList.remove("is-open");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
     document.querySelectorAll("[data-signup-open]").forEach((trigger) => {
