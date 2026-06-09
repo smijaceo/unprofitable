@@ -39,7 +39,7 @@
 }
 </style>
   <script>
-    window.UNPROFITABLE_META_PIXEL_ID = window.UNPROFITABLE_META_PIXEL_ID || "REPLACE_WITH_UNPROFITABLE_META_PIXEL_ID";
+    window.UNPROFITABLE_META_PIXEL_ID = window.UNPROFITABLE_META_PIXEL_ID || "3158054347712258";
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
     if (window.UNPROFITABLE_META_PIXEL_ID && !/^REPLACE_WITH_/.test(window.UNPROFITABLE_META_PIXEL_ID)) {
       window.fbq("init", window.UNPROFITABLE_META_PIXEL_ID);
@@ -48,14 +48,14 @@
     window.unprofitableTrackMetaLead = window.unprofitableTrackMetaLead || function(metadata = {}) {
       const clean = {
         drop: String(metadata.drop || "drop_001_disciplined"),
-        source: String(metadata.source || "site"),
+        source: String(metadata.source || "meta"),
         interest: String(metadata.interest || "full_drop")
       };
       if (typeof window.fbq === "function") window.fbq("track", "Lead", clean);
       return clean;
     };
   </script>
-  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=REPLACE_WITH_UNPROFITABLE_META_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=3158054347712258&ev=PageView&noscript=1" /></noscript>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -638,7 +638,7 @@
         const response = await fetch(form.action, { method: "POST", body: data, headers: { "Accept": "application/json" } });
         const result = await response.json().catch(() => ({}));
         if (!response.ok || result.success === "false") throw new Error(result.message || "Drop list request failed");
-        const leadMeta = window.unprofitableTrackMetaLead({ interest: String(data.get("interest") || "full_drop"), source: String(data.get("source") || "site").replace(/^wearunprofitable\.com\s+/i, "") || "site" });
+        const leadMeta = window.unprofitableTrackMetaLead({ drop: "drop_001_disciplined", source: "meta", interest: "full_drop" });
         trackEvent("drop_list_submit_success", leadMeta);
         form.reset();
         if (status) { status.textContent = "You’re on the Drop 001 list. Watch your inbox for release updates."; status.className = "form-status is-success"; }
