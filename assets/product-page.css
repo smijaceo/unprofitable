@@ -265,3 +265,14 @@
   .signup-modal-card > .kicker { padding-right: 42px; max-width: 260px; letter-spacing: .12em; }
   .signup-modal-card h2 { font-size: clamp(34px, 10vw, 46px); }
 }
+
+
+/* Form success contrast: black text on white product signup modal/cards */
+.signup-modal .quick-signup-form .form-status,
+.signup-modal .quick-signup-form .form-status.is-success,
+.signup-modal .quick-signup-form .form-status.is-error,
+.signup-capture-card .quick-signup-form .form-status,
+.signup-capture-card .quick-signup-form .form-status.is-success,
+.signup-capture-card .quick-signup-form .form-status.is-error {
+  color: #000;
+}
