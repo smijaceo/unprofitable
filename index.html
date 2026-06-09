@@ -406,6 +406,46 @@
     .lookbook-copy h2 { margin: 10px 0 0; font-size: clamp(42px,6vw,88px); line-height:.88; letter-spacing:-.07em; text-transform:uppercase; }
     .lookbook-copy p { color:#222; font-size: clamp(18px,2vw,24px); line-height:1.32; font-weight:600; letter-spacing:-.035em; }
 
+
+
+    /* Conversion capture system */
+    .quick-capture { margin-top: 22px; border: 1px solid var(--line); background: rgba(7,7,7,.78); padding: 16px; max-width: 620px; }
+    .quick-capture .kicker { color: var(--white); font-size: 10px; }
+    .quick-capture p { margin: 8px 0 14px; color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .quick-signup-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+    .quick-signup-form input { width: 100%; min-height: 46px; border: 1px solid var(--line-strong); background: #050505; color: var(--white); border-radius: 999px; padding: 0 16px; outline: 0; }
+    .quick-signup-form input::placeholder { color: rgba(255,255,255,.48); }
+    .quick-signup-form .form-status { grid-column: 1 / -1; min-height: 18px; font-size: 12px; color: var(--soft); }
+    .quick-signup-form .form-status.is-success { color: var(--white); }
+    .quick-signup-form .form-status.is-error { color: var(--white); }
+    .product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .product-actions .btn { min-height: 42px; padding: 0 12px; font-size: 10px; }
+    .product-card .product-title-link h3 { transition: opacity .2s var(--ease); }
+    .product-card .product-title-link:hover h3 { opacity: .72; }
+    .signup-capture-card { border: 1px solid var(--line-strong); background: var(--white); color: var(--black); padding: clamp(24px, 4.5vw, 52px); display: grid; grid-template-columns: 1fr minmax(320px, 430px); gap: clamp(20px, 4vw, 48px); align-items: center; }
+    .signup-capture-card .kicker { color: #333; }
+    .signup-capture-card h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 74px); line-height: .88; letter-spacing: -.075em; text-transform: uppercase; }
+    .signup-capture-card p { color: #222; line-height: 1.55; max-width: 680px; }
+    .signup-capture-card .quick-signup-form input { background: #fff; color: #000; border-color: rgba(0,0,0,.22); }
+    .signup-capture-card .quick-signup-form input::placeholder { color: rgba(0,0,0,.46); }
+    .signup-capture-card .quick-signup-form .form-status { color: #333; }
+    .mobile-cta-bar { transform: translateY(120%); opacity: 0; transition: transform .28s var(--ease), opacity .28s var(--ease); }
+    .mobile-cta-bar.is-visible { transform: translateY(0); opacity: 1; }
+    .signup-modal { position: fixed; inset: 0; z-index: 90; display: none; place-items: center; padding: 22px; background: rgba(0,0,0,.76); backdrop-filter: blur(12px); }
+    .signup-modal.is-open { display: grid; }
+    .signup-modal-card { width: min(560px, 100%); border: 1px solid var(--line-strong); background: #fff; color: #000; padding: clamp(24px, 4vw, 42px); box-shadow: 0 30px 120px rgba(0,0,0,.7); position: relative; }
+    .signup-modal-card h2 { margin: 10px 0 0; font-size: clamp(34px, 7vw, 64px); line-height: .88; letter-spacing: -.075em; text-transform: uppercase; }
+    .signup-modal-card p { color: #222; line-height: 1.55; }
+    .signup-modal-close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(0,0,0,.18); background: #fff; color: #000; cursor: pointer; }
+    .signup-modal .quick-signup-form input { background: #fff; color: #000; border-color: rgba(0,0,0,.22); }
+    .signup-modal .quick-signup-form input::placeholder { color: rgba(0,0,0,.46); }
+    @media (max-width: 760px) {
+      .quick-signup-form, .signup-capture-card { grid-template-columns: 1fr; }
+      .quick-signup-form .btn, .product-actions .btn { width: 100%; }
+      .product-actions { grid-template-columns: 1fr; }
+      body { padding-bottom: 78px; }
+    }
+
     @media (max-width: 1040px) {
       .hero-grid, .details-board, .manifesto, .community-grid, .waitlist, .footer-inner, .photo-story, .lookbook-grid, .wear-grid { grid-template-columns: 1fr; }
       .details-stamp { border-right: 0; border-bottom: 1px solid var(--line); min-height: 430px; }
@@ -545,7 +585,16 @@
     .world-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.world-proof-card{border:1px solid var(--line);background:var(--panel);padding:clamp(24px,4vw,42px);min-height:320px}.world-proof-card.light{background:#fff;color:#000}.world-proof-card h2{margin:12px 0 0;font-size:clamp(42px,6vw,82px);line-height:.86;letter-spacing:-.075em;text-transform:uppercase}.world-proof-card p{color:var(--muted);line-height:1.55}.world-proof-card.light p{color:#222}.world-proof-list{display:grid;gap:10px;margin-top:22px}.world-proof-list span{border-top:1px solid var(--line);padding-top:12px;color:var(--muted);font-size:14px}.world-proof-card.light .world-proof-list span{border-color:rgba(0,0,0,.16);color:#222}@media(max-width:900px){.world-proof-grid{grid-template-columns:1fr}}
     .home-conversion-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:homeStep}.home-step,.benefit-card{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel-2),#050505);padding:22px;min-height:185px}.home-step:before{counter-increment:homeStep;content:"0" counter(homeStep);display:inline-flex;margin-bottom:24px;font-family:'Geist Mono';font-size:11px;letter-spacing:.18em;color:var(--soft)}.home-step h3,.benefit-card h3{margin:0 0 12px;font-size:18px;line-height:1;text-transform:uppercase;letter-spacing:-.03em}.home-step p,.benefit-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}@media(max-width:1040px){.home-conversion-grid{grid-template-columns:repeat(2,1fr)}.benefit-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){.home-conversion-grid,.benefit-grid{grid-template-columns:1fr}.home-step,.benefit-card{min-height:auto}}
     /* homepage-conversion-upgrade */
-  </style>
+  
+
+/* Mobile sticky early-access bar override */
+.mobile-cta-bar{position:fixed;left:14px;right:14px;bottom:14px;z-index:70;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line-strong);background:rgba(0,0,0,.88);backdrop-filter:blur(14px);padding:10px 10px 10px 14px;box-shadow:0 18px 70px rgba(0,0,0,.72)}.mobile-cta-bar span{font-family:'Geist Mono';font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff}.mobile-cta-bar .btn{min-height:40px;font-size:10px;padding:0 14px}@media(max-width:720px){.mobile-cta-bar{display:flex!important}body{padding-bottom:86px!important}}@media(min-width:721px){.mobile-cta-bar{display:none!important}}
+.visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+
+
+/* Mobile containment polish */
+@media(max-width:720px){html,body{width:100%;max-width:100%;overflow-x:hidden}.section,.hero,.product-hero,nav,footer{max-width:100%;overflow-x:hidden}.hero>* ,.section>* ,.product-hero>*{min-width:0}.hero-copy,p,h1,h2,h3,.fine-note,.quick-capture,.signup-capture-card{max-width:100%;overflow-wrap:break-word}.quick-capture{width:100%}.quick-signup-form input{min-width:0}.hero-stage,.media-stage,.product-media,.photo-card,.rel-media{max-width:100%;overflow:hidden}}
+</style>
 
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -582,6 +631,23 @@
             <a class="btn btn-secondary" href="shop.html">View Drop 001</a>
           </div>
           <div class="fine-note">No signals. No guru act. No fake flex. Just a uniform for getting back to work.</div>
+          <div class="quick-capture" aria-label="Drop 001 early access signup">
+            <div class="kicker">Drop 001 Early Access</div>
+            <p>Get final sizing, product proof, and launch notice before public checkout.</p>
+            <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="hero-inline-drop-list-email">
+            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="source" value="hero-inline-drop-list-email">
+            <input type="hidden" name="identity" value="Not specified">
+            <input type="hidden" name="interest" value="All Drop 001 pieces">
+            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <label class="visually-hidden" for="hero-inline-drop-list-email-email">Email</label>
+            <input id="hero-inline-drop-list-email-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
+            <button class="btn btn-primary" type="submit">Join List</button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+          </div>
         </div>
 
         <div class="hero-visual is-campaign" aria-label="DROP 001 DISCIPLINED campaign product photography">
@@ -612,30 +678,33 @@
         <p>Three pieces. All black. White artwork only. A tee, hoodie, and hat built for the part of the story where you stop talking and get back to work.</p>
       </div>
       <div class="products">
-        <a class="product-card" href="disciplined-oversized-tee.html" aria-label="View DISCIPLINED Oversized Tee product page">
-          <div class="product-media" data-code="TEE / 001"><img src="assets/drop001-library/TEE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Oversized Tee front and back product photo on matched black background"></div>
+        <article class="product-card">
+          <a class="product-media" href="disciplined-oversized-tee.html" data-code="TEE / 001" aria-label="View DISCIPLINED Oversized Tee details"><img src="assets/drop001-library/TEE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Oversized Tee front and back product photo on matched black background"></a>
           <div class="product-info">
-            <h3>DISCIPLINED Oversized Tee</h3>
+            <a class="product-title-link" href="disciplined-oversized-tee.html"><h3>DISCIPLINED Oversized Tee</h3></a>
             <p>Oversized black tee with a quiet U/P mark up front and a bold DISCIPLINED hit across the back. Finished with the DISCIPLINED / 001 patch low on the body.</p>
-            <div class="product-meta"><span>Coming Soon</span><span>Join List for First Access</span></div>
+            <div class="product-meta"><span>Coming Soon</span><span>Early Access</span></div>
+            <div class="product-actions"><a class="btn btn-primary" href="#" data-signup-open data-interest="DISCIPLINED Oversized Tee" data-source="home-tee-card">Join List</a><a class="btn btn-secondary" href="disciplined-oversized-tee.html">Details</a></div>
           </div>
-        </a>
-        <a class="product-card" href="disciplined-heavyweight-hoodie.html" aria-label="View DISCIPLINED Heavyweight Hoodie product page">
-          <div class="product-media" data-code="HOODIE / 001"><img src="assets/drop001-library/HOODIE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Heavyweight Hoodie front and back product photo on matched black background"></div>
+        </article>
+        <article class="product-card">
+          <a class="product-media" href="disciplined-heavyweight-hoodie.html" data-code="HOODIE / 001" aria-label="View DISCIPLINED Heavyweight Hoodie details"><img src="assets/drop001-library/HOODIE_FrontBack_CardBg_V04.png" alt="DISCIPLINED Heavyweight Hoodie front and back product photo on matched black background"></a>
           <div class="product-info">
-            <h3>DISCIPLINED Heavyweight Hoodie</h3>
+            <a class="product-title-link" href="disciplined-heavyweight-hoodie.html"><h3>DISCIPLINED Heavyweight Hoodie</h3></a>
             <p>The main piece of Drop 001. Heavyweight black hoodie with a small U/P chest mark, low garment patch, sleeve hit, and arched DISCIPLINED back print.</p>
-            <div class="product-meta"><span>Coming Soon</span><span>Join List for First Access</span></div>
+            <div class="product-meta"><span>Coming Soon</span><span>Early Access</span></div>
+            <div class="product-actions"><a class="btn btn-primary" href="#" data-signup-open data-interest="DISCIPLINED Heavyweight Hoodie" data-source="home-hoodie-card">Join List</a><a class="btn btn-secondary" href="disciplined-heavyweight-hoodie.html">Details</a></div>
           </div>
-        </a>
-        <a class="product-card" href="disciplined-structured-hat.html" aria-label="View DISCIPLINED Structured Hat product page">
-          <div class="product-media product-hat" data-code="HAT / 001"><img src="assets/drop001-library/HAT_FrontBack_CardBg_V04.png" alt="DISCIPLINED Structured Hat front and back product photo on matched black background"></div>
+        </article>
+        <article class="product-card">
+          <a class="product-media product-hat" href="disciplined-structured-hat.html" data-code="HAT / 001" aria-label="View DISCIPLINED Structured Hat details"><img src="assets/drop001-library/HAT_FrontBack_CardBg_V04.png" alt="DISCIPLINED Structured Hat front and back product photo on matched black background"></a>
           <div class="product-info">
-            <h3>DISCIPLINED Structured Hat</h3>
+            <a class="product-title-link" href="disciplined-structured-hat.html"><h3>DISCIPLINED Structured Hat</h3></a>
             <p>Structured black hat with arched DISCIPLINED embroidery, U/P side mark, and UNPROFITABLE stitched on the back.</p>
-            <div class="product-meta"><span>Coming Soon</span><span>Join List for First Access</span></div>
+            <div class="product-meta"><span>Coming Soon</span><span>Early Access</span></div>
+            <div class="product-actions"><a class="btn btn-primary" href="#" data-signup-open data-interest="DISCIPLINED Structured Hat" data-source="home-hat-card">Join List</a><a class="btn btn-secondary" href="disciplined-structured-hat.html">Details</a></div>
           </div>
-        </a>
+        </article>
       </div>
     </section>
 
@@ -653,7 +722,7 @@
           <div class="kicker">Product Proof Before Checkout</div>
           <h2>No Mystery Blanks.</h2>
           <p>Before Drop 001 opens, the site will show final product angles, fit references, detail closeups, measurements, material specs, and shipping terms so buyers know exactly what they are buying.</p>
-          <div class="world-proof-list"><span>Real sample photos and closeups</span><span>Size chart and model references</span><span>Fabric, print, embroidery, and care details</span></div>
+          <div class="world-proof-list"><span>Product reference photos and closeups</span><span>Size chart and fit references</span><span>Fabric, print, embroidery, and care details</span></div>
         </article>
       </div>
     </section>
@@ -686,7 +755,7 @@
       <div class="benefit-grid" aria-label="Drop List benefits">
         <article class="benefit-card"><h3>Early access link</h3><p>Get the checkout window before it opens to everyone.</p></article>
         <article class="benefit-card"><h3>Final size chart</h3><p>Measurements and fit notes before any payment is accepted.</p></article>
-        <article class="benefit-card"><h3>Product photos</h3><p>Real sample photos, detail shots, and model references first.</p></article>
+        <article class="benefit-card"><h3>Product photos</h3><p>Product reference photos, detail shots, and fit notes first.</p></article>
         <article class="benefit-card"><h3>Bundle details</h3><p>Tee + hat, hoodie + hat, and full-drop details announced to the list first.</p></article>
         <article class="benefit-card"><h3>Launch notice</h3><p>No guessing when Drop 001 opens. The list gets notified first.</p></article>
         <article class="benefit-card"><h3>Restock updates</h3><p>If a second run happens, early interest helps determine what comes back.</p></article>
@@ -699,7 +768,7 @@
           <div class="kicker">Drop 001 Photos</div>
           <h2 id="photo-story-title">The Drop,<br>Up Close.</h2>
         </div>
-        <p>Real product angles, closeups, fit references, and campaign shots for Drop 001. Tee, hoodie, and hat only. Black garments. White artwork. No filler.</p>
+        <p>Product angles, closeups, fit references, and campaign shots for Drop 001. Tee, hoodie, and hat only. Black garments. White artwork. No filler.</p>
       </div>
       <div class="photo-story">
         <article class="story-card large">
@@ -910,8 +979,30 @@
   </footer>
 
   <div class="mobile-cta-bar" aria-label="Mobile quick actions">
-    <a class="btn btn-primary" href="#waitlist">Drop List</a>
-    <a class="btn btn-secondary" href="shop.html">Preview Drop</a>
+    <span>DROP 001 EARLY ACCESS</span>
+    <a class="btn btn-primary" href="#" data-signup-open data-source="home-mobile-bar">Join List</a>
+  </div>
+
+  <div class="signup-modal" data-signup-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
+    <div class="signup-modal-card">
+      <button class="signup-modal-close" type="button" data-signup-close aria-label="Close signup">×</button>
+      <div class="kicker" style="color:#333">Drop 001 Opens To The List First</div>
+      <h2 id="signup-modal-title">Early Access Before Public Checkout.</h2>
+      <p>Get final sizing, product proof, bundle details, and launch notice before Drop 001 opens.</p>
+      <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="modal-drop-list">
+            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="source" value="modal-drop-list">
+            <input type="hidden" name="identity" value="Not specified">
+            <input type="hidden" name="interest" value="All Drop 001 pieces">
+            <div class="visually-hidden" aria-hidden="true"><label>Company<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <label class="visually-hidden" for="modal-drop-list-email">Email</label>
+            <input id="modal-drop-list-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
+            <button class="btn btn-primary" type="submit">Join List</button>
+            <div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+    </div>
   </div>
 
   <script type="application/ld+json">
@@ -1057,6 +1148,84 @@
         }
       });
     }
+
+
+    const modal = document.querySelector("[data-signup-modal]");
+    const modalInterest = modal ? modal.querySelector('input[name="interest"]') : null;
+    const modalSource = modal ? modal.querySelector('input[name="source"]') : null;
+    const modalEmail = modal ? modal.querySelector('input[name="email"]') : null;
+
+    function openSignupModal({ interest = "All Drop 001 pieces", source = "modal" } = {}) {
+      if (!modal) return false;
+      if (modalInterest) modalInterest.value = interest;
+      if (modalSource) modalSource.value = `wearunprofitable.com ${source}`;
+      modal.classList.add("is-open");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      setTimeout(() => modalEmail && modalEmail.focus(), 40);
+      trackEvent("drop_list_modal_open", { interest, source });
+      return true;
+    }
+
+    function closeSignupModal() {
+      if (!modal) return;
+      modal.classList.remove("is-open");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll("[data-signup-open]").forEach((trigger) => {
+      trigger.addEventListener("click", (event) => {
+        event.preventDefault();
+        openSignupModal({ interest: trigger.dataset.interest || "All Drop 001 pieces", source: trigger.dataset.source || trigger.dataset.placement || "cta" });
+      });
+    });
+
+    document.querySelectorAll("[data-signup-close]").forEach((trigger) => trigger.addEventListener("click", closeSignupModal));
+    if (modal) {
+      modal.addEventListener("click", (event) => { if (event.target === modal) closeSignupModal(); });
+      document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeSignupModal(); });
+    }
+
+    const stickyBar = document.querySelector(".mobile-cta-bar");
+    function updateStickyBar() {
+      if (!stickyBar) return;
+      stickyBar.classList.toggle("is-visible", window.scrollY > Math.max(360, window.innerHeight * 0.55));
+    }
+    updateStickyBar();
+    window.addEventListener("scroll", updateStickyBar, { passive: true });
+
+    async function submitQuickSignup(form) {
+      if (!form.reportValidity()) return;
+      const status = form.querySelector(".form-status");
+      const submit = form.querySelector('button[type="submit"]');
+      const data = new FormData(form);
+      if (String(data.get("_honey") || "").trim()) {
+        if (status) { status.textContent = "Request received."; status.className = "form-status is-success"; }
+        form.reset();
+        return;
+      }
+      const original = submit ? submit.textContent : "";
+      if (submit) { submit.disabled = true; submit.textContent = "Submitting..."; }
+      if (status) { status.textContent = "Submitting your drop request..."; status.className = "form-status"; }
+      try {
+        const response = await fetch(form.action, { method: "POST", body: data, headers: { "Accept": "application/json" } });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === "false") throw new Error(result.message || "Drop list request failed");
+        trackEvent("drop_list_submit_success", { interest: String(data.get("interest") || ""), source: String(data.get("source") || "") });
+        form.reset();
+        if (status) { status.textContent = "You’re on the Drop 001 list. Watch your inbox for release updates."; status.className = "form-status is-success"; }
+      } catch (error) {
+        trackEvent("drop_list_submit_error", { reason: error && error.message ? String(error.message).slice(0, 120) : "unknown" });
+        if (status) { status.textContent = "Couldn’t submit right now. Email drop@wearunprofitable.com and we’ll add you manually."; status.className = "form-status is-error"; }
+      } finally {
+        if (submit) { submit.disabled = false; submit.textContent = original; }
+      }
+    }
+
+    document.querySelectorAll(".quick-signup-form").forEach((form) => {
+      form.addEventListener("submit", (event) => { event.preventDefault(); submitQuickSignup(form); });
+    });
   </script>
 </body>
 </html>

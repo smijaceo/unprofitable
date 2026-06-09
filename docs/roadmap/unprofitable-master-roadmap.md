@@ -28,6 +28,11 @@ Exactly three pieces:
 
 ### Current site assets/features already in place
 
+- Operations/CX readiness docs now exist:
+  - `docs/ops/drop-001-ops-readiness-packet.md`
+  - `docs/ops/drop-001-support-templates.md`
+  - `docs/ops/drop-001-customer-faq-policy-inputs.md`
+  - `docs/launch-checklists/drop-001-ops-launch-day-checklist.md`
 - Homepage with premium monochrome editorial layout.
 - Product-preview / Featured Drop system.
 - Standalone product pages:
@@ -268,6 +273,8 @@ Recommended short-term: create a static `/shop.html` or `/drop-001.html` that co
 - Product pages feel intentional on mobile, not just photo dumps.
 
 **Status — 2026-06-08:** Streetwear conversion upgrade added buyer-confidence sections across the shop hub and product pages: The World of UNPROFITABLE, How The Drop Works, Product Proof, Fit & Sizing placeholders, model-reference placeholders, shipping/returns preview, bundle CTAs, and FAQ. Final measurements/specs still need vendor/sample confirmation before checkout.
+
+**Product/Supplier gate — 2026-06-08:** Product Proof Gate v1 created at `docs/product/2026-06-08-drop001-product-proof-gate.md`. Product/Supplier status is blocked for checkout until final blanks, GSM/fabric blend, measurements, decoration methods, sample proof, care/wash evidence, supplier costs/MOQs, and production timing are confirmed.
 - Product schema is updated with accurate info.
 
 ### Do not drift into
@@ -606,12 +613,12 @@ Traffic -> list/shop -> purchase/community -> feedback -> next drop.
 
 ## 12. Immediate Next Piece
 
-The next concrete piece should be **Phase C: Product + Shop Readiness**, then **Phase D: Inventory/COGS**, because Phase B is functionally in place for pre-launch.
+The next concrete piece should be **Phase C: Product + Shop Readiness**, **Phase D: Inventory/COGS**, and the newly drafted **Ops/CX checkout gate**, because Phase B is functionally in place for pre-launch.
 
 Recommended first task:
 
 ```text
-Confirm final product specs, size charts, material/production details, and model references for each Drop 001 product.
+Confirm final product specs, size charts, material/production details, model references, fulfillment owner, shipping regions, return/exchange stance, and damaged-item process for Drop 001.
 ```
 
 Decision needed from Jace:
@@ -619,12 +626,23 @@ Decision needed from Jace:
 1. Final available size range for tee/hoodie/hat.
 2. Final garment measurements and model references.
 3. Fabric weight/material blend/print or embroidery method.
-4. Production timeline, shipping regions, returns/exchange terms.
+4. Production timeline and inventory model.
+5. Fulfillment owner/model.
+6. Shipping regions, carrier/label workflow, and shipping cost model.
+7. Return/exchange window and damaged/incorrect item remedy.
+8. Support SLA and final customer contact setup.
 
-After that decision, the next build task is:
+Ops/CX docs to use before checkout:
+
+- `docs/ops/drop-001-ops-readiness-packet.md`
+- `docs/ops/drop-001-support-templates.md`
+- `docs/ops/drop-001-customer-faq-policy-inputs.md`
+- `docs/launch-checklists/drop-001-ops-launch-day-checklist.md`
+
+After those decisions, the next build task is:
 
 ```text
-Update each product page with confirmed specs, then run checkout/platform QA only when purchase launch is actually intended.
+Update each product page and policy page with approved specs, shipping/returns/support language, then run checkout/platform QA only when purchase launch is actually intended.
 ```
 
 ---
