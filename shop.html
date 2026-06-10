@@ -538,7 +538,7 @@
       <div class="kicker" style="color:#333">Drop 001 Opens To The List First</div>
       <h2 id="signup-modal-title">Early Access Before Public Checkout.</h2>
       <p>Get final sizing, product proof, bundle details, and launch notice before Drop 001 opens.</p>
-      <form class="quick-signup-form" action="https://formsubmit.co/ajax/drop@wearunprofitable.com" method="POST" data-conversion="quick-drop-list" data-source="modal-drop-list">
+      <form class="quick-signup-form" action="#klaviyo-drop-list" method="POST" data-conversion="quick-drop-list" data-source="modal-drop-list">
             <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
@@ -558,6 +558,88 @@
   {"@context":"https://schema.org","@type":"CollectionPage","name":"UNPROFITABLE Drop 001 Shop","url":"https://www.wearunprofitable.com/shop.html","description":"Drop 001 preview collection for UNPROFITABLE DISCIPLINED / 001.","mainEntity":{"@type":"ItemList","name":"DROP 001: DISCIPLINED / 001","itemListElement":[{"@type":"ListItem","position":1,"url":"https://www.wearunprofitable.com/disciplined-oversized-tee.html","name":"DISCIPLINED Oversized Tee"},{"@type":"ListItem","position":2,"url":"https://www.wearunprofitable.com/disciplined-heavyweight-hoodie.html","name":"DISCIPLINED Heavyweight Hoodie"},{"@type":"ListItem","position":3,"url":"https://www.wearunprofitable.com/disciplined-structured-hat.html","name":"DISCIPLINED Structured Hat"}]}}
   </script>
   <script>
+
+    const KLAVIYO_COMPANY_ID = "UWEuLX";
+    const KLAVIYO_DROP_001_LIST_ID = "TsxeTg";
+
+    function normalizeDropInterest(value) {
+      const raw = String(value || "full_drop").trim();
+      const lower = raw.toLowerCase();
+      if (lower.includes("tee")) return "tee";
+      if (lower.includes("hoodie")) return "hoodie";
+      if (lower.includes("hat")) return "hat";
+      if (lower.includes("all") || lower.includes("full")) return "full_drop";
+      return raw || "full_drop";
+    }
+
+    function formSource(formData, form) {
+      return String(formData.get("source") || form.dataset.source || "website").replace(/^wearunprofitable\.com\s+/i, "") || "website";
+    }
+
+    async function submitToKlaviyoDropList(form) {
+      const formData = new FormData(form);
+      const email = String(formData.get("email") || "").trim().toLowerCase();
+      if (!email) throw new Error("Email is required");
+      const source = formSource(formData, form);
+      const interest = normalizeDropInterest(formData.get("interest"));
+      const identity = String(formData.get("identity") || "Not specified").trim() || "Not specified";
+      const payload = {
+        data: {
+          type: "subscription",
+          attributes: {
+            custom_source: `UNPROFITABLE Drop 001 - ${source}`,
+            profile: {
+              data: {
+                type: "profile",
+                attributes: {
+                  email,
+                  properties: {
+                    drop: "Drop 001: DISCIPLINED / 001",
+                    drop_key: "drop_001_disciplined",
+                    source,
+                    interest,
+                    interest_label: String(formData.get("interest") || "All Drop 001 pieces"),
+                    identity,
+                    signup_surface: form.dataset.conversion || "drop-list",
+                    site: "wearunprofitable.com"
+                  },
+                  subscriptions: {
+                    email: {
+                      marketing: {
+                        consent: "SUBSCRIBED"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          relationships: {
+            list: {
+              data: {
+                type: "list",
+                id: KLAVIYO_DROP_001_LIST_ID
+              }
+            }
+          }
+        }
+      };
+      const response = await fetch(`https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_COMPANY_ID}`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/vnd.api+json",
+          "Content-Type": "application/vnd.api+json",
+          "revision": "2026-04-15"
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!response.ok) {
+        const errorText = await response.text().catch(() => "");
+        throw new Error(errorText || "Klaviyo signup failed");
+      }
+      return { email, source, interest, identity };
+    }
+
     function trackEvent(name, data = {}) { if (typeof window.va === "function") window.va("event", { name, data }); }
     trackEvent("product_page_view", { product: "Drop 001 Collection", drop: "DISCIPLINED / 001", page: "shop" });
     document.querySelectorAll('[data-track="join-list"]').forEach((link) => {
@@ -635,9 +717,7 @@
       if (submit) { submit.disabled = true; submit.textContent = "Submitting..."; }
       if (status) { status.textContent = "Submitting your drop request..."; status.className = "form-status"; }
       try {
-        const response = await fetch(form.action, { method: "POST", body: data, headers: { "Accept": "application/json" } });
-        const result = await response.json().catch(() => ({}));
-        if (!response.ok || result.success === "false") throw new Error(result.message || "Drop list request failed");
+        const klaviyoLead = await submitToKlaviyoDropList(form);
         const leadMeta = window.unprofitableTrackMetaLead({ drop: "drop_001_disciplined", source: "meta", interest: "full_drop" });
         trackEvent("drop_list_submit_success", leadMeta);
         form.reset();
