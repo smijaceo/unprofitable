@@ -276,3 +276,6 @@
 .signup-capture-card .quick-signup-form .form-status.is-error {
   color: #000;
 }
+
+/* Prelaunch conversion additions */
+.product-price{font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;font-weight:900;letter-spacing:.12em;color:#fff;text-transform:uppercase}.product-price-hero{font-size:18px;margin:0 0 14px;padding-bottom:14px;border-bottom:1px solid var(--line)}.proof-board-mini{margin-top:18px;border:1px solid var(--line);background:#050505;padding:18px;display:grid;gap:8px}.proof-board-mini b{font-family:'Geist Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#fff}.proof-board-mini span{color:var(--muted);line-height:1.5}.size-interest{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.size-interest button{min-width:48px;min-height:42px;border:1px solid var(--line-strong);background:#050505;color:#fff;border-radius:999px;cursor:pointer}.size-interest button:hover,.size-interest button:focus-visible{background:#fff;color:#000}

@@ -2,9 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.wearunprofitable.com/</loc><priority>1.0</priority></url>
   <url><loc>https://www.wearunprofitable.com/shop.html</loc><priority>0.9</priority></url>
-  <url><loc>https://www.wearunprofitable.com/disciplined-oversized-tee.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.wearunprofitable.com/disciplined-heavyweight-hoodie.html</loc><priority>0.8</priority></url>
-  <url><loc>https://www.wearunprofitable.com/disciplined-structured-hat.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.wearunprofitable.com/products/disciplined-oversized-tee.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.wearunprofitable.com/products/disciplined-heavyweight-hoodie.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.wearunprofitable.com/products/disciplined-structured-hat.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.wearunprofitable.com/faq.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.wearunprofitable.com/manifesto.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.wearunprofitable.com/community.html</loc><priority>0.4</priority></url>
   <url><loc>https://www.wearunprofitable.com/returns.html</loc><priority>0.3</priority></url>
   <url><loc>https://www.wearunprofitable.com/privacy.html</loc><priority>0.3</priority></url>
   <url><loc>https://www.wearunprofitable.com/disclaimer.html</loc><priority>0.5</priority></url>
