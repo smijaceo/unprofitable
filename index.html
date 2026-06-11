@@ -893,6 +893,10 @@
 .signup-capture-card .quick-signup-form .form-status.is-error {
   color: #000;
 }
+
+    .proof-checkpoint .checkpoint-shell{border:1px solid var(--line-strong);background:linear-gradient(135deg,#050505,#101010 52%,#000);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,60px);align-items:end;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+    .checkpoint-copy h2{margin:10px 0 14px;font-size:clamp(48px,8vw,112px);line-height:.82;letter-spacing:-.08em;text-transform:uppercase}.checkpoint-copy p{margin:0;color:#fff;font-weight:900;text-transform:uppercase;letter-spacing:.08em}.checkpoint-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.checkpoint-grid div{min-height:88px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:end;padding:18px;background:rgba(255,255,255,.035);font-weight:900;text-transform:uppercase;letter-spacing:-.03em}.manifesto-short .manifesto{min-height:auto}.hero .hero-copy{font-size:clamp(22px,3vw,38px);line-height:1.02}.hero .ad-match-line{font-size:clamp(15px,1.8vw,22px)}@media(max-width:860px){.proof-checkpoint .checkpoint-shell{grid-template-columns:1fr}.checkpoint-grid{grid-template-columns:1fr}.checkpoint-grid div{min-height:64px}}
+
 </style>
 
   <script>
@@ -930,7 +934,6 @@
         <a href="#drop">Drop</a>
         <a href="#details">Details</a>
         <a href="#manifesto">Manifesto</a>
-        <a href="#community">Discord</a>
       </div>
       <a class="btn btn-primary" href="#waitlist">Join Drop List</a>
     </div>
@@ -941,9 +944,9 @@
       <div class="hero-grid">
         <div>
           <div class="eyebrow">DROP 001: DISCIPLINED / 001</div>
-          <h1 id="hero-title">The Uniform<br>For The<br>Reset.</h1>
-          <p class="hero-copy"><strong>Black heavyweight streetwear</strong> for the part of the story where you stop talking and rebuild the standard.</p>
-          <div class="ad-match-line">Tee. Hoodie. Hat.<br>All black. White artwork only.</div>
+          <h1 id="hero-title">Three Pieces.<br>One Standard.</h1>
+          <p class="hero-copy"><strong>Black heavyweight tee. Boxy hoodie. Structured hat.</strong><br>White artwork only. First run.</p>
+          <div class="ad-match-line">Final proof goes to the list before checkout opens.</div>
           <div class="hero-ad-capture" aria-label="Drop 001 early access signup">
             <p>Get first access to sizing, product proof, bundle details, and launch notice before checkout opens.</p>
             <form class="quick-signup-form" action="#klaviyo-drop-list" method="POST" data-conversion="hero-drop-list" data-source="home-hero-inline">
@@ -953,7 +956,7 @@
               <input type="hidden" name="source" value="home-hero-inline">
               <input type="hidden" name="identity" value="Not specified">
               <input type="hidden" name="interest" value="full_drop">
-              <div class="visually-hidden" aria-hidden="true"><label>Leave blank<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
+              <div class="honeypot-field visually-hidden" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
               <label class="visually-hidden" for="hero-drop-list-email">Email</label>
               <input id="hero-drop-list-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
               <button class="btn btn-primary" type="submit">Join Drop List</button>
@@ -967,7 +970,7 @@
         </div>
 
         <div class="hero-visual is-campaign" aria-label="DROP 001 DISCIPLINED campaign product photography">
-          <img class="hero-campaign-photo" src="assets/drop001-library/PRODUCT_Angled_Photos_SetB_V01.png" alt="DROP 001 DISCIPLINED tee hoodie and hat campaign product photos">
+          <img class="hero-campaign-photo" src="assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" alt="DROP 001 DISCIPLINED tee hoodie and hat campaign product photos">
           <div class="hero-ghost-type">DISCIPLINED<br>DISCIPLINED</div>
           <div class="drop-badge">DISCIPLINED / 001</div>
           <div class="hero-label">
@@ -977,14 +980,6 @@
         </div>
       </div>
     </section>
-
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>DISCIPLINED / 001</span><span>PROCESS OVER OUTCOME</span><span>FIRST RELEASE</span><span>TEE / HOODIE / HAT</span>
-        <span>DISCIPLINED / 001</span><span>PROCESS OVER OUTCOME</span><span>FIRST RELEASE</span><span>TEE / HOODIE / HAT</span>
-      </div>
-    </div>
-
     <section class="section" id="drop" aria-labelledby="drop-title">
       <div class="section-head">
         <div>
@@ -1027,18 +1022,17 @@
       </div>
     </section>
 
-    <section class="section" id="proof-board" aria-labelledby="proof-board-title">
-      <div class="section-head"><div><div class="kicker">Before Checkout</div><h2 id="proof-board-title">Drop 001<br>Proof Board.</h2></div><p>No payment opens until the proof board is complete. The unfinished parts become the standard, not a mystery.</p></div>
-      <div class="proof-board" role="table" aria-label="Drop 001 proof board">
-        <div class="proof-board-row proof-board-head" role="row"><span role="columnheader">Proof Item</span><span role="columnheader">Status</span></div>
-        <div class="proof-board-row" role="row"><span>Final product photos</span><b>Coming before checkout</b></div>
-        <div class="proof-board-row" role="row"><span>Size chart</span><b>Coming before checkout</b></div>
-        <div class="proof-board-row" role="row"><span>Fabric weight / GSM</span><b>Coming before checkout</b></div>
-        <div class="proof-board-row" role="row"><span>Print method</span><b>Coming before checkout</b></div>
-        <div class="proof-board-row" role="row"><span>Embroidery details</span><b>Coming before checkout</b></div>
-        <div class="proof-board-row" role="row"><span>Shipping timeline</span><b>Coming before checkout</b></div>
-        <div class="proof-board-row" role="row"><span>Return / exchange terms</span><b>Coming before checkout</b></div>
-      </div><p class="proof-board-note">No payment opens until the proof board is complete.</p>
+    <section class="section proof-checkpoint" id="proof-board" aria-labelledby="proof-board-title">
+      <div class="checkpoint-shell">
+        <div class="checkpoint-copy">
+          <div class="kicker">Before Checkout Opens</div>
+          <h2 id="proof-board-title">Proof Before Payment.</h2>
+          <p>No payment opens until these are live.</p>
+        </div>
+        <div class="checkpoint-grid" aria-label="Before checkout opens checklist">
+          <div>Final product photos</div><div>Size chart</div><div>Fabric weight</div><div>Print + embroidery details</div><div>Shipping timeline</div><div>Return / exchange terms</div>
+        </div>
+      </div>
     </section>
     <section class="section" id="bundles" aria-labelledby="bundle-title">
       <div class="section-head"><div><div class="kicker">Bundle Preview</div><h2 id="bundle-title">Build The<br>Uniform.</h2></div><p>Bundle pricing goes to the Drop List before public checkout.</p></div>
@@ -1091,84 +1085,13 @@
         </div>
       </div>
     </section>
-
-    <section class="section" id="wear" aria-labelledby="wear-title">
-      <div class="wear-grid">
-        <div class="wear-copy">
-          <div>
-            <div class="kicker">When To Wear It</div>
-            <h2 id="wear-title">When To Wear It.</h2>
-          </div>
-          <a class="btn btn-dark" href="#waitlist">Join Drop List</a>
-        </div>
-        <div class="wear-list" aria-label="When to wear Drop 001">
-          <div class="wear-item">After the bad week.</div>
-          <div class="wear-item">On the reset day.</div>
-          <div class="wear-item">To the gym.</div>
-          <div class="wear-item">To the desk.</div>
-          <div class="wear-item">To the session where nobody sees the work.</div>
-          <p class="wear-close">Drop 001 is not a victory lap.<br>It is the uniform for getting your standards back.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="manifesto" aria-labelledby="manifesto-title">
+    <section class="section manifesto-short" id="manifesto" aria-labelledby="manifesto-title">
       <div class="manifesto">
-        <div>
-          <div class="kicker" style="color:#333">Brand Manifesto</div>
-          <h2 id="manifesto-title">Now What?</h2>
-        </div>
-        <div>
-          <p>UNPROFITABLE is not a victory lap. It is the uniform for the part of the story where nobody claps yet — the review, the reset, the standard, the return.</p>
-          <div class="principles">
-            <div class="principle"><h3>Screenshot Is Not The Story</h3><p>A good decision can lose. A bad decision can win. Write down what happened.</p></div>
-            <div class="principle"><h3>Standards Over Noise</h3><p>You do not need another guru. You need standards you actually follow.</p></div>
-            <div class="principle"><h3>Nobody Claps Yet</h3><p>The drop is for the part of the story where the work is still private.</p></div>
-          </div>
-        </div>
+        <div><div class="kicker" style="color:#333">Manifesto Excerpt</div><h2 id="manifesto-title">Wear The Standard.</h2></div>
+        <p>DROP 001 is not a victory lap. It is the uniform for the reset: black garments, white marks, and one reminder to return to the standard before the outcome arrives.</p>
       </div>
     </section>
-
-
-
-    <section class="section" id="lookbook" aria-labelledby="lookbook-title">
-      <div class="lookbook-grid">
-        <div class="lookbook-panel"><img src="assets/drop001-library/STYLE_Streetwear_Outfits_WideLeg_V01.png" alt="UNPROFITABLE Drop 001 on-body styled outfit references"></div>
-        <div class="lookbook-copy">
-          <div>
-            <div class="kicker" style="color:#333">Fit / On Body</div>
-            <h2 id="lookbook-title">Made To Look Like A Uniform.</h2>
-          </div>
-          <p>Oversized black silhouettes. White marks. No loud chart-bro costume energy. Built to be worn while you rebuild.</p>
-          <a class="btn btn-dark" href="shop.html">View the Pieces</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="community" aria-labelledby="community-title">
-      <div class="community-grid">
-        <div class="community-card featured">
-          <div>
-            <div class="kicker" style="color:#333">Community</div>
-            <h3 id="community-title">Rebuilding With Receipts.</h3>
-            <p>For the ones who are done pretending the screenshot tells the whole story.<br><br>Review the work. Share the lesson. Keep the standard.</p>
-          </div>
-          <a class="btn btn-dark" href="#" aria-label="Discord invite coming soon">Discord Invite Coming Soon</a>
-        </div>
-        <div class="community-card">
-          <div>
-            <div class="kicker">What It Is / What It Is Not</div>
-            <div class="definition-columns" aria-label="What UNPROFITABLE is and is not">
-              <div class="definition-column"><h4>What It Is</h4><ul><li>Blacked-out streetwear.</li><li>A discipline-first brand.</li><li>A place for review, standards, and getting better.</li></ul></div>
-              <div class="definition-column"><h4>What It Is Not</h4><ul><li>Not a signals room.</li><li>Not a coaching funnel.</li><li>Not financial advice.</li><li>Not fake P&amp;L culture.</li></ul></div>
-            </div>
-          </div>
-          <p class="definition-close">The only flex is discipline.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="waitlist" aria-labelledby="waitlist-title">
+<section class="section" id="waitlist" aria-labelledby="waitlist-title">
       <div class="waitlist">
         <div class="waitlist-copy">
           <div>
@@ -1191,10 +1114,7 @@
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="source" value="wearunprofitable.com drop list">
-            <div class="visually-hidden" aria-hidden="true">
-              <label for="honey-main">Leave blank</label>
-              <input id="honey-main" name="_honey" type="text" tabindex="-1" autocomplete="off">
-            </div>
+            <div class="honeypot-field visually-hidden" aria-hidden="true"><input id="honey-main" name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
             <div class="field">
               <label for="email">Email</label>
               <input id="email" name="email" type="email" autocomplete="email" required>
@@ -1208,27 +1128,6 @@
       </div>
     </section>
 
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="section-head">
-        <div>
-          <div class="kicker">FAQ / Brand Facts</div>
-          <h2 id="faq-title">Brand Facts.</h2>
-        </div>
-        <p>Quick answers about the brand, the drop, and what UNPROFITABLE is not.</p>
-      </div>
-      <div class="faq-grid">
-        <article class="faq-card"><h3>What is UNPROFITABLE?</h3><p>UNPROFITABLE is black-and-white streetwear for people rebuilding their standards. Drop 001 starts with three pieces: a tee, hoodie, and hat.</p></article>
-        <article class="faq-card"><h3>What is Drop 001?</h3><p>DROP 001: DISCIPLINED / 001 contains exactly three pieces: the DISCIPLINED Oversized Tee, DISCIPLINED Heavyweight Hoodie, and DISCIPLINED Structured Hat.</p></article>
-        <article class="faq-card"><h3>Is this a signals or coaching group?</h3><p>No. UNPROFITABLE does not provide trading signals, financial advice, business advice, income claims, or guaranteed outcomes.</p></article>
-        <article class="faq-card"><h3>What does the motto mean?</h3><p>“UNPROFITABLE TODAY. PROFITABLE TOMORROW.” means the loss happened. Now you write it down, fix the rule, and come back tomorrow.</p></article>
-      </div>
-    </section>
-
-    <section class="section campaign" aria-labelledby="campaign-title">
-      <div class="kicker">Brand Motto</div>
-      <div class="motto" id="campaign-title">Unprofitable Today.<br>Profitable Tomorrow.</div>
-      <p>The losses are temporary. The lessons compound.</p>
-    </section>
   </main>
 
   <footer>
@@ -1239,7 +1138,7 @@
       </div>
       <div class="footer-links">
         <div><b>Drop</b><a href="shop.html">Shop / Drop 001</a><a href="#drop">The Drop</a><a href="#waitlist">Drop List</a><a href="products/disciplined-oversized-tee.html">Tee / 001</a><a href="products/disciplined-heavyweight-hoodie.html">Hoodie / 001</a><a href="products/disciplined-structured-hat.html">Hat / 001</a></div>
-        <div><b>Community</b><a href="#community">Discord</a><a href="#manifesto">Manifesto</a><a href="mailto:drop@wearunprofitable.com">Contact</a></div>
+        <div><b>Brand</b><a href="#manifesto">Manifesto</a><a href="mailto:drop@wearunprofitable.com">Contact</a></div>
         <div><b>Legal</b><a href="returns.html">Returns</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div>
       </div>
     </div>
@@ -1263,7 +1162,7 @@
             <input type="hidden" name="source" value="modal-drop-list">
             <input type="hidden" name="identity" value="Not specified">
             <input type="hidden" name="interest" value="All Drop 001 pieces">
-            <div class="visually-hidden" aria-hidden="true"><label>Leave blank<input name="_honey" type="text" tabindex="-1" autocomplete="off"></label></div>
+            <div class="honeypot-field visually-hidden" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"></div>
             <label class="visually-hidden" for="modal-drop-list-email">Email</label>
             <input id="modal-drop-list-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required>
             <button class="btn btn-primary" type="submit">Join List</button>
