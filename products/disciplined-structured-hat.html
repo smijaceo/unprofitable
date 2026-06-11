@@ -51,16 +51,8 @@
 <body>
   <nav class="nav" aria-label="Main navigation">
     <div class="nav-inner">
-      <a class="brand-lockup" href="../index.html" aria-label="UNPROFITABLE home">
-        <span class="mini-mark"><img src="../assets/unprofitable-mark-header.png" alt="UNPROFITABLE UP arrow monogram"></span>
-        <span class="wordmark">UNPROFITABLE</span>
-      </a>
-      <div class="nav-links" aria-label="Page sections">
-        <a href="../shop.html">Shop</a>
-        <a href="../index.html#proof-board">Proof</a>
-        <a href="../index.html#manifesto">Manifesto</a>
-        <a href="../index.html#waitlist">Join</a>
-      </div>
+      <a class="brand-lockup" href="../index.html" aria-label="UNPROFITABLE home"><span class="mini-mark"><img src="../assets/unprofitable-mark-header.png" alt="UNPROFITABLE UP arrow monogram"></span><span class="wordmark">UNPROFITABLE</span></a>
+      <div class="nav-links" aria-label="Page sections"><a href="../shop.html">Shop</a><a href="../index.html#proof-board">Proof</a><a href="../index.html#manifesto">Manifesto</a><a href="../index.html#waitlist">Join</a></div>
       <a class="btn btn-primary" href="#" data-signup-open data-interest="hat" data-source="disciplined-structured-hat.html-nav">Join Drop List</a>
     </div>
   </nav>
@@ -68,14 +60,17 @@
     <section class="product-hero" aria-labelledby="product-title">
       <div>
         <a class="crumb" href="../shop.html">← Back to Shop / Drop 001</a>
-        <div class="kicker">HAT / 001 / DISCIPLINED / 001</div>
-        <h1 id="product-title">Disciplined<br>Structured Hat.</h1>
-        <p class="hero-copy">A structured black cap with front DISCIPLINED embroidery, side U/P mark, and back UNPROFITABLE stitch.</p>
-        <div class="buy-box" aria-label="DISCIPLINED Structured Hat early access signup">
+        <div class="kicker">DROP 001 / DISCIPLINED / 001</div>
+        <h1 id="product-title">DISCIPLINED STRUCTURED HAT</h1>
+        <p class="hero-copy">Structured black cap with front DISCIPLINED embroidery, side U/P mark, and back UNPROFITABLE stitch.</p>
+        <div class="buy-box" aria-label="DISCIPLINED STRUCTURED HAT early access signup">
           <div class="product-price product-price-hero">$50</div>
           <div class="buy-line"><b>Status</b><span>Early Access List Open</span></div>
-          <div class="buy-line"><b>Proof</b><span>Final proof goes to the list before checkout opens.</span></div>
-          <div class="hero-actions"><a class="btn btn-primary" href="#" data-signup-open data-interest="hat" data-source="disciplined-structured-hat.html-hero">Join Hat List</a><a class="btn btn-secondary" href="#photos">View Photos</a></div>
+          <div class="buy-line"><b>Checkout</b><span>Checkout opens after final proof is posted.</span></div>
+          <form class="quick-signup-form buy-box-form" action="#klaviyo-drop-list" method="POST" data-conversion="quick-drop-list" data-source="hat-hero-signup">
+            <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="source" value="hat-hero-signup"><input type="hidden" name="identity" value="Not specified"><input type="hidden" name="interest" value="hat"><div class="honeypot-field visually-hidden" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"></div><label class="visually-hidden" for="hat-hero-email">Email</label><input id="hat-hero-email" name="email" type="email" autocomplete="email" placeholder="Email for Disciplined Structured Hat access" required><button class="btn btn-primary" type="submit">Join Hat List</button><div class="form-status" role="status" aria-live="polite"></div>
+          </form>
+          <p class="trust-strip">Product proof before payment · Embroidery details before checkout · First run</p>
         </div>
       </div>
       <div class="media-stage" data-code="HAT / 001" aria-label="DISCIPLINED Structured Hat hero product photo">
@@ -102,8 +97,7 @@
     <section class="section" id="fit-sizing" aria-labelledby="fit-title">
       <div class="kicker">Fit / Sizing</div>
       <h2 id="fit-title" style="font-size:clamp(44px,7vw,96px);margin-bottom:24px">How It Fits.</h2>
-      <div class="size-note"><b>Fit direction</b><p>Oversized streetwear fit. Final size chart and measurements will be posted before checkout opens.</p></div>
-      <div class="size-interest" aria-label="What size are you watching?"><button type="button" data-size-interest="S">S</button><button type="button" data-size-interest="M">M</button><button type="button" data-size-interest="L">L</button><button type="button" data-size-interest="XL">XL</button><button type="button" data-size-interest="2XL">2XL</button></div>
+      <div class="size-note"><b>Fit direction</b><p>Structured cap fit. Final fit notes and embroidery proof will be posted before checkout opens.</p></div>
       <div class="model-grid" aria-label="Model fit references">
         <article class="model-card"><b>Fit Reference 1</b><p>5'9" / slim build</p><p>Wearing Medium</p><p>Oversized boxy fit</p></article>
         <article class="model-card"><b>Fit Reference 2</b><p>6'0" / average build</p><p>Wearing Large</p><p>Relaxed oversized fit</p></article>
@@ -112,7 +106,7 @@
     </section>
 
     <section class="section product-proof" id="product-proof" aria-labelledby="proof-title">
-      <div class="proof-board-mini proof-strip" aria-label="Proof checkpoint"><b id="proof-title">Before checkout opens</b><span>Final Photos · Size Chart · Fabric Weight · Print + Embroidery · Shipping Timeline · Return Terms</span></div>
+      <div class="proof-board-mini proof-strip proof-checkpoint-strip" aria-label="Proof checkpoint"><b id="proof-title">BEFORE CHECKOUT OPENS</b><span>01 Final Photos · 02 Size Chart · 03 Fabric Weight · 04 Print + Embroidery · 05 Shipping Timeline · 06 Return Terms</span><em>No payment opens until these are live.</em></div>
     </section>
 
     <section class="section" aria-labelledby="related-title">
@@ -123,14 +117,14 @@
 
     <section class="section signup-capture" aria-labelledby="bottom-signup-title">
       <div class="signup-capture-card">
-        <div><div class="kicker">PROCESS OVER OUTCOME</div><h2 id="bottom-signup-title">Join The List For The Hat.</h2><p>Final proof, sizing, bundle details, and first access before public checkout.</p></div>
+        <div><div class="kicker">PROCESS OVER OUTCOME</div><h2 id="bottom-signup-title">Join Hat List.</h2><p>Final sizing, product proof, bundle details, and launch notice go to the list first.</p></div>
         <form class="quick-signup-form" action="#klaviyo-drop-list" method="POST" data-conversion="quick-drop-list" data-source="hat-bottom-signup">
-          <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="source" value="hat-bottom-signup"><input type="hidden" name="identity" value="Not specified"><input type="hidden" name="interest" value="hat"><div class="honeypot-field visually-hidden" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"></div><label class="visually-hidden" for="hat-bottom-signup-email">Email</label><input id="hat-bottom-signup-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required><button class="btn btn-primary" type="submit">Join List</button><div class="form-status" role="status" aria-live="polite"></div>
+          <input type="hidden" name="_subject" value="UNPROFITABLE DISCIPLINED / 001 Drop List Request"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="source" value="hat-bottom-signup"><input type="hidden" name="identity" value="Not specified"><input type="hidden" name="interest" value="hat"><div class="honeypot-field visually-hidden" aria-hidden="true"><input name="_honey" type="text" tabindex="-1" autocomplete="off" aria-hidden="true"></div><label class="visually-hidden" for="hat-bottom-signup-email">Email</label><input id="hat-bottom-signup-email" name="email" type="email" autocomplete="email" placeholder="Email for Drop 001 access" required><button class="btn btn-primary" type="submit">Join Hat List</button><div class="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
     </section>
   </main>
-  <footer><div class="footer-inner"><div><div class="footer-logo">UNPROFITABLE</div><p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial, investment, trading, business, or professional advice. We do not provide signals, trade alerts, strategy recommendations, income claims, or guaranteed outcomes. Build responsibly.</p></div><div class="footer-links"><div><b>Drop</b><a href="../shop.html">Shop / Drop 001</a><a href="../index.html#drop">The Drop</a><a href="disciplined-oversized-tee.html">Tee / 001</a><a href="disciplined-heavyweight-hoodie.html">Hoodie / 001</a><a href="disciplined-structured-hat.html">Hat / 001</a></div><div><b>Brand</b><a href="../index.html#manifesto">Manifesto</a><a href="mailto:drop@wearunprofitable.com">Contact</a></div><div><b>Legal</b><a href="../returns.html">Returns</a><a href="../privacy.html">Privacy</a><a href="../disclaimer.html">Disclaimer</a></div></div></div></footer>
+  <footer><div class="footer-inner"><div><div class="footer-logo">UNPROFITABLE</div><p class="disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing on this site is financial, investment, trading, business, or professional advice. We do not provide signals, trade alerts, strategy recommendations, income claims, or guaranteed outcomes. Build responsibly.</p></div><div class="footer-links"><div><b>Drop</b><a href="../shop.html">Shop / Drop 001</a><a href="../index.html#waitlist">Drop List</a><a href="disciplined-oversized-tee.html">Tee / 001</a><a href="disciplined-heavyweight-hoodie.html">Hoodie / 001</a><a href="disciplined-structured-hat.html">Hat / 001</a></div><div><b>Brand</b><a href="../manifesto.html">Manifesto</a><a href="../community.html">Community</a><a href="../faq.html">FAQ</a><a href="mailto:drop@wearunprofitable.com">Contact</a></div><div><b>Legal</b><a href="../returns.html">Returns</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../disclaimer.html">Disclaimer</a></div></div></div></footer>
   <div class="mobile-cta-bar" aria-label="Mobile quick action"><span>DROP 001 EARLY ACCESS</span><a class="btn btn-primary" href="#" data-signup-open data-interest="hat" data-source="disciplined-structured-hat.html-mobile-bar">Join Hat List</a></div>
 
   <div class="signup-modal" data-signup-modal aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
