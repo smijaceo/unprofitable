@@ -23,6 +23,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
+  <link rel="preload" as="image" href="assets/images/hero/mobile-hero-disciplined-hoodie-editorial.webp" type="image/webp" media="(max-width: 720px)" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -956,22 +957,24 @@
       .mobile-hoodie-hero-visual {
         display: grid;
         place-items: center;
-        margin: 22px 0 0;
-        height: clamp(286px, 76vw, 326px);
+        width: min(100%, 288px);
+        aspect-ratio: 4 / 5;
+        margin: 22px auto 0;
         border: 1px solid rgba(255,255,255,.18);
-        background:
-          radial-gradient(circle at 50% 18%, rgba(255,255,255,.16), transparent 16rem),
-          linear-gradient(180deg, #f8f8f6 0%, #efefec 100%);
+        background: #030303;
         overflow: hidden;
         box-shadow: 0 22px 58px rgba(0,0,0,.46);
       }
+      .mobile-hoodie-hero-visual picture,
       .mobile-hoodie-hero-visual img {
-        width: auto;
+        display: block;
+        width: 100%;
         height: 100%;
-        max-width: 100%;
-        object-fit: contain;
+      }
+      .mobile-hoodie-hero-visual img {
+        object-fit: cover;
+        object-position: center 26%;
         filter: none;
-        transform: scale(1.03);
       }
       .mobile-hero-copy {
         display: block;
@@ -1015,10 +1018,10 @@
         letter-spacing: -.048em;
       }
       .mobile-hoodie-hero-visual {
-        height: 282px;
+        width: min(100%, 282px);
         margin-top: 20px;
       }
-      .mobile-hoodie-hero-visual img { transform: scale(1.05); }
+      .mobile-hoodie-hero-visual img { object-position: center 26%; }
     }
   </style>
 
@@ -1068,7 +1071,12 @@
         <div>
           <div class="eyebrow">DROP 001: DISCIPLINED / 001</div>
           <h1 id="hero-title"><span class="desktop-hero-title">Three Pieces.<br>One Standard.</span><span class="mobile-hero-title">The Uniform<br>For The Reset.</span></h1>
-          <figure class="mobile-hoodie-hero-visual"><img src="assets/drop001-library/HOODIE_Front_LightBg_V01.png" alt="DISCIPLINED heavyweight hoodie front on a clean light background"></figure>
+          <figure class="mobile-hoodie-hero-visual">
+            <picture>
+              <source srcset="assets/images/hero/mobile-hero-disciplined-hoodie-editorial.webp" type="image/webp">
+              <img src="assets/images/hero/mobile-hero-disciplined-hoodie-editorial.jpg" width="882" height="1783" alt="Model wearing the DISCIPLINED hat and black UNPROFITABLE hoodie in a dark editorial campaign image" decoding="async" fetchpriority="high">
+            </picture>
+          </figure>
           <p class="hero-copy"><strong>Black heavyweight tee. Boxy hoodie. Structured hat.</strong><br>White artwork only. First run.</p>
           <p class="mobile-hero-copy">Black heavyweight hoodie.<br>White artwork only. First run.</p>
           <div class="ad-match-line">Final proof goes to the list before checkout opens.</div>
