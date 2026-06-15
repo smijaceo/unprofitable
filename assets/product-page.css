@@ -310,3 +310,7 @@
 .photo-card.product-shot img { object-fit: contain !important; padding: 0 !important; }
 @media(max-width:720px){.media-stage{min-height:430px}.photo-card.product-shot{min-height:320px}.media-stage img{max-height:390px}.rel-media{min-height:220px}}
 .related-card[href="../shop.html"] .rel-media { background:#000 !important; }
+
+.proof-checkpoint-strip .proof-items{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.proof-checkpoint-strip .proof-items i{font-style:normal;display:inline-flex;align-items:center;min-height:30px;padding:7px 10px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.045);font-size:12px;line-height:1.15}
+@media(max-width:720px){.proof-checkpoint-strip .proof-items{display:grid;grid-template-columns:1fr;gap:8px}.proof-checkpoint-strip .proof-items i{width:100%;min-height:38px}.proof-checkpoint-strip{padding:22px 18px}}
