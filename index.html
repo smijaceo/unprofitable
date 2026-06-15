@@ -914,6 +914,134 @@
     .product-card .btn-primary:hover { background:#fff !important; color:#000 !important; }
     .product-card .btn-secondary { color:#000 !important; border-color:#000 !important; background:#fff !important; }
     .product-card .btn-secondary:hover { background:#000 !important; color:#fff !important; }
+
+    /* Mobile-only hero hierarchy: one idea, one clean product visual, one CTA */
+    .mobile-hero-conversion { display: none; }
+    @media (max-width: 720px) {
+      .hero {
+        padding-top: 24px;
+        padding-bottom: 48px;
+        min-height: auto;
+        align-items: start;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .hero .eyebrow {
+        font-size: 10px;
+        line-height: 1.25;
+        letter-spacing: .16em;
+        color: rgba(255,255,255,.72);
+      }
+      .hero h1 {
+        margin-top: 12px;
+        max-width: 10.5ch;
+        font-size: clamp(48px, 14.2vw, 62px);
+        line-height: .86;
+        letter-spacing: -.062em;
+      }
+      .hero .hero-copy {
+        margin-top: 16px;
+        max-width: 31ch;
+        color: rgba(255,255,255,.82);
+        font-size: 16px;
+        line-height: 1.38;
+        letter-spacing: -.01em;
+      }
+      .hero .hero-copy strong {
+        display: inline;
+        color: inherit;
+        font-weight: 650;
+      }
+      .hero .ad-match-line,
+      .hero > .hero-grid > div:first-child .hero-actions,
+      .hero > .hero-grid > div:first-child .fine-note {
+        display: none;
+      }
+      .hero-drop-stage {
+        margin-top: 24px;
+        min-height: clamp(318px, 78vw, 350px);
+        border-color: rgba(255,255,255,.18);
+        background: radial-gradient(circle at 50% 38%, #fbfaf7 0%, #f4f3ef 48%, #e6e6e2 100%) !important;
+        box-shadow: 0 22px 60px rgba(0,0,0,.42);
+        padding: 18px;
+      }
+      .hero-drop-stage::before,
+      .hero-drop-stage::after,
+      .hero-drop-stage .hero-ghost-type,
+      .hero-drop-stage .drop-badge,
+      .hero-drop-stage .hero-label {
+        display: none !important;
+      }
+      .hero-drop-stage .float-garment {
+        filter: drop-shadow(0 18px 28px rgba(0,0,0,.20));
+      }
+      .hero-drop-stage .float-garment img {
+        filter: none !important;
+        mix-blend-mode: normal !important;
+      }
+      .hero-drop-stage .float-hoodie {
+        width: min(86%, 330px);
+        left: 54%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-1deg);
+        z-index: 2;
+      }
+      .hero-drop-stage .float-tee {
+        width: min(43%, 160px);
+        left: 13px;
+        bottom: 30px;
+        transform: rotate(-4deg);
+        z-index: 3;
+      }
+      .hero-drop-stage .float-hat {
+        width: min(39%, 145px);
+        right: 14px;
+        top: 44px;
+        transform: rotate(4deg);
+        z-index: 4;
+      }
+      .mobile-hero-conversion {
+        display: grid;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .mobile-hero-conversion .btn {
+        min-height: 50px;
+        width: 100%;
+        font-size: 11px;
+        letter-spacing: .12em;
+      }
+      .mobile-hero-conversion p {
+        margin: 0;
+        max-width: 34ch;
+        color: rgba(255,255,255,.62);
+        font-size: 12px;
+        line-height: 1.45;
+        letter-spacing: .01em;
+      }
+      .mobile-cta-bar {
+        display: none !important;
+      }
+      body {
+        padding-bottom: 0 !important;
+      }
+    }
+    @media (max-width: 390px) {
+      .hero h1 {
+        font-size: clamp(46px, 13.7vw, 54px);
+        letter-spacing: -.058em;
+      }
+      .hero-drop-stage {
+        min-height: 314px;
+        margin-top: 22px;
+      }
+      .hero-drop-stage .float-hoodie { width: min(84%, 308px); }
+      .hero-drop-stage .float-tee { width: min(41%, 150px); left: 10px; bottom: 28px; }
+      .hero-drop-stage .float-hat { width: min(37%, 136px); right: 10px; top: 46px; }
+    }
   </style>
 
   <script>
@@ -980,6 +1108,10 @@
             <div class="hero-label-title">UNPROFITABLE TODAY.<br>PROFITABLE TOMORROW.</div>
             <div class="hero-label-note">This is the uniform. Get on the list before it opens.</div>
           </div>
+        </div>
+        <div class="mobile-hero-conversion" aria-label="Drop 001 mobile signup">
+          <a class="btn btn-primary" href="#" data-signup-open data-source="home-mobile-hero">Join Drop List</a>
+          <p>Final proof, sizing, and launch notice go to the list first.</p>
         </div>
       </div>
     </section>
