@@ -1055,6 +1055,7 @@
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
+  <script src="js/analytics.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
@@ -1403,9 +1404,20 @@
     }
 
     function trackEvent(name, data = {}) {
-      if (typeof window.va === "function") {
-        window.va("event", { name, data });
-      }
+      return window.UNPAnalytics ? window.UNPAnalytics.trackEvent(name, data) : (typeof window.va === "function" && window.va("event", { name, data }), data);
+    }
+    function normalizeAnalyticsInterest(value) {
+      return window.UNPAnalytics ? window.UNPAnalytics.normalizeInterest(value) : normalizeDropInterest(value);
+    }
+    function ctaPayload(trigger, fallback = {}) {
+      const source = trigger.dataset.source || trigger.dataset.placement || fallback.source || "cta";
+      const interest = normalizeAnalyticsInterest(trigger.dataset.interest || fallback.interest || "full_drop");
+      return {
+        source,
+        surface: trigger.dataset.surface || source.replace(/^home-/, "").replace(/-/g, "_"),
+        cta_id: trigger.dataset.ctaId || `${source.replace(/-/g, "_")}_join`,
+        interest
+      };
     }
 
     const pageParams = new URLSearchParams(window.location.search);
@@ -1443,11 +1455,11 @@
     }
 
     document.querySelectorAll('a[href="#waitlist"]').forEach((link) => {
-      link.addEventListener("click", () => trackEvent("CTA_Click", { drop: "drop_001_disciplined", source: link.closest("nav") ? "nav" : "page", interest: "full_drop" }));
+      link.addEventListener("click", () => trackEvent("CTA_Click", { source: link.closest("nav") ? "nav" : "page", surface: link.closest("nav") ? "nav" : "homepage_anchor", cta_id: link.closest("nav") ? "nav_join" : "homepage_desktop_or_final_join", interest: "full_drop" }));
     });
 
     document.querySelectorAll('a[href="#drop"], a[href="shop.html"], a[href^="disciplined-"]').forEach((link) => {
-      link.addEventListener("click", () => trackEvent("CTA_Click", { drop: "drop_001_disciplined", source: "view_pieces", interest: "full_drop" }));
+      link.addEventListener("click", () => trackEvent("CTA_Click", { source: "view_pieces", surface: "homepage_hero", cta_id: "homepage_view_pieces", interest: "full_drop" }));
     });
 
     document.querySelectorAll('a[href="#community"]').forEach((link) => {
@@ -1520,7 +1532,7 @@
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
       setTimeout(() => modalEmail && modalEmail.focus(), 40);
-      trackEvent("PopupView", leadMetadata({ interest, source }));
+      trackEvent("PopupView", { ...leadMetadata({ interest, source }), surface: source.replace(/-/g, "_") });
       return true;
     }
 
@@ -1536,7 +1548,18 @@
     document.querySelectorAll("[data-signup-open]").forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
+        const payload = ctaPayload(trigger, { interest: trigger.dataset.interest || "full_drop" });
+        trackEvent("CTA_Click", payload);
         openSignupModal({ interest: trigger.dataset.interest || "All Drop 001 pieces", source: trigger.dataset.source || trigger.dataset.placement || "cta" });
+      });
+    });
+
+    document.querySelectorAll('.product-card .product-media, .product-card .product-title-link, .product-card .btn-secondary').forEach((link) => {
+      link.addEventListener("click", () => {
+        const href = link.getAttribute("href") || "";
+        const product = href.includes("hoodie") ? "hoodie" : href.includes("hat") ? "hat" : "tee";
+        const interaction_type = link.classList.contains("product-media") ? "image" : link.classList.contains("product-title-link") ? "title" : "details";
+        trackEvent("ProductCardClick", { surface: "product_grid", product, interest: product, interaction_type });
       });
     });
 

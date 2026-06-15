@@ -46,6 +46,7 @@
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
+  <script src="../js/analytics.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
@@ -234,12 +235,12 @@
       return { email, source, interest, identity };
     }
 
-    function trackEvent(name, data = {}) { if (typeof window.va === "function") window.va("event", { name, data }); }
+    function trackEvent(name, data = {}) { return window.UNPAnalytics ? window.UNPAnalytics.trackEvent(name, data) : (typeof window.va === "function" && window.va("event", { name, data }), data); }
 
     function leadMetadata(raw = {}) {
       return {
         drop: "drop_001_disciplined",
-        source: String(raw.source || location.pathname || "product"),
+        source: String(raw.source || location.pathname || "product").replace(/^wearunprofitable\.com\s+/i, ""),
         interest: String(raw.interest || "tee")
       };
     }
@@ -262,7 +263,7 @@
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
       setTimeout(() => modalEmail && modalEmail.focus(), 40);
-      trackEvent("PopupView", leadMetadata({ interest, source }));
+      trackEvent("PopupView", { ...leadMetadata({ interest, source }), surface: source.replace(/-/g, "_") });
       return true;
     }
 
@@ -278,7 +279,10 @@
     document.querySelectorAll("[data-signup-open]").forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
-        openSignupModal({ interest: trigger.dataset.interest || "All Drop 001 pieces", source: trigger.dataset.source || trigger.dataset.placement || "cta" });
+        const source = trigger.dataset.source || trigger.dataset.placement || "product-cta";
+        const interest = trigger.dataset.interest || "tee";
+        trackEvent("CTA_Click", { source, surface: source.replace(/-/g, "_"), cta_id: `${source.replace(/-/g, "_")}_join`, interest });
+        openSignupModal({ interest, source });
       });
     });
 

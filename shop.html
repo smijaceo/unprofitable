@@ -70,6 +70,7 @@
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
+  <script src="js/analytics.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
 
   <style>
@@ -614,16 +615,29 @@
       return { email, source, interest, identity };
     }
 
-    function trackEvent(name, data = {}) { if (typeof window.va === "function") window.va("event", { name, data }); }
+    function trackEvent(name, data = {}) { return window.UNPAnalytics ? window.UNPAnalytics.trackEvent(name, data) : (typeof window.va === "function" && window.va("event", { name, data }), data); }
+    function normalizeAnalyticsInterest(value) { return window.UNPAnalytics ? window.UNPAnalytics.normalizeInterest(value) : String(value || "full_drop"); }
+    function ctaPayload(trigger, fallback = {}) {
+      const source = trigger.dataset.source || trigger.dataset.placement || fallback.source || "cta";
+      const interest = normalizeAnalyticsInterest(trigger.dataset.interest || fallback.interest || "full_drop");
+      return { source, surface: trigger.dataset.placement || source.replace(/^shop-/, "").replace(/-/g, "_"), cta_id: trigger.dataset.ctaId || `${source.replace(/-/g, "_")}_join`, interest };
+    }
+    function leadMetadata(raw = {}) {
+      return {
+        drop: "drop_001_disciplined",
+        source: String(raw.source || location.pathname || "shop").replace(/^wearunprofitable\.com\s+/i, ""),
+        interest: normalizeAnalyticsInterest(raw.interest || "full_drop")
+      };
+    }
     trackEvent("product_page_view", { product: "Drop 001 Collection", drop: "DISCIPLINED / 001", page: "shop" });
-    document.querySelectorAll('[data-track="join-list"]').forEach((link) => {
-      link.addEventListener("click", () => trackEvent("join_drop_list_click", { placement: link.dataset.placement || "shop" }));
+    document.querySelectorAll('[data-track="join-list"]:not([data-signup-open])').forEach((link) => {
+      link.addEventListener("click", () => trackEvent("CTA_Click", { source: link.dataset.source || "shop", surface: link.dataset.placement || "shop", cta_id: `${(link.dataset.source || link.dataset.placement || "shop").replace(/-/g, "_")}_join`, interest: normalizeAnalyticsInterest(link.dataset.interest || "full_drop") }));
     });
     document.querySelectorAll('[data-track="bundle-list"]').forEach((link) => {
       link.addEventListener("click", () => trackEvent("bundle_waitlist_click", { bundle: link.dataset.bundle || "Drop 001 Bundle", drop: "DISCIPLINED / 001" }));
     });
     document.querySelectorAll('[data-product]').forEach((link) => {
-      link.addEventListener("click", () => trackEvent("product_card_click", { product: link.dataset.product, drop: "DISCIPLINED / 001" }));
+      link.addEventListener("click", () => trackEvent("ProductCardClick", { product: normalizeAnalyticsInterest(link.dataset.product), interest: normalizeAnalyticsInterest(link.dataset.product), surface: "product_grid", interaction_type: link.classList.contains("product-media") ? "image" : (link.textContent || "").toLowerCase().includes("details") ? "details" : "title" }));
     });
     document.querySelectorAll('a[href="#drop"]').forEach((link) => {
       link.addEventListener("click", () => trackEvent("view_drop_001_click", { label: link.textContent.trim().slice(0, 80), placement: "shop" }));
@@ -647,7 +661,7 @@
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
       setTimeout(() => modalEmail && modalEmail.focus(), 40);
-      trackEvent("PopupView", leadMetadata({ interest, source }));
+      trackEvent("PopupView", { ...leadMetadata({ interest, source }), surface: source.replace(/-/g, "_") });
       return true;
     }
 
@@ -663,6 +677,8 @@
     document.querySelectorAll("[data-signup-open]").forEach((trigger) => {
       trigger.addEventListener("click", (event) => {
         event.preventDefault();
+        const payload = ctaPayload(trigger, { interest: trigger.dataset.interest || "full_drop" });
+        trackEvent("CTA_Click", payload);
         openSignupModal({ interest: trigger.dataset.interest || "All Drop 001 pieces", source: trigger.dataset.source || trigger.dataset.placement || "cta" });
       });
     });
@@ -709,7 +725,11 @@
       if (status) { status.textContent = "Submitting your drop request..."; status.className = "form-status"; }
       try {
         const klaviyoLead = await submitToKlaviyoDropList(form);
-        const leadMeta = window.unprofitableTrackMetaLead({ drop: "drop_001_disciplined", source: "meta", interest: "full_drop" });
+        const leadMeta = leadMetadata({ interest: String(data.get("interest") || "full_drop"), source: String(data.get("source") || "shop-form") });
+        window.unprofitableTrackMetaLead(leadMeta);
+        trackEvent("Lead", leadMeta);
+        trackEvent("ProductInterest", leadMeta);
+        if (form.closest("[data-signup-modal]")) trackEvent("PopupSubmit", leadMeta);
         trackEvent("drop_list_submit_success", leadMeta);
         form.reset();
         if (status) { status.textContent = "You’re on the Drop 001 list. Watch your inbox for release updates."; status.className = "form-status is-success"; }
