@@ -1,0 +1,40 @@
+{
+  "name": "unprofitable",
+  "version": "1.0.0",
+  "description": "Premium monochrome trading streetwear.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smijaceo/unprofitable.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/smijaceo/unprofitable/issues"
+  },
+  "homepage": "https://github.com/smijaceo/unprofitable#readme",
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.20.0",
+    "motion": "^12.40.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.1",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.1",
+    "typescript": "^6.0.3"
+  }
+}
