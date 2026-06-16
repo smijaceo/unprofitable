@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UNPROFITABLE — Minimalist Hero Prototype</title>
+  <meta name="description" content="Static isolated prototype for the UNPROFITABLE Drop 001 minimalist editorial homepage direction." />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #030303;
+      --bg-2: #080808;
+      --panel: #0d0d0d;
+      --panel-2: #121212;
+      --ink: #f5f5f5;
+      --muted: #a6a6a6;
+      --soft: #737373;
+      --line: rgba(255, 255, 255, 0.14);
+      --line-strong: rgba(255, 255, 255, 0.28);
+      --shadow-line: 0 0 0 1px rgba(255, 255, 255, 0.13);
+      --shadow-lift: 0 26px 90px rgba(0, 0, 0, 0.72);
+      --max: 1440px;
+      --pad: clamp(18px, 3.2vw, 56px);
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.45;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 50% 7%, rgba(255,255,255,0.10), transparent 28vw),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+      background-size: auto, 72px 72px, 72px 72px;
+      mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+      opacity: 0.5;
+      z-index: -2;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.88) 82%);
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 2px solid #f5f5f5; outline-offset: 4px; }
+
+    .page-shell { width: min(100%, var(--max)); margin-inline: auto; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(3,3,3,0.78);
+      backdrop-filter: blur(18px);
+    }
+    .nav {
+      min-height: 72px;
+      padding: 0 var(--pad);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.26);
+      border-radius: 50%;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: -0.08em;
+      background: #050505;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.035);
+    }
+    .nav-links a {
+      min-height: 38px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color .18s ease, background .18s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a:focus-visible { color: var(--ink); background: rgba(255,255,255,0.08); }
+    .nav-cta {
+      min-height: 40px;
+      padding: 10px 15px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 999px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+    .nav-cta:hover { background: var(--ink); color: #050505; transform: translateY(-1px); }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 72px);
+      padding: clamp(42px, 6vw, 84px) var(--pad) 34px;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(290px, 0.88fr) minmax(330px, 1.18fr);
+      gap: clamp(22px, 4vw, 72px);
+      align-items: center;
+    }
+    .hero-left,
+    .hero-type,
+    .hero-stage { animation: reveal .75s ease both; }
+    .hero-stage { animation-delay: .08s; }
+    .hero-type { animation-delay: .14s; }
+    .announcement {
+      width: fit-content;
+      display: inline-grid;
+      grid-template-columns: auto auto;
+      gap: 10px;
+      align-items: center;
+      padding: 7px 9px;
+      border: 1px solid rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.035);
+      color: #e9e9e9;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .announcement span:first-child {
+      padding: 5px 7px;
+      background: #f4f4f4;
+      color: #050505;
+    }
+    .eyebrow {
+      margin: 30px 0 13px;
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .hero-copy h1 {
+      display: none;
+      margin: 0;
+    }
+    .hero-copy p {
+      max-width: 430px;
+      margin: 0 0 24px;
+      color: #d8d8d8;
+      font-size: clamp(17px, 1.45vw, 21px);
+      line-height: 1.58;
+      letter-spacing: -0.025em;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.065em;
+      text-transform: uppercase;
+      transition: transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .btn-primary { background: #f2f2f2; color: #030303; border-color: #f2f2f2; }
+    .btn-primary::after { content: "→"; font-family: var(--mono); transform: translateY(-1px); transition: transform .18s ease; }
+    .btn-primary:hover { background: #fff; transform: translateY(-2px); }
+    .btn-primary:hover::after { transform: translate(3px, -1px); }
+    .btn-secondary { color: #f2f2f2; background: rgba(255,255,255,0.025); }
+    .btn-secondary:hover { background: rgba(255,255,255,0.10); transform: translateY(-2px); }
+    .microcopy {
+      max-width: 360px;
+      margin: 0;
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.65;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-stage {
+      position: relative;
+      min-height: 690px;
+      display: grid;
+      place-items: center;
+    }
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: 8% -7% 5%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: radial-gradient(circle at 50% 28%, rgba(255,255,255,0.18), rgba(255,255,255,0.03) 32%, transparent 68%);
+      transform: rotate(-2deg);
+    }
+    .hero-frame {
+      position: relative;
+      width: min(100%, 430px);
+      aspect-ratio: 0.56;
+      overflow: hidden;
+      background: #090909;
+      border: 1px solid rgba(255,255,255,0.22);
+      box-shadow: var(--shadow-lift), 0 0 0 12px rgba(255,255,255,0.018);
+    }
+    .hero-frame picture,
+    .hero-frame img { width: 100%; height: 100%; }
+    .hero-frame img {
+      object-fit: cover;
+      object-position: 50% 44%;
+      filter: grayscale(100%) contrast(1.04) brightness(.92);
+    }
+    .hero-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,0.15);
+      pointer-events: none;
+      box-shadow: inset 0 0 80px rgba(0,0,0,.42);
+    }
+    .image-caption {
+      position: absolute;
+      left: -22px;
+      bottom: 36px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: rgba(255,255,255,0.58);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .hero-type {
+      justify-self: end;
+      max-width: 560px;
+    }
+    .hero-type .kicker {
+      margin-bottom: 16px;
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .display {
+      margin: 0;
+      font-size: clamp(62px, 7.7vw, 132px);
+      font-weight: 850;
+      line-height: .82;
+      letter-spacing: -0.085em;
+      text-transform: uppercase;
+      text-wrap: balance;
+    }
+    .display .line { display: block; }
+    .display .muted { color: #8c8c8c; }
+    .status-row {
+      grid-column: 1 / -1;
+      align-self: end;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.10);
+    }
+    .status-cell {
+      min-height: 70px;
+      padding: 16px;
+      background: rgba(3,3,3,0.86);
+    }
+    .status-cell strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .status-cell span { color: var(--soft); font-size: 13px; }
+
+    section { padding: clamp(66px, 8vw, 118px) var(--pad); }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .section-label {
+      margin: 0 0 10px;
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      margin: 0;
+      max-width: 840px;
+      font-size: clamp(36px, 5vw, 86px);
+      line-height: .9;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+    }
+    .section-note {
+      max-width: 330px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .proof-card {
+      position: relative;
+      min-height: 270px;
+      overflow: hidden;
+      padding: 26px;
+      background: linear-gradient(145deg, #0c0c0c, #070707);
+      box-shadow: var(--shadow-line);
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+      isolation: isolate;
+    }
+    .proof-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      left: var(--mx, 50%);
+      top: var(--my, 0%);
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 62%);
+      opacity: .35;
+      transition: opacity .22s ease;
+      z-index: -1;
+    }
+    .proof-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.25), 0 24px 80px rgba(0,0,0,.55);
+      background: linear-gradient(145deg, #111, #070707);
+    }
+    .proof-card:hover::before { opacity: .75; }
+    .proof-card .num {
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .18em;
+    }
+    .proof-card h3 {
+      margin: 72px 0 12px;
+      font-size: clamp(28px, 2.8vw, 42px);
+      line-height: .94;
+      letter-spacing: -0.055em;
+      text-transform: uppercase;
+    }
+    .proof-card p {
+      max-width: 260px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .collection {
+      border-top: 1px solid rgba(255,255,255,0.10);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.018);
+    }
+    .stacked-wrap {
+      display: grid;
+      grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+    }
+    .collection-copy p {
+      max-width: 430px;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    .product-stack {
+      position: relative;
+      min-height: 610px;
+    }
+    .product-card {
+      position: absolute;
+      width: min(88%, 610px);
+      min-height: 430px;
+      padding: 18px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      background: #f2f2f2;
+      color: #050505;
+      box-shadow: 0 36px 120px rgba(0,0,0,.72), 0 0 0 1px rgba(255,255,255,.24);
+      transition: transform .26s ease, z-index .26s ease;
+    }
+    .product-card:nth-child(1) { right: 4%; top: 0; z-index: 3; transform: rotate(-2.2deg); }
+    .product-card:nth-child(2) { left: 4%; top: 88px; z-index: 2; transform: rotate(2.4deg); }
+    .product-card:nth-child(3) { right: 10%; top: 176px; z-index: 1; transform: rotate(-.8deg); }
+    .product-card:hover { z-index: 5; transform: rotate(0deg) translateY(-10px) scale(1.015); }
+    .product-top,
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #333;
+    }
+    .product-image {
+      display: grid;
+      place-items: center;
+      min-height: 315px;
+      padding: 12px;
+    }
+    .product-image img {
+      max-height: 310px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%) contrast(1.02);
+    }
+    .product-name {
+      margin: 0;
+      font-size: clamp(32px, 4.2vw, 62px);
+      line-height: .9;
+      letter-spacing: -.075em;
+      text-transform: uppercase;
+    }
+
+    .final-cta {
+      text-align: center;
+    }
+    .cta-panel {
+      max-width: 1040px;
+      margin-inline: auto;
+      padding: clamp(36px, 6vw, 78px);
+      background: #080808;
+      box-shadow: var(--shadow-line);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-panel::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.16), transparent 45%);
+      pointer-events: none;
+    }
+    .cta-panel > * { position: relative; }
+    .cta-panel h2 {
+      max-width: 850px;
+      margin: 12px auto 18px;
+      font-size: clamp(42px, 6vw, 96px);
+      line-height: .88;
+      letter-spacing: -.075em;
+      text-transform: uppercase;
+    }
+    .cta-panel p {
+      max-width: 600px;
+      margin: 0 auto 26px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .site-footer {
+      padding: 56px var(--pad) 28px;
+      border-top: 1px solid rgba(255,255,255,0.11);
+      background: #030303;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, 1.35fr) repeat(4, minmax(120px, .65fr));
+      gap: 28px;
+    }
+    .footer-brand p,
+    .footer-disclaimer {
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .footer-title {
+      margin: 0 0 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .footer-col a {
+      display: block;
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color .16s ease;
+    }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 46px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      color: var(--soft);
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1100px) {
+      .hero {
+        grid-template-columns: minmax(0, .92fr) minmax(300px, .72fr);
+        align-items: start;
+      }
+      .hero-left { grid-column: 1; grid-row: 1; padding-top: 18px; }
+      .hero-stage { grid-column: 2; grid-row: 1 / span 2; min-height: 610px; }
+      .hero-type { grid-column: 1; grid-row: 2; justify-self: start; }
+      .status-row { grid-template-columns: repeat(2, 1fr); }
+      .display { font-size: clamp(58px, 8.6vw, 96px); }
+      .proof-grid { grid-template-columns: 1fr; }
+      .proof-card { min-height: 220px; }
+      .proof-card h3 { margin-top: 44px; }
+      .stacked-wrap { grid-template-columns: 1fr; }
+      .product-stack { min-height: 760px; }
+      .product-card { width: min(94%, 620px); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 760px) {
+      body::before { background-size: auto, 42px 42px, 42px 42px; opacity: .38; }
+      .site-header { position: static; }
+      .nav {
+        min-height: auto;
+        padding: 16px var(--pad);
+        flex-wrap: wrap;
+      }
+      .brand { width: 100%; justify-content: space-between; }
+      .nav-links {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-radius: 10px;
+      }
+      .nav-links a {
+        min-height: 42px;
+        padding: 11px 6px;
+        text-align: center;
+        font-size: 12px;
+      }
+      .nav-cta { display: none; }
+      .hero {
+        min-height: auto;
+        padding-top: 34px;
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+      .hero-left,
+      .hero-stage,
+      .hero-type { grid-column: 1; grid-row: auto; }
+      .hero-copy h1 {
+        display: block;
+        margin: 18px 0 14px;
+        font-size: clamp(52px, 15vw, 76px);
+        line-height: .86;
+        letter-spacing: -.08em;
+        text-transform: uppercase;
+      }
+      .hero-type { display: none; }
+      .hero-copy p { font-size: 16px; margin-bottom: 20px; }
+      .actions { align-items: stretch; }
+      .btn { width: 100%; min-height: 50px; }
+      .btn-secondary { width: auto; min-height: 44px; padding-inline: 0; border: 0; background: transparent; text-decoration: underline; text-underline-offset: 5px; }
+      .microcopy { font-size: 10px; }
+      .hero-stage { min-height: auto; margin: 6px 0 2px; }
+      .hero-stage::before { inset: 5% 6% 4%; transform: rotate(-1deg); }
+      .hero-frame { width: min(100%, 370px); aspect-ratio: 0.62; justify-self: center; }
+      .image-caption { display: none; }
+      .status-row { grid-template-columns: 1fr; margin-top: 10px; }
+      .status-cell { min-height: auto; padding: 13px 14px; }
+      section { padding-block: 64px; }
+      .section-head { display: block; }
+      .section-title { font-size: clamp(38px, 13vw, 58px); }
+      .section-note { margin-top: 18px; }
+      .proof-card { padding: 22px; min-height: 204px; }
+      .product-stack {
+        min-height: auto;
+        display: grid;
+        gap: 16px;
+      }
+      .product-card,
+      .product-card:nth-child(1),
+      .product-card:nth-child(2),
+      .product-card:nth-child(3) {
+        position: relative;
+        left: auto;
+        right: auto;
+        top: auto;
+        width: 100%;
+        min-height: auto;
+        transform: none;
+      }
+      .product-card:hover { transform: translateY(-4px); }
+      .product-image { min-height: 230px; }
+      .product-image img { max-height: 220px; }
+      .product-name { font-size: clamp(34px, 13vw, 56px); }
+      .cta-panel { padding: 34px 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="home">
+    <nav class="nav page-shell" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="UNPROFITABLE home">
+        <span class="brand-mark">U/P</span>
+        <span>UNPROFITABLE</span>
+      </a>
+      <div class="nav-links" aria-label="Page sections">
+        <a href="#home">Home</a>
+        <a href="#drop">Drop 001</a>
+        <a href="#proof">Proof</a>
+        <a href="#join">Join List</a>
+      </div>
+      <a class="nav-cta" href="#join">Join List</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero page-shell" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="announcement" aria-label="Drop announcement">
+          <span>DROP 001</span>
+          <span>DISCIPLINED / 001</span>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">DROP 001: DISCIPLINED / 001</p>
+          <h1 id="hero-title">THE UNIFORM<br>FOR THE RESET.</h1>
+          <p>A blacked-out uniform for rebuilding standards. Final sizing, product proof, and launch notice go to the list before checkout opens.</p>
+          <div class="actions" aria-label="Hero actions">
+            <a class="btn btn-primary" href="#join">Join Drop List</a>
+            <a class="btn btn-secondary" href="#drop">View Drop 001</a>
+          </div>
+          <p class="microcopy">No checkout link yet. Sizing and product proof come first.</p>
+        </div>
+      </div>
+
+      <div class="hero-stage" aria-label="Hoodie and hat editorial product image">
+        <figure class="hero-frame">
+          <picture>
+            <source srcset="../assets/images/hero/mobile-hero-disciplined-hoodie-editorial.webp" type="image/webp">
+            <img src="../assets/images/hero/mobile-hero-disciplined-hoodie-editorial.jpg" alt="Model wearing the UNPROFITABLE DISCIPLINED hoodie and hat in a monochrome editorial crop">
+          </picture>
+        </figure>
+        <span class="image-caption">Hoodie + Hat / Product Proof</span>
+      </div>
+
+      <div class="hero-type" aria-hidden="true">
+        <p class="kicker">Proof first / checkout later</p>
+        <p class="display">
+          <span class="line">THE</span>
+          <span class="line">UNIFORM</span>
+          <span class="line muted">FOR THE</span>
+          <span class="line">RESET.</span>
+        </p>
+      </div>
+
+      <div class="status-row" aria-label="Drop status">
+        <div class="status-cell"><strong>Status</strong><span>Early access list open.</span></div>
+        <div class="status-cell"><strong>Drop</strong><span>DISCIPLINED / 001.</span></div>
+        <div class="status-cell"><strong>Proof</strong><span>Sizing and final photos before checkout.</span></div>
+        <div class="status-cell"><strong>Signal</strong><span>No signals. No guaranteed outcomes.</span></div>
+      </div>
+    </section>
+
+    <section class="proof page-shell" id="proof" aria-labelledby="proof-title">
+      <div class="section-head">
+        <div>
+          <p class="section-label">Product Proof / Drop 001</p>
+          <h2 class="section-title" id="proof-title">Proof before payment.</h2>
+        </div>
+        <p class="section-note">The list gets the practical details first: sizing, final imagery, and the launch notice before public checkout opens.</p>
+      </div>
+      <div class="proof-grid">
+        <article class="proof-card">
+          <span class="num">01</span>
+          <h3>Sizing</h3>
+          <p>Measurements before checkout opens.</p>
+        </article>
+        <article class="proof-card">
+          <span class="num">02</span>
+          <h3>Product Proof</h3>
+          <p>Final photos, closeups, and garment details before payment.</p>
+        </article>
+        <article class="proof-card">
+          <span class="num">03</span>
+          <h3>Launch Notice</h3>
+          <p>The list hears before public checkout opens.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="collection" id="drop" aria-labelledby="drop-title">
+      <div class="stacked-wrap page-shell">
+        <div class="collection-copy">
+          <p class="section-label">Three-piece capsule</p>
+          <h2 class="section-title" id="drop-title">Hoodie. Tee. Hat.</h2>
+          <p>Drop 001 stays focused: a blacked-out uniform system, shown as product proof instead of a generic shop grid.</p>
+        </div>
+        <div class="product-stack" aria-label="Drop 001 product stack">
+          <article class="product-card">
+            <div class="product-top"><span>01 / Hoodie</span><span>DISCIPLINED</span></div>
+            <div class="product-image"><img src="../assets/drop001-library/HOODIE_FrontBack_LightBg_V02.png" alt="UNPROFITABLE DISCIPLINED hoodie front and back product proof"></div>
+            <h3 class="product-name">Hoodie</h3>
+            <div class="product-bottom"><span>Proof asset</span><span>Drop 001</span></div>
+          </article>
+          <article class="product-card">
+            <div class="product-top"><span>02 / Tee</span><span>DISCIPLINED</span></div>
+            <div class="product-image"><img src="../assets/drop001-library/TEE_FrontBack_LightBg_V02.png" alt="UNPROFITABLE DISCIPLINED tee front and back product proof"></div>
+            <h3 class="product-name">Tee</h3>
+            <div class="product-bottom"><span>Proof asset</span><span>Drop 001</span></div>
+          </article>
+          <article class="product-card">
+            <div class="product-top"><span>03 / Hat</span><span>DISCIPLINED</span></div>
+            <div class="product-image"><img src="../assets/drop001-library/HAT_FrontBack_LightBg_V02.png" alt="UNPROFITABLE DISCIPLINED hat front and back product proof"></div>
+            <h3 class="product-name">Hat</h3>
+            <div class="product-bottom"><span>Proof asset</span><span>Drop 001</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta page-shell" id="join" aria-labelledby="join-title">
+      <div class="cta-panel">
+        <div class="announcement" aria-label="Checkout status">
+          <span>PROOF FIRST</span>
+          <span>CHECKOUT LATER</span>
+        </div>
+        <h2 id="join-title">Get the drop notice before public checkout.</h2>
+        <p>Join the early list for Drop 001 updates. Final sizing, product proof, and launch notice go to the list first.</p>
+        <div class="actions" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:?subject=Join%20UNPROFITABLE%20Drop%20001%20List">Join Drop List</a>
+          <a class="btn btn-secondary" href="#drop">View Drop 001</a>
+        </div>
+        <p class="microcopy" style="margin:16px auto 0; max-width:520px;">Prototype CTA only. Production signup wiring is intentionally not touched in this pass.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="#home"><span class="brand-mark">U/P</span><span>UNPROFITABLE</span></a>
+          <p>Streetwear and community brand.<br>Proof first. Checkout later.</p>
+        </div>
+        <div class="footer-col">
+          <p class="footer-title">Drop</p>
+          <a href="#drop">Drop 001</a>
+          <a href="#drop">Hoodie</a>
+          <a href="#drop">Tee</a>
+          <a href="#drop">Hat</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-title">Brand</p>
+          <a href="#home">Manifesto</a>
+          <a href="#join">Community</a>
+          <a href="#proof">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-title">Support</p>
+          <a href="#join">Contact</a>
+          <a href="#join">Shipping / Returns</a>
+          <a href="#join">Privacy</a>
+          <a href="#join">Disclaimer</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-title">Social</p>
+          <a href="#home">Instagram</a>
+        </div>
+      </div>
+      <p class="footer-disclaimer">UNPROFITABLE is a streetwear and community brand. Nothing here is financial, investment, trading, business, or professional advice. No signals. No guaranteed outcomes. Build responsibly.</p>
+      <div class="footer-bottom">
+        <span>DROP 001: DISCIPLINED / 001</span>
+        <span>Static isolated prototype</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
