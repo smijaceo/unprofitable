@@ -73,22 +73,22 @@ export function StackedCardsInteraction({ onJoin }: Props) {
         {products.map((product, index) => (
           <article
             key={product.name}
-            className="sticky top-[82px] grid min-h-[560px] overflow-hidden border border-white/14 bg-[linear-gradient(135deg,#070707,#151515_52%,#020202)] p-3 shadow-editorial sm:p-5 lg:grid-cols-[0.85fr_1.15fr] lg:gap-6"
+            className="relative grid overflow-hidden border border-white/14 bg-[linear-gradient(135deg,#070707,#151515_52%,#020202)] p-2 shadow-editorial sm:p-5 lg:sticky lg:min-h-[560px] lg:grid-cols-[0.85fr_1.15fr] lg:gap-6"
             style={{ top: `${82 + index * 18}px` }}
           >
-            <div className="order-2 flex flex-col justify-between p-3 sm:p-5 lg:order-1">
+            <div className="order-2 flex flex-col justify-between p-4 pt-5 sm:p-5 lg:order-1">
               <div>
                 <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white/45">{product.index}</p>
-                <h3 className="mt-4 text-[clamp(4.4rem,18vw,9rem)] font-black uppercase leading-[0.72] tracking-[-0.085em]">{product.title}</h3>
-                <p className="mt-6 max-w-md text-pretty text-base leading-7 text-white/65">{product.copy}</p>
-                <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
+                <h3 className="mt-3 text-[clamp(3.25rem,15vw,9rem)] font-black uppercase leading-[0.76] tracking-[-0.085em] lg:mt-4 lg:text-[clamp(4.4rem,18vw,9rem)] lg:leading-[0.72]">{product.title}</h3>
+                <p className="mt-4 max-w-md text-pretty text-sm leading-6 text-white/65 sm:text-base lg:mt-6 lg:leading-7">{product.copy}</p>
+                <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap lg:mt-7">
                   <Button onClick={() => onJoin(`home-capsule-${product.interest}`, product.interest)} className="w-full sm:w-auto">Join {product.title} List</Button>
                   <Button asChild variant="outline" className="w-full sm:w-auto">
                     <a href={product.href}>Details</a>
                   </Button>
                 </div>
               </div>
-              <div className="mt-8 grid grid-cols-1 gap-2 sm:grid-cols-3">
+              <div className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-3 lg:mt-8">
                 {product.tags.map((tag) => (
                   <span key={tag} className="border border-white/12 px-3 py-3 text-center font-mono text-[10px] uppercase tracking-[0.14em] text-white/50">
                     {tag}
@@ -98,10 +98,10 @@ export function StackedCardsInteraction({ onJoin }: Props) {
             </div>
             <a
               href={product.href}
-              className="order-1 grid min-h-[330px] place-items-center overflow-hidden bg-[radial-gradient(circle_at_50%_42%,#fff_0,#e9e9e9_46%,#cacaca_100%)] p-5 lg:order-2 lg:min-h-[520px]"
+              className="order-1 grid min-h-[230px] place-items-center overflow-hidden bg-[radial-gradient(circle_at_50%_42%,#fff_0,#e9e9e9_46%,#cacaca_100%)] p-3 sm:min-h-[340px] sm:p-5 lg:order-2 lg:min-h-[520px]"
               aria-label={`View ${product.name} details`}
             >
-              <img src={product.image} alt={product.alt} loading="eager" decoding="async" className="max-h-[310px] w-full object-contain drop-shadow-[0_24px_42px_rgba(0,0,0,.36)] lg:max-h-[500px]" />
+              <img src={product.image} alt={product.alt} loading="eager" decoding="async" className="max-h-[220px] w-full object-contain drop-shadow-[0_24px_42px_rgba(0,0,0,.36)] sm:max-h-[320px] lg:max-h-[500px]" />
             </a>
           </article>
         ))}
