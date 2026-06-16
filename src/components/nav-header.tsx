@@ -21,7 +21,7 @@ export function NavHeader({ onJoin }: NavHeaderProps) {
           <a className="transition hover:text-white" href="#join">Access</a>
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={() => onJoin('nav-join-list')} className="hidden sm:inline-flex">Join List</Button>
+          <Button variant="outline" size="sm" onClick={() => onJoin('nav-join-list')} className="inline-flex">Join List</Button>
           <button className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/[0.03] text-white/70 md:hidden" aria-label="Menu">
             <Menu className="h-4 w-4" />
           </button>
