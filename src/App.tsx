@@ -1,0 +1,84 @@
+import { useCallback, useEffect, useState } from 'react';
+import { Announcement } from './components/announcement';
+import { Footer2 } from './components/footer2';
+import { MinimalistHero } from './components/minimalist-hero';
+import { NavHeader } from './components/nav-header';
+import { SignupModal, type SignupState } from './components/signup-modal';
+import { SpotlightCard } from './components/spotlight-card';
+import { StackedCardsInteraction } from './components/stacked-cards-interaction';
+import { ButtonColorful } from './components/ui/button-colorful';
+import { leadMetadata, trackEvent } from './lib/analytics';
+
+const defaultSignup: SignupState = { open: false, source: 'site', interest: 'full_drop', interestLabel: 'All Drop 001 pieces' };
+
+function interestLabel(interest?: string) {
+  if (interest === 'hoodie') return 'Hoodie';
+  if (interest === 'tee') return 'Tee';
+  if (interest === 'hat') return 'Hat';
+  return 'All Drop 001 pieces';
+}
+
+export default function App() {
+  const [signup, setSignup] = useState<SignupState>(defaultSignup);
+
+  const openSignup = useCallback((source: string, interest = 'full_drop') => {
+    trackEvent('CTA_Click', { ...leadMetadata({ interest, source }), surface: source.replace(/-/g, '_') });
+    setSignup({ open: true, source, interest, interestLabel: interestLabel(interest) });
+  }, []);
+
+  const closeSignup = useCallback(() => setSignup((current) => ({ ...current, open: false })), []);
+
+  useEffect(() => {
+    window.openUnprofitableDropList = (source = 'site-fallback', interest = 'full_drop') => openSignup(source, interest);
+    function onNativeClick(event: MouseEvent) {
+      const trigger = (event.target as HTMLElement | null)?.closest<HTMLElement>('[data-drop-list-trigger]');
+      if (!trigger) return;
+      event.preventDefault();
+      openSignup(trigger.dataset.source || 'site-fallback', trigger.dataset.interest || 'full_drop');
+    }
+    document.addEventListener('click', onNativeClick);
+    return () => {
+      document.removeEventListener('click', onNativeClick);
+      delete window.openUnprofitableDropList;
+    };
+  }, [openSignup]);
+
+  return (
+    <>
+      <NavHeader onJoin={openSignup} />
+      <main className="bg-black">
+        <MinimalistHero onJoin={openSignup} />
+        <Announcement />
+        <SpotlightCard />
+        <StackedCardsInteraction onJoin={openSignup} />
+        <section id="join" className="brand-container py-16 sm:py-24" aria-labelledby="join-title">
+          <div className="grid gap-8 border border-white bg-white p-6 text-black sm:p-10 lg:grid-cols-[1fr_0.42fr] lg:items-end lg:p-16">
+            <div>
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-black/62">Early Access</p>
+              <h2 id="join-title" className="mt-4 max-w-[10ch] text-[clamp(3.3rem,13vw,8.8rem)] font-black uppercase leading-[0.78] tracking-[-0.085em]">Drop 001 opens to the list first.</h2>
+              <p className="mt-6 max-w-xl text-pretty text-lg leading-7 text-black/72">Final sizing, product proof, and launch notice go out before checkout opens.</p>
+            </div>
+            <div className="grid gap-4">
+              <ButtonColorful className="border-black bg-black text-white shadow-none hover:bg-white hover:text-black" onClick={() => openSignup('home-final-cta', 'full_drop')}>Join Drop List</ButtonColorful>
+              <p className="font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-black/55">Proof first. Checkout later.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer2 />
+      <SignupModal state={signup} onClose={closeSignup} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          { '@type': 'Organization', '@id': 'https://www.wearunprofitable.com/#organization', name: 'UNPROFITABLE', url: 'https://www.wearunprofitable.com/', logo: 'https://www.wearunprofitable.com/assets/unprofitable-main-logo.png', description: 'Black-and-white streetwear and community brand for people rebuilding their standards.', sameAs: ['https://www.instagram.com/wearunprofitable/'] },
+          { '@type': 'WebSite', '@id': 'https://www.wearunprofitable.com/#website', url: 'https://www.wearunprofitable.com/', name: 'UNPROFITABLE', publisher: { '@id': 'https://www.wearunprofitable.com/#organization' } },
+          { '@type': 'FAQPage', '@id': 'https://www.wearunprofitable.com/#faq', mainEntity: [
+            { '@type': 'Question', name: 'What is DROP 001: DISCIPLINED / 001?', acceptedAnswer: { '@type': 'Answer', text: 'DROP 001: DISCIPLINED / 001 contains exactly three pieces: the DISCIPLINED Oversized Tee, DISCIPLINED Heavyweight Hoodie, and DISCIPLINED Structured Hat.' } },
+            { '@type': 'Question', name: 'Does checkout open now?', acceptedAnswer: { '@type': 'Answer', text: 'No. Final sizing, product proof, and launch notice go to the Drop List before checkout opens.' } },
+            { '@type': 'Question', name: 'Is UNPROFITABLE a signals or coaching group?', acceptedAnswer: { '@type': 'Answer', text: 'No. UNPROFITABLE does not provide trading signals, financial advice, business advice, income claims, or guaranteed outcomes.' } }
+          ] }
+        ]
+      }) }} />
+    </>
+  );
+}
