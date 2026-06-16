@@ -50,6 +50,14 @@ Do not use Launch Decisions as the Chief of Staff channel.
 - Channel ID: `1513626545728655360`
 - Purpose: fulfillment, packaging, shipping, returns, exchanges, damaged items, support templates, FAQ, and launch-day operations.
 
+## Social Media
+
+- Agent: `unprofitable-social-media-agent`
+- Channel ID: `1513760747723690105`
+- Discord target: `discord:#unprofitable-social-media`
+- Purpose: organic Facebook/Instagram posts, Stories, Reels posting plan, captions, hashtags, weekly teaser schedule, scheduling, community-facing replies, repurposing approved Marketing assets, and organic performance reporting.
+- Runtime verification: `UNP-SOCIAL-FIX-001` posted Social Media ack `1513956791246127114`, Social Media deliverable `1513956849647358042`, and Jace activity mirror `1513956851572670487` on 2026-06-09.
+
 ## Launch Decisions
 
 - Channel ID: `1513626852462170253`
@@ -72,3 +80,8 @@ Items that belong here:
 ```text
 Orchestrator manages agents. Chief of Staff manages clarity.
 ```
+
+
+## Agent Communication Protocol
+
+Agents use `docs/agents/agent-communication-protocol.md`, `docs/agents/shared-agent-source-of-truth.md`, and `docs/agents/cross-agent-task-tracker.md` for handoffs and status tracking.
