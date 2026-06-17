@@ -66,14 +66,15 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
       >
-        <span>BLACKED-OUT</span>
-        <span>HEAVYWEIGHT</span>
-        <span>PIECES FOR</span>
-        <span>REBUILDING</span>
-        <span>STANDARDS.</span>
-        <span>PROOF FIRST.</span>
-        <span>CHECKOUT</span>
-        <span>LATER.</span>
+        <span className="hero-microcopy-mobile">BLACKED-OUT</span>
+        <span className="hero-microcopy-mobile">HEAVYWEIGHT</span>
+        <span className="hero-microcopy-mobile">PIECES FOR</span>
+        <span className="hero-microcopy-mobile">REBUILDING</span>
+        <span className="hero-microcopy-mobile">STANDARDS.</span>
+        <span className="hero-microcopy-mobile">PROOF FIRST.</span>
+        <span className="hero-microcopy-mobile">CHECKOUT</span>
+        <span className="hero-microcopy-mobile">LATER.</span>
+        <span className="hero-microcopy-desktop">Proof first. Checkout later. Sizing, product photos, and launch notice go to the list before the drop opens.</span>
       </motion.p>
 
       <motion.div

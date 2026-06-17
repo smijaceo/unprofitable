@@ -342,6 +342,7 @@ img { display: block; max-width: 100%; }
   color: rgba(255,255,255,.68);
 }
 .hero-microcopy span { display: block; }
+.hero-microcopy .hero-microcopy-desktop { display: none; }
 .hero-status {
   position: absolute;
   left: 22px;
@@ -457,4 +458,110 @@ img { display: block; max-width: 100%; }
   .site-header { padding-left: 48px; padding-right: 48px; }
   .drop-hero { padding-left: 72px; }
   .hero-model-cutout { right: 8vw; width: min(40vw, 640px); }
+}
+
+@media (min-width: 900px) {
+  .site-header {
+    background: rgba(2, 2, 2, .92);
+  }
+
+  .drop-hero {
+    min-height: calc(100svh - 100px);
+    height: calc(100svh - 100px);
+    min-height: 720px;
+    padding: 64px clamp(48px, 6vw, 92px) 64px;
+    background:
+      radial-gradient(circle at 62% 43%, rgba(255,255,255,.105) 0, rgba(255,255,255,.035) 28%, transparent 58%),
+      #020202;
+  }
+
+  .hero-eyebrow {
+    margin-top: 0;
+    font-size: 11px;
+    letter-spacing: .18em;
+  }
+
+  .hero-headline {
+    margin-top: 18px;
+    max-width: 650px;
+    font-size: clamp(72px, 5.9vw, 96px);
+    line-height: .97;
+    letter-spacing: -.038em;
+  }
+
+  .hero-headline span {
+    display: inline;
+  }
+
+  .hero-headline span:nth-child(1)::after,
+  .hero-headline span:nth-child(3)::after {
+    content: " ";
+  }
+
+  .hero-headline span:nth-child(2)::after {
+    content: "\A";
+    white-space: pre;
+  }
+
+  .hero-ghost-001 {
+    right: 1vw;
+    top: 14%;
+    font-size: min(35vw, 540px);
+    color: rgba(255,255,255,.026);
+  }
+
+  .hero-model-cutout {
+    right: clamp(96px, 13vw, 220px);
+    bottom: -46px;
+    width: min(40vw, 600px);
+    filter: drop-shadow(0 40px 72px rgba(0,0,0,.9));
+  }
+
+  .hero-crosshair {
+    left: clamp(48px, 6vw, 92px);
+    top: 424px;
+    bottom: auto;
+    opacity: .62;
+  }
+
+  .hero-microcopy {
+    left: clamp(48px, 6vw, 92px);
+    top: 476px;
+    bottom: auto;
+    max-width: 430px;
+    font-size: 13px;
+    line-height: 1.65;
+    letter-spacing: .035em;
+    font-weight: 500;
+    text-transform: none;
+    color: rgba(255,255,255,.66);
+  }
+
+  .hero-microcopy-mobile {
+    display: none !important;
+  }
+
+  .hero-microcopy .hero-microcopy-desktop {
+    display: block;
+  }
+
+  .hero-status {
+    left: clamp(48px, 6vw, 92px);
+    top: 574px;
+    bottom: auto;
+    padding: 8px 0;
+    font-size: 10px;
+    letter-spacing: .18em;
+    color: rgba(255,255,255,.7);
+  }
+
+  .hero-drop-cta {
+    left: clamp(48px, 6vw, 92px);
+    top: 626px;
+    bottom: auto;
+    width: 330px;
+    min-height: 58px;
+    font-size: 11px;
+    letter-spacing: .18em;
+  }
 }
