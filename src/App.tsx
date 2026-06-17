@@ -86,15 +86,6 @@ export default function App() {
       ) : (
         <main className="bg-black">
           <MinimalistHero onJoin={openSignup} />
-          <section className="brand-container py-8 sm:py-12" aria-label="Brand code">
-            <div className="grid gap-3 border border-white/12 bg-white/[0.025] p-4 sm:grid-cols-4 sm:p-5">
-              {['Lose', 'Review', 'Size Down', 'Return'].map((item) => (
-                <div key={item} className="border border-white/10 bg-black px-4 py-4 text-center font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-white/55">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </section>
           <SpotlightCard />
           <CapsuleProductCards onJoin={openSignup} />
           <section id="join" className="brand-container py-14 sm:py-22 lg:py-24" aria-labelledby="join-title">
