@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { productHref, products } from '../lib/products';
+import { productHref, products, type ProductInterest } from '../lib/products';
 import { cn } from '../lib/utils';
+import hoodieCutout from '../../assets/drop001-library/cutouts/hoodie-cutout.png';
+import teeCutout from '../../assets/drop001-library/cutouts/tee-cutout.png';
+import hatCutout from '../../assets/drop001-library/cutouts/hat-cutout.png';
 
 type Props = {
   onJoin: (source: string, interest?: string) => void;
@@ -15,7 +18,19 @@ const proofCopy = {
   hat: 'Structured black hat for Drop 001. Final embroidery proof goes to the list first.'
 } as const;
 
-export function CapsuleProductCards({ onJoin }: Props) {
+const desktopCopy = {
+  hoodie: 'The anchor piece: black hoodie, white U/P mark, low patch, and DISCIPLINED back artwork.',
+  tee: 'The daily piece: oversized black tee, front mark, low patch, and arched back graphic.',
+  hat: 'The quiet signal piece: structured black cap with front DISCIPLINED embroidery.'
+} as const satisfies Record<ProductInterest, string>;
+
+const productCutouts = {
+  hoodie: hoodieCutout,
+  tee: teeCutout,
+  hat: hatCutout
+} as const satisfies Record<ProductInterest, string>;
+
+function MobileCapsuleProductCards({ onJoin }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeProduct = products[activeIndex];
 
@@ -24,11 +39,11 @@ export function CapsuleProductCards({ onJoin }: Props) {
   }
 
   return (
-    <section id="drop" className="brand-container py-14 sm:py-22 lg:py-24" aria-labelledby="drop-title">
+    <section id="drop" className="capsule-mobile-section brand-container py-14 sm:py-22 lg:py-24" aria-labelledby="drop-title-mobile">
       <div className="mb-8 grid gap-6 border-t border-white/10 pt-10 lg:grid-cols-[1fr_0.56fr] lg:items-end">
         <div>
           <p className="mono-label">DROP 001 CAPSULE</p>
-          <h2 id="drop-title" className="mt-4 text-[clamp(3.75rem,15vw,9.5rem)] font-black uppercase leading-[0.78] tracking-[-0.085em]">
+          <h2 id="drop-title-mobile" className="mt-4 text-[clamp(3.75rem,15vw,9.5rem)] font-black uppercase leading-[0.78] tracking-[-0.085em]">
             Three Pieces. One Standard.
           </h2>
         </div>
@@ -164,5 +179,51 @@ export function CapsuleProductCards({ onJoin }: Props) {
         </div>
       </div>
     </section>
+  );
+}
+
+function DesktopCapsuleProductCards({ onJoin }: Props) {
+  return (
+    <section id="drop-desktop" className="capsule-desktop-section brand-container py-24" aria-labelledby="drop-title-desktop">
+      <div className="capsule-desktop-intro">
+        <div>
+          <p className="capsule-kicker">DROP 001 / DISCIPLINED</p>
+          <h2 id="drop-title-desktop" className="capsule-title">Three Pieces. One Standard.</h2>
+        </div>
+        <p className="capsule-deck">Hoodie, tee, and hat. A focused blacked-out capsule built for the reset.</p>
+      </div>
+
+      <div className="capsule-card-grid" aria-label="Drop 001 product cards">
+        {products.map((product) => (
+          <article className={`capsule-card capsule-card-${product.interest}`} key={product.slug}>
+            <div className="capsule-card-copy">
+              <p className="capsule-card-kicker">{product.index}</p>
+              <h3>{product.title}</h3>
+              <p>{desktopCopy[product.interest]}</p>
+            </div>
+
+            <a className="capsule-card-image" href={productHref(product)} aria-label={`View ${product.name} details`}>
+              <img src={productCutouts[product.interest]} alt={product.alt} loading="lazy" decoding="async" />
+            </a>
+
+            <div className="capsule-card-actions">
+              <button type="button" onClick={() => onJoin(`home-three-piece-${product.interest}`, product.interest)}>
+                Join {product.title} List
+              </button>
+              <a href={productHref(product)}>View Details</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+export function CapsuleProductCards({ onJoin }: Props) {
+  return (
+    <>
+      <MobileCapsuleProductCards onJoin={onJoin} />
+      <DesktopCapsuleProductCards onJoin={onJoin} />
+    </>
   );
 }
