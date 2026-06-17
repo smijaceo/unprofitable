@@ -1,11 +1,21 @@
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { type DropProduct, productHref, products } from '../lib/products';
+import { leadMetadata, trackEvent } from '../lib/analytics';
 
 export type ProductPageProps = {
   product: DropProduct;
   onJoin: (source: string, interest?: string) => void;
 };
+
+function trackRelatedProductClick(product: DropProduct) {
+  const surface = `product-related-${product.interest}`;
+  trackEvent('ProductCardClick', {
+    ...leadMetadata({ interest: product.interest, source: surface, surface }),
+    product: product.slug,
+    interaction_type: 'details'
+  });
+}
 
 export function ProductPage({ product, onJoin }: ProductPageProps) {
   const related = products.filter((item) => item.slug !== product.slug);
@@ -108,7 +118,7 @@ export function ProductPage({ product, onJoin }: ProductPageProps) {
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {related.map((item) => (
-              <a key={item.slug} href={productHref(item)} className="group grid grid-cols-[96px_1fr] gap-4 border border-white/12 bg-white/[0.025] p-3 transition duration-300 hover:border-white/30 hover:bg-white/[0.045] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+              <a key={item.slug} href={productHref(item)} onClick={() => trackRelatedProductClick(item)} className="group grid grid-cols-[96px_1fr] gap-4 border border-white/12 bg-white/[0.025] p-3 transition duration-300 hover:border-white/30 hover:bg-white/[0.045] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
                 <span className="grid h-24 place-items-center bg-white text-black">
                   <img src={item.image} alt="" className="max-h-20 w-full object-contain" loading="eager" decoding="async" />
                 </span>

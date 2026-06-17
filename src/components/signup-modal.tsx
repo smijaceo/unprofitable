@@ -76,7 +76,7 @@ export function SignupModal({ state, onClose }: Props) {
         conversion: 'react-modal-drop-list',
         honey
       });
-      trackDropListSuccess({ interest: lead.interest, source: lead.source });
+      trackDropListSuccess({ interest: lead.interest, source: lead.source, surface: state.source, conversion: 'react-modal-drop-list' });
       setEmail('');
       setStatus('You’re on the Drop 001 list. Watch your inbox.');
       setStatusType('success');

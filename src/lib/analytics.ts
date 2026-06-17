@@ -2,6 +2,8 @@ export type LeadMeta = {
   drop?: string;
   source?: string;
   interest?: string;
+  surface?: string;
+  conversion?: string;
 };
 
 declare global {
@@ -30,7 +32,9 @@ export function leadMetadata(raw: LeadMeta = {}) {
   return {
     drop: 'drop_001_disciplined',
     source: isMeta ? 'meta' : String(raw.source || campaignSource || 'site').replace(/^wearunprofitable\.com\s+/i, '') || 'site',
-    interest: normalizeDropInterest(raw.interest || 'full_drop')
+    interest: normalizeDropInterest(raw.interest || 'full_drop'),
+    ...(raw.surface ? { surface: String(raw.surface).replace(/-/g, '_') } : {}),
+    ...(raw.conversion ? { conversion: String(raw.conversion).replace(/-/g, '_') } : {})
   };
 }
 
@@ -45,6 +49,7 @@ export function trackDropListSuccess(raw: LeadMeta = {}) {
   window.unprofitableTrackMetaLead?.(meta);
   trackEvent('Lead', meta);
   trackEvent('ProductInterest', meta);
+  trackEvent('PopupSubmit', meta);
   try { localStorage.setItem('unp_drop001_signup', '1'); } catch { /* noop */ }
   document.documentElement.dataset.dropListJoined = 'true';
 }

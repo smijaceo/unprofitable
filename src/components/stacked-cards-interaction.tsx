@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { productHref, products, type ProductInterest } from '../lib/products';
+import { productHref, products, type DropProduct, type ProductInterest } from '../lib/products';
+import { leadMetadata, trackEvent } from '../lib/analytics';
 import { cn } from '../lib/utils';
 import hoodieCutout from '../../assets/drop001-library/cutouts/hoodie-cutout.png';
 import teeCutout from '../../assets/drop001-library/cutouts/tee-cutout.png';
@@ -29,6 +30,14 @@ const productCutouts = {
   tee: teeCutout,
   hat: hatCutout
 } as const satisfies Record<ProductInterest, string>;
+
+function trackProductCard(product: DropProduct, interactionType: 'image' | 'details' | 'join_button' | 'carousel_tab', surface: string) {
+  trackEvent('ProductCardClick', {
+    ...leadMetadata({ interest: product.interest, source: surface, surface }),
+    product: product.slug,
+    interaction_type: interactionType
+  });
+}
 
 function MobileCapsuleProductCards({ onJoin }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -72,11 +81,11 @@ function MobileCapsuleProductCards({ onJoin }: Props) {
                 {proofCopy[activeProduct.interest]}
               </p>
               <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap">
-                <Button onClick={() => onJoin(`home-product-carousel-${activeProduct.interest}`, activeProduct.interest)} className="w-full sm:w-auto">
+                <Button onClick={() => { trackProductCard(activeProduct, 'join_button', `home-product-carousel-${activeProduct.interest}`); onJoin(`home-product-carousel-${activeProduct.interest}`, activeProduct.interest); }} className="w-full sm:w-auto">
                   Join {activeProduct.title} List
                 </Button>
                 <Button asChild variant="outline" className="w-full sm:w-auto">
-                  <a href={productHref(activeProduct)}>View Details</a>
+                  <a href={productHref(activeProduct)} onClick={() => trackProductCard(activeProduct, 'details', `home-product-carousel-${activeProduct.interest}-details`)}>View Details</a>
                 </Button>
               </div>
             </motion.div>
@@ -109,7 +118,7 @@ function MobileCapsuleProductCards({ onJoin }: Props) {
                   <button
                     key={product.slug}
                     type="button"
-                    onClick={() => goTo(index)}
+                    onClick={() => { trackProductCard(product, 'carousel_tab', `home-product-carousel-${product.interest}-tab`); goTo(index); }}
                     className={cn(
                       'group relative grid min-h-[104px] place-items-center overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_34%,#fff_0,#ededed_46%,#bdbdbd_100%)] p-1 transition duration-300 hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:min-h-[128px]',
                       activeIndex === index && 'border-white/55 ring-1 ring-white/22'
@@ -143,6 +152,7 @@ function MobileCapsuleProductCards({ onJoin }: Props) {
               transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
               className="product-hero-card group relative grid min-h-[380px] place-items-center overflow-hidden border border-white/12 bg-[radial-gradient(circle_at_50%_36%,#fbfbfb_0,#e7e7e7_45%,#b8b8b8_100%)] p-5 transition duration-300 hover:border-white/28 sm:min-h-[560px] sm:p-8 lg:min-h-[610px]"
               aria-label={`View ${activeProduct.name} details`}
+              onClick={() => trackProductCard(activeProduct, 'image', `home-product-carousel-${activeProduct.interest}-image`)}
             >
               <div className="pointer-events-none absolute inset-4 border border-black/8" />
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_44%,rgba(0,0,0,.17)_100%)] opacity-70" />
@@ -164,7 +174,7 @@ function MobileCapsuleProductCards({ onJoin }: Props) {
                 <button
                   key={product.slug}
                   type="button"
-                  onClick={() => goTo(index)}
+                  onClick={() => { trackProductCard(product, 'carousel_tab', `home-product-desktop-${product.interest}-tab`); goTo(index); }}
                   className={cn(
                     'relative overflow-hidden border border-white/10 bg-white/[0.025] p-3 text-left transition duration-300 hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.05] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white',
                     activeIndex === index && 'border-white/42 bg-white/[0.07]'
@@ -202,15 +212,15 @@ function DesktopCapsuleProductCards({ onJoin }: Props) {
               <p>{desktopCopy[product.interest]}</p>
             </div>
 
-            <a className="capsule-card-image" href={productHref(product)} aria-label={`View ${product.name} details`}>
+            <a className="capsule-card-image" href={productHref(product)} aria-label={`View ${product.name} details`} onClick={() => trackProductCard(product, 'image', `home-three-piece-${product.interest}-image`)}>
               <img src={productCutouts[product.interest]} alt={product.alt} loading="lazy" decoding="async" />
             </a>
 
             <div className="capsule-card-actions">
-              <button type="button" onClick={() => onJoin(`home-three-piece-${product.interest}`, product.interest)}>
+              <button type="button" onClick={() => { trackProductCard(product, 'join_button', `home-three-piece-${product.interest}`); onJoin(`home-three-piece-${product.interest}`, product.interest); }}>
                 Join {product.title} List
               </button>
-              <a href={productHref(product)}>View Details</a>
+              <a href={productHref(product)} onClick={() => trackProductCard(product, 'details', `home-three-piece-${product.interest}-details`)}>View Details</a>
             </div>
           </article>
         ))}

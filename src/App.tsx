@@ -44,7 +44,8 @@ export default function App() {
   }, [currentPath]);
 
   const openSignup = useCallback((source: string, interest = 'full_drop') => {
-    trackEvent('CTA_Click', { ...leadMetadata({ interest, source }), surface: source.replace(/-/g, '_') });
+    const surface = source.replace(/-/g, '_');
+    trackEvent('CTA_Click', { ...leadMetadata({ interest, source, surface }), cta_id: surface });
     setSignup({ open: true, source, interest, interestLabel: interestLabel(interest) });
   }, []);
 
