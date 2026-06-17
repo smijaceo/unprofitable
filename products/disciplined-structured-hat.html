@@ -307,12 +307,29 @@ One-size fit range confirmed before checkout.</p></div>
     const stickyBar = document.querySelector(".mobile-cta-bar");
     const hasJoinedDropList = (() => { try { return window.localStorage.getItem("unp_drop001_signup") === "1"; } catch (error) { return false; } })();
     if (hasJoinedDropList) document.documentElement.dataset.dropListJoined = "true";
+    let stickyBarVisible = false;
+    let stickyBarTicking = false;
     function updateStickyBar() {
       if (!stickyBar || document.documentElement.dataset.dropListJoined === "true") return;
-      stickyBar.classList.toggle("is-visible", window.scrollY > Math.max(360, window.innerHeight * 0.55));
+      const showAt = Math.max(360, window.innerHeight * 0.55);
+      const hideAt = Math.max(260, window.innerHeight * 0.38);
+      const shouldShow = stickyBarVisible ? window.scrollY > hideAt : window.scrollY > showAt;
+      if (shouldShow !== stickyBarVisible) {
+        stickyBarVisible = shouldShow;
+        stickyBar.classList.toggle("is-visible", stickyBarVisible);
+      }
+    }
+    function requestStickyBarUpdate() {
+      if (stickyBarTicking) return;
+      stickyBarTicking = true;
+      window.requestAnimationFrame(() => {
+        stickyBarTicking = false;
+        updateStickyBar();
+      });
     }
     updateStickyBar();
-    window.addEventListener("scroll", updateStickyBar, { passive: true });
+    window.addEventListener("scroll", requestStickyBarUpdate, { passive: true });
+    window.addEventListener("resize", requestStickyBarUpdate, { passive: true });
 
     async function submitQuickSignup(form) {
       if (!form.reportValidity()) return;

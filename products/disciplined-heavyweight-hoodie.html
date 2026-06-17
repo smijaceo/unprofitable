@@ -82,10 +82,10 @@
     <section class="section" id="photos" aria-labelledby="photos-title">
       <div class="kicker">Product Gallery</div>
       <h2 id="photos-title" style="font-size:clamp(44px,7vw,96px);margin-bottom:34px">Product Photos.</h2>
-      <div class="gallery-grid gallery-grid-rich"><div class="photo-card contain product-shot" data-label="Product Front"><img src="../assets/drop001-library/HOODIE_Front_LightBg_V01.png" alt="DISCIPLINED Heavyweight Hoodie front on light background"></div>
+      <div class="gallery-grid gallery-grid-rich"><div class="photo-card contain product-shot" data-label="Full Product"><img src="../assets/drop001-library/HOODIE_FrontBack_LightBg_V02.png" alt="DISCIPLINED Heavyweight Hoodie front and back on light background"></div>
+<div class="photo-card contain product-shot" data-label="Product Front"><img src="../assets/drop001-library/HOODIE_Front_LightBg_V01.png" alt="DISCIPLINED Heavyweight Hoodie front on light background"></div>
 <div class="photo-card contain product-shot" data-label="Product Back"><img src="../assets/drop001-library/HOODIE_Back_LightBg_V01.png" alt="DISCIPLINED Heavyweight Hoodie back on light background"></div>
-<div class="photo-card contain" data-label="Back Print Detail"><img src="../assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.png" alt="DISCIPLINED hoodie back print detail closeup"></div>
-<div class="photo-card cover" data-label="Fit Reference"><img src="../assets/drop001-library/ONBODY_Fit_BasicViews_HoodieTeeHat_V01.png" alt="Drop 001 on-body fit reference"></div></div>
+<div class="photo-card contain product-shot" data-label="Full Product"><img src="../assets/drop001-library/HOODIE_FrontBack_LightBg_V01.png" alt="DISCIPLINED Heavyweight Hoodie additional front and back light-background view"></div></div>
     </section>
 
     <section class="section" id="details" aria-labelledby="details-title">
@@ -148,7 +148,7 @@
           </form>
     </div>
   </div>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"DISCIPLINED Heavyweight Hoodie","image":["https://www.wearunprofitable.com/assets/drop001-library/HOODIE_Front_LightBg_V01.png","https://www.wearunprofitable.com/assets/drop001-library/HOODIE_Back_LightBg_V01.png","https://www.wearunprofitable.com/assets/drop001-library/HOODIE_FrontBack_LightBg_V02.png","https://www.wearunprofitable.com/assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.png","https://www.wearunprofitable.com/assets/drop001-library/PATCH_Closeups_Hoodie_Tee_V01.png"],"description":"The main piece of Drop 001. Heavyweight black hoodie with a small U/P chest mark, low garment patch, sleeve hit, and arched DISCIPLINED back print.","brand":{"@type":"Brand","name":"UNPROFITABLE"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"DISCIPLINED Heavyweight Hoodie","image":["https://www.wearunprofitable.com/assets/drop001-library/HOODIE_FrontBack_LightBg_V02.png","https://www.wearunprofitable.com/assets/drop001-library/HOODIE_Front_LightBg_V01.png","https://www.wearunprofitable.com/assets/drop001-library/HOODIE_Back_LightBg_V01.png","https://www.wearunprofitable.com/assets/drop001-library/HOODIE_FrontBack_LightBg_V01.png"],"description":"The main piece of Drop 001. Heavyweight black hoodie with a small U/P chest mark, low garment patch, sleeve hit, and arched DISCIPLINED back print.","brand":{"@type":"Brand","name":"UNPROFITABLE"}}</script>
 
 
   <script>
@@ -306,12 +306,29 @@
     const stickyBar = document.querySelector(".mobile-cta-bar");
     const hasJoinedDropList = (() => { try { return window.localStorage.getItem("unp_drop001_signup") === "1"; } catch (error) { return false; } })();
     if (hasJoinedDropList) document.documentElement.dataset.dropListJoined = "true";
+    let stickyBarVisible = false;
+    let stickyBarTicking = false;
     function updateStickyBar() {
       if (!stickyBar || document.documentElement.dataset.dropListJoined === "true") return;
-      stickyBar.classList.toggle("is-visible", window.scrollY > Math.max(360, window.innerHeight * 0.55));
+      const showAt = Math.max(360, window.innerHeight * 0.55);
+      const hideAt = Math.max(260, window.innerHeight * 0.38);
+      const shouldShow = stickyBarVisible ? window.scrollY > hideAt : window.scrollY > showAt;
+      if (shouldShow !== stickyBarVisible) {
+        stickyBarVisible = shouldShow;
+        stickyBar.classList.toggle("is-visible", stickyBarVisible);
+      }
+    }
+    function requestStickyBarUpdate() {
+      if (stickyBarTicking) return;
+      stickyBarTicking = true;
+      window.requestAnimationFrame(() => {
+        stickyBarTicking = false;
+        updateStickyBar();
+      });
     }
     updateStickyBar();
-    window.addEventListener("scroll", updateStickyBar, { passive: true });
+    window.addEventListener("scroll", requestStickyBarUpdate, { passive: true });
+    window.addEventListener("resize", requestStickyBarUpdate, { passive: true });
 
     async function submitQuickSignup(form) {
       if (!form.reportValidity()) return;

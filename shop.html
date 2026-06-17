@@ -13,11 +13,13 @@
   <meta property="og:description" content="Three blacked-out pieces. Tee, hoodie, hat. Early access list open before checkout goes live." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.wearunprofitable.com/shop.html" />
-  <meta property="og:image" content="https://www.wearunprofitable.com/assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" />
+  <meta property="og:image" content="https://www.wearunprofitable.com/assets/social/drop001-product-preview-light-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Shop Drop 001 — UNPROFITABLE" />
   <meta name="twitter:description" content="Preview DISCIPLINED / 001. Early access list open." />
-  <meta name="twitter:image" content="https://www.wearunprofitable.com/assets/drop001-library/PRODUCT_Angled_Photos_SetA_V01.png" />
+  <meta name="twitter:image" content="https://www.wearunprofitable.com/assets/social/drop001-product-preview-light-og.png" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
@@ -205,15 +207,21 @@
   backdrop-filter: blur(18px) saturate(160%);
   padding: 8px 8px 8px 18px;
   box-shadow: 0 18px 70px rgba(0,0,0,.66), inset 0 1px 0 rgba(255,255,255,.08);
-  transform: translate3d(0, calc(100% + 24px), 0) scale(.985);
+  transform: translate3d(0, calc(100% + 34px), 0) scale(.975);
   opacity: 0;
   pointer-events: none;
-  transition: transform .46s cubic-bezier(.16,1,.3,1), opacity .28s ease, border-color .28s ease;
+  will-change: transform, opacity;
+  transition:
+    transform .62s cubic-bezier(.19,1,.22,1),
+    opacity .42s ease,
+    border-color .34s ease,
+    box-shadow .34s ease;
 }
 .mobile-cta-bar.is-visible {
   transform: translate3d(0,0,0) scale(1);
   opacity: 1;
   pointer-events: auto;
+  transition-duration: .54s, .38s, .34s, .34s;
 }
 .mobile-cta-bar span {
   font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -703,12 +711,29 @@
     const stickyBar = document.querySelector(".mobile-cta-bar");
     const hasJoinedDropList = (() => { try { return window.localStorage.getItem("unp_drop001_signup") === "1"; } catch (error) { return false; } })();
     if (hasJoinedDropList) document.documentElement.dataset.dropListJoined = "true";
+    let stickyBarVisible = false;
+    let stickyBarTicking = false;
     function updateStickyBar() {
       if (!stickyBar || document.documentElement.dataset.dropListJoined === "true") return;
-      stickyBar.classList.toggle("is-visible", window.scrollY > Math.max(360, window.innerHeight * 0.55));
+      const showAt = Math.max(360, window.innerHeight * 0.55);
+      const hideAt = Math.max(260, window.innerHeight * 0.38);
+      const shouldShow = stickyBarVisible ? window.scrollY > hideAt : window.scrollY > showAt;
+      if (shouldShow !== stickyBarVisible) {
+        stickyBarVisible = shouldShow;
+        stickyBar.classList.toggle("is-visible", stickyBarVisible);
+      }
+    }
+    function requestStickyBarUpdate() {
+      if (stickyBarTicking) return;
+      stickyBarTicking = true;
+      window.requestAnimationFrame(() => {
+        stickyBarTicking = false;
+        updateStickyBar();
+      });
     }
     updateStickyBar();
-    window.addEventListener("scroll", updateStickyBar, { passive: true });
+    window.addEventListener("scroll", requestStickyBarUpdate, { passive: true });
+    window.addEventListener("resize", requestStickyBarUpdate, { passive: true });
 
     async function submitQuickSignup(form) {
       if (!form.reportValidity()) return;

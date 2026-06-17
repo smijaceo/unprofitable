@@ -29,6 +29,6 @@ function copyIfExists(from, to = from) {
   'assets/unprofitable-badge-reference.webp',
   'assets/product-page.css'
 ].forEach((file) => copyIfExists(file));
-['assets/drop001-library', 'assets/images'].forEach((dir) => copyIfExists(dir));
+['assets/drop001-library', 'assets/images', 'assets/social'].forEach((dir) => copyIfExists(dir));
 
 console.log('Static homepage support files copied into dist/.');
