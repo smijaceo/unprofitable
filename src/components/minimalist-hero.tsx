@@ -74,7 +74,6 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
         <span className="hero-microcopy-mobile">PROOF FIRST.</span>
         <span className="hero-microcopy-mobile">CHECKOUT</span>
         <span className="hero-microcopy-mobile">LATER.</span>
-        <span className="hero-microcopy-desktop">Proof first. Checkout later. Sizing, product photos, and launch notice go to the list before the drop opens.</span>
       </motion.p>
 
       <motion.div
