@@ -104,7 +104,7 @@ export function NavHeader({ onJoin }: NavHeaderProps) {
             ref={menuButtonRef}
             type="button"
             className="site-menu-button"
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label="Open menu"
             aria-expanded={open}
             aria-controls="site-menu-panel"
             onClick={() => setOpen((value) => !value)}
