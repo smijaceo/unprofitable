@@ -36,7 +36,14 @@
       window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
     <script src="/js/analytics.js"></script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script>
+      if (/wearunprofitable\.com$/.test(window.location.hostname)) {
+        const script = document.createElement('script');
+        script.defer = true;
+        script.src = '/_vercel/insights/script.js';
+        document.head.appendChild(script);
+      }
+    </script>
   </head>
   <body>
     <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=3158054347712258&ev=PageView&noscript=1" /></noscript>

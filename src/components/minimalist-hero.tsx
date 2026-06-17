@@ -103,7 +103,7 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
               fetchPriority="high"
             />
           </picture>
-          <figcaption className="absolute bottom-8 right-0 hidden border border-white/12 bg-black/70 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/58 backdrop-blur md:block">
+          <figcaption className="absolute bottom-10 right-6 z-40 hidden border border-white/12 bg-black/82 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.18em] text-white/68 backdrop-blur md:block lg:right-10">
             DISCIPLINED / 001
           </figcaption>
         </motion.figure>

@@ -51,16 +51,17 @@ export default function App() {
         <Announcement />
         <SpotlightCard />
         <StackedCardsInteraction onJoin={openSignup} />
-        <section id="join" className="brand-container py-16 sm:py-24" aria-labelledby="join-title">
-          <div className="grid gap-8 border border-white bg-white p-6 text-black sm:p-10 lg:grid-cols-[1fr_0.42fr] lg:items-end lg:p-16">
-            <div>
+        <section id="join" className="brand-container py-14 sm:py-22 lg:py-24" aria-labelledby="join-title">
+          <div className="relative overflow-hidden border border-white bg-white p-6 text-black sm:p-10 lg:grid lg:grid-cols-[1fr_0.42fr] lg:items-end lg:p-14 xl:p-16">
+            <div className="pointer-events-none absolute inset-0 opacity-70 [background:radial-gradient(circle_at_88%_14%,rgba(0,0,0,.11),transparent_24rem)]" />
+            <div className="relative">
               <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-black/62">Early Access</p>
-              <h2 id="join-title" className="mt-4 max-w-[10ch] text-[clamp(3.3rem,13vw,8.8rem)] font-black uppercase leading-[0.78] tracking-[-0.085em]">Drop 001 opens to the list first.</h2>
+              <h2 id="join-title" className="mt-4 max-w-[10ch] text-[clamp(3.25rem,13vw,8.4rem)] font-black uppercase leading-[0.78] tracking-[-0.085em]">Drop 001 opens to the list first.</h2>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-7 text-black/72">Final sizing, product proof, and launch notice go out before checkout opens.</p>
             </div>
-            <div className="grid gap-4">
-              <ButtonColorful className="border-black bg-black text-white shadow-none hover:bg-white hover:text-black" onClick={() => openSignup('home-final-cta', 'full_drop')}>Join Drop List</ButtonColorful>
-              <p className="font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-black/55">Proof first. Checkout later.</p>
+            <div className="relative mt-8 grid gap-4 lg:mt-0">
+              <ButtonColorful className="border-black bg-black text-white shadow-none hover:bg-white hover:text-black focus-visible:outline-black" onClick={() => openSignup('home-final-cta', 'full_drop')}>Join Drop List</ButtonColorful>
+              <p className="font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-black/55">No checkout link yet. Proof first.</p>
             </div>
           </div>
         </section>
