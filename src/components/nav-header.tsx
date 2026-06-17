@@ -103,16 +103,16 @@ export function NavHeader({ onJoin }: NavHeaderProps) {
         </div>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -8, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.98 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="brand-container pb-3 md:hidden"
+            initial={{ opacity: 0, height: 0, y: -10, filter: 'blur(4px)' }}
+            animate={{ opacity: 1, height: 'auto', y: 0, filter: 'blur(0px)' }}
+            exit={{ opacity: 0, height: 0, y: -10, filter: 'blur(4px)' }}
+            transition={{ duration: 0.34, ease: [0.16, 1, 0.3, 1] }}
+            className="brand-container overflow-hidden md:hidden"
           >
-            <nav className="grid overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#070707]/95 p-2 shadow-[0_28px_80px_rgba(0,0,0,.78)] ring-1 ring-white/[0.03]" aria-label="Mobile site sections">
+            <nav className="mb-3 grid overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#070707]/95 p-2 shadow-[0_28px_80px_rgba(0,0,0,.78)] ring-1 ring-white/[0.03]" aria-label="Mobile site sections">
               {navItems.map(([label, href, id]) => (
                 <a
                   key={label}

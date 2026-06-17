@@ -310,8 +310,8 @@
     let stickyBarTicking = false;
     function updateStickyBar() {
       if (!stickyBar || document.documentElement.dataset.dropListJoined === "true") return;
-      const showAt = Math.max(360, window.innerHeight * 0.55);
-      const hideAt = Math.max(260, window.innerHeight * 0.38);
+      const showAt = Math.max(420, window.innerHeight * 0.62);
+      const hideAt = Math.max(220, window.innerHeight * 0.3);
       const shouldShow = stickyBarVisible ? window.scrollY > hideAt : window.scrollY > showAt;
       if (shouldShow !== stickyBarVisible) {
         stickyBarVisible = shouldShow;

@@ -1,6 +1,6 @@
 import hoodieImage from '../../assets/drop001-library/HOODIE_FrontBack_LightBg_V02.webp';
 import hoodieBack from '../../assets/drop001-library/HOODIE_Back_LightBg_V01.webp';
-import hoodieFront from '../../assets/drop001-library/HOODIE_FrontBack_LightBg_V01.png';
+import hoodieDetail from '../../assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.webp';
 import teeImage from '../../assets/drop001-library/TEE_FrontBack_LightBg_V02.webp';
 import teeBack from '../../assets/drop001-library/TEE_Back_LightBg_V01.webp';
 import teeDetail from '../../assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.webp';
@@ -43,7 +43,7 @@ export const products: DropProduct[] = [
     gallery: [
       { src: hoodieImage, alt: 'DISCIPLINED Heavyweight Hoodie front and back', label: 'Front / Back' },
       { src: hoodieBack, alt: 'DISCIPLINED Heavyweight Hoodie back artwork', label: 'Back Artwork' },
-      { src: hoodieFront, alt: 'DISCIPLINED Heavyweight Hoodie additional front and back light-background view', label: 'Full Product' }
+      { src: hoodieDetail, alt: 'DISCIPLINED Heavyweight Hoodie back print closeup detail', label: 'Print Detail' }
     ],
     tags: ['Black garment', 'White artwork', 'Early access'],
     notes: ['Sizing confirmed before checkout', 'Product proof before payment', 'Drop-list first access']
