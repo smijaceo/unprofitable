@@ -81,7 +81,7 @@ export function ProductPage({ product, onJoin }: ProductPageProps) {
             </h2>
           </div>
           <p className="max-w-2xl text-pretty text-base leading-7 text-white/62">
-            This page is built to show the piece before payment. Sizing and final product proof will be sent before checkout opens.
+            See the piece before payment opens: silhouette, artwork placement, detail views, and final sizing notes go to the list first.
           </p>
         </div>
 

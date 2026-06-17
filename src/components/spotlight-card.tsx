@@ -33,10 +33,14 @@ export function SpotlightCard() {
             >
               <div className="absolute inset-0 opacity-70 transition duration-300 [background:radial-gradient(circle_at_50%_0%,rgba(255,255,255,.13),transparent_15rem)] group-hover:opacity-100" />
               <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent opacity-0 transition group-hover:opacity-100" />
-              <div className="relative flex h-full flex-col justify-between">
+              <div className="relative flex h-full flex-col justify-between gap-10">
                 <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/42">{item.number}</span>
                 <div>
-                  <h3 className="text-[clamp(2rem,3vw,3rem)] font-black uppercase leading-[0.86] tracking-[-0.05em]">{item.title}</h3>
+                  <h3 className="max-w-full text-[clamp(1.5rem,1.85vw,2.18rem)] font-black uppercase leading-[0.92] tracking-[-0.045em]">
+                    {item.title.split(' ').map((word) => (
+                      <span key={word} className="block whitespace-nowrap">{word}</span>
+                    ))}
+                  </h3>
                   <p className="mt-5 text-pretty text-sm leading-6 text-white/62">{item.copy}</p>
                 </div>
               </div>

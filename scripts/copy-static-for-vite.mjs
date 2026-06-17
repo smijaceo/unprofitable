@@ -26,7 +26,8 @@ function copyIfExists(from, to = from) {
   'assets/og-unprofitable.png',
   'assets/unprofitable-main-logo.png',
   'assets/unprofitable-mark-header.png',
-  'assets/unprofitable-badge-reference.webp'
+  'assets/unprofitable-badge-reference.webp',
+  'assets/product-page.css'
 ].forEach((file) => copyIfExists(file));
 ['assets/drop001-library', 'assets/images'].forEach((dir) => copyIfExists(dir));
 

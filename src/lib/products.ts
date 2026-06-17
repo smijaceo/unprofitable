@@ -1,12 +1,12 @@
-import hoodieImage from '../../assets/drop001-library/HOODIE_FrontBack_LightBg_V02.png';
-import hoodieBack from '../../assets/drop001-library/HOODIE_Back_LightBg_V01.png';
-import hoodieDetail from '../../assets/drop001-library/FIT_DetailGrid_HoodieTee_V01.png';
-import teeImage from '../../assets/drop001-library/TEE_FrontBack_LightBg_V02.png';
-import teeBack from '../../assets/drop001-library/TEE_Back_LightBg_V01.png';
-import teeDetail from '../../assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.png';
-import hatImage from '../../assets/drop001-library/HAT_FrontBack_LightBg_V02.png';
-import hatDetail from '../../assets/drop001-library/HAT_Embroidery_FrontSideBack_V01.png';
-import hatSide from '../../assets/drop001-library/HAT_FrontBack_LightBg_V01.png';
+import hoodieImage from '../../assets/drop001-library/HOODIE_FrontBack_LightBg_V02.webp';
+import hoodieBack from '../../assets/drop001-library/HOODIE_Back_LightBg_V01.webp';
+import hoodieDetail from '../../assets/drop001-library/FIT_DetailGrid_HoodieTee_V01.webp';
+import teeImage from '../../assets/drop001-library/TEE_FrontBack_LightBg_V02.webp';
+import teeBack from '../../assets/drop001-library/TEE_Back_LightBg_V01.webp';
+import teeDetail from '../../assets/drop001-library/BACKPRINT_Closeups_Hoodie_Tee_V01.webp';
+import hatImage from '../../assets/drop001-library/HAT_FrontBack_LightBg_V02.webp';
+import hatDetail from '../../assets/drop001-library/HAT_Embroidery_FrontSideBack_V01.webp';
+import hatSide from '../../assets/drop001-library/HAT_FrontBack_LightBg_V01.webp';
 
 export type ProductInterest = 'hoodie' | 'tee' | 'hat';
 

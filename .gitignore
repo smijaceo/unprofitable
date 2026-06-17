@@ -4,3 +4,6 @@ dist/
 .hero-dump.html
 *.log
 .DS_Store
+
+# Local agent/tool installs
+.codex/

@@ -13,7 +13,7 @@ type MinimalistHeroProps = {
 
 export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
   return (
-    <section id="top" className="unp-hero relative isolate overflow-hidden bg-black pt-5 sm:pt-10 lg:min-h-[calc(100svh-72px)]">
+    <section id="top" className="unp-hero relative isolate overflow-hidden bg-black pt-8 sm:pt-10 lg:min-h-[calc(100svh-72px)]">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_58%_28%,rgba(255,255,255,.13),transparent_31rem),radial-gradient(circle_at_78%_78%,rgba(255,255,255,.07),transparent_24rem),linear-gradient(180deg,#000,#050505_50%,#000)]" />
       <div className="absolute inset-x-4 top-20 -z-10 h-px bg-white/10 sm:inset-x-8" />
       <div className="brand-container unp-hero-grid grid gap-4 pb-14 md:grid-cols-[0.9fr_1.1fr] md:items-end md:gap-0 lg:pb-20">
@@ -42,7 +42,7 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
             className="mobile-hero-model relative z-10 mx-auto hidden w-full place-items-center md:hidden"
             aria-label="DROP 001 model wearing UNPROFITABLE hoodie and DISCIPLINED hat"
           >
-            <picture className="hero-model-picture relative block w-full overflow-visible">
+            <picture className="hero-model-picture hero-edge-blend relative block w-full overflow-visible">
               <source srcSet={heroMobileWebp} type="image/webp" />
               <img
                 src={heroMobilePng}
@@ -89,7 +89,7 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
           <div className="absolute left-1/2 top-[12%] -z-10 hidden h-[84%] w-[82%] -translate-x-1/2 rounded-[999px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.025)_45%,rgba(255,255,255,.065))] shadow-[inset_0_0_70px_rgba(255,255,255,.055)] sm:block" />
           <div className="absolute left-[11%] top-[9%] -z-10 h-[78%] w-px bg-gradient-to-b from-transparent via-white/18 to-transparent" />
           <div className="absolute inset-x-3 bottom-0 -z-10 h-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,.19),transparent_66%)]" />
-          <picture className="hero-model-picture relative block w-full overflow-hidden drop-shadow-[0_38px_62px_rgba(0,0,0,.82)] sm:overflow-visible md:translate-x-2 lg:translate-x-4">
+          <picture className="hero-model-picture hero-edge-blend relative block w-full overflow-hidden drop-shadow-[0_38px_62px_rgba(0,0,0,.82)] sm:overflow-visible md:translate-x-2 lg:translate-x-4">
             <source media="(max-width: 767px)" srcSet={heroMobileWebp} type="image/webp" />
             <source media="(max-width: 767px)" srcSet={heroMobilePng} type="image/png" />
             <source srcSet={heroWebp} type="image/webp" />
