@@ -122,10 +122,10 @@ img { display: block; max-width: 100%; }
 
   .unp-hero .hero-model {
     position: absolute !important;
-    top: clamp(-42px, -8vw, -24px) !important;
-    right: max(-128px, -29vw) !important;
+    top: clamp(-28px, -6vw, -18px) !important;
+    right: max(-112px, -25vw) !important;
     left: auto !important;
-    width: min(122vw, 485px) !important;
+    width: min(126vw, 500px) !important;
     max-width: none !important;
     margin: 0 !important;
     transform: none !important;
@@ -154,7 +154,7 @@ img { display: block; max-width: 100%; }
   .unp-hero .hero-model img {
     width: 100% !important;
     height: auto !important;
-    max-height: min(51svh, 415px) !important;
+    max-height: min(54svh, 430px) !important;
     aspect-ratio: auto !important;
     object-fit: contain !important;
     object-position: center top !important;
@@ -163,7 +163,7 @@ img { display: block; max-width: 100%; }
   .unp-hero .hero-copy {
     grid-area: copy;
     max-width: min(28ch, calc(100vw - 32px));
-    margin-top: clamp(240px, 62vw, 280px);
+    margin-top: clamp(218px, 57vw, 255px);
     font-size: 14px;
     line-height: 1.48;
     color: rgba(255,255,255,.70);
@@ -191,13 +191,13 @@ img { display: block; max-width: 100%; }
   }
 
   .unp-hero .hero-model {
-    top: -92px !important;
-    right: -118px !important;
-    width: min(126vw, 470px) !important;
+    top: -52px !important;
+    right: -104px !important;
+    width: min(130vw, 488px) !important;
   }
 
   .unp-hero .hero-model img {
-    max-height: min(49svh, 385px);
+    max-height: min(53svh, 410px);
   }
 
   .unp-hero .hero-copy {
