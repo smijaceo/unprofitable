@@ -84,12 +84,11 @@ img { display: block; max-width: 100%; }
     grid-template-areas:
       "label"
       "headline"
-      "model"
       "copy"
       "cta"
       "note";
     gap: 0;
-    padding-bottom: 44px;
+    padding-bottom: 40px;
   }
 
   .unp-hero .hero-type {
@@ -112,59 +111,67 @@ img { display: block; max-width: 100%; }
 
   .unp-hero .hero-title {
     grid-area: headline;
-    max-width: 8.15ch;
+    max-width: 7.85ch;
     margin-top: 12px;
-    font-size: clamp(2.76rem, 13.2vw, 3.72rem);
-    line-height: 0.78;
-    letter-spacing: -0.088em;
+    font-size: clamp(3.15rem, 15.6vw, 4.48rem);
+    line-height: 0.76;
+    letter-spacing: -0.095em;
     position: relative;
     z-index: 2;
   }
 
   .unp-hero .hero-model {
-    grid-area: model;
-    width: min(91vw, 355px);
-    max-width: 355px;
-    margin-top: -2px;
-    transform: none;
+    position: absolute !important;
+    top: clamp(-42px, -8vw, -24px) !important;
+    right: max(-128px, -29vw) !important;
+    left: auto !important;
+    width: min(122vw, 485px) !important;
+    max-width: none !important;
+    margin: 0 !important;
+    transform: none !important;
     z-index: 1;
+    pointer-events: none;
   }
 
   .unp-hero .hero-model::before {
     content: "";
     position: absolute;
-    inset: 8% 8% 2%;
+    inset: 17% 3% 4%;
     z-index: -1;
-    border-radius: 999px;
-    background: radial-gradient(ellipse at 50% 18%, rgba(255,255,255,.18), rgba(255,255,255,.055) 42%, transparent 70%);
-    filter: blur(3px);
+    border-radius: 999px 999px 40px 40px;
+    background: radial-gradient(ellipse at 50% 20%, rgba(255,255,255,.18), rgba(255,255,255,.055) 42%, transparent 72%);
+    filter: blur(2px);
   }
 
   .unp-hero .hero-model-picture {
-    width: 100%;
-    overflow: hidden;
+    width: 100% !important;
+    overflow: visible !important;
     border-radius: 0;
+    -webkit-mask-image: radial-gradient(ellipse at 55% 46%, #000 0 54%, rgba(0,0,0,.84) 64%, transparent 82%);
+    mask-image: radial-gradient(ellipse at 55% 46%, #000 0 54%, rgba(0,0,0,.84) 64%, transparent 82%);
   }
 
   .unp-hero .hero-model img {
-    width: 100%;
-    max-height: min(43svh, 352px);
-    object-fit: cover;
-    object-position: center 26%;
+    width: 100% !important;
+    height: auto !important;
+    max-height: min(51svh, 415px) !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center top !important;
   }
 
   .unp-hero .hero-copy {
     grid-area: copy;
-    max-width: min(31ch, calc(100vw - 32px));
-    margin-top: 10px;
-    font-size: 14.25px;
-    line-height: 1.55;
-    color: rgba(255,255,255,.66);
+    max-width: min(28ch, calc(100vw - 32px));
+    margin-top: clamp(240px, 62vw, 280px);
+    font-size: 14px;
+    line-height: 1.48;
+    color: rgba(255,255,255,.70);
   }
 
   .unp-hero .hero-cta {
     grid-area: cta;
-    margin-top: 16px;
+    margin-top: 15px;
     gap: 10px;
   }
 
@@ -180,19 +187,21 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 390px) {
   .unp-hero .hero-title {
-    font-size: clamp(2.58rem, 12.8vw, 3.2rem);
+    font-size: clamp(2.92rem, 15vw, 3.7rem);
   }
 
   .unp-hero .hero-model {
-    width: min(90vw, 330px);
+    top: -92px !important;
+    right: -118px !important;
+    width: min(126vw, 470px) !important;
   }
 
   .unp-hero .hero-model img {
-    max-height: min(41svh, 322px);
+    max-height: min(49svh, 385px);
   }
 
   .unp-hero .hero-copy {
-    font-size: 13.75px;
-    line-height: 1.5;
+    font-size: 13.5px;
+    line-height: 1.48;
   }
 }
