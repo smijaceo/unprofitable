@@ -35,6 +35,26 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
           >
             THE UNIFORM FOR THE RESET.
           </motion.h1>
+          <motion.figure
+            initial={{ opacity: 0, scale: 0.98, y: 14 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.08 }}
+            className="mobile-hero-model relative z-10 mx-auto hidden w-full place-items-center md:hidden"
+            aria-label="DROP 001 model wearing UNPROFITABLE hoodie and DISCIPLINED hat"
+          >
+            <picture className="hero-model-picture relative block w-full overflow-visible">
+              <source srcSet={heroMobileWebp} type="image/webp" />
+              <img
+                src={heroMobilePng}
+                width="1024"
+                height="1536"
+                alt="Model wearing the black UNPROFITABLE hoodie and DISCIPLINED hat for Drop 001"
+                className="mx-auto h-auto w-full object-contain object-top saturate-0"
+                decoding="async"
+                fetchPriority="high"
+              />
+            </picture>
+          </motion.figure>
           <motion.p
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -63,7 +83,7 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
           initial={{ opacity: 0, scale: 0.98, y: 18 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.08 }}
-          className="hero-model relative z-30 order-2 mx-auto -mt-1 grid w-full max-w-[390px] min-w-0 place-items-center max-md:!absolute max-md:!right-[-122px] max-md:!top-[-88px] max-md:!z-[1] max-md:!m-0 max-md:!w-[min(124vw,500px)] max-md:!max-w-none max-md:!pointer-events-none md:-ml-5 md:mt-0 md:max-w-[630px] lg:-ml-10 lg:max-w-[720px]"
+          className="hero-model relative z-30 order-2 mx-auto -mt-1 hidden w-full max-w-[390px] min-w-0 place-items-center md:-ml-5 md:mt-0 md:grid md:max-w-[630px] lg:-ml-10 lg:max-w-[720px]"
           aria-label="DROP 001 model wearing UNPROFITABLE hoodie and DISCIPLINED hat"
         >
           <div className="absolute left-1/2 top-[12%] -z-10 hidden h-[84%] w-[82%] -translate-x-1/2 rounded-[999px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.025)_45%,rgba(255,255,255,.065))] shadow-[inset_0_0_70px_rgba(255,255,255,.055)] sm:block" />

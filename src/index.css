@@ -84,11 +84,12 @@ img { display: block; max-width: 100%; }
     grid-template-areas:
       "label"
       "headline"
+      "model"
       "copy"
       "cta"
       "note";
     gap: 0;
-    padding-bottom: 40px;
+    padding-bottom: 34px;
   }
 
   .unp-hero .hero-type {
@@ -97,7 +98,7 @@ img { display: block; max-width: 100%; }
 
   .unp-hero .hero-type,
   .unp-hero .hero-title,
-  .unp-hero .hero-model,
+  .unp-hero .mobile-hero-model,
   .unp-hero .hero-copy,
   .unp-hero .hero-cta,
   .unp-hero .hero-note {
@@ -111,97 +112,109 @@ img { display: block; max-width: 100%; }
 
   .unp-hero .hero-title {
     grid-area: headline;
-    max-width: 7.85ch;
+    max-width: min(8.8ch, calc(100vw - 32px));
     margin-top: 12px;
-    font-size: clamp(3.15rem, 15.6vw, 4.48rem);
-    line-height: 0.76;
-    letter-spacing: -0.095em;
+    font-size: clamp(2.82rem, 13.9vw, 4.04rem);
+    line-height: 0.82;
+    letter-spacing: -0.09em;
     position: relative;
     z-index: 2;
   }
 
-  .unp-hero .hero-model {
-    position: absolute !important;
-    top: clamp(-28px, -6vw, -18px) !important;
-    right: max(-112px, -25vw) !important;
+  .unp-hero .mobile-hero-model {
+    grid-area: model;
+    display: grid;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
     left: auto !important;
-    width: min(126vw, 500px) !important;
+    width: min(92vw, 420px) !important;
     max-width: none !important;
-    margin: 0 !important;
+    margin: clamp(12px, 4vw, 20px) auto 0 !important;
     transform: none !important;
     z-index: 1;
     pointer-events: none;
   }
 
-  .unp-hero .hero-model::before {
+  .unp-hero .mobile-hero-model::before {
     content: "";
     position: absolute;
-    inset: 17% 3% 4%;
+    inset: 8% 4% 2%;
     z-index: -1;
-    border-radius: 999px 999px 40px 40px;
-    background: radial-gradient(ellipse at 50% 20%, rgba(255,255,255,.18), rgba(255,255,255,.055) 42%, transparent 72%);
-    filter: blur(2px);
+    border-radius: 999px 999px 36px 36px;
+    background: radial-gradient(ellipse at 50% 18%, rgba(255,255,255,.22), rgba(255,255,255,.075) 46%, transparent 74%);
+    filter: blur(1px);
+  }
+
+  .unp-hero .mobile-hero-model::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 18%;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent, rgba(0,0,0,.58) 82%, #000);
   }
 
   .unp-hero .hero-model-picture {
     width: 100% !important;
     overflow: visible !important;
     border-radius: 0;
-    -webkit-mask-image: radial-gradient(ellipse at 55% 46%, #000 0 54%, rgba(0,0,0,.84) 64%, transparent 82%);
-    mask-image: radial-gradient(ellipse at 55% 46%, #000 0 54%, rgba(0,0,0,.84) 64%, transparent 82%);
+    -webkit-mask-image: none;
+    mask-image: none;
+    filter: drop-shadow(0 30px 44px rgba(0,0,0,.72));
   }
 
-  .unp-hero .hero-model img {
+  .unp-hero .mobile-hero-model img {
     width: 100% !important;
     height: auto !important;
-    max-height: min(54svh, 430px) !important;
+    max-height: min(40svh, 340px) !important;
     aspect-ratio: auto !important;
     object-fit: contain !important;
     object-position: center top !important;
+    filter: contrast(1.08) brightness(1.1) saturate(0);
   }
 
   .unp-hero .hero-copy {
     grid-area: copy;
-    max-width: min(28ch, calc(100vw - 32px));
-    margin-top: clamp(218px, 57vw, 255px);
+    max-width: min(32ch, calc(100vw - 32px));
+    margin-top: clamp(8px, 2.8vw, 14px);
     font-size: 14px;
     line-height: 1.48;
-    color: rgba(255,255,255,.70);
+    color: rgba(255,255,255,.76);
   }
 
   .unp-hero .hero-cta {
     grid-area: cta;
-    margin-top: 15px;
+    margin-top: 14px;
     gap: 10px;
   }
 
   .unp-hero .hero-note {
     grid-area: note;
-    margin-top: 12px;
-    max-width: min(32ch, calc(100vw - 32px));
+    margin-top: 10px;
+    max-width: min(34ch, calc(100vw - 32px));
     font-size: 10px;
-    line-height: 1.65;
-    letter-spacing: .14em;
+    line-height: 1.55;
+    letter-spacing: .135em;
   }
 }
 
 @media (max-width: 390px) {
   .unp-hero .hero-title {
-    font-size: clamp(2.92rem, 15vw, 3.7rem);
+    font-size: clamp(2.62rem, 13.4vw, 3.35rem);
   }
 
-  .unp-hero .hero-model {
-    top: -52px !important;
-    right: -104px !important;
-    width: min(130vw, 488px) !important;
+  .unp-hero .mobile-hero-model {
+    width: min(93vw, 390px) !important;
+    margin-top: 12px !important;
   }
 
-  .unp-hero .hero-model img {
-    max-height: min(53svh, 410px);
+  .unp-hero .mobile-hero-model img {
+    max-height: min(39svh, 318px) !important;
   }
 
   .unp-hero .hero-copy {
     font-size: 13.5px;
-    line-height: 1.48;
+    line-height: 1.46;
   }
 }
