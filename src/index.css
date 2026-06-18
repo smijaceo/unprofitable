@@ -376,15 +376,38 @@ img { display: block; max-width: 100%; }
   bottom: 68px;
   z-index: 3;
   width: min(76vw, 342px);
+  aspect-ratio: 1122 / 1402;
   pointer-events: none;
   filter: drop-shadow(0 34px 54px rgba(0,0,0,.86));
 }
-.hero-model-cutout img {
+.hero-model-cutout::before {
+  content: "";
+  position: absolute;
+  inset: 12% 4% 4%;
+  z-index: -1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,.11), rgba(255,255,255,.035) 42%, transparent 70%);
+  filter: blur(26px);
+  opacity: .56;
+}
+.hero-model-img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   object-position: center bottom;
-  filter: contrast(1.06) brightness(1.06) saturate(0);
+  opacity: 0;
+  transform: scale(.995);
+  transition: opacity 900ms ease, transform 900ms ease, filter 900ms ease;
+  filter: grayscale(1) contrast(1.08) brightness(.92);
+}
+.hero-model-img.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-model-img { transition: none; }
 }
 .hero-crosshair {
   position: absolute;
@@ -674,7 +697,7 @@ img { display: block; max-width: 100%; }
     filter: drop-shadow(0 44px 74px rgba(0,0,0,.92));
   }
 
-  .hero-model-cutout img { max-height: calc(100svh - 120px); object-fit: contain; }
+  .hero-model-img { max-height: calc(100svh - 120px); object-fit: contain; }
 
   .hero-crosshair {
     display: none;
@@ -941,3 +964,118 @@ img { display: block; max-width: 100%; }
   .capsule-card-actions a { width: 100%; }
 }
 
+@media (min-width: 1024px) and (max-height: 720px) {
+  .signup-modal-panel {
+    min-height: min(560px, calc(100vh - 32px)) !important;
+    max-height: calc(100vh - 32px) !important;
+    overflow-y: auto !important;
+  }
+
+  .signup-modal-panel aside,
+  .signup-modal-panel section {
+    min-height: min(560px, calc(100vh - 32px)) !important;
+  }
+
+  .signup-modal-panel section {
+    padding-top: 32px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .signup-modal-panel h2 {
+    font-size: clamp(4rem, 5.2vw, 5.8rem) !important;
+  }
+}
+
+/* Desktop signup modal sizing refinement. */
+@media (min-width: 900px) {
+  .signup-modal-panel {
+    width: min(92vw, 1040px) !important;
+    max-width: 1040px !important;
+    min-height: auto !important;
+    max-height: 86vh !important;
+  }
+
+  .signup-modal-panel > .relative.grid {
+    grid-template-columns: 286px minmax(0, 1fr) !important;
+  }
+
+  .signup-modal-side,
+  .signup-modal-panel section {
+    min-height: 500px !important;
+  }
+
+  .signup-modal-side {
+    padding: 36px 34px !important;
+    font-size: 12px !important;
+    letter-spacing: .16em !important;
+  }
+
+  .signup-modal-side ol {
+    margin-top: 28px !important;
+    gap: 14px !important;
+    font-size: 12px !important;
+    letter-spacing: .16em !important;
+  }
+
+  .signup-modal-note {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+  }
+
+  .signup-modal-panel section {
+    padding: 34px 48px 38px !important;
+  }
+
+  .signup-modal-panel section > .absolute:first-child {
+    margin-bottom: 24px !important;
+  }
+
+  .signup-modal-main {
+    max-width: 560px !important;
+    margin-inline: auto !important;
+    padding-top: 0 !important;
+  }
+
+  .signup-modal-title {
+    max-width: 8.5ch !important;
+    font-size: clamp(56px, 7vw, 104px) !important;
+    line-height: .88 !important;
+    letter-spacing: -.055em !important;
+    margin-bottom: 18px !important;
+  }
+
+  .signup-modal-description {
+    margin-top: 0 !important;
+    margin-bottom: 28px !important;
+    max-width: 500px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .signup-modal-form {
+    gap: 10px !important;
+    margin-top: 0 !important;
+  }
+
+  .signup-modal-form label {
+    margin-bottom: 0 !important;
+  }
+
+  .signup-modal-form input[type="email"] {
+    height: 58px !important;
+    min-height: 58px !important;
+    font-size: 16px !important;
+  }
+
+  .signup-modal-form button[type="submit"] {
+    height: 58px !important;
+    min-height: 58px !important;
+    min-width: 170px !important;
+    padding-inline: 32px !important;
+  }
+
+  .signup-modal-close {
+    width: 52px !important;
+    height: 52px !important;
+  }
+}

@@ -1,14 +1,32 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import heroWebp from '../../assets/images/hero/drop001-hoodie-hat-editorial-hero.webp';
-import heroPng from '../../assets/images/hero/drop001-hoodie-hat-editorial-hero.png';
-import heroMobileWebp from '../../assets/images/hero/drop001-hoodie-hat-editorial-hero-mobile.webp';
-import heroMobilePng from '../../assets/images/hero/drop001-hoodie-hat-editorial-hero-mobile.png';
+import heroModel01 from '../../assets/images/hero/rotation/hero-model-01.webp';
+import heroModel02 from '../../assets/images/hero/rotation/hero-model-02.webp';
+import heroModel03 from '../../assets/images/hero/rotation/hero-model-03.webp';
+import heroModel04 from '../../assets/images/hero/rotation/hero-model-04.webp';
+import heroModel05 from '../../assets/images/hero/rotation/hero-model-05.webp';
+import heroModel06 from '../../assets/images/hero/rotation/hero-model-06.webp';
+
+const heroModels = [heroModel01, heroModel02, heroModel03, heroModel04, heroModel05, heroModel06];
 
 type MinimalistHeroProps = {
   onJoin: (source: string, interest?: string) => void;
 };
 
 export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
+  const [activeModel, setActiveModel] = useState(0);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return;
+
+    const interval = window.setInterval(() => {
+      setActiveModel((current) => (current + 1) % heroModels.length);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <section id="top" className="drop-hero" aria-labelledby="hero-title">
       <div className="hero-ambient" aria-hidden="true" />
@@ -36,24 +54,26 @@ export function MinimalistHero({ onJoin }: MinimalistHeroProps) {
         <span>RESET.</span>
       </motion.h1>
 
-      <motion.picture
+      <motion.div
         className="hero-model-cutout"
         initial={{ opacity: 0, scale: 0.985, y: 18 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
       >
-        <source media="(max-width: 767px)" srcSet={heroMobileWebp} type="image/webp" />
-        <source media="(max-width: 767px)" srcSet={heroMobilePng} type="image/png" />
-        <source srcSet={heroWebp} type="image/webp" />
-        <img
-          src={heroPng}
-          width="1024"
-          height="1536"
-          alt="Model wearing the black UNPROFITABLE hoodie and DISCIPLINED hat for Drop 001"
-          decoding="async"
-          fetchPriority="high"
-        />
-      </motion.picture>
+        {heroModels.map((model, index) => (
+          <img
+            key={model}
+            className={`hero-model-img${index === activeModel ? ' is-active' : ''}`}
+            src={model}
+            width="1122"
+            height="1402"
+            alt={index === 0 ? 'Model wearing black UNPROFITABLE Drop 001 apparel' : ''}
+            aria-hidden={index === 0 ? undefined : true}
+            decoding="async"
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+          />
+        ))}
+      </motion.div>
 
       <div className="hero-crosshair" aria-hidden="true">
         <span />
