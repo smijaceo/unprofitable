@@ -941,3 +941,25 @@ img { display: block; max-width: 100%; }
   .capsule-card-actions a { width: 100%; }
 }
 
+@media (min-width: 1024px) and (max-height: 720px) {
+  .signup-modal-panel {
+    min-height: min(560px, calc(100vh - 32px)) !important;
+    max-height: calc(100vh - 32px) !important;
+    overflow-y: auto !important;
+  }
+
+  .signup-modal-panel aside,
+  .signup-modal-panel section {
+    min-height: min(560px, calc(100vh - 32px)) !important;
+  }
+
+  .signup-modal-panel section {
+    padding-top: 32px !important;
+    padding-bottom: 34px !important;
+  }
+
+  .signup-modal-panel h2 {
+    font-size: clamp(4rem, 5.2vw, 5.8rem) !important;
+  }
+}
+
