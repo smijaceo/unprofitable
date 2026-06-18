@@ -115,7 +115,7 @@ export function SignupModal({ state, onClose }: Props) {
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,.12),transparent_18rem)] lg:hidden" />
 
             <div className="relative grid gap-0 lg:grid-cols-[340px_minmax(0,1fr)]">
-              <aside className="hidden border-r border-white/10 bg-white/[0.035] p-6 lg:flex lg:min-h-[560px] lg:flex-col lg:justify-between lg:border-white/18 lg:bg-[linear-gradient(180deg,rgba(255,255,255,.035),transparent_48%),#111] lg:px-[42px] lg:py-11">
+              <aside className="signup-modal-side hidden border-r border-white/10 bg-white/[0.035] p-6 lg:flex lg:min-h-[560px] lg:flex-col lg:justify-between lg:border-white/18 lg:bg-[linear-gradient(180deg,rgba(255,255,255,.035),transparent_48%),#111] lg:px-[42px] lg:py-11">
                 <div>
                   <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-white/42 lg:text-xs lg:text-white/82">Drop 001</p>
                   <ol className="mt-5 grid list-none gap-2 p-0 font-mono text-[10px] uppercase tracking-[0.16em] text-white/48 lg:mt-[34px] lg:gap-[18px] lg:text-xs lg:font-extrabold lg:tracking-[0.18em] lg:text-white/82">
@@ -124,7 +124,7 @@ export function SignupModal({ state, onClose }: Props) {
                     <li>03 Launch Notice</li>
                   </ol>
                 </div>
-                <p className="max-w-[22ch] text-xs leading-5 text-white/42 lg:max-w-none lg:text-sm lg:leading-[1.45] lg:text-white/84">Checkout opens after sizing and product proof are confirmed.</p>
+                <p className="signup-modal-note max-w-[22ch] text-xs leading-5 text-white/42 lg:max-w-none lg:text-sm lg:leading-[1.45] lg:text-white/84">Checkout opens after sizing and product proof are confirmed.</p>
               </aside>
 
               <section className="relative p-5 pt-16 sm:p-8 sm:pt-10 lg:min-h-[560px] lg:bg-[radial-gradient(circle_at_70%_25%,rgba(255,255,255,.07),transparent_36%),#050505] lg:p-10 lg:pb-12 lg:pl-12 lg:pr-12">
@@ -138,7 +138,7 @@ export function SignupModal({ state, onClose }: Props) {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="grid h-11 w-11 place-items-center rounded-full border border-white/14 bg-black/55 text-white/72 backdrop-blur transition duration-300 hover:rotate-90 hover:border-white/40 hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-12 sm:w-12 lg:h-[58px] lg:w-[58px] lg:border-white/75 lg:bg-transparent lg:text-[28px] lg:text-white"
+                    className="signup-modal-close grid h-11 w-11 place-items-center rounded-full border border-white/14 bg-black/55 text-white/72 backdrop-blur transition duration-300 hover:rotate-90 hover:border-white/40 hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:h-12 sm:w-12 lg:h-[58px] lg:w-[58px] lg:border-white/75 lg:bg-transparent lg:text-[28px] lg:text-white"
                     aria-label="Close signup panel"
                   >
                     <X className="h-4 w-4 lg:h-5 lg:w-5" />
@@ -152,15 +152,15 @@ export function SignupModal({ state, onClose }: Props) {
                   <span className="rounded-full border border-white/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/38">Early Access</span>
                 </div>
 
-                <div className="lg:mx-auto lg:max-w-[520px] lg:pt-2">
-                  <h2 id={titleId} className="mt-5 max-w-[9ch] text-[clamp(3.25rem,15vw,5.85rem)] font-black uppercase leading-[0.75] tracking-[-0.085em] lg:mt-0 lg:max-w-[8.5ch] lg:text-[clamp(4.5rem,6vw,7.25rem)] lg:leading-[0.86] lg:tracking-[-0.045em]">
+                <div className="signup-modal-main lg:mx-auto lg:max-w-[520px] lg:pt-2">
+                  <h2 id={titleId} className="signup-modal-title mt-5 max-w-[9ch] text-[clamp(3.25rem,15vw,5.85rem)] font-black uppercase leading-[0.75] tracking-[-0.085em] lg:mt-0 lg:max-w-[8.5ch] lg:text-[clamp(4.5rem,6vw,7.25rem)] lg:leading-[0.86] lg:tracking-[-0.045em]">
                     Join<br className="hidden lg:block" /> The Drop<br className="hidden lg:block" /> List.
                   </h2>
-                  <p id={descriptionId} className="mt-5 max-w-md text-pretty text-[15px] leading-7 text-white/64 sm:text-base lg:mb-[34px] lg:mt-[22px] lg:max-w-[520px] lg:text-lg lg:leading-[1.45] lg:text-white/90">
+                  <p id={descriptionId} className="signup-modal-description mt-5 max-w-md text-pretty text-[15px] leading-7 text-white/64 sm:text-base lg:mb-[34px] lg:mt-[22px] lg:max-w-[520px] lg:text-lg lg:leading-[1.45] lg:text-white/90">
                     Sizing, product proof, and launch notice go out before checkout opens.
                   </p>
 
-                  <form className="mt-7 grid gap-3 lg:mt-0" onSubmit={onSubmit}>
+                  <form className="signup-modal-form mt-7 grid gap-3 lg:mt-0" onSubmit={onSubmit}>
                     <input type="hidden" name="source" value={state.source} />
                     <input type="hidden" name="interest" value={state.interestLabel} />
                     <div className="sr-only" aria-hidden="true">
