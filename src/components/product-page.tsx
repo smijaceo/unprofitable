@@ -17,6 +17,57 @@ function trackRelatedProductClick(product: DropProduct) {
   });
 }
 
+function ProductShowcase({ product }: { product: DropProduct }) {
+  if (product.interest === 'hat') {
+    const support = product.gallery.slice(1, 3);
+
+    return (
+      <div className="relative overflow-hidden border border-white/12 bg-[#f2f2f2] p-3 text-black shadow-[0_28px_80px_rgba(0,0,0,.42)] sm:p-5 lg:min-h-[660px]">
+        <div className="pointer-events-none absolute inset-4 border border-black/10" />
+        <div className="pointer-events-none absolute left-5 top-5 z-10 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/58 backdrop-blur">
+          {product.index}
+        </div>
+        <div className="relative grid h-full gap-3 pt-11 sm:gap-4 lg:grid-rows-[1fr_auto]">
+          <figure className="grid min-h-[360px] place-items-center border border-black/10 bg-white p-4 shadow-[0_18px_44px_rgba(0,0,0,.13)] sm:min-h-[470px] lg:min-h-[505px] lg:p-8">
+            <img
+              src={product.image}
+              alt={product.alt}
+              className="max-h-[430px] w-full object-contain drop-shadow-[0_26px_46px_rgba(0,0,0,.28)] sm:max-h-[520px] lg:max-h-[610px]"
+              decoding="async"
+              loading="eager"
+            />
+          </figure>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {support.map((image) => (
+              <figure key={image.label} className="grid min-h-[150px] place-items-center border border-black/10 bg-white p-3 shadow-[0_12px_26px_rgba(0,0,0,.10)] sm:min-h-[180px]">
+                <img src={image.src} alt={image.alt} className="max-h-[170px] w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,.20)]" decoding="async" loading="eager" />
+              </figure>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative overflow-hidden border border-white/12 bg-[#f2f2f2] p-3 text-black shadow-[0_28px_80px_rgba(0,0,0,.42)] sm:p-5 lg:min-h-[660px]">
+      <div className="pointer-events-none absolute inset-4 border border-black/10" />
+      <div className="pointer-events-none absolute left-5 top-5 z-10 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/58 backdrop-blur">
+        {product.index}
+      </div>
+      <figure className="relative grid h-full min-h-[390px] place-items-center border border-black/10 bg-white p-4 pt-12 shadow-[0_18px_44px_rgba(0,0,0,.13)] sm:min-h-[540px] sm:p-7 lg:min-h-[620px] lg:p-10">
+        <img
+          src={product.image}
+          alt={product.alt}
+          className="max-h-[500px] w-full object-contain drop-shadow-[0_30px_58px_rgba(0,0,0,.32)] sm:max-h-[640px] lg:max-h-[760px]"
+          decoding="async"
+          loading="eager"
+        />
+      </figure>
+    </div>
+  );
+}
+
 export function ProductPage({ product, onJoin }: ProductPageProps) {
   const related = products.filter((item) => item.slug !== product.slug);
 
@@ -35,54 +86,50 @@ export function ProductPage({ product, onJoin }: ProductPageProps) {
           </span>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
-          <div className="relative overflow-hidden border border-white/12 bg-[radial-gradient(circle_at_50%_38%,#f7f7f7_0,#dedede_48%,#b6b6b6_100%)] p-5 sm:p-8 lg:min-h-[680px]">
-            <div className="pointer-events-none absolute inset-4 border border-black/10" />
-            <div className="pointer-events-none absolute left-5 top-5 rounded-full border border-black/10 bg-white/45 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/55 backdrop-blur">
-              {product.index}
-            </div>
-            <img
-              src={product.image}
-              alt={product.alt}
-              className="relative mx-auto h-full max-h-[520px] min-h-[300px] w-full object-contain drop-shadow-[0_28px_58px_rgba(0,0,0,.38)] sm:min-h-[420px] lg:max-h-[640px]"
-              decoding="async"
-              loading="eager"
-            />
-          </div>
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1.32fr)_minmax(360px,1fr)] lg:items-stretch">
+          <ProductShowcase product={product} />
 
-          <div className="relative flex flex-col justify-between overflow-hidden border border-white/12 bg-[#060606] p-5 sm:p-8 lg:p-10">
+          <div className="relative flex min-h-full flex-col justify-between overflow-hidden border border-white/12 bg-[#060606] p-5 sm:p-8 lg:p-9">
             <div className="pointer-events-none absolute inset-0 opacity-80 [background:radial-gradient(circle_at_86%_4%,rgba(255,255,255,.10),transparent_25rem)]" />
             <div className="relative">
-              <p className="mono-label">{product.eyebrow}</p>
-              <h1 id="product-title" className="mt-5 text-[clamp(4.2rem,19vw,12rem)] font-black uppercase leading-[0.72] tracking-[-0.09em]">
+              <p className="font-mono text-[11px] font-extrabold uppercase tracking-[0.18em] text-white/48">{product.index}</p>
+              <p className="mono-label mt-3">{product.eyebrow}</p>
+              <div className="mt-5 h-px w-full bg-white/12" />
+              <h1 id="product-title" className="mt-6 text-[clamp(3rem,5.8vw,5.4rem)] font-black uppercase leading-[0.9] tracking-[-0.055em]">
                 {product.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-pretty text-base leading-7 text-white/66 sm:text-lg sm:leading-8">
+              <p className="mt-5 max-w-xl text-pretty text-base leading-7 text-white/66 sm:text-lg sm:leading-8">
                 {product.heroCopy}
               </p>
 
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              <div className="mt-7 grid gap-3">
                 {product.notes.map((note) => (
-                  <div key={note} className="border border-white/12 bg-white/[0.025] p-4">
-                    <p className="font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-white/52">{note}</p>
+                  <div key={note} className="border border-white/12 bg-white/[0.025] px-4 py-3.5">
+                    <p className="font-mono text-[10px] uppercase leading-5 tracking-[0.16em] text-white/56">{note}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="relative mt-9 grid gap-3 sm:flex sm:flex-wrap">
-              <Button size="lg" onClick={() => onJoin(`product-${product.interest}-hero`, product.interest)} className="w-full sm:w-auto">
-                Join {product.shortTitle} List
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <a href="/#proof">View Product Proof</a>
-              </Button>
+            <div className="relative mt-8 border-t border-white/12 pt-6">
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <Button size="lg" onClick={() => onJoin(`product-${product.interest}-hero`, product.interest)} className="w-full">
+                  Join {product.shortTitle} List
+                </Button>
+                <Button asChild variant="outline" size="lg" className="w-full">
+                  <a href="#product-proof">View Product Proof</a>
+                </Button>
+              </div>
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-white/38">
+                <span>Secure. Private. No spam.</span>
+                <span>Only for the disciplined.</span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="brand-container py-8 sm:py-14" aria-labelledby="proof-title">
+      <section id="product-proof" className="brand-container py-8 sm:py-14" aria-labelledby="proof-title">
         <div className="mb-6 grid gap-4 border-t border-white/10 pt-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
           <div>
             <p className="mono-label">Proof First</p>
@@ -98,7 +145,7 @@ export function ProductPage({ product, onJoin }: ProductPageProps) {
         <div className="grid gap-4 lg:grid-cols-3">
           {product.gallery.map((image) => (
             <figure key={image.label} className="group overflow-hidden border border-white/12 bg-[#070707] p-3">
-              <div className="grid min-h-[260px] place-items-center overflow-hidden bg-[radial-gradient(circle_at_50%_40%,#f4f4f4_0,#dedede_52%,#b8b8b8_100%)] p-4 sm:min-h-[360px]">
+              <div className="grid min-h-[260px] place-items-center overflow-hidden bg-[#f2f2f2] p-4 sm:min-h-[360px]">
                 <img src={image.src} alt={image.alt} loading="eager" decoding="async" className="max-h-[330px] w-full object-contain drop-shadow-[0_18px_40px_rgba(0,0,0,.30)] transition duration-500 group-hover:scale-[1.015]" />
               </div>
               <figcaption className="flex items-center justify-between gap-3 px-1 py-4">

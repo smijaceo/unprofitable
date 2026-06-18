@@ -1,0 +1,472 @@
+[
+  {
+    "name": "hoodie",
+    "viewport": "desktop",
+    "url": "http://127.0.0.1:4173/products/disciplined-heavyweight-hoodie",
+    "title": "HOODIE",
+    "firstSection": {
+      "x": 100,
+      "y": 73,
+      "w": 1240,
+      "h": 812
+    },
+    "titleFont": "83.52px",
+    "proofTargets": [
+      {
+        "text": "Proof",
+        "href": "../index.html#proof-board"
+      },
+      {
+        "text": "VIEW PRODUCT PROOF",
+        "href": "#product-proof"
+      }
+    ],
+    "buttons": [
+      "UNPROFITABLE",
+      "Shop",
+      "Proof",
+      "Manifesto",
+      "Join",
+      "Join Drop List",
+      "← Back to Shop / Drop 001",
+      "JOIN HOODIE LIST",
+      "VIEW PRODUCT PROOF",
+      "TEE / 001DISCIPLINED Oversized TeeView product page.",
+      "HAT / 001DISCIPLINED Structured HatView product page.",
+      "DROP 001SHOP / DROP 001Return to the collection hub.",
+      "Join Hoodie List",
+      "Shop / Drop 001",
+      "Drop List",
+      "Tee / 001",
+      "Hoodie / 001",
+      "Hat / 001",
+      "Manifesto",
+      "Community",
+      "FAQ",
+      "Contact",
+      "Returns",
+      "Privacy",
+      "Terms",
+      "Disclaimer",
+      "Join Hoodie List",
+      "×",
+      "Join List"
+    ],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "horizontalOverflow": false,
+    "imgs": [
+      {
+        "alt": "DISCIPLINED Heavyweight Hoodie front and back on light background",
+        "w": 620,
+        "h": 471,
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      }
+    ],
+    "modalOpen": true,
+    "modalSignals": {
+      "dialog": true,
+      "emailVisible": true,
+      "bodyTextHasEmail": true
+    }
+  },
+  {
+    "name": "hoodie",
+    "viewport": "mobile390",
+    "url": "http://127.0.0.1:4173/products/disciplined-heavyweight-hoodie",
+    "title": "HOODIE",
+    "firstSection": {
+      "x": 0,
+      "y": 63,
+      "w": 390,
+      "h": 1160
+    },
+    "titleFont": "70.2px",
+    "proofTargets": [
+      {
+        "text": "Proof",
+        "href": "../index.html#proof-board"
+      },
+      {
+        "text": "VIEW PRODUCT PROOF",
+        "href": "#product-proof"
+      }
+    ],
+    "buttons": [
+      "UNPROFITABLE",
+      "Shop",
+      "Proof",
+      "Manifesto",
+      "Join",
+      "Join Drop List",
+      "← Back to Shop / Drop 001",
+      "JOIN HOODIE LIST",
+      "VIEW PRODUCT PROOF",
+      "TEE / 001DISCIPLINED Oversized TeeView product page.",
+      "HAT / 001DISCIPLINED Structured HatView product page.",
+      "DROP 001SHOP / DROP 001Return to the collection hub.",
+      "Join Hoodie List",
+      "Shop / Drop 001",
+      "Drop List",
+      "Tee / 001",
+      "Hoodie / 001",
+      "Hat / 001",
+      "Manifesto",
+      "Community",
+      "FAQ",
+      "Contact",
+      "Returns",
+      "Privacy",
+      "Terms",
+      "Disclaimer",
+      "Join Hoodie List",
+      "×",
+      "Join List"
+    ],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "horizontalOverflow": false,
+    "imgs": [
+      {
+        "alt": "DISCIPLINED Heavyweight Hoodie front and back on light background",
+        "w": 330,
+        "h": 250,
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      }
+    ],
+    "modalOpen": true,
+    "modalSignals": {
+      "dialog": true,
+      "emailVisible": true,
+      "bodyTextHasEmail": true
+    }
+  },
+  {
+    "name": "tee",
+    "viewport": "desktop",
+    "url": "http://127.0.0.1:4173/products/disciplined-oversized-tee",
+    "title": "TEE",
+    "firstSection": {
+      "x": 100,
+      "y": 73,
+      "w": 1240,
+      "h": 812
+    },
+    "titleFont": "83.52px",
+    "proofTargets": [
+      {
+        "text": "Proof",
+        "href": "../index.html#proof-board"
+      },
+      {
+        "text": "VIEW PRODUCT PROOF",
+        "href": "#product-proof"
+      }
+    ],
+    "buttons": [
+      "UNPROFITABLE",
+      "Shop",
+      "Proof",
+      "Manifesto",
+      "Join",
+      "Join Drop List",
+      "← Back to Shop / Drop 001",
+      "JOIN TEE LIST",
+      "VIEW PRODUCT PROOF",
+      "HOODIE / 001DISCIPLINED Heavyweight HoodieView product page.",
+      "HAT / 001DISCIPLINED Structured HatView product page.",
+      "DROP 001SHOP / DROP 001Return to the collection hub.",
+      "Join Tee List",
+      "Shop / Drop 001",
+      "Drop List",
+      "Tee / 001",
+      "Hoodie / 001",
+      "Hat / 001",
+      "Manifesto",
+      "Community",
+      "FAQ",
+      "Contact",
+      "Returns",
+      "Privacy",
+      "Terms",
+      "Disclaimer",
+      "Join Tee List",
+      "×",
+      "Join List"
+    ],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "horizontalOverflow": false,
+    "imgs": [
+      {
+        "alt": "DISCIPLINED Oversized Tee front and back on light background",
+        "w": 620,
+        "h": 471,
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      }
+    ],
+    "modalOpen": true,
+    "modalSignals": {
+      "dialog": true,
+      "emailVisible": true,
+      "bodyTextHasEmail": true
+    }
+  },
+  {
+    "name": "tee",
+    "viewport": "mobile390",
+    "url": "http://127.0.0.1:4173/products/disciplined-oversized-tee",
+    "title": "TEE",
+    "firstSection": {
+      "x": 0,
+      "y": 63,
+      "w": 390,
+      "h": 1160
+    },
+    "titleFont": "70.2px",
+    "proofTargets": [
+      {
+        "text": "Proof",
+        "href": "../index.html#proof-board"
+      },
+      {
+        "text": "VIEW PRODUCT PROOF",
+        "href": "#product-proof"
+      }
+    ],
+    "buttons": [
+      "UNPROFITABLE",
+      "Shop",
+      "Proof",
+      "Manifesto",
+      "Join",
+      "Join Drop List",
+      "← Back to Shop / Drop 001",
+      "JOIN TEE LIST",
+      "VIEW PRODUCT PROOF",
+      "HOODIE / 001DISCIPLINED Heavyweight HoodieView product page.",
+      "HAT / 001DISCIPLINED Structured HatView product page.",
+      "DROP 001SHOP / DROP 001Return to the collection hub.",
+      "Join Tee List",
+      "Shop / Drop 001",
+      "Drop List",
+      "Tee / 001",
+      "Hoodie / 001",
+      "Hat / 001",
+      "Manifesto",
+      "Community",
+      "FAQ",
+      "Contact",
+      "Returns",
+      "Privacy",
+      "Terms",
+      "Disclaimer",
+      "Join Tee List",
+      "×",
+      "Join List"
+    ],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "horizontalOverflow": false,
+    "imgs": [
+      {
+        "alt": "DISCIPLINED Oversized Tee front and back on light background",
+        "w": 330,
+        "h": 250,
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      }
+    ],
+    "modalOpen": true,
+    "modalSignals": {
+      "dialog": true,
+      "emailVisible": true,
+      "bodyTextHasEmail": true
+    }
+  },
+  {
+    "name": "hat",
+    "viewport": "desktop",
+    "url": "http://127.0.0.1:4173/products/disciplined-structured-hat",
+    "title": "HAT",
+    "firstSection": {
+      "x": 100,
+      "y": 73,
+      "w": 1240,
+      "h": 812
+    },
+    "titleFont": "83.52px",
+    "proofTargets": [
+      {
+        "text": "Proof",
+        "href": "../index.html#proof-board"
+      },
+      {
+        "text": "VIEW PRODUCT PROOF",
+        "href": "#product-proof"
+      }
+    ],
+    "buttons": [
+      "UNPROFITABLE",
+      "Shop",
+      "Proof",
+      "Manifesto",
+      "Join",
+      "Join Drop List",
+      "← Back to Shop / Drop 001",
+      "JOIN HAT LIST",
+      "VIEW PRODUCT PROOF",
+      "TEE / 001DISCIPLINED Oversized TeeView product page.",
+      "HOODIE / 001DISCIPLINED Heavyweight HoodieView product page.",
+      "DROP 001SHOP / DROP 001Return to the collection hub.",
+      "Join Hat List",
+      "Shop / Drop 001",
+      "Drop List",
+      "Tee / 001",
+      "Hoodie / 001",
+      "Hat / 001",
+      "Manifesto",
+      "Community",
+      "FAQ",
+      "Contact",
+      "Returns",
+      "Privacy",
+      "Terms",
+      "Disclaimer",
+      "Join Hat List",
+      "×",
+      "Join List"
+    ],
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "horizontalOverflow": false,
+    "imgs": [
+      {
+        "alt": "DISCIPLINED Structured Hat front embroidery on light background",
+        "w": 336,
+        "h": 336,
+        "complete": true,
+        "naturalWidth": 1254,
+        "naturalHeight": 1254
+      },
+      {
+        "alt": "UNPROFITABLE back embroidery on light background",
+        "w": 264,
+        "h": 264,
+        "complete": true,
+        "naturalWidth": 1254,
+        "naturalHeight": 1254
+      },
+      {
+        "alt": "DISCIPLINED Structured Hat side angle on light background",
+        "w": 264,
+        "h": 212,
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      }
+    ],
+    "modalOpen": true,
+    "modalSignals": {
+      "dialog": true,
+      "emailVisible": true,
+      "bodyTextHasEmail": true
+    }
+  },
+  {
+    "name": "hat",
+    "viewport": "mobile390",
+    "url": "http://127.0.0.1:4173/products/disciplined-structured-hat",
+    "title": "HAT",
+    "firstSection": {
+      "x": 0,
+      "y": 63,
+      "w": 390,
+      "h": 1358
+    },
+    "titleFont": "70.2px",
+    "proofTargets": [
+      {
+        "text": "Proof",
+        "href": "../index.html#proof-board"
+      },
+      {
+        "text": "VIEW PRODUCT PROOF",
+        "href": "#product-proof"
+      }
+    ],
+    "buttons": [
+      "UNPROFITABLE",
+      "Shop",
+      "Proof",
+      "Manifesto",
+      "Join",
+      "Join Drop List",
+      "← Back to Shop / Drop 001",
+      "JOIN HAT LIST",
+      "VIEW PRODUCT PROOF",
+      "TEE / 001DISCIPLINED Oversized TeeView product page.",
+      "HOODIE / 001DISCIPLINED Heavyweight HoodieView product page.",
+      "DROP 001SHOP / DROP 001Return to the collection hub.",
+      "Join Hat List",
+      "Shop / Drop 001",
+      "Drop List",
+      "Tee / 001",
+      "Hoodie / 001",
+      "Hat / 001",
+      "Manifesto",
+      "Community",
+      "FAQ",
+      "Contact",
+      "Returns",
+      "Privacy",
+      "Terms",
+      "Disclaimer",
+      "Join Hat List",
+      "×",
+      "Join List"
+    ],
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "horizontalOverflow": false,
+    "imgs": [
+      {
+        "alt": "DISCIPLINED Structured Hat front embroidery on light background",
+        "w": 330,
+        "h": 320,
+        "complete": true,
+        "naturalWidth": 1254,
+        "naturalHeight": 1254
+      },
+      {
+        "alt": "UNPROFITABLE back embroidery on light background",
+        "w": 160,
+        "h": 160,
+        "complete": true,
+        "naturalWidth": 1254,
+        "naturalHeight": 1254
+      },
+      {
+        "alt": "DISCIPLINED Structured Hat side angle on light background",
+        "w": 160,
+        "h": 124,
+        "complete": true,
+        "naturalWidth": 1448,
+        "naturalHeight": 1086
+      }
+    ],
+    "modalOpen": true,
+    "modalSignals": {
+      "dialog": true,
+      "emailVisible": true,
+      "bodyTextHasEmail": true
+    }
+  }
+]

@@ -29,12 +29,12 @@ export type DropProduct = {
 
 export const products: DropProduct[] = [
   {
-    index: '01 / Hoodie',
+    index: '01 / HOODIE',
     slug: 'disciplined-heavyweight-hoodie',
     interest: 'hoodie',
     title: 'Hoodie',
     shortTitle: 'Hoodie',
-    eyebrow: 'DISCIPLINED Heavyweight Hoodie',
+    eyebrow: 'DISCIPLINED HEAVYWEIGHT HOODIE',
     name: 'DISCIPLINED Heavyweight Hoodie',
     copy: 'The anchor piece: black hoodie, white U/P mark, low patch, and DISCIPLINED back artwork.',
     heroCopy: 'A blacked-out hero layer for people rebuilding their standards. Final sizing and product proof go to the list before checkout opens.',
@@ -49,15 +49,15 @@ export const products: DropProduct[] = [
     notes: ['Sizing confirmed before checkout', 'Product proof before payment', 'Drop-list first access']
   },
   {
-    index: '02 / Tee',
+    index: '02 / TEE',
     slug: 'disciplined-oversized-tee',
     interest: 'tee',
     title: 'Tee',
     shortTitle: 'Tee',
-    eyebrow: 'DISCIPLINED Oversized Tee',
+    eyebrow: 'DISCIPLINED OVERSIZED TEE',
     name: 'DISCIPLINED Oversized Tee',
     copy: 'Black tee with the front mark, low patch, and arched DISCIPLINED back artwork.',
-    heroCopy: 'The daily uniform piece: clean front mark, DISCIPLINED back graphic, and proof-first launch path.',
+    heroCopy: 'A blacked-out daily layer cut for the reset. Final sizing and product proof go to the list before checkout opens.',
     image: teeImage,
     alt: 'DISCIPLINED Oversized Tee front and back product image',
     gallery: [
@@ -69,15 +69,15 @@ export const products: DropProduct[] = [
     notes: ['Sizing confirmed before checkout', 'Product proof before payment', 'Drop-list first access']
   },
   {
-    index: '03 / Hat',
+    index: '03 / HAT',
     slug: 'disciplined-structured-hat',
     interest: 'hat',
     title: 'Hat',
     shortTitle: 'Hat',
-    eyebrow: 'DISCIPLINED Structured Hat',
+    eyebrow: 'DISCIPLINED STRUCTURED HAT',
     name: 'DISCIPLINED Structured Hat',
     copy: 'Black cap with front DISCIPLINED embroidery and back UNPROFITABLE stitch.',
-    heroCopy: 'The quiet signal piece for the capsule: structured black cap, front embroidery, and back branding proof.',
+    heroCopy: 'A structured black cap for keeping the standard visible. Final fit details and product proof go to the list before checkout opens.',
     image: hatImage,
     alt: 'DISCIPLINED Structured Hat front and back product image',
     gallery: [
@@ -86,7 +86,7 @@ export const products: DropProduct[] = [
       { src: hatSide, alt: 'DISCIPLINED Structured Hat additional product view', label: 'Product Views' }
     ],
     tags: ['Black cap', 'Embroidery proof', 'Early access'],
-    notes: ['Product proof before checkout', 'Embroidery reference before payment', 'Drop-list first access']
+    notes: ['Fit details before checkout', 'Product proof before payment', 'Drop-list first access']
   }
 ];
 

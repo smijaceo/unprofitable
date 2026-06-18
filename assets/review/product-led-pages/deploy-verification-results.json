@@ -1,0 +1,176 @@
+{
+  "disciplined-heavyweight-hoodie": {
+    "clean-desktop": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HOODIE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": true,
+      "visibleSignupCount": 2,
+      "modalOpen": true
+    },
+    "clean-mobile390": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HOODIE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": false,
+      "visibleSignupCount": 0,
+      "modalOpen": true
+    },
+    ".html-desktop": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HOODIE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": true,
+      "visibleSignupCount": 2,
+      "modalOpen": true
+    },
+    ".html-mobile390": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HOODIE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": false,
+      "visibleSignupCount": 0,
+      "modalOpen": true
+    }
+  },
+  "disciplined-oversized-tee": {
+    "clean-desktop": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "TEE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": true,
+      "visibleSignupCount": 2,
+      "modalOpen": true
+    },
+    "clean-mobile390": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "TEE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": false,
+      "visibleSignupCount": 0,
+      "modalOpen": true
+    },
+    ".html-desktop": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "TEE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": true,
+      "visibleSignupCount": 2,
+      "modalOpen": true
+    },
+    ".html-mobile390": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "TEE",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 9,
+      "proofExists": true,
+      "visibleProofHref": false,
+      "visibleSignupCount": 0,
+      "modalOpen": true
+    }
+  },
+  "disciplined-structured-hat": {
+    "clean-desktop": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HAT",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 11,
+      "proofExists": true,
+      "visibleProofHref": true,
+      "visibleSignupCount": 2,
+      "modalOpen": true
+    },
+    "clean-mobile390": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HAT",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 11,
+      "proofExists": true,
+      "visibleProofHref": false,
+      "visibleSignupCount": 0,
+      "modalOpen": true
+    },
+    ".html-desktop": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HAT",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 11,
+      "proofExists": true,
+      "visibleProofHref": true,
+      "visibleSignupCount": 2,
+      "modalOpen": true
+    },
+    ".html-mobile390": {
+      "status": 200,
+      "issues": [
+        "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "title": "HAT",
+      "overflow": false,
+      "brokenImages": 0,
+      "imageCount": 11,
+      "proofExists": true,
+      "visibleProofHref": false,
+      "visibleSignupCount": 0,
+      "modalOpen": true
+    }
+  }
+}
