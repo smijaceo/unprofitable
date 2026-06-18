@@ -120,7 +120,7 @@ function MobileCapsuleProductCards({ onJoin }: Props) {
                     type="button"
                     onClick={() => { trackProductCard(product, 'carousel_tab', `home-product-carousel-${product.interest}-tab`); goTo(index); }}
                     className={cn(
-                      'group relative grid min-h-[104px] place-items-center overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_34%,#fff_0,#ededed_46%,#bdbdbd_100%)] p-1 transition duration-300 hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:min-h-[128px]',
+                      'group relative grid min-h-[104px] place-items-center overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_50%_34%,#fff_0,#f7f6f2_48%,#e8e6e0_100%)] p-1 transition duration-300 hover:border-white/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:min-h-[128px]',
                       activeIndex === index && 'border-white/55 ring-1 ring-white/22'
                     )}
                     aria-label={`Show ${product.name}`}
@@ -150,7 +150,7 @@ function MobileCapsuleProductCards({ onJoin }: Props) {
               initial={{ opacity: 0, x: 18, scale: 0.985 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
-              className="product-hero-card group relative grid min-h-[380px] place-items-center overflow-hidden border border-white/12 bg-[radial-gradient(circle_at_50%_36%,#fbfbfb_0,#e7e7e7_45%,#b8b8b8_100%)] p-5 transition duration-300 hover:border-white/28 sm:min-h-[560px] sm:p-8 lg:min-h-[610px]"
+              className="product-hero-card group relative grid min-h-[380px] place-items-center overflow-hidden border border-white/12 bg-[radial-gradient(circle_at_50%_36%,#fff_0,#f7f6f2_48%,#e8e6e0_100%)] p-5 transition duration-300 hover:border-white/28 sm:min-h-[560px] sm:p-8 lg:min-h-[610px]"
               aria-label={`View ${activeProduct.name} details`}
               onClick={() => trackProductCard(activeProduct, 'image', `home-product-carousel-${activeProduct.interest}-image`)}
             >
