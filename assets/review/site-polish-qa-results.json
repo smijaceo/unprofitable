@@ -1,0 +1,77 @@
+{
+  "base": "http://127.0.0.1:4173/?v=local",
+  "screenshots": {
+    "desktop": "assets/review/site-polish-desktop.png",
+    "mobile390": "assets/review/site-polish-mobile-390.png",
+    "modalDesktop": "assets/review/signup-modal-desktop.png",
+    "modalMobile": "assets/review/signup-modal-mobile.png"
+  },
+  "consoleErrors": [],
+  "mobileErrors": [],
+  "desktopInspect": {
+    "overflow": false,
+    "viewportWidth": 1440,
+    "scrollWidth": 1440,
+    "footerDisclaimer": true,
+    "internalTerms": [],
+    "productCards": 3,
+    "proofCards": 3
+  },
+  "mobileInspect": {
+    "overflow": false,
+    "viewportWidth": 390,
+    "scrollWidth": 390,
+    "footerDisclaimer": true,
+    "internalTerms": [],
+    "productCards": 3,
+    "proofCards": 3
+  },
+  "ctaResults": [
+    {
+      "label": "Header JOIN LIST",
+      "visible": true,
+      "focused": true,
+      "escapeCloses": true
+    },
+    {
+      "label": "Hero JOIN DROP LIST",
+      "visible": true,
+      "focused": true,
+      "escapeCloses": true
+    },
+    {
+      "label": "Product JOIN HOODIE LIST",
+      "visible": true,
+      "focused": true,
+      "escapeCloses": true
+    },
+    {
+      "label": "Product JOIN TEE LIST",
+      "visible": true,
+      "focused": true,
+      "escapeCloses": true
+    },
+    {
+      "label": "Product JOIN HAT LIST",
+      "visible": true,
+      "focused": true,
+      "escapeCloses": true
+    },
+    {
+      "label": "Final JOIN DROP LIST",
+      "visible": true,
+      "focused": true,
+      "escapeCloses": true
+    }
+  ],
+  "outsideClose": true,
+  "viewDropScrolls": true,
+  "mobileModal": {
+    "fits": true,
+    "inputFocused": true,
+    "width": 366,
+    "height": 513.75,
+    "windowWidth": 390,
+    "windowHeight": 980
+  }
+}

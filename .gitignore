@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.hero-diagnostics.html
+.hero-dump.html
+*.log
+.DS_Store
+
+# Local agent/tool installs
+.codex/
