@@ -7,6 +7,9 @@ import teeDetail from '../../assets/drop001-library/BACKPRINT_Closeups_Hoodie_Te
 import hatImage from '../../assets/drop001-library/HAT_FrontBack_LightBg_V02.webp';
 import hatDetail from '../../assets/drop001-library/HAT_Embroidery_FrontSideBack_V01.webp';
 import hatSide from '../../assets/drop001-library/HAT_FrontBack_LightBg_V01.webp';
+import hatFrontHero from '../../assets/drop001-library/HAT_Front_LightBg_V01.png';
+import hatBackHero from '../../assets/drop001-library/HAT_Back_LightBg_V01.png';
+import hatRightHero from '../../assets/drop001-library/HAT_Right_LightBg_V01.png';
 
 export type ProductInterest = 'hoodie' | 'tee' | 'hat';
 
@@ -23,6 +26,7 @@ export type DropProduct = {
   image: string;
   alt: string;
   gallery: { src: string; alt: string; label: string }[];
+  heroGallery?: { src: string; alt: string; label: string }[];
   tags: string[];
   notes: string[];
 };
@@ -84,6 +88,11 @@ export const products: DropProduct[] = [
       { src: hatImage, alt: 'DISCIPLINED Structured Hat front and back', label: 'Front / Back' },
       { src: hatDetail, alt: 'DISCIPLINED Structured Hat embroidery references', label: 'Embroidery' },
       { src: hatSide, alt: 'DISCIPLINED Structured Hat additional product view', label: 'Product Views' }
+    ],
+    heroGallery: [
+      { src: hatFrontHero, alt: 'DISCIPLINED Structured Hat front embroidery', label: 'Front Embroidery' },
+      { src: hatBackHero, alt: 'DISCIPLINED Structured Hat back embroidery', label: 'Back Embroidery' },
+      { src: hatRightHero, alt: 'DISCIPLINED Structured Hat side profile', label: 'Side Profile' }
     ],
     tags: ['Black cap', 'Embroidery proof', 'Early access'],
     notes: ['Fit details before checkout', 'Product proof before payment', 'Drop-list first access']

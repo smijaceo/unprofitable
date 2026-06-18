@@ -19,28 +19,29 @@ function trackRelatedProductClick(product: DropProduct) {
 
 function ProductShowcase({ product }: { product: DropProduct }) {
   if (product.interest === 'hat') {
-    const support = product.gallery.slice(1, 3);
+    const hatGallery = product.heroGallery ?? product.gallery;
+    const [main, ...support] = hatGallery;
 
     return (
-      <div className="relative overflow-hidden border border-white/12 bg-[#f2f2f2] p-3 text-black shadow-[0_28px_80px_rgba(0,0,0,.42)] sm:p-5 lg:min-h-[660px]">
-        <div className="pointer-events-none absolute inset-4 border border-black/10" />
-        <div className="pointer-events-none absolute left-5 top-5 z-10 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/58 backdrop-blur">
+      <div className="relative overflow-hidden border border-white/12 bg-[#f2f2f2] p-2.5 text-black shadow-[0_28px_80px_rgba(0,0,0,.42)] sm:p-4 lg:min-h-[660px]">
+        <div className="pointer-events-none absolute inset-3 border border-black/10" />
+        <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/58 backdrop-blur">
           {product.index}
         </div>
-        <div className="relative grid h-full gap-3 pt-11 sm:gap-4 lg:grid-rows-[1fr_auto]">
-          <figure className="grid min-h-[360px] place-items-center border border-black/10 bg-white p-4 shadow-[0_18px_44px_rgba(0,0,0,.13)] sm:min-h-[470px] lg:min-h-[505px] lg:p-8">
+        <div className="relative grid h-full gap-2.5 pt-9 sm:gap-3 lg:grid-rows-[1fr_auto]">
+          <figure className="grid min-h-[360px] place-items-center overflow-hidden border border-black/10 bg-white p-2 shadow-[0_18px_44px_rgba(0,0,0,.13)] sm:min-h-[470px] sm:p-3 lg:min-h-[505px] lg:p-4">
             <img
-              src={product.image}
-              alt={product.alt}
-              className="max-h-[430px] w-full object-contain drop-shadow-[0_26px_46px_rgba(0,0,0,.28)] sm:max-h-[520px] lg:max-h-[610px]"
+              src={main?.src ?? product.image}
+              alt={main?.alt ?? product.alt}
+              className="max-h-[460px] w-full scale-[1.08] object-contain drop-shadow-[0_26px_46px_rgba(0,0,0,.28)] sm:max-h-[560px] lg:max-h-[650px]"
               decoding="async"
               loading="eager"
             />
           </figure>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-2.5 sm:grid-cols-2">
             {support.map((image) => (
-              <figure key={image.label} className="grid min-h-[150px] place-items-center border border-black/10 bg-white p-3 shadow-[0_12px_26px_rgba(0,0,0,.10)] sm:min-h-[180px]">
-                <img src={image.src} alt={image.alt} className="max-h-[170px] w-full object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,.20)]" decoding="async" loading="eager" />
+              <figure key={image.label} className="grid min-h-[150px] place-items-center overflow-hidden border border-black/10 bg-white p-2 shadow-[0_12px_26px_rgba(0,0,0,.10)] sm:min-h-[180px]">
+                <img src={image.src} alt={image.alt} className="max-h-[190px] w-full scale-[1.04] object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,.20)]" decoding="async" loading="eager" />
               </figure>
             ))}
           </div>
@@ -50,16 +51,16 @@ function ProductShowcase({ product }: { product: DropProduct }) {
   }
 
   return (
-    <div className="relative overflow-hidden border border-white/12 bg-[#f2f2f2] p-3 text-black shadow-[0_28px_80px_rgba(0,0,0,.42)] sm:p-5 lg:min-h-[660px]">
-      <div className="pointer-events-none absolute inset-4 border border-black/10" />
-      <div className="pointer-events-none absolute left-5 top-5 z-10 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/58 backdrop-blur">
+    <div className="relative overflow-hidden border border-white/12 bg-[#f2f2f2] p-2.5 text-black shadow-[0_28px_80px_rgba(0,0,0,.42)] sm:p-4 lg:min-h-[660px]">
+      <div className="pointer-events-none absolute inset-3 border border-black/10" />
+      <div className="pointer-events-none absolute left-4 top-4 z-10 rounded-full border border-black/10 bg-white/70 px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-black/58 backdrop-blur">
         {product.index}
       </div>
-      <figure className="relative grid h-full min-h-[390px] place-items-center border border-black/10 bg-white p-4 pt-12 shadow-[0_18px_44px_rgba(0,0,0,.13)] sm:min-h-[540px] sm:p-7 lg:min-h-[620px] lg:p-10">
+      <figure className="relative grid h-full min-h-[390px] place-items-center overflow-hidden border border-black/10 bg-white p-2 pt-9 shadow-[0_18px_44px_rgba(0,0,0,.13)] sm:min-h-[540px] sm:p-4 sm:pt-10 lg:min-h-[620px] lg:p-5 lg:pt-11">
         <img
           src={product.image}
           alt={product.alt}
-          className="max-h-[500px] w-full object-contain drop-shadow-[0_30px_58px_rgba(0,0,0,.32)] sm:max-h-[640px] lg:max-h-[760px]"
+          className="max-h-[540px] w-full scale-[1.08] object-contain drop-shadow-[0_30px_58px_rgba(0,0,0,.32)] sm:max-h-[700px] lg:max-h-[800px]"
           decoding="async"
           loading="eager"
         />
