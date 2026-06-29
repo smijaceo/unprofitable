@@ -519,3 +519,19 @@
   .product-card-pair figure { min-height: 260px; }
   .product-card-pair img { max-height: 320px; }
 }
+
+/* ===== Drop 001 size guide (static product pages) ===== */
+.sg-scroll{margin-top:18px;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);background:#070707}
+.sg-scroll:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.sg-table{width:100%;min-width:560px;border-collapse:collapse;text-align:right;font-variant-numeric:tabular-nums}
+.sg-caption{caption-side:top;text-align:left;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);padding:16px 18px 4px}
+.sg-table th[scope=col]{font-family:'Geist Mono',monospace;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);padding:14px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+.sg-table td{padding:14px;border-bottom:1px solid var(--line);color:#fff;font-size:15px;white-space:nowrap}
+.sg-table td span{display:block;font-family:'Geist Mono',monospace;font-size:11px;color:var(--soft);margin-top:2px}
+.sg-table th:first-child,.sg-table td:first-child{text-align:left}
+.sg-table tbody tr:last-child td,.sg-table tbody tr:last-child th{border-bottom:0}
+.sg-size-col{position:sticky;left:0;background:#070707;z-index:1}
+.sg-sz{font-size:17px;font-weight:900;color:#fff;padding:14px;border-bottom:1px solid var(--line)}
+.sg-fit-note{margin:18px 0 0;color:var(--muted);line-height:1.55}
+.sg-fit-note b{color:#fff}
+.sg-fine{margin:8px 0 0;color:var(--soft);font-size:13px;line-height:1.5}
