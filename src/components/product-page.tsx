@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { Button } from './ui/button';
-import { type DropProduct, productHref, products } from '../lib/products';
+import { type DropProduct, type SizeGuide, productHref, products } from '../lib/products';
 import { leadMetadata, trackEvent } from '../lib/analytics';
 
 export type ProductPageProps = {
@@ -69,6 +69,67 @@ function ProductShowcase({ product }: { product: DropProduct }) {
   );
 }
 
+function SizeGuideSection({ guide, title }: { guide: SizeGuide; title: string }) {
+  const cols = [
+    { key: 'length', label: 'Length', in: 'lengthIn', cm: 'lengthCm' },
+    { key: 'chest', label: 'Chest', in: 'chestIn', cm: 'chestCm' },
+    { key: 'shoulder', label: 'Shoulder', in: 'shoulderIn', cm: 'shoulderCm' },
+    { key: 'sleeve', label: 'Sleeve', in: 'sleeveIn', cm: 'sleeveCm' }
+  ] as const;
+  const thCls = 'border-b border-white/25 px-4 py-3.5 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-white/54';
+  const tdCls = 'whitespace-nowrap border-b border-white/10 px-4 py-3.5 text-[15px] text-white';
+
+  return (
+    <section id="fit-sizing" className="brand-container py-8 sm:py-14" aria-labelledby="fit-title">
+      <div className="mb-6 grid gap-4 border-t border-white/10 pt-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+        <div>
+          <p className="mono-label">Fit / Sizing</p>
+          <h2 id="fit-title" className="mt-3 text-[clamp(3.4rem,11vw,7.2rem)] font-black uppercase leading-[0.76] tracking-[-0.085em]">
+            How it fits.
+          </h2>
+        </div>
+        <p className="max-w-2xl text-pretty text-base leading-7 text-white/62">{guide.findCopy}</p>
+      </div>
+
+      <div className="overflow-x-auto border border-white/12 bg-[#070707]" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <table className="w-full min-w-[560px] border-collapse text-right [font-variant-numeric:tabular-nums]">
+          <caption className="px-4 pb-1 pt-4 text-left font-mono text-[10px] uppercase tracking-[0.18em] text-white/48">
+            {title} — {guide.fitLabel}
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" className={`sticky left-0 z-10 bg-[#070707] text-left ${thCls}`}>Size</th>
+              {cols.map((c) => (
+                <th key={c.key} scope="col" className={thCls}>{c.label}</th>
+              ))}
+              <th scope="col" className={thCls}>Fits height</th>
+              <th scope="col" className={thCls}>Fits weight</th>
+            </tr>
+          </thead>
+          <tbody className="[&_tr:last-child_td]:border-b-0 [&_tr:last-child_th]:border-b-0">
+            {guide.rows.map((row) => (
+              <tr key={row.size}>
+                <th scope="row" className="sticky left-0 z-10 border-b border-white/10 bg-[#070707] px-4 py-3.5 text-left text-base font-black text-white">{row.size}</th>
+                {cols.map((c) => (
+                  <td key={c.key} className={tdCls}>
+                    {row[c.in]}
+                    <span className="block font-mono text-[11px] text-white/42">{row[c.cm]}</span>
+                  </td>
+                ))}
+                <td className={tdCls}>{row.height}</td>
+                <td className={tdCls}>{row.weight}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p className="mt-5 max-w-3xl text-base leading-7 text-white/66">{guide.note}</p>
+      <p className="mt-2 text-sm leading-6 text-white/42">{guide.finePrint}</p>
+    </section>
+  );
+}
+
 export function ProductPage({ product, onJoin }: ProductPageProps) {
   const related = products.filter((item) => item.slug !== product.slug);
 
@@ -129,6 +190,8 @@ export function ProductPage({ product, onJoin }: ProductPageProps) {
           </div>
         </div>
       </section>
+
+      {product.sizeGuide ? <SizeGuideSection guide={product.sizeGuide} title={product.name} /> : null}
 
       <section id="product-proof" className="brand-container py-8 sm:py-14" aria-labelledby="proof-title">
         <div className="mb-6 grid gap-4 border-t border-white/10 pt-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
