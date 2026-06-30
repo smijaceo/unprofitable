@@ -15,6 +15,89 @@ const KLAVIYO_REVISION = '2024-10-15';
 const HOME = 'https://www.wearunprofitable.com/';
 const DROP = 'https://www.wearunprofitable.com/#drop';
 
+// Klaviyo profile ids are ULID-like (alphanumeric, ~26 chars). This guard
+// blocks malformed / injected ids and keeps unmerged email tags (e.g. a literal
+// "{{ person.id }}", "None", or "") from ever hitting the PATCH.
+const PROFILE_ID_RE = /^[A-Za-z0-9]{20,40}$/;
+
+// --- `_kx` (tracking-token) resolution -------------------------------------
+// The size-intent email's id merge tag is unreliable (renders "None"/empty),
+// but Klaviyo always appends a real `_kx` exchange token to tracked links. The
+// legacy v2 endpoint that traded `_kx` for a profile id (POST /api/v2/people/
+// exchange) is RETIRED (returns HTTP 410). The current equivalent is the Client
+// Profile endpoint: pass `_kx` as data.attributes._kx and Klaviyo matches the
+// existing profile server-side. It authenticates with the PUBLIC company id in
+// the query string (NOT the private key) — identical to the site's existing
+// client/subscriptions call — so this path never touches KLAVIYO_API_KEY.
+const KLAVIYO_COMPANY_ID = 'UWEuLX'; // public account id (same as the frontend; it is the suffix of every _kx token). Not a secret.
+const KLAVIYO_CLIENT_REVISION = '2026-04-15';
+const KLAVIYO_CLIENT_PROFILE_URL = `https://a.klaviyo.com/client/profiles/?company_id=${KLAVIYO_COMPANY_ID}`;
+
+// Set drop001_size on the profile matched by a `_kx` token via the Client
+// Profile endpoint. Returns true on success, false on any failure (bad token
+// shape, network, non-2xx) so the caller falls through to the fallback page.
+async function setSizeViaKx(kx, size) {
+  // Sanity-bound the token before sending: real `_kx` values look like
+  // "<base64ish>.<companyId>". Keep the charset tight to avoid sending junk.
+  if (!/^[A-Za-z0-9_.+/=-]{10,256}$/.test(kx)) {
+    return false;
+  }
+  try {
+    const res = await fetch(KLAVIYO_CLIENT_PROFILE_URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/vnd.api+json',
+        accept: 'application/vnd.api+json',
+        revision: KLAVIYO_CLIENT_REVISION
+      },
+      body: JSON.stringify({
+        data: {
+          type: 'profile',
+          attributes: { _kx: kx, properties: { drop001_size: size } }
+        }
+      })
+    });
+    return res.ok;
+  } catch (err) {
+    // Never leak detail; treat any failure as "could not write".
+    return false;
+  }
+}
+
+// Set drop001_size on a known profile id via the JSON:API PATCH (private key).
+// Returns { ok, status }: status distinguishes a server misconfig (no key) from
+// an upstream failure, but both render the same fallback page.
+async function setSizeById(id, size) {
+  const key = process.env.KLAVIYO_API_KEY;
+  if (!key) {
+    // Misconfiguration — never expose detail to the visitor.
+    return { ok: false, status: 500 };
+  }
+  try {
+    // Idempotent PATCH: sets ONLY drop001_size; re-tapping just re-writes the
+    // same value. Nothing else on the profile is touched.
+    const apiRes = await fetch(`https://a.klaviyo.com/api/profiles/${encodeURIComponent(id)}/`, {
+      method: 'PATCH',
+      headers: {
+        Authorization: `Klaviyo-API-Key ${key}`,
+        revision: KLAVIYO_REVISION,
+        'content-type': 'application/json',
+        accept: 'application/json'
+      },
+      body: JSON.stringify({
+        data: {
+          type: 'profile',
+          id,
+          attributes: { properties: { drop001_size: size } }
+        }
+      })
+    });
+    return { ok: apiRes.ok, status: apiRes.ok ? 200 : 502 };
+  } catch (err) {
+    return { ok: false, status: 500 };
+  }
+}
+
 // Site palette (Design System v1 — the live wearunprofitable.com is dark).
 // Surface ink #000, white text ladder (.92/.66/.48), hairline borders .10.
 const INK = '#000000';
@@ -213,7 +296,7 @@ function fallback(res, status) {
   send(res, status, page({
     eyebrow: 'DROP 001 · DISCIPLINED / 001',
     headlineHtml: '<span class="size">Not</span><span class="logged">Logged.</span>',
-    sub: "That link didn't carry a valid size. Open the email again and tap your size. We'll log it then.",
+    sub: "We couldn't read that link. Open the email again and tap your size. We'll log it then.",
     primary: 'View Drop 001'
   }));
 }
@@ -231,49 +314,36 @@ export default async function handler(req, res) {
 
     const rawSize = Array.isArray(query.s) ? query.s[0] : query.s;
     const rawId = Array.isArray(query.id) ? query.id[0] : query.id;
+    const rawKx = Array.isArray(query._kx) ? query._kx[0] : query._kx;
 
     const size = String(rawSize || '').trim().toUpperCase();
-    const id = String(rawId || '').trim();
+    const queryId = String(rawId || '').trim();
+    const kx = String(rawKx || '').trim();
 
     // Validate size against the allow-list.
     if (!VALID_SIZES.includes(size)) {
       return fallback(res, 400);
     }
 
-    // Guard the id: Klaviyo profile ids are ULID-like (26 chars, alphanumeric).
-    // This blocks malformed / injected ids and keeps unmerged email tags
-    // (e.g. a literal "{{ person.id }}") from ever hitting the API.
-    if (!/^[A-Za-z0-9]{20,40}$/.test(id)) {
+    // Write drop001_size, choosing the path by which identifier the link carried:
+    //   1. ?id= is a valid ULID  → JSON:API PATCH with the private key
+    //                              (the real-send happy path).
+    //   2. else ?_kx= is present → Client Profile write matched by token
+    //                              (the current replacement for the retired
+    //                              v2 /people/exchange; uses the public id).
+    //   3. else                  → fall through to the fallback page.
+    if (PROFILE_ID_RE.test(queryId)) {
+      const result = await setSizeById(queryId, size);
+      if (!result.ok) {
+        return fallback(res, result.status);
+      }
+    } else if (kx) {
+      const ok = await setSizeViaKx(kx, size);
+      if (!ok) {
+        return fallback(res, 502);
+      }
+    } else {
       return fallback(res, 400);
-    }
-
-    const key = process.env.KLAVIYO_API_KEY;
-    if (!key) {
-      // Misconfiguration — never expose detail to the visitor.
-      return fallback(res, 500);
-    }
-
-    // Idempotent PATCH: sets ONLY drop001_size; re-tapping just re-writes the
-    // same value. Nothing else on the profile is touched.
-    const apiRes = await fetch(`https://a.klaviyo.com/api/profiles/${encodeURIComponent(id)}/`, {
-      method: 'PATCH',
-      headers: {
-        Authorization: `Klaviyo-API-Key ${key}`,
-        revision: KLAVIYO_REVISION,
-        'content-type': 'application/json',
-        accept: 'application/json'
-      },
-      body: JSON.stringify({
-        data: {
-          type: 'profile',
-          id,
-          attributes: { properties: { drop001_size: size } }
-        }
-      })
-    });
-
-    if (!apiRes.ok) {
-      return fallback(res, 502);
     }
 
     // `size` is from the fixed VALID_SIZES allow-list, so it is safe to inline.
